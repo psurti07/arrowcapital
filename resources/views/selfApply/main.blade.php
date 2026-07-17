@@ -65,14 +65,14 @@
 @section('content')
 <section id="hero-201" class="bg--white-100 bg--fixed hero-section">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-md-6 col-lg-6 self-apply-form mb-lg-0 mb-md-4 mb-4 mt-md-3 mt-0">
+            <div class="col-md-8 col-lg-8 self-apply-form mb-lg-0 mb-md-4 mb-4 mt-md-3 mt-0">
                 <div id="hero-8-form" class="border border-primary r-06 p-0">
                     <!-- <h4 class="s-20 w-700 mb-2">Business loan that's made for you</h4>
                     <p class="s-16">Get up to ₹5 lakhs instantly!</p> -->
                     <div class="text-center self-apply-img">
-                        <img src="{{ asset('front/images/selfapply-apply-now.png') }}" alt="Apply Now"
+                        <img src="{{ asset('front/images/selfapply-apply-now.jpg') }}" alt="Apply Now"
                             class="img-fluid w-100">
                     </div>
                     <form method="post" action="{{ route('self.apply.send.otp') }}" class="request-form save-form-1 needs-validation p-3" novalidate>
@@ -139,12 +139,13 @@
                     </form>
                 </div>
             </div>
-
+            @if(false)
             <div class="col-md-6 col-lg-6 align-items-center justify-content-center m-auto">
                 <video class="w-100 rounded" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
                     <source src="{{ asset('front/images/video/how-to-apply.mp4') }}" type="video/mp4">
                 </video>
             </div>
+            @endif
         </div>
     </div>
 </section>

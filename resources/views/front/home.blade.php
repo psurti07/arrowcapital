@@ -16,10 +16,10 @@
             <div class="col p-0">
                 <div class="owl-carousel owl-theme reviews-1-wrapper-new">
                     <div class="slide-box">
-                        <img src="{{ asset('front/images/1-blue.jpg') }}" class="">
+                        <img src="{{ asset('front/images/1-blue.jpg') }}" class="img-fluid">
                     </div>
                     <div class="slide-box">
-                        <img src="{{ asset('front/images/2-yellow.jpg') }}" class="">
+                        <img src="{{ asset('front/images/2-yellow.jpg') }}" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
 
             <div class="col-md-6">
                 <div class="img-block left-column">
-                    <img class="img-fluid r-12" src="{{ asset('front/images/about.jpeg') }}" alt="content-image">
+                    <img class="img-fluid r-12" src="{{ asset('front/images/about.jpg') }}" alt="content-image">
                 </div>
             </div>
 
@@ -71,6 +71,7 @@
     </div>
 </section>
 
+@if(false)
 <section id="features-21" class="py-80 features-section division">
     <div class="container">
         <div class="row justify-content-center">
@@ -95,7 +96,7 @@
         </div>
     </div>
 </section>
-
+@endif
 
 <!-- Trust Badges Section starts -->
 <div id="statistic-1" class="bg--green-400 statistic-section division">
@@ -154,7 +155,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-12 text-lg-end text-center mt-4 mt-lg-0">
-                <img src="{{ asset('front/images/ic-trustMarker-banner-v1.png') }}" class="img-fluid people-img" alt="Trusted Users">
+                <img src="{{ asset('front/images/statistic.png') }}" class="img-fluid people-img" alt="Trusted Users">
             </div>
         </div>
     </div>
@@ -181,7 +182,7 @@
                 <div class="col-md-6">
                     <div class="fbox-5 fbox--hover fb-2 border r-16">
                         <div class="fbox-5-img mb-2">
-                            <img class="img-fluid light-theme-img mb-3" src="{{ asset('front/images/Easy-Self-Apply-ai.png') }}" alt="feature-image">
+                            <img class="img-fluid light-theme-img mb-3" src="{{ asset('front/images/Easy-Self-Apply-ai.jpg') }}" alt="feature-image">
                         </div>
                         <div class="fbox-txt">
                             <h3 class="s-22 w-700">Quick Self-Apply</h3>
@@ -193,7 +194,7 @@
                 <div class="col-md-6">
                     <div class="fbox-5 fbox--hover fb-2 border r-16">
                         <div class="fbox-5-img mb-2">
-                            <img class="img-fluid light-theme-img mb-3" src="{{ asset('front/images/Hire-Loan-Agent-ai.png') }}" alt="feature-image">
+                            <img class="img-fluid light-theme-img mb-3" src="{{ asset('front/images/Hire-Loan-Agent-ai.jpg') }}" alt="feature-image">
                         </div>
                         <div class="fbox-txt">
                             <h3 class="s-22 w-700">Hire Loan Agent</h3>
@@ -738,7 +739,7 @@
 <!-- Contact End -->
 
 <section class="full-banner w-100">
-    <img class="w-100 h-auto d-block" src="{{ asset('front/images/website-image.jpeg') }}" alt="Banner">
+    <img class="w-100 h-auto d-block" src="{{ asset('front/images/website-image.jpg') }}" alt="Banner">
 </section>
 
 {{-- Wlecome message modal show here --}}

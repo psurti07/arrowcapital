@@ -2,7 +2,7 @@
 <div class="owl-carousel reviews-1-wrapper-testimonial">
     <div class="row align-items-center justify-content-center m-auto">
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="{{ asset('front/images/testimonial/model-image-6.png') }}"
+            <img src="{{ asset('front/images/testimonial/model-image-4.jpg') }}"
                 class="img-fluid rounded"
                 alt="testimonial">
         </div>
@@ -30,7 +30,7 @@
 
     <div class="row align-items-center justify-content-center m-auto">
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="{{ asset('front/images/testimonial/model-image-7.png') }}"
+            <img src="{{ asset('front/images/testimonial/model-image-5.jpg') }}"
                 class="img-fluid rounded"
                 alt="testimonial">
         </div>
@@ -58,7 +58,7 @@
 
     <div class="row align-items-center justify-content-center m-auto">
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="{{ asset('front/images/testimonial/model-image-3.png') }}"
+            <img src="{{ asset('front/images/testimonial/model-image-3.jpg') }}"
                 class="img-fluid rounded"
                 alt="testimonial">
         </div>
@@ -86,7 +86,7 @@
 
     <div class="row align-items-center justify-content-center m-auto">
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="{{ asset('front/images/testimonial/model-image-4.png') }}"
+            <img src="{{ asset('front/images/testimonial/model-image-1.jpg') }}"
                 class="img-fluid rounded"
                 alt="testimonial">
         </div>
@@ -114,7 +114,7 @@
 
     <div class="row align-items-center justify-content-center m-auto">
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="{{ asset('front/images/testimonial/model-image-5.png') }}"
+            <img src="{{ asset('front/images/testimonial/model-image-2.jpg') }}"
                 class="img-fluid rounded"
                 alt="testimonial">
         </div>

@@ -24,8 +24,8 @@
                             LAKHS</span> from Affiliate NBFCs!</h4>
                     <p class="s-14">Unlock Your Personalized Pre-Approved Loan Offers</p>
 
-                    <!-- <form method="post" class="request-form save-form-1" action="{{ route('loan.agent.get.offer1') }}"> -->
-                    <form method="post" class="request-form save-form-1" action="#">
+                    <form method="post" class="request-form save-form-1" action="{{ route('loan.agent.get.offer1') }}">
+                    <!--<form method="post" class="request-form save-form-1" action="#">-->
                         <div class="row g-2">
                             <div class="col-md-12">
                                 <div class="form-check ps-0">

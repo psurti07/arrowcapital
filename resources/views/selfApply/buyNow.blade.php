@@ -123,8 +123,8 @@ a#failed-btn:hover {
                         <p class="mb-30 color--grey">Your pre-approved loan is waiting. Purchase a subscription to
                             proceed. <span class="text-danger">- Offer Valid till 12 am only!</span></p>
 
-                        <!-- <form method="post" class="buyNowForm" action="{{ route('self.apply.checkout') }}"> -->
-                        <form method="post" class="buyNowForm" action="#">
+                         <form method="post" class="buyNowForm" action="{{ route('self.apply.checkout') }}">
+                        
                             @csrf
                             <input type="hidden" class="form-control" name="order_amount" id="order_amount" value="">
                             <div class="row gx-3 gy-3">
@@ -152,7 +152,7 @@ a#failed-btn:hover {
 
                                             <div class="order-summary">
                                                 <div class="order-row order-header">
-                                                    <span>Items</span>
+                                                    <span>Items fgdgdf</span>
                                                     <span>Price</span>
                                                 </div>
 

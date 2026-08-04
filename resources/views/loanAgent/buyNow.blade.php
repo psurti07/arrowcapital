@@ -103,8 +103,8 @@
                                     <h5 class="fw-bolder s-16">Premium Subscription Offer</h5>
                                     <p class="mb-30 color--grey">Your pre-approved loan is waiting. Purchase a subscription to proceed. <span class="text-danger">- Offer Valid till 12 am only!</span></p>
 
-                                    <!-- <form method="post" class="buyNowForm" action="{{ route('loan.agent.checkout') }}"> -->
-                                    <form method="post" class="buyNowForm" action="#">
+                                     <form method="post" class="buyNowForm" action="{{ route('loan.agent.checkout') }}">
+                                   <!-- <form method="post" class="buyNowForm" action="#">-->
                                         @csrf
                                         <input type="hidden" class="form-control" name="order_amount" id="order_amount" value="">
                                         <div class="row gx-3 gy-3">

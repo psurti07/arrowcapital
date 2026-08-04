@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="footer-copyright">
-                        <p class="mt-0"><span class="text-light">{{ date('Y') }} &copy; {{ config('constants.COMPANY_NAME'); }} All Rights Reserved.</span></p>
+                        <p class="mt-0"><span class="text-light">{{ date('Y') }} &copy; {{ config('constant.COMPANY_NAME'); }} All Rights Reserved.</span></p>
                     </div>
                 </div>
                 <!-- FOOTER SECONDARY LINK -->

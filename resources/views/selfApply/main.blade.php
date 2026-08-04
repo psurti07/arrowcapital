@@ -293,7 +293,7 @@
                             <strong>Important Note:</strong> BE AWARE! We ask our customers to make payments ONLY on our website https://arrowcapital.in and NOT through any other source, directly or indirectly. Thanks!
                         </p>
                         <p class="s-14">
-                            <strong>Registered Office Address:</strong> {{ config('constants.COMPANY_ADDRESS'); }} <br /> Mobile: {{ config('constants.COMPANY_MOBILE'); }} | Email: {{ config('constants.INFO_EMAIL'); }}
+                            <strong>Registered Office Address:</strong> {{ config('constant.COMPANY_ADDRESS'); }} <br /> Mobile: {{ config('constant.COMPANY_MOBILE'); }} | Email: {{ config('constant.INFO_EMAIL'); }}
                         </p>
                     </div>
                 </div>

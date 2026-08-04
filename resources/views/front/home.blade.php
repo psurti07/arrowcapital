@@ -29,7 +29,7 @@
     <nav class="social-btn">
         <ul>
             <li><a href="{{ route('front.home') }}#contact"><span class="flaticon-tech-support fs-4"></span></a></li>
-            <li><a href="mailto:{{ config('constants.COMPANY_INFO_MAIL'); }}"><span class="flaticon-email fs-4"></span></a></li>
+            <li><a href="mailto:{{ config('constant.COMPANY_INFO_MAIL'); }}"><span class="flaticon-email fs-4"></span></a></li>
             <li><a href="{{ route('loan.agent.main') }}"><span class="flaticon-user fs-4"></span></a></li>
         </ul>
     </nav>
@@ -644,7 +644,7 @@
                         <div class="address-item">
                             <div class="address-text">
                                 <h6> Customer Support </h6>
-                                <p class="address-txt"><a href="tel:{{ str_ireplace(" ","",env('COMPANY_MOBILE')) }}">{{ config('constants.COMPANY_MOBILE'); }}</a></p>
+                                <p class="address-txt"><a href="tel:{{ str_ireplace(" ","",env('COMPANY_MOBILE')) }}">{{ config('constant.COMPANY_MOBILE'); }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -653,7 +653,7 @@
                         <div class="address-item">
                             <div class="address-text">
                                 <h6> Mail Us </h6>
-                                <p class="address-txt"><a href="mailto:{{ str_ireplace(" ","",env('COMPANY_SUPPORT_MAIL')) }}">{{ config('constants.COMPANY_SUPPORT_MAIL'); }}</a></p>
+                                <p class="address-txt"><a href="mailto:{{ str_ireplace(" ","",env('COMPANY_SUPPORT_MAIL')) }}">{{ config('constant.COMPANY_SUPPORT_MAIL'); }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -662,7 +662,7 @@
                         <div class="address-item">
                             <div class="address-text">
                                 <h6> Address </h6>
-                                <p class="address-txt">{{ config('constants.COMPANY_ADDRESS'); }}</p>
+                                <p class="address-txt">{{ config('constant.COMPANY_ADDRESS'); }}</p>
                             </div>
                         </div>
                     </div>

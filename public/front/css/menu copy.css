@@ -74,9 +74,10 @@
 }
 
 .wsmainwp {
-  margin: 0 auto; 
-  max-width: 1320px;
-  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 95%;
+  /*max-width: 1480px;*/
+  /* padding: 0 15px; */
   position: relative;
 }
 

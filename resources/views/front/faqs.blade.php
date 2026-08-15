@@ -6,13 +6,13 @@
 @endpush
 @section('content')
 <section class="page-hero-section">
-    <div class="page-hero-section-overlay bg--green-100 bg--scroll">
+    <div class="page-hero-section-overlay bg--green-200 bg--scroll">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-12 text-center">
                     <div class="txt-block left-column">
                         <span class="section-id"></span>
-                        <h2 class="w-700 mb-0">Frequently Asked <span class="color--green-500">Questions</span></h2>
+                        <h2 class="w-700 mb-0">Frequently Asked <span class="color--green-300">Questions</span></h2>
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-6 col-lg-6">	
-                        <div class="register-page-form">
+                        <div class="register-page-form p-4">
                             <!-- TITLE -->
                             <div class="col-md-12">
                                 <div class="register-form-title">
@@ -69,17 +69,17 @@
                             <form name="signinform" class="row sign-in-form auth-form g-3" action="{{ route('customer.forget.password.update') }}" method="post">
                                 <!-- Form Input -->
                                 <div class="col-md-12">
-                                    <p class="p-sm input-header">Mobile Number</p>
+                                    <p class=" input-header s-14 text-uppercase color--grey">Mobile Number</p>
                                     <input class="form-control numeric-input" type="tel" name="mobile" placeholder="Mobile Number" id="mobile" maxlength="10" minlength="10" autocomplete="off" inputmode="numeric">
                                     @component('components.ajax-error',['field'=>'mobile'])@endcomponent
                                 </div>
                                 <!-- Form Submit Button -->
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn--theme hover--theme submit btn-login mt-0">Send</button>
+                                    <button type="submit" class="btn btn--green-300 hover--tra-black submit btn-login mt-0 r-100">Send</button>
                                 </div>
                                 <!-- Sign Up Link -->
                                 <div class="col-md-12">
-                                    <p class="create-account text-center">
+                                    <p class="create-account text-center mt-0">
                                         Have an account? <a href="{{ route('customer.login') }}" class="color--theme">Sign In</a>
                                     </p>
                                 </div>

@@ -365,178 +365,23 @@
 .hero-section .self-apply-form .self-apply-img img{
       border-radius: 6px 6px 0 0;
 }
-#features-2 .fbox-7 .fbox-ico .fbox-image,
-#features-6 .fbox-7 .fbox-ico .fbox-image {
+
+#features-2 .fbox-7 .fbox-ico .fbox-image {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
- 
-    border-radius: 10px;
-      margin-right: 0;
-}
-
-#features-2 .fbox-7 .fbox-ico .fbox-image{
-    background-color: #EAFAF0;
-    height: 42px;
-    width: 42px;
-  
-}
-
-#features-6 .fbox-7 .fbox-ico .fbox-image {
- 
-    height: 64px;
-    width: 64px;
- 
-}
-#features-6 .fbox-7 .fbox-ico .fbox-images{
- background-color: #00BC7B26;
-    height: 24px;
-    width: 24px;
+    background-color: #F9FAFF;
     border-radius: 50px;
+    height: 85px;
+    width: 85px;
+    padding: 20px 0;
+    margin: auto;
 }
-   
-#features-6 .fbox-7 .fbox-ico.fbox-ico-1 .fbox-image{
-      height: 48px;
-    width: 48px;
-}
+
  
 #join-our-team .role-box:hover span,
 #join-our-team .role-box:hover p,
 #join-our-team .role-box:hover h5{
   color: #fff !important;
-}
-
-.statistic-5-wrapper{
-background: linear-gradient(
-    90deg,
-    #0C1D3D 0%,
-    #122F50 45%,
-    #16864C 100%
-);
-}
-.card-left{
- 
-     background: linear-gradient(
-        135deg,
-        #F8FCFA 0%,
-        #F1FAF5 55%,
-        #EAF8F0 100%
-    ); 
-}
-.card-right{
-   background: #10254A;
-}
- 
-
-#statistic-1 .statistic-block .fbox-image{
-  background-color: rgba(255, 255, 255, 0.15);
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.address-item .fbox-ico {
-      background-color: #EAFAF0;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 36px;
-}
-.picker1 .fbox-ico .fbox-image{
-  width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
- 
-
-
-@media screen and (min-width:992px) {
-  .card-image-left{
-  left: -135px;
-    z-index: 1;
-}
-}
-.custom-control-input{
-  -webkit-appearance: checkbox !important;
-    accent-color: #22C55E;
-}
-  
-.loan-eligibility-section .image-right{ 
-    position: relative;
-    background-image: url('../images/Overlay-green.png');
-    background-repeat: no-repeat;
-    width: 100%;
-    background-position: top right;
-}
- 
-.loan-eligibility-section .image-right-img {
- position: relative;
-    background-image: url('../images/OverlayBlue.png');
-    background-repeat: no-repeat;
-    width: 100%;
-    background-position: top right;
-}  
-
-.input-group{
-      background: #F8FAFC; 
-}
-
-.loan-profile-section .profile-details .picker1 label[for*=plan]>input:checked~span {
-  background: linear-gradient(180deg, #15324A 0%, #13263B 100%); 
-  border: 1px solid #00B9FF; 
-    box-shadow: 0 0 0 2px rgba(0, 185, 255, .12),
-    0 0 20px rgba(0, 185, 255, .20); 
-}
-
-.picker1 label[for*=plan]>input:checked~span {
-    background-color: #FFF4EF;
-    border: 1px solid #FF5722;
-    color: #000;
-}
-
- 
- .subscription-card{
-      background: linear-gradient(to bottom, #F5FFF6 0%, #FFFFFF 100%);
-}
-
- 
- .personal-employment input[type="radio"],
-.business-employment input[type="radio"] {
-    display: none;
-}
-
-/* Default card */
-.personal-employment .card,
-.business-employment .card {
-    border: 1px solid #D1D9E0;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    background: #fff;
-}
-
-/* Selected Employment Card Active */
-.personal-employment .picker1:has(input[type="radio"]:checked) .card,
-.business-employment .picker1:has(input[type="radio"]:checked) .card {
-    border-color: #22C55E;
-    background: linear-gradient(
-        90deg,
-        rgba(34, 197, 94, 0.10),
-        rgba(255, 255, 255, 0.95)
-    );
-}
-
-.subscription-card  .cbox-1-ico{
-      width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

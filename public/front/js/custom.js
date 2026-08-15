@@ -233,16 +233,16 @@
 						items:1
 					},
 					767:{
-						items:1
+						items:2
 					},
 					768:{
-						items:1
+						items:2
 					},
 					991:{
-						items:1
+						items:3
 					},
 					1000:{
-						items:1
+						items:3
 					}
 				}
 		});
@@ -281,32 +281,34 @@
 
 		var owl = $('.brands-carousel-5');
 			owl.owlCarousel({
-				items: 5,
+				items: 3,
 				loop:true,
 				autoplay:true,
 				navBy: 1,
 				nav:false,
+				dots:false,
+				margin:20,
 				autoplayTimeout: 4000,
 				autoplayHoverPause: false,
 				smartSpeed: 2000,
 				responsive:{
 					0:{
-						items:2
+						items:1
 					},
 					550:{
-						items:3
+						items:1
 					},
 					767:{
-						items:3
+						items:1
 					},
 					768:{
-						items:6
+						items:3
 					},
 					991:{
-						items:6
+						items:3
 					},
 					1000:{
-						items:5
+						items:3
 					}
 				}
 		});
@@ -362,7 +364,7 @@
                 margin: 20,
 				responsive:{
 					0:{
-						items:2
+						items:3
 					},
 					550:{
 						items:3
@@ -550,7 +552,7 @@ class Slider {
         }
 
         let percentage =  (this.rangeElement.value - this.options.min) / (this.options.max - this.options.min) * 100
-        return 'background: linear-gradient(to right, #022475, #76be9a ' + percentage + '%, #d3ffd3 ' + percentage + '%, #dee2de 100%)'
+        return 'background: linear-gradient(to right, #22C55E , #22C55E ' + percentage + '%, #E2E8F0 ' + percentage + '%, #E2E8F0 100%)'
     }
 
     updateSlider (newValue) {

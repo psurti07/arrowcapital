@@ -37,7 +37,7 @@
             <div class="col-sm-6 col-md-4 col-xl-2">
                 <div class="footer-links fl-1">
                     <!-- Title -->
-                    <h6 class="s-17 w-700 text-light text-uppercase">Company</h6>
+                    <h6 class="s-17 w-700 text-light">Company</h6>
                     <!-- Links -->
                     <ul class="foo-links clearfix">
                         <li>
@@ -62,7 +62,7 @@
             <div class="col-sm-6 col-md-4 col-xl-3">
                 <div class="footer-links fl-3">
                     <!-- Title -->
-                    <h6 class="s-17 w-700 text-light text-uppercase">Legal</h6>
+                    <h6 class="s-17 w-700 text-light">Legal</h6>
                     <!-- Links -->
                     <ul class="foo-links clearfix">
                         <li>
@@ -87,7 +87,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="footer-links fl-4">
                     <!-- Title -->
-                    <h6 class="s-17 w-700 text-light text-uppercase">Connect With Us</h6>
+                    <h6 class="s-17 w-700 text-light">Connect With Us</h6>
                     <!-- Mail Link -->
                     <h6 class="s-14 w-700 kbz-h6 text-light" style="margin-bottom:5px!important;">Email Us</h6>
                     <p class="footer-mail-link ico-25">

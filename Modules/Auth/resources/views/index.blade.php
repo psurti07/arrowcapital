@@ -58,7 +58,7 @@
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-md-6 col-lg-6 col-12">	
-							<div class="register-page-form">
+							<div class="register-page-form p-4">
 								<!-- TITLE -->
 								<div class="col-md-12">
 									<div class="register-form-title">
@@ -71,14 +71,14 @@
 								 <form name="signinform" class="row sign-in-form auth-form g-3" action="{{ route('customer.authenticate') }}" method="post">
                     <!-- Form Input -->
                     <div class="col-md-12">
-                      <p class="p-sm input-header">Mobile Number</p>
+                      <p class="p-sm input-header text-uppercase s-14 color--grey">Mobile Number</p>
                       <input class="form-control" type="text" name="mobile" placeholder="Mobile Number" id="mobile" maxlength="10" minlength="10" autocomplete="off" inputmode="numeric">
                       @component('components.ajax-error',['field'=>'mobile'])@endcomponent
                     </div>
 
                     <!-- Form Input -->
                     <div class="col-md-12">
-                      <p class="p-sm input-header">Password</p>
+                      <p class="p-sm input-header text-uppercase s-14 color--grey">Password</p>
                       <div class="wrap-input">
                         <span class="btn-show-pass ico-20"><span class="flaticon-visibility eye-pass"></span></span>
                         <input class="form-control password" type="password" name="password" id="password" placeholder="* * * * * * * * *">
@@ -94,11 +94,11 @@
                     </div>
                     <!-- Form Submit Button -->
                     <div class="col-md-12">
-                      <button type="submit" class="btn btn--theme hover--theme submit btn-login mt-0">Log In</button>
+                      <button type="submit" class="btn btn--green-300 hover--tra-black submit btn-login mt-0 r-100 text-uppercase">Log In</button>
                     </div>
                     <!-- Sign Up Link -->
                     <div class="col-md-12">
-                      <p class="create-account text-center">
+                      <p class="create-account text-center mt-0">
                         Don't have an account? <a href="{{ route('self.apply.main') }}" class="color--theme">Sign up</a>
                       </p>
                     </div>

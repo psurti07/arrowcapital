@@ -6,13 +6,13 @@
 @endpush
 @section('content')
     <section class="page-hero-section">
-        <div class="page-hero-section-overlay bg--green-100 bg--scroll">
+        <div class="page-hero-section-overlay bg--green-200 bg--scroll">
             <div class="container">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-12 text-center">
                         <div class="txt-block left-column">
                             <span class="section-id"></span>
-                            <h2 class="w-700 mb-5">Career <span class="color--green-500">with us</span></h2>
+                            <h2 class="w-700 mb-5">Career <span class="color--green-300">with us</span></h2>
                             <p class="p-md w-400 mt-0">Growth. Fun. Excitement. Challenges – all in one place.</p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-9">
                     <div class="section-title mb-40">
-                        <h2 class="s-28 w-700 mb-5">Current Job <span class="color--green-500">Vacancies</span></h2>
+                        <h2 class="s-28 w-700 mb-5">Current Job <span class="color--green-300">Vacancies</span></h2>
                         <p class="s-16 color--grey mt-0">See where you fit in.</p>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-9">
                     <div class="section-title mb-40">
-                        <h2 class="s-28 w-700 mb-5">Plenty of <span class="color--green-500">Perks!</span></h2>
+                        <h2 class="s-28 w-700 mb-5">Plenty of <span class="color--green-300">Perks!</span></h2>
                         <p class="s-16 color--grey mt-0">Become a part of a workforce that’s creating milestones. Every day!</p>
                     </div>
                 </div>

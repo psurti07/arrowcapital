@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 if(!function_exists('sendSingleSMS')){
     function sendSingleSMS($mobile, $otp, $panel = 'self'){
-        $message = "Hello, the Arrow Capital OTP for your mobile number registration is ".$otp.". Kindly do not share it with anyone. Thanks, Arrow Capital";
+        $message = "Hello, the https://arrowcapital.in OTP for your mobile number registration is ".$otp.". Kindly do not share it with anyone. Thanks, Arrow Capital";
         // URL encode the message
        // URL encode the message
         $sms_text = urlencode($message);

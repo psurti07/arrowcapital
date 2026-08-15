@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+
     if(!function_exists('user_track')){
         function user_track($postData){
             $curl = curl_init();
@@ -31,8 +33,10 @@
             ]);
 
             $response = curl_exec($curl);
-            Log::Info($response);
             $err = curl_error($curl);
+            Log::Info("user_track response" .$response);
+            Log::Info("user_track err" .$err);
+
             curl_close($curl);
 
             $result = json_decode($response, true);
@@ -75,6 +79,10 @@
 
             $response = curl_exec($curl);
             $err = curl_error($curl);
+
+            Log::Info("event_track response" .$response);
+            Log::Info("event_track err" .$err);
+            
             curl_close($curl);
 
             $result = json_decode($response, true);

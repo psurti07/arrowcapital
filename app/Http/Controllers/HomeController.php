@@ -16,41 +16,47 @@ use Illuminate\Support\Facades\File;
 
 class HomeController extends Controller
 {
-    public function home(){
+    public function home()
+    {
         $meta = homeMeta();
-        $msg = InfoPages::where('slug','welcome-message')->select('content','status')->first();
-        return view('front.home',compact('meta','msg'));
+        $msg = InfoPages::where('slug', 'welcome-message')->select('content', 'status')->first();
+        return view('front.home', compact('meta', 'msg'));
     }
 
-    public function creditScore(){
+    public function creditScore()
+    {
         $meta = creditScoreMeta();
-        return view('front.creditScore',compact('meta'));
+        return view('front.creditScore', compact('meta'));
     }
 
-    public function faqs(){
+    public function faqs()
+    {
         $meta = faqsMeta();
-        return view('front.faqs',compact('meta'));
+        return view('front.faqs', compact('meta'));
     }
 
-    public function service(){
+    public function service()
+    {
         $meta = serviceMeta();
-        return view('front.service',compact('meta'));
+        return view('front.service', compact('meta'));
     }
 
-    public function contactUs(){
+    public function contactUs()
+    {
         $meta = contactUsMeta();
-        return view('front.contactUs',compact('meta'));
+        return view('front.contactUs', compact('meta'));
     }
 
-    public function contactUsStore(Request $request){
+    public function contactUsStore(Request $request)
+    {
         $input = $request->all();
         $validator = $request->validate([
             'fullname' => 'required',
             'email' => 'required|email',
-            'mobile' => ['required','numeric', 'regex:/^[6-9]\d{9}$/'],
+            'mobile' => ['required', 'numeric', 'regex:/^[6-9]\d{9}$/'],
             'subject' => 'required',
             'desc' => 'required',
-        ],[
+        ], [
             'desc.required' => 'The message field is required'
         ]);
         $newinput = [
@@ -63,38 +69,41 @@ class HomeController extends Controller
         ];
         $result = ContactEnquiry::create($newinput);
         $message = 'Contact form successfully submitted.';
-        if($result){
+        if ($result) {
             return response()->json(array('type' => 'SUCCESS', 'message' => $message, 'data' => $result));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Oops! Something went wrong.', 'data' => []));
         }
     }
 
-    public function career(){
+    public function career()
+    {
         $meta = careerMeta();
-        $data = Careers::where(['isActive'=>1, 'isDelete'=>0])->get();
-        return view('front.career',compact('meta','data'));
+        $data = Careers::where(['isActive' => 1, 'isDelete' => 0])->get();
+        return view('front.career', compact('meta', 'data'));
     }
 
-    public function applycareer($code){
+    public function applycareer($code)
+    {
         $meta = careerMeta();
-        $data = Careers::where(['slug'=>$code])->first();
-        return view('front.applycareer',compact('meta','data'));
+        $data = Careers::where(['slug' => $code])->first();
+        return view('front.applycareer', compact('meta', 'data'));
     }
 
-    public function storeCareer(Request $request){
+    public function storeCareer(Request $request)
+    {
         $input = $request->all();
         $validator = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
-            'mobile' => ['required','numeric', 'regex:/^[6-9]\d{9}$/'/*,Rule::unique('career_enquiries', 'mobile')->ignore(auth()->id())*/],
+            'mobile' => ['required', 'numeric', 'regex:/^[6-9]\d{9}$/'/*,Rule::unique('career_enquiries', 'mobile')->ignore(auth()->id())*/],
             'city' => 'required',
             'qualifications' => 'required',
             'experience' => 'required',
             'keyskills' => 'required',
             'resume' => 'mimes:png,jpg,jpeg,pdf|max:2048|required'
-        ],[
+        ], [
             'resume.required' => 'Please upload resume.'
         ]);
 
@@ -122,25 +131,25 @@ class HomeController extends Controller
 
         $result = CareerEnquiry::create($newinput);
         $message = 'Thank you for showing interest with us. Our HR team will get back to you soon. Have a nice day.';
-        if($result){
-           try {
+        if ($result) {
+            try {
                 $maildata = array(
                     'fullname' => "Arrow Capital HR",
                     'email' => "hr@arrowcapital.in"
                 );
                 $maildata2 = array(
-                    'fullname' => $input['firstname'].' '.$input['lastname'],
+                    'fullname' => $input['firstname'] . ' ' . $input['lastname'],
                     'email' => $input['email']
                 );
                 $subject = 'Career Form Submission';
                 $subject2 = 'Welcome to Arrow Capital';
-                $message1 = view('mail.applyCareerHR',[
-                    'name' => $input['firstname'].' '.$input['lastname'],
+                $message1 = view('mail.applyCareerHR', [
+                    'name' => $input['firstname'] . ' ' . $input['lastname'],
                     'email' => $input['email'],
                     'mobile' => $input['mobile'],
                 ])->render();
-                $message2 = view('mail.applyCareer',[
-                    'name' => $input['firstname'].' '.$input['lastname'],
+                $message2 = view('mail.applyCareer', [
+                    'name' => $input['firstname'] . ' ' . $input['lastname'],
                 ])->render();
                 $attachmentPath = public_path('upload/resumes/' . $image_name);
                 $sendMail = sendBrevoHtmlMail($maildata, $subject, $message1, 3, $attachmentPath);
@@ -154,27 +163,30 @@ class HomeController extends Controller
         }
     }
 
-    public function company(){
+    public function company()
+    {
         $meta = companyMeta();
-        return view('front.company',compact('meta'));
+        return view('front.company', compact('meta'));
     }
 
-    public function emiCalculator(){
+    public function emiCalculator()
+    {
         $meta = emiCalcMeta();
-        return view('front.emicalculator',compact('meta'));
+        return view('front.emicalculator', compact('meta'));
     }
-    
+
     public function showPdf($userid)
     {
         $userId = customDecrypt($userid);
-        $userData = DB::table('user_registrations')->select('id','first_name','last_name','email','mobile','pancard','city','state','pincode','dob','acc_type')->where('id',$userId)->first();
-        $loanData = DB::table('loan_applications')->select('id','monthly_income','currentemi','loan_amount')->where('userid',$userId)->first();
+        $userData = DB::table('user_registrations')->select('id', 'first_name', 'last_name', 'email', 'mobile', 'pancard', 'city', 'state', 'pincode', 'dob', 'acc_type')->where('id', $userId)->first();
+        $loanData = DB::table('loan_applications')->select('id', 'monthly_income', 'currentemi', 'loan_amount')->where('userid', $userId)->first();
         $offers = optional(DB::table('user_offers')->where('userid', $userId)->first())->offerdata;
         $offers = json_decode($offers);
-        return View('pdf.offerRemarketing',compact('userData','loanData','offers'));
+        return View('pdf.offerRemarketing', compact('userData', 'loanData', 'offers'));
     }
-    
-    public function generateSitemap(){
+
+    public function generateSitemap()
+    {
         $url = config('app.url');
         $path = public_path('sitemap.xml'); // we'll use this as a raw file
 
@@ -182,7 +194,7 @@ class HomeController extends Controller
 
         return response()->json(['message' => 'Sitemap generated']);
     }
-    
+
     public function viewSitemap()
     {
         $rawPath = public_path('sitemap-base.xml');
@@ -206,15 +218,120 @@ class HomeController extends Controller
 
         return response($styledXml, 200)->header('Content-Type', 'application/xml');
     }
-        
-    public function sitemap(){
+
+    public function sitemap()
+    {
         $meta = sitemapMeta();
-        return View('front.sitemap',compact('meta'));
+        return View('front.sitemap', compact('meta'));
     }
 
-    public function testdata(){
+    public function testdata()
+    {
+        die;
+        $data2 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'traits' => array(
+                'name' => 'verloop web'
+            ),
+            'tags' => array('Self Get Offer')
+        );
+        $restrack1 = user_track($data2);
 
-       $mailData = array(
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Self Get Offer',
+            'traits' => array(
+                'SelfEligibleAmount' => '500000'
+            ),
+        );
+        $restrack2 = event_track($data3);
+
+        $data2 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'traits' => array(
+                'name' => 'verloop web'
+            ),
+            'tags' => array('Self Payment Successful')
+        );
+        $restrack1 = user_track($data2);
+
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Self Payment Successful',
+            'traits' => array(
+                'userid' => '9408881214',
+                'userpass' => '123456'
+            )
+        );
+        $restrack2 = event_track($data3);
+
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Self Payment Failed',
+        );
+        $restrack2 = event_track($data3);
+
+
+        $data2 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'traits' => array(
+                'name' => 'verloop web'
+            ),
+            'tags' => array('Hire Get Offer')
+        );
+        //Log::info('hire agent user track - '. json_encode($data2));
+        $restrack1 = user_track($data2);
+        //Log::info('hire agent user track - '. json_encode($restrack1));
+
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Hire Get Offer',
+            'traits' => array(
+                'HireEligibleAmount' => '50000'
+            ),
+        );
+        //Log::info('hire agent event track - '. json_encode($data3));
+        $restrack2 = event_track($data3);
+
+        $data2 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'traits' => array(
+                'name' => 'verloop web'
+            ),
+            'tags' => array('Hire Payment Successful')
+        );
+        $restrack1 = user_track($data2);
+
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Hire Payment Successful',
+            'traits' => array(
+                'userid' => '9408881214',
+                'userpass' => '123456'
+            )
+        );
+        //Log::info('Hire Payment Success '. json_encode($data3));
+        $restrack2 = event_track($data3);
+
+        $data3 = array(
+            'phoneNumber' => '9408881214',
+            'countryCode' => '+91',
+            'event' => 'Hire Payment Failed',
+        );
+        $restrack2 = event_track($data3);
+
+        die;
+
+        $mailData = array(
             'fullname' => 'verloop web',
             'mobile' => '9408881214',
             'email' => 'verloop.dev4@gmail.com',
@@ -226,7 +343,7 @@ class HomeController extends Controller
         );
 
         $sendGreetings = view('mail.welcomeGreetings', $mailData)->render();
-        
+
         $invData3 = array(
             'rec_date' => date('Y-m-d H:i:s'),
             'userid' => 12,
@@ -243,7 +360,8 @@ class HomeController extends Controller
             'isdelete' => 0
         );
 
-        $invAttach = array_merge($invData3,
+        $invAttach = array_merge(
+            $invData3,
             [
                 'fullname' => 'Verloop Web',
                 'city' => 'Surat',
@@ -265,7 +383,7 @@ class HomeController extends Controller
 
         $pdf = Pdf::loadHTML($invoiceData)->setPaper('A4', 'portrait')->output();
         $base64Pdf = base64_encode($pdf);
-        
+
         /* creating attachments array */
         $attachments = [
             [
@@ -273,7 +391,7 @@ class HomeController extends Controller
                 'name' => 'Invoice.pdf'
             ]
         ];
-    
+
         /* send email in brevo */
         $res = sendBrevoHtmlMail2($mailData, 'Congratulations! Payment Successful for Arrow Capital’s Self-Apply Plan.', $sendGreetings, 3, $attachments);
 

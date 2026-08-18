@@ -43,9 +43,9 @@
                                  <li class="nl-simple" aria-haspopup="true">
                             <a href="{{ route('self.apply.main') }}" class="btn r-04 btn--green-400 hover--tra-black last-link d-md-none d-block">Self Apply</a>
                         </li>
-                        <li class="nl-simple" aria-haspopup="true">
+                        {{-- <li class="nl-simple" aria-haspopup="true">
                             <a href="{{ route('loan.agent.main') }}" class="btn r-04 btn--green-400 hover--tra-black last-link d-md-none d-block">Hire an Agent</a>
-                        </li>
+                        </li> --}}
                             </ul>
                         </nav>
                     </div>
@@ -57,8 +57,8 @@
                                 <ul class="sub-menu">
                                     <li aria-haspopup="true"><a href="{{ route('self.apply.main') }}">Self Apply</a>
                                     </li>
-                                    <li aria-haspopup="true"><a href="{{ route('loan.agent.main') }}">Hire an Agent</a>
-                                    </li>
+                                    {{-- <li aria-haspopup="true"><a href="{{ route('loan.agent.main') }}">Hire an Agent</a>
+                                    </li> --}}
                                 </ul>
                             </li>
                             @endif
@@ -66,10 +66,10 @@
                                 <a href="{{ route('self.apply.main') }}"
                                     class="btn r-100 btn--tra-black hover--theme btn-sm">Self Apply <span class="fbox-ico ico-10"> <span class="flaticon-right-arrow  ico-20 ms-1"></span></span></a>
                             </li>
-                            <li class="nl-simple" aria-haspopup="true">
+                            {{-- <li class="nl-simple" aria-haspopup="true">
                                 <a href="{{ route('loan.agent.main') }}"
                                     class="btn r-100 btn--green-300 hover--tra-black last-link btn-sm">Hire an Agent<span class="fbox-ico ico-10"> <span class="flaticon-right-arrow  ico-20 ms-1"></span></span></a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>

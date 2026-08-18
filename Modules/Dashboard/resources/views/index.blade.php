@@ -7,7 +7,7 @@
     <!--begin::Content-->
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <div class="container-xxl " id="kt_content_container">
-            <div class="row g-3 g-xl-10 mb-10">
+            <div class="row mb-xl-10 mb-10">
                 <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="row g-5 mb-xl-0">
                         @if ($showMessage)
@@ -52,7 +52,7 @@
                                     @if($profile->acc_type == 1)
                                         <span class="fs-7 mt-2 text-danger">Want to Hire Loan Agent for expert consultation?<br/>
                                         <a href="{{ route('customer.renew.plan') }}" class="btn btn-sm btn-danger mt-2" id="kt_user_follow_button">
-                                            <span class="indicator-label">Hire Agent Now</span>
+                                            <span class="indicator-label">Self Apply Now</span>
                                         </a></span>
                                     @endif
                                 </div>
@@ -80,9 +80,9 @@
                 </div>
 
                 <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div class="g-3 mb-xl-10">
-                        <div class="card mb-xl-6">
-                            <div class="card-body pt-9 pb-2">
+                    <div>
+                        <div class="card">
+                            <div class="card-body p-8">
                                 <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
                                     <div class="me-7 mb-4">
                                         <div class="symbol symbol-80px symbol-lg-80px symbol-fixed position-relative">
@@ -115,9 +115,9 @@
                                         </div>
                                         <div class="d-flex">
                                             @if($profile->acc_type == 1)
-                                            <a href="javascript:;" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan"  data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" >
+                                            {{-- <a href="javascript:;" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan"  data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" >
                                                 <i class="ki-duotone ki-star fs-3"><span class="path1"></span><span class="path2"></span></i><span class="indicator-label"></span>Upgrade to Pro</span>
-                                            </a>
+                                            </a> --}}
                                             @endif
                                             
                                             <a href="{{ route('customer.profile') }}" class="btn btn-sm btn-light-info me-2" id="kt_user_follow_button">
@@ -147,10 +147,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div class="row g-5 mb-xl-10">
-                        <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
+   
+                    <div class="row mb-10">
+                        <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 mb-10">
                             @if($profile->acc_type == 2)
                                 <div class="card" data-bs-theme="light" style="background: linear-gradient(112.14deg, #3ca46c 0%, #4fcd89 100%)">
                                     <div class="card-body">
@@ -200,17 +199,33 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="card" data-bs-theme="light" style="background: linear-gradient(112.14deg, #022475 0%, #87b9e9 100%)">
+                                <!-- <div class="card" data-bs-theme="light" style="background: linear-gradient(112.14deg, #009245 0%, #0c974e 100%)">
                                     <div class="card-body">
                                         <div class="row align-items-center h-100">
                                             <div class="col-12">
-                                                <img src="{{ asset('front/images/support.png') }}" width="90" height="90" alt="support">
+                                                <img src="{{ asset('front/images/support.png') }}" width="60" height="60" alt="support">
                                                 <div class="text-white mb-2 pt-6">
                                                     <span class="fs-4 fw-semibold me-2 d-block lh-1 pb-2 opacity-75"><u>Want Expert Consultation?</u></span>
                                                     <span class="fs-2qx fw-bold">Process Your Pre-Approved Offers Instantly with Our Experts.</span>
                                                 </div>
                                                 <div class="d-flex flex-column flex-sm-row mt-4 d-grid gap-2">
                                                     <a href="{{ route('customer.renew.plan') }}" class="btn btn-dark flex-shrink-0 me-lg-2">Hire Agent Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="card" data-bs-theme="light" style="background: linear-gradient(112.14deg, #009245 0%, #0c974e 100%)">
+                                    <div class="card-body">
+                                        <div class="row align-items-center h-100">
+                                            <div class="col-12">
+                                                <img src="{{ asset('front/images/icons/save-money-2-white.svg') }}" width="60" height="60" alt="support">
+                                                <div class="text-white mb-2 pt-6">
+                                                    <span class="fs-4 fw-semibold me-2 d-block lh-1 pb-2 opacity-75"><u>Instant approval ready</u></span>
+                                                    <span class="fs-2qx fw-bold">Claim Your Pre-Approved Loan Offers Today</span>
+                                                </div>
+                                                <div class="d-flex flex-column flex-sm-row mt-4 d-grid gap-2">
+                                                    <a href="{{ route('customer.pre.approved.loans') }}" class="btn btn-dark flex-shrink-0 me-lg-2">View My Offers</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,7 +250,7 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 mt-0">
                             <div class="card border" data-bs-theme="light">
                                 <div class="card-header align-items-center">
                                     <h3 class="mb-0">Loan Eligibility Criteria</h3>
@@ -283,8 +298,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
             
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">

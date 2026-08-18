@@ -12,9 +12,7 @@
                     <span class="flaticon-star-half-empty mr-5"></span>
                 </div>
                 <p class="mb-3">
-                    "It’s been an amazing experience with Arrow Capital. From the very beginning until the end, I
-                    received
-                    the best services from them. I strongly recommend Arrow Capital to all. "
+                    "The application process was simple, and the support team guided me at every stage. Everything was explained clearly, making the experience smooth and stress-free."
                 </p>
                 <div class="author-data clearfix">
                     <div class="review-avatar">
@@ -22,9 +20,8 @@
                             width="auto">
                     </div>
                     <div class="review-author">
-                        <h4 class="s-16 w-600">Swapnil Gupta</h4>
+                        <h4 class="s-16 w-600">Rohan Deshmukh</h4>
                         <p>Salaried Professional</p>
-
                     </div>
                 </div>
             </div>
@@ -43,8 +40,7 @@
                     <span class="flaticon-star-half-empty mr-5"></span>
                 </div>
                 <p class="mb-3">
-                    "The self-apply feature is very easy. It has given all the clear directions. Even if there are any
-                    doubts, their customer support team is also very strong and supportive."
+                    "I found the platform easy to use and appreciated the transparency throughout the process. It was a great experience from start to finish."
                 </p>
                 <div class="author-data clearfix">
                     <div class="review-avatar">
@@ -52,7 +48,7 @@
                             width="auto">
                     </div>
                     <div class="review-author">
-                        <h4 class="s-16 w-600">Kunal Joshi</h4>
+                        <h4 class="s-16 w-600">Ananya Kulkarni</h4>
                         <p>Small Business Owner</p>
                     </div>
                 </div>
@@ -72,9 +68,7 @@
                     <span class="flaticon-star-half-empty mr-5"></span>
                 </div>
                 <p class="mb-3">
-                    "I am very happy with the service of Arrow Capital. The process was extremely simple, and my loan
-                    agent
-                    was both friendly and knowledgeable. Strongly recommended!"
+                    "Being able to compare loan options in one place saved me a lot of time. The team was responsive and answered all my queries promptly."
                 </p>
                 <div class="author-data clearfix">
                     <div class="review-avatar">
@@ -82,7 +76,7 @@
                             width="auto">
                     </div>
                     <div class="review-author">
-                        <h4 class="s-16 w-600">Mathew Kurian</h4>
+                        <h4 class="s-16 w-600">Karan Bhatia</h4>
                         <p>Freelance Consultant</p>
                     </div>
                 </div>
@@ -102,9 +96,7 @@
                     <span class="flaticon-star-half-empty mr-5"></span>
                 </div>
                 <p class="mb-3">
-                    "It’s been an amazing experience with Arrow Capital. From the very beginning until the end, I
-                    received
-                    the best services from them. I strongly recommend Arrow Capital to all. "
+                    "I appreciated the personalized assistance and the quick responses from the team. The process was much easier than I expected."
                 </p>
                 <div class="author-data clearfix">
                     <div class="review-avatar">
@@ -112,7 +104,7 @@
                             width="auto">
                     </div>
                     <div class="review-author">
-                        <h4 class="s-16 w-600">Prachi Mittal </h4>
+                        <h4 class="s-16 w-600">Arjun Malhotra</h4>
                         <p>Salaried Professional</p>
                     </div>
                 </div>
@@ -132,9 +124,7 @@
                     <span class="flaticon-star-half-empty mr-5"></span>
                 </div>
                 <p class="mb-3">
-                    "When I needed the money urgently, Arrow Capital became a lifesaver for me. I am extremely grateful
-                    to
-                    the entire team for helping me in processing my loan quickly. "
+                    "The platform is user-friendly, and I received clear guidance whenever I needed assistance. I would happily recommend their services."
                 </p>
                 <div class="author-data clearfix">
                     <div class="review-avatar">
@@ -142,7 +132,7 @@
                             width="auto">
                     </div>
                     <div class="review-author">
-                        <h4 class="s-16 w-600">Mitali Singh</h4>
+                        <h4 class="s-16 w-600">Nidhi Kapoor</h4>
                         <p>Small Business Owner</p>
 
                     </div>

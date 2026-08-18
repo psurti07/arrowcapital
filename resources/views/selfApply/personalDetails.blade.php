@@ -1,34 +1,32 @@
-    @extends('layouts.selfapply')
-    @push('css')
+@extends('layouts.selfapply')
+@push('css')
     <style>
-.accordion-button {
-    background-color: transparent !important;
-}
+        .accordion-button {
+            background-color: transparent !important;
+        }
 
-.accordion-button:focus {
-    box-shadow: none !important;
-}
+        .accordion-button:focus {
+            box-shadow: none !important;
+        }
 
-.txt-block h2 {
-    margin-bottom: 0px !important;
-}
+        .txt-block h2 {
+            margin-bottom: 0px !important;
+        }
 
-.contacts-section .fbox-ico .fbox-image {
-    width: 56px;
-    height: 56px;
-}
+        .contacts-section .fbox-ico .fbox-image {
+            width: 56px;
+            height: 56px;
+        }
 
-.user-details-table .fbox-ico .fbox-image {
-    width: 32px;
-    height: 32px;
-}
+        .user-details-table .fbox-ico .fbox-image {
+            width: 32px;
+            height: 32px;
+        }
     </style>
-    @endpush
+@endpush
 
-    @section('content')
-
-    <section
-        class="personal-details-form inner-page-hero contacts-section division min-vh-100 d-flex align-items-center">
+@section('content')
+    <section class="personal-details-form inner-page-hero contacts-section division min-vh-100 d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center mb-md-0 mb-35">
                 <div class="col-md-4 col-lg-4 col-12 order-md-1 order-2 mt-md-0 mt-20">
@@ -59,16 +57,15 @@
                             </div>
                         </div>
 
-
-
                         <div class="pt-3">
                             <h6 class="position-static p-0 text-uppercase s-12 mb-2 w-600 color--grey">Application
                                 Process</h6>
-
                             <div class="cbox-12 process-step">
                                 <div class="ico-wrap">
-                                    <div class="cbox-12-ico text-white bg--green-300 border border-green d-flex align-items-center justify-content-center"><span
-                                            class="flaticon-check s-12"></span></div>
+                                    <div
+                                        class="cbox-12-ico text-white bg--green-300 border border-green d-flex align-items-center justify-content-center">
+                                        <span class="flaticon-check s-12"></span>
+                                    </div>
                                 </div>
                                 <div class="cbox-12-txt">
                                     <p class="s-11 text-black w-600 mb-0">Loan Details</p>
@@ -76,8 +73,10 @@
                             </div>
                             <div class="cbox-12 process-step">
                                 <div class="ico-wrap">
-                                    <div class="cbox-12-ico text-white bg--green-500 d-flex align-items-center justify-content-center"><span
-                                            class="flaticon-right-arrow s-12"></span></div>
+                                    <div
+                                        class="cbox-12-ico text-white bg--green-500 d-flex align-items-center justify-content-center">
+                                        <span class="flaticon-right-arrow s-12"></span>
+                                    </div>
                                 </div>
                                 <div class="cbox-12-txt">
                                     <p class="s-11 text-black w-600 mb-0">Personal Details</p>
@@ -85,8 +84,10 @@
                             </div>
                             <div class="cbox-12 process-step">
                                 <div class="ico-wrap">
-                                    <div class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center"><span
-                                            class="flaticon-right-arrow s-12"></span></div>
+                                    <div
+                                        class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center">
+                                        <span class="flaticon-right-arrow s-12"></span>
+                                    </div>
                                 </div>
                                 <div class="cbox-12-txt">
                                     <p class="s-11 mb-0">Unlock Offers</p>
@@ -94,8 +95,10 @@
                             </div>
                             <div class="cbox-12 process-step">
                                 <div class="ico-wrap">
-                                    <div class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center"><span
-                                            class="flaticon-right-arrow s-12"></span></div>
+                                    <div
+                                        class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center">
+                                        <span class="flaticon-right-arrow s-12"></span>
+                                    </div>
                                 </div>
                                 <div class="cbox-12-txt">
                                     <p class="s-11 mb-0">Purchase Plan</p>
@@ -103,8 +106,10 @@
                             </div>
                             <div class="cbox-12 process-step">
                                 <div class="ico-wrap">
-                                    <div class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center"><span
-                                            class="flaticon-right-arrow s-12"></span></div>
+                                    <div
+                                        class="cbox-12-ico border-dark-subtle bg--black-100 d-flex align-items-center justify-content-center">
+                                        <span class="flaticon-right-arrow s-12"></span>
+                                    </div>
                                 </div>
                                 <div class="cbox-12-txt">
                                     <p class="s-11 mb-0">Personalized Offers</p>
@@ -119,8 +124,7 @@
                 <div class="col-md-8 col-lg-8 col-12 mt-md-0 mt-20 order-md-2 order-1">
                     <div class="card bg-white shadow border-0 r-24 p-4">
                         <form action="{{ route('self.apply.personal.details.store') }}" id="personalDetailForm"
-                            class="contact-form save-form-4" novalidate="novalidate" method="post"
-                            accept-charset="utf-8">
+                            class="contact-form save-form-4" novalidate="novalidate" method="post" accept-charset="utf-8">
                             <div class="card-body p-0">
                                 <div
                                     class="fbox-7 fb-1 r-18 border-0 bg-white d-flex align-items-center justify-content-between p-0 mb-0">
@@ -133,11 +137,8 @@
                                             </div>
                                         </div>
                                         <div class="fbox-txt ms-3">
-                                            <h4 class="color--blue-5000  mb-10 w-700 d-block">Personal Details
-                                            </h4>
-                                            <p class="mt-1">For Our Experts To Analyze Your Loan Requirements.
-                                            </p>
-
+                                            <h4 class="color--blue-5000  mb-10 w-700 d-block">Personal Details</h4>
+                                            <p class="mt-1">For Our Experts To Analyze Your Loan Requirements.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -148,11 +149,12 @@
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">First
                                                 Name *</label>
                                             <input id="firstname" name="firstname" type="text"
-                                                class="form-control name mb-0 pt-2" placeholder=""
+                                                class="form-control name mb-0 pt-2 pb-2" placeholder="Enter Your First Name "
                                                 value="{{ old('firstname') }}">
 
                                         </div>
-                                        @component('components.ajax-error',['field'=>'firstname'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'firstname'])
+                                        @endcomponent
                                     </div>
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group form-floating">
@@ -160,10 +162,11 @@
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">Last
                                                 Name *</label>
                                             <input id="lastname" name="lastname" type="text"
-                                                class="form-control name mb-0 pt-2" placeholder=""
+                                                class="form-control name mb-0 pt-2 pb-2" placeholder="Enter Your Last Name"
                                                 value="{{ old('lastname') }}">
                                         </div>
-                                        @component('components.ajax-error',['field'=>'lastname'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'lastname'])
+                                        @endcomponent
                                     </div>
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group form-floating">
@@ -171,10 +174,11 @@
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">Email
                                                 *</label>
                                             <input id="email" name="email" type="email"
-                                                class="form-control name mb-0 pt-2" placeholder=""
+                                                class="form-control name mb-0 pt-2 pb-2" placeholder="Enter Your Email"
                                                 value="{{ old('email') }}">
                                         </div>
-                                        @component('components.ajax-error',['field'=>'email'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'email'])
+                                        @endcomponent
                                     </div>
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group form-floating">
@@ -182,11 +186,12 @@
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">Pincode
                                                 *</label>
                                             <input id="pincode" name="pincode" type="text"
-                                                class="form-control name numeric-input mb-0 pt-2" placeholder=""
+                                                class="form-control name numeric-input mb-0 pt-2 pb-2" placeholder="Enter Your Pincode"
                                                 value="{{ old('pincode') }}" maxlength="6" minlength="6"
                                                 inputmode="numeric">
                                         </div>
-                                        @component('components.ajax-error',['field'=>'pincode'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'pincode'])
+                                        @endcomponent
                                     </div>
                                     <div id="loader" style="display:none;">
                                         Loading...
@@ -196,24 +201,25 @@
                                             <label for="city"
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">City
                                                 *</label>
-                                            <input id="city" name="city" type="text" class="form-control mb-0 pt-2"
-                                                placeholder="" value="{{ old('city') }}">
+                                            <input id="city" name="city" type="text"
+                                                class="form-control mb-0 pt-2 pb-2" placeholder="Enter Your City"
+                                                value="{{ old('city') }}">
                                         </div>
-                                        @component('components.ajax-error',['field'=>'city'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'city'])
+                                        @endcomponent
                                     </div>
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group form-floating">
-                                            <!--<input id="state" name="state"  type="text" class="form-control mb-0" placeholder="" value="{{ old('state') }}">-->
                                             <label for="state"
                                                 class="position-static p-0 text-uppercase s-14 mb-1 w-600 color--grey">State
                                                 *</label>
-                                            <select id="state" name="state" class="form-control mb-0 pt-2"
-                                                style="font-size:16px!important;">
+                                            <select id="state" name="state" class="form-control mb-0 pt-2">
                                                 <option value="">Select State</option>
                                                 {!! getStateOption(old('state')) !!}
                                             </select>
                                         </div>
-                                        @component('components.ajax-error',['field'=>'state'])@endcomponent
+                                        @component('components.ajax-error', ['field' => 'state'])
+                                        @endcomponent
                                     </div>
 
                                     <div class="col-lg-12">
@@ -251,103 +257,103 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-    @endsection
+    
+@endsection
 
-    @push('scripts')
+@push('scripts')
     <script>
-$(document).ready(function() {
-    $('#pancard').on('input', function() {
-        $(this).val($(this).val().toUpperCase());
-    });
-    $('.save-form-4').submit(function(event) {
-        var status = document.activeElement.innerHTML;
-        event.preventDefault();
-        if (status) {
-            $('.ajax-error').html('');
-            var data = new FormData(this);
-            $.ajax({
-                url: $(this).attr("action"),
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'POST',
-                data: data,
-                processData: false,
-                contentType: false,
-                beforeSend: function() {
-                    $('#submit-btn').html(
-                        '<span class="spinner-border spinner-border-sm"></span> Continue'
-                    );
-                    $('#submit-btn').attr('disabled', true);
-                },
-                success: function(result) {
-                    $(this).attr("disabled", false);
-                    if (result.type === 'SUCCESS') {
-                        window.location.href = `{{ route('self.apply.get.offers') }}`;
-                    } else {
-                        toastr.error(result.message);
-                        $('#submit-btnsubmit-btn').html('Continue');
-                        $('#submit-btn').attr('disabled', false);
-                    }
-                },
-                error: function(error) {
-                    $(this).attr("disabled", false);
-                    let errors = error.responseJSON.errors,
-                        errorsHtml = '';
-                    $.each(errors, function(key, value) {
-                        errorsHtml = '<strong>' + value[0] + '</strong>';
-                        $('.' + key).html(errorsHtml);
+        $(document).ready(function() {
+            $('#pancard').on('input', function() {
+                $(this).val($(this).val().toUpperCase());
+            });
+            $('.save-form-4').submit(function(event) {
+                var status = document.activeElement.innerHTML;
+                event.preventDefault();
+                if (status) {
+                    $('.ajax-error').html('');
+                    var data = new FormData(this);
+                    $.ajax({
+                        url: $(this).attr("action"),
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function() {
+                            $('#submit-btn').html(
+                                '<span class="spinner-border spinner-border-sm"></span> Continue'
+                            );
+                            $('#submit-btn').attr('disabled', true);
+                        },
+                        success: function(result) {
+                            $(this).attr("disabled", false);
+                            if (result.type === 'SUCCESS') {
+                                window.location.href = `{{ route('self.apply.get.offers') }}`;
+                            } else {
+                                toastr.error(result.message);
+                                $('#submit-btnsubmit-btn').html('Continue');
+                                $('#submit-btn').attr('disabled', false);
+                            }
+                        },
+                        error: function(error) {
+                            $(this).attr("disabled", false);
+                            let errors = error.responseJSON.errors,
+                                errorsHtml = '';
+                            $.each(errors, function(key, value) {
+                                errorsHtml = '<strong>' + value[0] + '</strong>';
+                                $('.' + key).html(errorsHtml);
+                            });
+                            $('#submit-btn').html('Continue');
+                            $('#submit-btn').attr('disabled', false);
+                        }
                     });
-                    $('#submit-btn').html('Continue');
-                    $('#submit-btn').attr('disabled', false);
                 }
             });
-        }
-    });
-    /* get postal data like city and state */
-    $('#pincode').on('input', function() {
-        var pincode = $(this).val();
+            /* get postal data like city and state */
+            $('#pincode').on('input', function() {
+                var pincode = $(this).val();
 
-        // Only make request if pincode is of 6 digits
-        if (pincode.length === 6) {
-            $('#loader').show(); // Show loader
-            $.ajax({
-                url: `{{ route('self.apply.postal.details') }}`, // Route to the Laravel controller
-                type: 'POST',
-                data: {
-                    pincode: pincode
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
-                        'content') // Pass CSRF token
-                },
-                success: function(response) {
-                    $('#loader').hide(); // Hide loader
-                    if (response.status === 'success') {
-                        // Populate District and State fields
-                        $('#city').val(response.district);
-                        $('#state').val(response.state);
-                    } else {
-                        alert(response.message);
-                        $('#district').val('');
-                        $('#state').val('');
-                    }
-                },
-                error: function() {
-                    $('#loader').hide(); // Hide loader on error
-                    alert('An error occurred while fetching the details.');
+                // Only make request if pincode is of 6 digits
+                if (pincode.length === 6) {
+                    $('#loader').show(); // Show loader
+                    $.ajax({
+                        url: `{{ route('self.apply.postal.details') }}`, // Route to the Laravel controller
+                        type: 'POST',
+                        data: {
+                            pincode: pincode
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                'content') // Pass CSRF token
+                        },
+                        success: function(response) {
+                            $('#loader').hide(); // Hide loader
+                            if (response.status === 'success') {
+                                // Populate District and State fields
+                                $('#city').val(response.district);
+                                $('#state').val(response.state);
+                            } else {
+                                alert(response.message);
+                                $('#district').val('');
+                                $('#state').val('');
+                            }
+                        },
+                        error: function() {
+                            $('#loader').hide(); // Hide loader on error
+                            alert('An error occurred while fetching the details.');
+                        }
+                    });
+                } else {
+                    // Clear the fields if pincode length is not 6 digits
+                    $('#city').val('');
+                    $('#state').val('');
                 }
             });
-        } else {
-            // Clear the fields if pincode length is not 6 digits
-            $('#city').val('');
-            $('#state').val('');
-        }
-    });
-})
+        })
     </script>
-    @endpush
+@endpush

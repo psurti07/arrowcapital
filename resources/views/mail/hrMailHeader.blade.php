@@ -462,7 +462,7 @@
                                                                     <tr>
                                                                         <td align="left" style="padding: 20px; margin: 0; line-height: 2rem;border: 1px solid #022475;
                                                                             border-radius: 12px;
-                                                                            background-color: #fcffeb;">
+                                                                            background-color: #F0F7F3;">
                                                                             @yield('content')
                                                                         </td>
                                                                     </tr>
@@ -608,7 +608,7 @@
                                                                                                             valign="top"
                                                                                                             style="padding: 0; margin: 0; padding-right: 10px;">
                                                                                                             <a target="_blank"
-                                                                                                                href="https://twitter.com/arrowcapital"
+                                                                                                                href="https://x.com/arrow_capital_"
                                                                                                                 style="
                                                                                                                 -webkit-text-size-adjust: none;
                                                                                                                 -ms-text-size-adjust: none;
@@ -636,7 +636,7 @@
                                                                                                             valign="top"
                                                                                                             style="padding: 0; margin: 0; padding-right: 10px;">
                                                                                                             <a target="_blank"
-                                                                                                                href="https://in.pinterest.com/arrowcapital/"
+                                                                                                                href="https://in.pinterest.com/arrow_capital/"
                                                                                                                 style="
                                                                                                                 -webkit-text-size-adjust: none;
                                                                                                                 -ms-text-size-adjust: none;
@@ -668,7 +668,7 @@
                                                                                                             valign="top"
                                                                                                             style="padding: 0; margin: 0; padding-right:10px">
                                                                                                             <a target="_blank"
-                                                                                                                href="http://www.youtube.com/@arrowcapital"
+                                                                                                                href="https://www.youtube.com/@arrowcapitalofficial"
                                                                                                                 style="
                                                                                                                 -webkit-text-size-adjust: none;
                                                                                                                 -ms-text-size-adjust: none;
@@ -701,7 +701,7 @@
                                                                                                             valign="top"
                                                                                                             style="padding: 0; margin: 0;padding-right:10px">
                                                                                                             <a target="_blank"
-                                                                                                                href="https://www.facebook.com/@arrowcapital.in"
+                                                                                                                href="https://www.facebook.com/profile.php?id=61591136406433"
                                                                                                                 style="
                                                                                                                 -webkit-text-size-adjust: none;
                                                                                                                 -ms-text-size-adjust: none;
@@ -733,7 +733,7 @@
                                                                                                             valign="top"
                                                                                                             style="padding: 0; margin: 0;">
                                                                                                             <a target="_blank"
-                                                                                                                href="https://www.instagram.com/arrowcapital/"
+                                                                                                                href="https://www.instagram.com/arrow_capital/"
                                                                                                                 style="
                                                                                                                 -webkit-text-size-adjust: none;
                                                                                                                 -ms-text-size-adjust: none;

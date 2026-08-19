@@ -375,7 +375,7 @@
                 <div class="col-md-10 col-lg-10">
                     <div class="section-title mb-40">
                         <span class="color--green-300 text-uppercase mb-2 w-600 d-block">Choose your path</span>
-                        <h2 class="s-28 mb-5 w-700">Choose Your Loa <span class="color--green-300">Journey</span></h2>
+                        <h2 class="s-28 mb-5 w-700">Choose Your Loan <span class="color--green-300">Journey</span></h2>
                         <p class="s-16 color--grey mt-0">Select the option that best fits your financial needs.</p>
                     </div>
                 </div>

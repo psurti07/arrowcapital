@@ -5026,7 +5026,7 @@
   .row-cols-md-2 .fbox-1 p, .row-cols-md-2 .fbox-2 p, .row-cols-md-2 .fbox-3 p, .fbox-5 .fbox-txt p, .fbox-10 p { padding: 0 8%; }
 
   .row-cols-md-3 .fbox-4 p, .row-cols-md-2 .fbox-4 p { padding: 0 4%; }
-  .fbox-5 .fbox-txt p, .rows-3 .fbox-11 p { padding: 0 2%; }
+  .fbox-5 .fbox-txt p, .rows-3 .fbox-11 p { padding: 0; }
   .row-cols-md-2 .fbox-6 p { padding: 0 10%; }
   .row-cols-lg-3 .fbox-10 .fbox-txt p { padding: 0 2%; }
 
@@ -6198,7 +6198,7 @@
   .row-cols-md-3 .fbox-1 p, .row-cols-md-3 .fbox-2 p, .row-cols-md-3 .fbox-3 p, .row-cols-md-3 .fbox-6 p, .row-cols-md-2 .fbox-1 p,
   .row-cols-md-2 .fbox-2 p, .row-cols-md-2 .fbox-3 p, .row-cols-md-2 .fbox-6 p, .fbox-5 .fbox-txt p, .fbox-10 p { padding: 0 8%; }
   .row-cols-md-3 .fbox-4 p, .row-cols-md-2 .fbox-4 p { padding: 0 4%; }
-  .fbox-5 .fbox-txt p, .rows-3 .fbox-11 p { padding: 0 2%; }
+  .fbox-5 .fbox-txt p, .rows-3 .fbox-11 p { padding: 0; }
   .row-cols-lg-3 .fbox-10 .fbox-txt p { padding: 0; }
 
   /* CONTENT */
@@ -7412,7 +7412,7 @@
 
   .row-cols-md-2 .fbox-1 p, .row-cols-md-2 .fbox-2 p, .row-cols-md-2 .fbox-3 p, .row-cols-md-2 .fbox-6 p { padding: 0 8%; }
   .row-cols-md-2 .fbox-4 p { padding: 0 7%; }
-  .fbox-5 .fbox-txt p, .rows-2 .fbox-11 p { padding: 0 5%; }
+  .fbox-5 .fbox-txt p, .rows-2 .fbox-11 p { padding: 0; }
   .rows-3 .fbox-11 p { padding: 0 2%; }
   .row-cols-lg-3 .fbox-10 .fbox-txt p { padding: 0 1%; }
 
@@ -8666,7 +8666,7 @@
   .row-cols-md-3 .fbox-3 p, .row-cols-md-3 .fbox-6 p, .fbox-10 .fbox-txt p { padding: 0 3%; }
 
   .row-cols-md-2 .fbox-1 p, .row-cols-md-2 .fbox-2 p, .row-cols-md-2 .fbox-3 p, .row-cols-md-2 .fbox-6 p { padding: 0 8%; }
-  .row-cols-md-2 .fbox-4 p, .fbox-5 .fbox-txt p, .rows-2 .fbox-11 p { padding: 0 5%; }
+  .row-cols-md-2 .fbox-4 p, .fbox-5 .fbox-txt p, .rows-2 .fbox-11 p { padding: 0; }
   .row-cols-lg-3 .fbox-10 .fbox-txt p { padding: 0; }
   .rows-3 .fbox-11 p { padding: 0 4%; }
 

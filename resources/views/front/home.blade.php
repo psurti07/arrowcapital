@@ -225,7 +225,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 col-md-6 col-12 mt-md-0 mt-3 ps-5">
+                <div class="col-lg-7 col-md-6 col-12 mt-md-0 mt-3 ps-lg-5">
                     <div class="txt-block right-column mb-0">
                         <span class="color--green-300 text-uppercase">About us</span>
                         <h2>Finding the Right Financial Solution <span class="color--green-300">for You</span></h2>
@@ -292,7 +292,7 @@
                 <div class="row align-items-center p-60">
                     <div class="col-lg-12 col-md-12 col-12">
                         <div class="row g-4">
-                            <div class="col-6 col-md-3 mb-lg-0 mb-4">
+                            <div class="col-6 col-md-3 mb-lg-0 mb-0">
                                 <div class="statistic-block text-center">
                                     <div class="fbox-ico ico-16 mb-2">
                                         <div class="fbox-image r-100">
@@ -309,7 +309,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 mb-lg-0 mb-4">
+                            <div class="col-6 col-md-3 mb-lg-0 mb-0">
                                 <div class="statistic-block text-center">
                                     <div class="fbox-ico ico-16 mb-2">
                                         <div class="fbox-image r-100">
@@ -326,7 +326,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 mb-lg-0 mb-4">
+                            <div class="col-6 col-md-3 mb-lg-0 mb-0">
                                 <div class="statistic-block text-center">
                                     <div class="fbox-ico ico-16 mb-2">
                                         <div class="fbox-image r-100">
@@ -343,7 +343,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 mb-lg-0 mb-4">
+                            <div class="col-6 col-md-3 mb-lg-0 mb-0">
                                 <div class="statistic-block text-center">
                                     <div class="fbox-ico ico-16 mb-2">
                                         <div class="fbox-image r-100">

@@ -415,6 +415,14 @@
                                         <p>Fully self-guided</p>
                                     </div>
                                 </div>
+                                <h3 class="mb-0">
+                                    @if(isset($products['self-apply']))
+                                        <span class="h5"><del>₹{{ $products['self-apply']->amount }}</del></span>
+                                        <span class="color--green-500">
+                                            ₹{{ $products['self-apply']->offeramount }}/- Only
+                                        </span>
+                                    @endif
+                                </h3>
                                 <div class="mt-3">
                                     <a href="{{ route('self.apply.main') }}"
                                         class="btn r-100 btn--green-300 hover--tra-black btn-sm">Apply

@@ -112,6 +112,7 @@ class AuthController extends Controller
                 /* send forget message starts */
                 $msg = DB::table('sms_list')->where('type',1)->where('slug','forgot_password')->first()->message;
                 if($msg != '#'){
+                    $msg = str_ireplace('{#var#}',$fetch->first_name.' '.$fetch->last_name,$msg);
                     $msg = str_ireplace('{#varpassword#}',$newPassword,$msg);
                     $sendertype = (($fetch->acc_type == 2) ? 'la-senderid' : (($fetch->acc_type == 3) ? 'lat-senderid' : 'sa-senderid'));
                     $panel = (($fetch->acc_type == 2) ? 'hire' : (($fetch->acc_type == 3) ? 'assistant' : 'self'));

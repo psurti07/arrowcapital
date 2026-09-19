@@ -65,11 +65,11 @@ if(!function_exists('sendDynamicSMS')){
         } else {
             $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user={$username}&password={$password}&senderid={$senderId}&mobiles={$mobile}&sms={$sms_text}";
         }
-        
+        Log::info("SMS Request sendDynamicSMS: " .$api_url);
         // Submit the request to the server
         $response = Http::get($api_url);
 
-        // Log::info($response);
+        Log::info("SMS Response sendDynamicSMS: " .$response);
         // Return the response
         return [
             'status_code' => $response->status(),

@@ -552,6 +552,7 @@
                             </p>
                             <p class="s-14"><strong>Disclaimer: </strong> Arrow capital Private Limited is not a lender or financial institution. We do not provide loans or make credit decisions. All loan approvals, interest rates, fees, and disbursal are handled by third-party lenders/NBFCs. We do not guarantee loan approval, disbursal, or specific loan terms. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval. Loan approval, disbursement/sanction is entirely dependent on NBFC criteria.</p>
                             <p class="s-14"><strong>Pre-Application Note</strong> Users are advised to read our terms and conditions and policies before proceeding/applying/registration.</p>
+                            <p class="s-14"><strong>Disclosure</strong> Loan tenure minimum 6 months & maximum 60 months; Maximum APR: 34% p.a.; processing fee: up to 2%. Representative example: ₹1,00,000 at 11.5% for 60 months with ₹2,000 processing fee — EMI ₹2,301, total interest ₹38,059, total repayment ₹1,38,059, indicative APR 14.41%.</p>
                             <p class="s-14">
                                 <strong>Company Registered Address:</strong> {{ config('constant.COMPANY_ADDRESS') }}
                                 <br />

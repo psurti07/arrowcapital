@@ -5,9 +5,9 @@
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4VRF8BX"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->.
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGDHT5GB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- PAGE CONTENT -->
     <div id="page" class="page font--poppins">

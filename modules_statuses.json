@@ -1,9 +1,0 @@
-{
-    "Auth": true,
-    "Dashboard": true,
-    "Loans": true,
-    "Document": true,
-    "Profile": true,
-    "Support": true,
-    "Subscription": true
-}

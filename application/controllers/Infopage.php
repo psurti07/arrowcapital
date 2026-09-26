@@ -7,9 +7,9 @@ Class Infopage extends CI_Controller {
         $meta = $this->Site_Info_Model->getmetakeywords('home');
         $banklist = $this->Site_Info_Model->getbanklist(8);
         $testimoniallist = $this->Site_Info_Model->gettestimoniallist(1);
-        $welcomemsg = $this->Site_Info_Model->getwelcomemessage();
         $productdata = $this->Site_Info_Model->getproductdetails('personal-subscription-plan');
-        $this->load->view('index',['meta'=>$meta, 'banklist'=>$banklist, 'testimoniallist'=>$testimoniallist, 'msg'=>$welcomemsg,'productdata'=>$productdata]);
+        $welcomemsg = $this->Site_Info_Model->getwelcomemessage();
+        $this->load->view('index',['meta'=>$meta, 'banklist'=>$banklist, 'testimoniallist'=>$testimoniallist,'productdata'=>$productdata, 'msg'=>$welcomemsg]);
     }
 
     public function company(){
@@ -46,8 +46,11 @@ Class Infopage extends CI_Controller {
     public function faqs(){
         $this->load->model('Site_Info_Model');
         $meta = $this->Site_Info_Model->getmetakeywords('faqs');
-        $faqlist = $this->Site_Info_Model->getsitefaqs(5);
-        $this->load->view('faqs',['meta'=>$meta, 'faqlist'=>$faqlist]);
+        $pllist = $this->Site_Info_Model->getsitefaqs(1);
+        $bllist = $this->Site_Info_Model->getsitefaqs(2);
+        $cplist = $this->Site_Info_Model->getsitefaqs(3);
+        $sclist = $this->Site_Info_Model->getsitefaqs(4);
+        $this->load->view('faqs',['meta'=>$meta, 'pllist'=>$pllist, 'bllist'=>$bllist, 'cplist'=>$cplist, 'sclist'=>$sclist]);
     }
 
     public function important_update(){
@@ -169,7 +172,7 @@ Class Infopage extends CI_Controller {
             $this->load->model('Site_Info_Model');
             $res = $this->Site_Info_Model->updatedndstatus($mobileno,$reason);
             if($res == true){
-                echo json_encode(array("success"=>true, "message"=>"You have successfully unsubscribed to get messages from Cashindia. Thank you", "mobileno"=>$mobileno,'dnd'));
+                echo json_encode(array("success"=>true, "message"=>"You have successfully unsubscribed to get messages from Cashecredit. Thank you", "mobileno"=>$mobileno,'dnd'));
             } else {
 
                 echo json_encode(array("success"=>false, "message"=>"Opps! Something went wrong.", "mobileno"=>""));
@@ -185,25 +188,28 @@ Class Infopage extends CI_Controller {
         $maildata = array(
          'fullname' => 'Bimal Patel',
          'mobile' => '9408881214',
-         'email' => 'verloop.dev6@gmail.com',
+         'email' => 'jankiverloop@gmail.com',
          'password' => '123456',
          'order_number' => '101',
          'order_date' => date('d-m-Y'),
-         'order_amount' => '999.00' 
+         'order_amount' => '999.00'
         );
 
-        $subject = "Welcome to Cashindia";
+        $subject = "Welcome to Fintopcorporate";
       
         $this->load->model('Site_General_Model');
-        $content = $this->Site_General_Model->newtestmail(); 
-        
+        $content = $this->Site_General_Model->customerwelcomeemailtemplate($maildata); 
+        echo $content;
+         die;
+
         if ($content != '') {
             $mailresponse = sendHTMLmail($maildata['email'], COMPANY_EMAIL, $subject, $content, 1);
-            $maildata1 = array(
-				'fullname' => $maildata['fullname'],
-				'email' => $maildata['email']
-			);
-			$mailresponse = sendinblueHTMLmail($maildata1, $subject, $content);
+            $maildataa = array(
+                'fullname' => $maildata['fullname'],
+                'email' => $maildata['email']
+            );
+            $mailresponse = sendinblueHTMLmail($maildataa, $subject, $content);
+            print_r($mailresponse);
         }
     }
 

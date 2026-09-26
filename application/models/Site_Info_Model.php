@@ -68,20 +68,17 @@ Class Site_Info_Model extends CI_Model {
 		return $query;      
 	}
 
-	public function getroipackages($loantype, $preapproval = 0, $limit = 3){
+	public function getroipackages($loantype){
 		
 		$query = $this->db->select('r.*, b.bank_name, b.bank_image')
 				->from('roipackages r')
 				->join('banks b','b.id=r.bankid')
 				->where('r.loantype', $loantype)
-				->where('r.isPreapproval', $preapproval)
 				->where('r.isDelete', 0)
 				->order_by('rand()')
-				->limit($limit)
+				->limit(4)
 				->get()
 				->result();
-
-				
 		return $query;
 	}
 
@@ -174,23 +171,23 @@ Class Site_Info_Model extends CI_Model {
 		$careerid = $this->db->insert_id();
 
 		if($data['mobile'] != '' && $careerid != '') {
-			$smsmessage = "Thank You for showing interest in Cashindia. Our HR team will call you back soon. Have a nice day. Thanks & Regards, Cashindia";
+			$smsmessage = "Thank You for showing interest in  Fintopcorporate. Our HR team will call you back soon. Have a nice day. Thanks & Regards,  Fintopcorporate";
 			$smsresponse = sendtextSMSobb($data['mobile'], $smsmessage);
 		}
 
 		if($data['email'] != '' && $careerid != '') {
 			// Send email
-			$subject1 = "Welcome to Cashindia";
+			$subject1 = "Welcome to Fintopcorporate";
 			$message1 = "<p>Hello ".$data['firstname']." ".$data['lastname'].",</p>"; 
 			$message1 .= "<p>We're elated that you showed interest in working with our company. Our HR Team will be in touch soon.</p>";
-			$message1 .= "<p>In case you've any queries/doubts, please write to us at hr@cashindia.in</p>";
-			$message1 .= "<p>Thanks & Regards,<br/>Cashindia</p>";
+			$message1 .= "<p>In case you've any queries/doubts, please write to us at hr@fintopcorporate.com</p>";
+			$message1 .= "<p>Thanks & Regards,<br/>Fintopcorporate</p>";
 
 			$this->load->model('Site_General_Model');
 			$content1 = $this->Site_General_Model->hremailtemplate($message1);
 
 			if($content1 != '') {
-				// $mailresponse = sendHTMLmail($data['email'], 'hr@cashindia.in', $subject1, $content1, 3);
+				//$mailresponse = sendHTMLmail($data['email'], 'hr@fintopcorporate.com', $subject1, $content1, 3);
 				$maildata = array(
 					'fullname' => $data['mobile'],
 					'email' => $data['email']
@@ -211,12 +208,12 @@ Class Site_Info_Model extends CI_Model {
 			$content2 = $this->Site_General_Model->hremailtemplate($message2);
 
 			if($content2 != '') {
-				// $mailresponse = sendHTMLmail('hr@cashindia.in', $data['email'], $subject2, $content2, 3);
+				//$mailresponse = sendHTMLmail('hr@fintopcorporate.com', $data['email'], $subject2, $content2, 3);
 				$maildata = array(
 					'fullname' => $data['mobile'],
 					'email' => $data['email']
 				);
-				//$mailresponse = sendinblueHTMLmail($maildata, $subject2, $content2);
+				//$mailresponse = sendinblueHTMLmail($maildata, $subject1, $content1);
 			}
 		}
 

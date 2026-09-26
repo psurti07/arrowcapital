@@ -3,6 +3,7 @@
 <head>
   <title>Zaakpay - Payment Process</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body onload="document.frm1.submit()">
 

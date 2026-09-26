@@ -57,11 +57,11 @@
 			<div class="card pull-up bg-purple bg-darken-2">
 			  <div class="card-content">
 			    <div class="card-body">
-			    <a href="<?php echo site_url('loan/oldapplication?d=21'); ?>">
+			    <a href="<?php echo site_url('loan/oldapplication?d=15'); ?>">
 			      <div class="media d-flex">
 			        <div class="media-body text-white text-left">
 			          <h3 class="text-white" id="oldapplication"></h3>
-			          <span>Loan Applications - 21 Days older</span>
+			          <span>Loan Applications - 15 Days older</span>
 			        </div>
 			        <div><i class="la la-list text-white font-large-1 float-right"></i></div>
 			      </div>

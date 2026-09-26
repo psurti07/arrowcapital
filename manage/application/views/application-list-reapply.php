@@ -75,9 +75,9 @@ include_once(APPPATH . 'views/includes/header.php');
                       echo "</td>";
 
                       echo "<td class='text-right'>" . formatePriceIndia($row->loanamount) . "</td>";
-                      echo "<td>" . htmlentities($row->loantenure) . "</td>";
+                      echo "<td>" . htmlspecialchars($row->loantenure ?? '') . "</td>";
                       echo "<td>" . anchor("users/applicationlist/{$row->userid}", $row->fullname, 'class="text-capitalize"') . "</td>";
-                      echo "<td>" . htmlentities($row->mobile) . "</td>";
+                      echo "<td>" . htmlspecialchars($row->mobile ?? '') . "</td>";
 
                       echo "<td class='text-center' width='50'>" . anchor("loan/appdetails/{$row->id}", '<i class="la la-info"></i>', 'class="btn btn-icon btn-outline-dark btn-sm"') . "</td>";
 

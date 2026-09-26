@@ -1,67 +1,44 @@
 <?php $this->load->view('customer/includes/header-apply.php'); ?>
-<div class="page-hero page-hero-inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-hero-haddig text-center">
-                        <h1 class="text-dark">Subscription Plan</h1>
-                    </div>
-                </div>
+<div class="section-sm bg-lend-blue pt-0 pb-0" id="home">
+	<div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Subscription Plan</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
             </div>
         </div>
+    </div>
 </div>
-<div class="pricing-area pricing2 section-padding2 bg5">
+
+<div class="section-md bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-				<div class="contact-form-all aos-init aos-animate">
+				<div class="bg-white border-radius-1 box-shadow p-5">
 					<div class="price-body">
 						<h4>Subscription Details</h4>
-						<ul class="Category-list">							
-							<li><b class="float-left">Plan : </b><?php echo ($plandata->cardtype == 12) ? 'Business Subscription Plan' : 'Personal Subscription Plan'; ?></li>
-							<li><b class="float-left">Registration Date :</b>&nbsp; <?php echo displayDate($plandata->registration_date); ?></li>
-							<li><b class="float-left">Expiry Date :</b>&nbsp; <?php echo displayDate($plandata->expiry_date); ?> </li>
-							<li><b class="float-left">Subscription Id :</b>&nbsp; <?php echo $plandata->card_number; ?></li>
+						<ul class="list-unstyled text-dark">							
+							<p>Plan : <?php echo ($plandata->cardtype == 12) ? 'Business Subscription Plan' : 'Personal Subscription Plan'; ?></p>
+							<li><i class="bi bi-check pe-2"></i><b class="float-left">Registration Date :</b>&nbsp; <?php echo displayDate($plandata->registration_date); ?></li>
+							<li><i class="bi bi-check pe-2"></i><b class="float-left">Expiry Date :</b>&nbsp; <?php echo displayDate($plandata->expiry_date); ?> </li>
+							<li><i class="bi bi-check pe-2"></i><b class="float-left">Subscription Id :</b>&nbsp; <?php echo $plandata->card_number; ?></li>
 						</ul>
-						<a href="<?php echo base_url('customer/profile/invoice/'.stringCrypt($plandata->id, 'encrypt')); ?>" class="button-h-2 btnfos2 mt-4" target="_blank">Download Invoice</a>
+						<a href="<?php echo base_url('customer/profile/invoice/'.stringCrypt($plandata->id, 'encrypt')); ?>" class="button button-lg button-radius button-turquiose mt-3" target="_blank">Download Invoice</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<div class="contact-form-all aos-init aos-animate">
+				<div class="bg-white border-radius-1 box-shadow p-5">
 					<div class="price-body">
 						<h4>Plan Benefits</h4>
-						<ul class="Category-list">
-							<li>
-								<span class="pricing-icon">
-									<img src="<?=base_url('assets/img/icons/double-check2.png')?>" alt="">
-								</span>
-								100% Online Process
-							</li>
-							<li>
-								<span class="pricing-icon">
-									<img src="<?=base_url('assets/img/icons/double-check2.png')?>" alt="">
-								</span>
-								Get Personalized Tracking Portal
-							</li>
-							<li>
-								<span class="pricing-icon">
-									<img src="<?=base_url('assets/img/icons/double-check2.png')?>" alt="">
-								</span>
-								On-Call Expert Consultation
-							</li>
-							<li>
-								<span class="pricing-icon">
-									<img src="<?=base_url('assets/img/icons/double-check2.png')?>" alt="">
-								</span>
-								Dedicated Loan Expert Assigned
-							</li>
-							<li>
-								<span class="pricing-icon">
-									<img src="<?=base_url('assets/img/icons/double-check2.png')?>" alt="">
-								</span>
-								CIBIL Remains Unaffected
-							</li>
+						<ul class="list-unstyled text-dark">
+							<li><i class="bi bi-check pe-2"></i>100% Online Process</li>
+							<li><i class="bi bi-check pe-2"></i>Get Personalized Tracking Portal</li>
+							<li><i class="bi bi-check pe-2"></i>On-Call Expert Consultation</li>
+							<li><i class="bi bi-check pe-2"></i>Dedicated Loan Expert Assigned</li>
+							<li><i class="bi bi-check pe-2"></i>CIBIL Remains Unaffected</li>
 						</ul>
 					</div>
 				</div>

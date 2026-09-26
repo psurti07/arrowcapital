@@ -48,7 +48,7 @@ class Dataclean extends MY_Controller
 				'parent_result' => $api_response
 			]));
 	}
-	
+
 	public function kycdata()
 	{
 		$this->load->model('Data_Test_And_Clean_Model');

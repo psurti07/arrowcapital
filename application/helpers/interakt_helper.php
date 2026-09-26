@@ -54,7 +54,7 @@ function event_track($postdata) {
     return $result;
 }
 
-function user_track_new_ue($postdata) {
+function user_track_2($postdata) {
     $curl = curl_init();
 
     curl_setopt_array($curl, [
@@ -67,7 +67,7 @@ function user_track_new_ue($postdata) {
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode($postdata),
       CURLOPT_HTTPHEADER => [
-        "Authorization: Basic " . INTERAKT_KEY_REMARKETING,
+        "Authorization: Basic " . INTERAKT_KEY_UE_2,
         "Content-Type: application/json"
       ],
     ]);
@@ -80,7 +80,7 @@ function user_track_new_ue($postdata) {
     return $result;
 }
 
-function event_track_new_ue($postdata) {
+function event_track_2($postdata) {
     $curl = curl_init();
 
     curl_setopt_array($curl, [
@@ -93,7 +93,7 @@ function event_track_new_ue($postdata) {
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode($postdata),
       CURLOPT_HTTPHEADER => [
-        "Authorization: Basic " . INTERAKT_KEY_REMARKETING,
+        "Authorization: Basic " . INTERAKT_KEY_UE_2,
         "Content-Type: application/json"
       ],
     ]);

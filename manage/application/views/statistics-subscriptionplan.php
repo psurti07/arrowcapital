@@ -124,8 +124,8 @@ include_once(APPPATH . 'views/includes/header.php');
 			</div>
 		</div>
 	</div>
-<!--
-	<div class="row">
+
+	<!-- <div class="row">
 		<div class="col-12">
 			<hr />
 			<h2 class="text-bold-600 text-center">SMS Marketing Pages Statistics-
@@ -187,8 +187,8 @@ include_once(APPPATH . 'views/includes/header.php');
 				</div>
 			</div>
 		</div>
-	</div>
--->
+	</div> -->
+
 	<div class="row">
 		<div class="col-12">
 			<hr />
@@ -220,7 +220,44 @@ include_once(APPPATH . 'views/includes/header.php');
 				</div>
 			</div>
 		</div>
-
+		<div class="col-xl-4 col-lg-4 col-12">
+			<div class="card pull-up bg-blue bg-darken-3">
+				<div class="card-content">
+					<div class="card-body">
+						<a href="<?php echo site_url('offer/megaoffer?dt_to=' . date('Y-m-d')); ?>">
+							<div class="media d-flex">
+								<div class="media-body text-white text-left">
+									<h3 class="text-white" id="megaoffer"></h3>
+									<span>Mega Offer <em>-
+											<?php echo PG_MEGA_OFFER; ?>
+										</em></span>
+								</div>
+								<div><i class="la la-hand-o-right text-white font-large-1 float-right"></i></div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-4 col-12">
+			<div class="card pull-up bg-blue bg-darken-3">
+				<div class="card-content">
+					<div class="card-body">
+						<a href="<?php echo site_url('offer/staroffer?dt_to=' . date('Y-m-d')); ?>">
+							<div class="media d-flex">
+								<div class="media-body text-white text-left">
+									<h3 class="text-white" id="staroffer"></h3>
+									<span>Star Offer <em>-
+											<?php echo PG_STAR_OFFER; ?>
+										</em></span>
+								</div>
+								<div><i class="la la-hand-o-right text-white font-large-1 float-right"></i></div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -264,6 +301,9 @@ include_once(APPPATH . 'views/includes/header.php');
 				//document.getElementById('specialoffer').innerHTML = "<i class='la la-spinner spinner'></i>";
 				//document.getElementById('bumperoffer').innerHTML = "<i class='la la-spinner spinner'></i>";
 				document.getElementById('festivaloffer').innerHTML = "<i class='la la-spinner spinner'></i>";
+				document.getElementById('megaoffer').innerHTML = "<i class='la la-spinner spinner'></i>";
+				document.getElementById('staroffer').innerHTML = "<i class='la la-spinner spinner'></i>";
+
 			},
 			success: function (response) {
 				if (response['success'] == true) {
@@ -272,6 +312,8 @@ include_once(APPPATH . 'views/includes/header.php');
 					//document.getElementById('specialoffer').innerHTML = response['statistics']['specialoffer'];
 					//document.getElementById('bumperoffer').innerHTML = response['statistics']['bumperoffer'];
 					document.getElementById('festivaloffer').innerHTML = response['statistics']['festivaloffer'];
+					document.getElementById('megaoffer').innerHTML = response['statistics']['megaoffer'];
+					document.getElementById('staroffer').innerHTML = response['statistics']['staroffer'];
 				}
 			}
 		});

@@ -13,7 +13,7 @@ include_once(APPPATH . 'views/includes/header.php');
   </div>
   <div class="content-header-right btn-group-sm text-right col-md-6 col-12">
     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-keyboard="false" data-target="#uploadfile"><i class="la la-plus"></i> Upload Data</button>
-    <a href="<?php echo base_url('assets/dndfile-sample.csv'); ?>" target="_blank" download class="btn btn-outline-light"><i class="la la-download"></i> Download Sample</a>
+    <a href="<?php echo base_url('CsvDownload/download_sample'); ?>" target="_blank" class="btn btn-outline-light"><i class="la la-download"></i> Download Sample</a>
     <div class="heading-elements mt-1">
       <?php echo form_open('sms/dndlist', array('id' => 'filterForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
       <fieldset class="form-group text-center">

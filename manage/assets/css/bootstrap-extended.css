@@ -732,7 +732,6 @@ select.form-control {
     padding: 0rem 0.85rem;
     transition: 300ms ease all; }
     .header-navbar .navbar-header .navbar-brand {
-      padding: 17px 0px;
       margin-right: 0; }
       .header-navbar .navbar-header .navbar-brand .brand-logo {
         width: 25px; }
@@ -847,7 +846,7 @@ select.form-control {
 .navbar-semi-dark {
   background: #FFFFFF; }
   .navbar-semi-dark .navbar-header {
-    background: #fff; }
+    background: #373737; }
     .navbar-semi-dark .navbar-header .brand-text {
       color: #FFFFFF; }
   .navbar-semi-dark .navbar-nav li {
@@ -2050,7 +2049,7 @@ ul.list-inline.list-inline-pipe > li + li:before {
 
 .list-group .list-group-item-action:active {
   color: #fff;
-  background-color: #0f4983; }
+  background-color: #e1dc5e; }
   .list-group .list-group-item-action:active a {
     color: #fff; }
 

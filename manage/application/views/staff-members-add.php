@@ -38,7 +38,7 @@
                               <label class="btn btn-outline-dark active">
                                 <input type="radio" name="staffrole" value="1" autocomplete="off" checked><i class="icon-user"></i> Employee
                               </label>
-                                <label class="btn btn-outline-dark">
+                                 <label class="btn btn-outline-dark">
                                 <input type="radio" name="staffrole" value="2" autocomplete="off"><i class="icon-user"></i> ACCOUNTANT
                               </label>
                             </div>

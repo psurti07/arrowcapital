@@ -13,8 +13,8 @@
 		rel="stylesheet">
 
 	<!-- FAVICON -->
-	<link rel="apple-touch-icon" href="<?php echo base_url('assets/images/logo/apple-icon-180x180.png'); ?>">
-	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/logo/favicon.ico'); ?>">
+	<link rel="apple-touch-icon" href="<?php echo base_url('assets/img/logo/apple-icon-180x180.png'); ?>">
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/img/logo/favicon.ico'); ?>">
 
 	<!-- BEGIN VENDOR CSS-->
 	<?php echo link_tag('assets/css/vendors.css'); ?>
@@ -39,10 +39,8 @@
 	<!-- END Custom CSS-->
 </head>
 
-<body class="vertical-layout vertical-menu 1-column menu-expanded blank-page blank-page" data-open="click"
-	data-menu="vertical-menu" data-col="1-column" style="background: #06beb6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
+<body class="vertical-layout vertical-menu 1-column bg-main menu-expanded blank-page blank-page" data-open="click"
+	data-menu="vertical-menu" data-col="1-column">
 
 	<div class="app-content content">
 		<div class="content-wrapper">
@@ -52,23 +50,21 @@ background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, F
 				<section class="flexbox-container">
 					<div class="col-12 d-flex align-items-center justify-content-center">
 						<div class="col-lg-4 col-md-4 col-12">
-
 							<div class="card">
 								<div class="card-content text-center">
 									<div class="card-body">
 										<img src="<?php echo base_url('assets/images/logo/logo-dark-lg.png'); ?>"
-											alt="<?php echo PROJECT_NAME; ?>" class="img-responsive mx-auto pb-2">
-										<?php
-										if (!empty($ac_data['ac_title'])) {
-											?>
-											<div class="alert alert-<?php echo $ac_data['ac_class'] ?> fade show"
-												role="alert">
-												<h4><?php echo $ac_data['ac_title'] ?></h4>
-												<p><?php echo $ac_data['ac_msg'] ?></p>
-											</div>
+											alt="<?php echo PROJECT_NAME; ?>" class="img-responsive mx-auto pb-3">
 											<?php
-										}
-										?>
+												if (!empty($ac_data['ac_title'])) {
+													?>
+													<div class="alert alert-<?php echo $ac_data['ac_class'] ?> fade show" role="alert">
+														<h4><?php echo $ac_data['ac_title'] ?></h4>
+														<p><?php echo $ac_data['ac_msg'] ?></p>
+													</div>
+													<?php
+												}
+												?>
 										<?php echo form_open('login/validateLogin', array('id' => 'submitForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
 
 										<fieldset class="form-group position-relative has-icon-left">

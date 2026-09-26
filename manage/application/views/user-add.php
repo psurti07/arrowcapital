@@ -86,7 +86,7 @@ window.onload = function() {
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="city">State <span class="required">*</span></label>
+                                        <label for="state">State <span class="required">*</span></label>
                                         <input type="text" name="state" id="state" class="form-control" required
                                             style="background-color: #ffffff;">
                                         <div class="help-block font-small-3"></div>

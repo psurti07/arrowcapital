@@ -17,7 +17,7 @@ include_once(APPPATH . 'views/includes/header.php');
 <div class="content-body">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="card border">
+			<div class="card">
 				<div class="card-content collapse show">
 					<div class="card-body">
 
@@ -53,7 +53,7 @@ include_once(APPPATH . 'views/includes/header.php');
 		</div>
 
 		<div class="col-md-12">
-			<div class="card border">
+			<div class="card">
 				<div class="card-content collapse show">
 					<div class="card-body">
 						<dl class="row mb-0">
@@ -86,7 +86,7 @@ include_once(APPPATH . 'views/includes/header.php');
 		</div>
 
 		<div class="col-md-12">
-			<div class="card border">
+			<div class="card">
 				<div class="card-content collapse show">
 					<div class="card-body">
 						<dl class="row mb-0">
@@ -132,133 +132,55 @@ include_once(APPPATH . 'views/includes/header.php');
 				</div>
 			</div>
 		</div>
+
 		<div class="col-md-12">
-			<div class="card border">
+			<div class="card">
 				<div class="card-content collapse show">
-					<div class="card-body">			
-						
+					<div class="card-body">
 						<dl class="row mb-0">
 							<dt class="col-md-3 col-12">Whatsapp Campaign - Remarketing</dt>
 							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmain', array('id' => 'filterForm6', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignmain" type="text" class="input-sm form-control col-md-9" id="wpcampaignmain" value="<?php echo $sitedetails['wpcampaignmain']->option_value; ?>" aria-colspan=""style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
+								<?php echo form_open('site/updatewpcampmain', array('id' => 'filterForm6', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
+								<span class="mr-2"><input name="wpcampaignmain" type="text" class="input-sm form-control col-md-9"
+										id="wpcampaignmain" value="<?php echo $sitedetails['wpcampaignmain']->option_value; ?>"
+										style="display: inline;" /></span>
+								<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
+								<?php echo form_close(); ?>
 							</dd>
 						</dl>
-					
-						<hr class="mb-2" />
 
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Remarketing - Image URL</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainimgurl', array('id' => 'filterForm6', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignmain_imgurl" type="text" class="input-sm form-control col-md-9" id="wpcampaignmain_imgurl" value="<?php echo $sitedetails['wpcampaignmain_imgurl']->option_value; ?>" aria-colspan=""style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-					
 						<hr class="mb-2" />
-
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Remarketing - Image Name</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmain_image_name', array('id' => 'filterForm6', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignmain_imgname" type="text" class="input-sm form-control col-md-9" id="wpcampaignmain_imgname" value="<?php echo $sitedetails['wpcampaignmain_imgname']->option_value; ?>" aria-colspan=""style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-		
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<div class="card border">
-				<div class="card-content collapse show">
-					<div class="card-body">
 
 						<dl class="row mb-0">
 							<dt class="col-md-3 col-12">Whatsapp Campaign - Get Offer</dt>
 							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainoffer', array('id' => 'filterForm7', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignoffer" type="text" class="input-sm form-control col-md-9" id="wpcampaignoffer" value="<?php echo $sitedetails['wpcampaignoffer']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
+								<?php echo form_open('site/updatewpcampmainoffer', array('id' => 'filterForm7', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
+								<span class="mr-2"><input name="wpcampaignoffer" type="text" class="input-sm form-control col-md-9"
+										id="wpcampaignoffer" value="<?php echo $sitedetails['wpcampaignoffer']->option_value; ?>"
+										style="display: inline;" /></span>
+								<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
+								<?php echo form_close(); ?>
 							</dd>
 						</dl>
-					
-						<hr class="mb-2" />
 
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Get Offer - Image URL</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainoffer_imgulr', array('id' => 'filterForm7', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignoffer_imgurl" type="text" class="input-sm form-control col-md-9" id="wpcampaignoffer_imgurl" value="<?php echo $sitedetails['wpcampaignoffer_imgurl']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-					
 						<hr class="mb-2" />
-
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Get Offer - Image Name</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainoffer_imgname', array('id' => 'filterForm7', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignoffer_imgname" type="text" class="input-sm form-control col-md-9" id="wpcampaignoffer_imgname" value="<?php echo $sitedetails['wpcampaignoffer_imgname']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-		</div>			
-		<div class="col-md-12">
-			<div class="card border">
-				<div class="card-content collapse show">
-					<div class="card-body">
 
 						<dl class="row mb-0">
 							<dt class="col-md-3 col-12">Whatsapp Campaign - Payment Success</dt>
 							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainsuccess', array('id' => 'filterForm8', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignsuccess" type="text" class="input-sm form-control col-md-9" id="wpcampaignsuccess" value="<?php echo $sitedetails['wpcampaignsuccess']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-
-						<hr class="mb-2" />
-
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Payment Success - Image URL</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainsuccess_imgurl', array('id' => 'filterForm8', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignsuccess_imgurl" type="text" class="input-sm form-control col-md-9" id="wpcampaignsuccess_imgurl" value="<?php echo $sitedetails['wpcampaignsuccess_imgurl']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
-							</dd>
-						</dl>
-
-						<hr class="mb-2" />
-
-						<dl class="row mb-0">
-							<dt class="col-md-3 col-12">Whatsapp Campaign - Payment Success - Image Name</dt>
-							<dd class="col-md-9 col-12">
-							<?php echo form_open('site/updatewpcampmainsuccess_imgname', array('id' => 'filterForm8', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-							<span class="mr-2"><input name="wpcampaignsuccess_imgname" type="text" class="input-sm form-control col-md-9" id="wpcampaignsuccess_imgname" value="<?php echo $sitedetails['wpcampaignsuccess_imgname']->option_value; ?>" style="display: inline;" /></span>
-							<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
-							<?php echo form_close(); ?>
+								<?php echo form_open('site/updatewpcampmainsuccess', array('id' => 'filterForm8', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
+								<span class="mr-2"><input name="wpcampaignsuccess" type="text" class="input-sm form-control col-md-9"
+										id="wpcampaignsuccess" value="<?php echo $sitedetails['wpcampaignsuccess']->option_value; ?>"
+										style="display: inline;" /></span>
+								<button class="btn btn-outline-dark btn-sm" name="submit" type="submit">Update</button>
+								<?php echo form_close(); ?>
 							</dd>
 						</dl>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 

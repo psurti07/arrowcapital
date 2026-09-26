@@ -22,10 +22,10 @@
             <tbody>
                 <tr>
                   <td style="vertical-align:bottom;word-wrap:break-word;float:left;width:50%;text-align:left;">
-                    <b><?php echo COMPANY_NAME;?></b>
-                    <br>
+                    <b style="font-size:14pt;">fintopcorporate</b><br>
+                    <b>Rang Consultancy India Pvt. Ltd.</b><br/>
                     <div>
-                    <span style="white-space: pre-wrap;" id="tmp_org_address">1st Floor, Plot-29,<br/>Parvati Nagar Co Op H Society-2,<br/>Katargam Road, RS No.-123/1 Paiky, Surat - 395004<br/>Mo.: <?php echo COMPANY_MOBILE;?><br/>Email: <?php echo COMPANY_EMAIL;?><br/>LLP No.: <?php echo COMPANY_LLP;?><br/>GST No.: <?php echo COMPANY_GST;?></span>
+                      <span style="white-space: pre-wrap;" id="tmp_org_address">Plot No 29, 2nd Floor,<br/> Parvati Nager Co Op Soc.,<br/> Dabholi Road, Katargam, <br/> Surat, Gujarat, India - 395004<br/>Mo.: <?php echo COMPANY_MOBILE; ?><br/>Email: <?php echo COMPANY_EMAIL; ?><br/>CIN No.: <?php echo COMPANY_CIN; ?><br/>GST No.: <?php echo COMPANY_GST; ?></span>
                      </div>
                   </td>
                   <td style="vertical-align:bottom;word-wrap:break-word;float:right;text-align:right;width:50%;">
@@ -125,7 +125,7 @@
                   </td>
 
                   <td style="vertical-align:bottom;word-wrap:break-word;float:right;width:50%;text-align:right;">
-                      <p style="margin-top:7px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong><?php echo COMPANY_NAME;?></strong></span></p>
+                      <p style="margin-top:7px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong>Rang Consultancy India Pvt. Ltd.</strong></span></p>
                   </td>
                 </tr>
             </tbody>

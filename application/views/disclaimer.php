@@ -1,20 +1,25 @@
-<?php $this->load->view('includes/header'); ?>
-<div class="single-blog-area padding-top inner-font-1 inner-blog-1 sp4">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 m-auto text-center mb-5">
-				<div class="hadding2 text-center">
-					<h1>Disclaimer</h1>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12 m-auto">
-				<div class="single-blog-contents">
-					<?=$contentdetails->option_value;?>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php $this->load->view('includes/header.php'); ?>
+
+<div class="section bg-lend-blue pt-0 pb-0">
+    <div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Disclaimer</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
+            </div>
+        </div>
+    </div>
 </div>
-<?php $this->load->view('includes/footer'); ?>
+<div class="section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12 text-dark">
+                <?=$contentdetails->option_value;?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php $this->load->view('includes/footer.php'); ?>

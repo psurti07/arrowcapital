@@ -1,56 +1,54 @@
-<?php $this->load->view('customer/includes/header-apply'); ?>
-<div class="page-hero page-hero-inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-hero-haddig text-center">
-                        <h1 class="text-dark">Apply Now</h1>
-                    </div>
+<?php $this->load->view('customer/includes/header-apply.php'); 
+
+ $pllink = $bllink = "#";
+    
+    if($profiledata->cardtype == 11) {
+    	$pllink = site_url('customer/onlineprocess/personalLoan');
+    	$bllink = site_url('customer/onlineprocess/businessLoan');
+    }
+    else if($profiledata->cardtype == 12) {
+    	$pllink = site_url('customer/onlineprocess/personalLoan');
+    	$bllink = site_url('customer/onlineprocess/businessloan');
+    }
+?>
+
+<div class="section-sm bg-lend-blue pt-0 pb-0" id="home">
+    <div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Apply Now</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-xl bg-gray">
+    <div class="container">
+        <div class="row icon-5xl g-4">
+            <div class="col-12 col-lg-6">
+                <div class="bg-white border border-radius hover-shadow hover-float p-4 p-lg-5">
+                    <i class="bi bi-briefcase text-gradient-6"></i>
+                    <h5 class="fw-normal mt-2">Personal Loan</h5>
+                    <p class="pt-2"><a href="<?php echo $pllink; ?>"
+                            class="button button-md button-backdrop-color-blue font-14">REAPPLY NOW <span><i
+                                    class="fa-solid fa-arrow-right"></i></a></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="bg-white border border-radius hover-shadow hover-float p-4 p-lg-5">
+                    <i class="bi bi-briefcase text-gradient-6"></i>
+                    <h5 class="fw-normal mt-2">Business Loan</h5>
+                    <p class="pt-2"><a href="<?php echo $bllink; ?>"
+                            class="button button-md button-backdrop-color-blue font-14">REAPPLY NOW <span><i
+                                    class="fa-solid fa-arrow-right"></i></a></p>
                 </div>
             </div>
         </div>
-      </div>
+    </div>
+</div>
 
-<!--=====service start=======-->
-<div class="about-page-service sp3">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="">
-                <div class="service1-box">
-                  <div class="">
-                    <div class="service1-box-icon">
-                      <i class="fa-solid fa-info"></i>
-                    </div>
-                  </div>
-                  <div class="hadding1 text-start">
-				  	<h2>Personal Loan</a></h2>
-                    <div class="space14"></div>
-                      <a class="learn-more1" href="<?=base_url('customer/loan/reapplypersonal')?>">REAPPLY NOW<span><i class="fa-solid fa-arrow-right"></i></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-lg-6">
-              <div class="">
-                <div class="service1-box">
-                  <div class="">
-                    <div class="service1-box-icon">
-                        <i class="fa-solid fa-info"></i>
-                    </div>
-                  </div>
-                  <div class="hadding1 text-start">
-                    <h2>Business Loan</a></h2>
-                    <div class="space14"></div>
-                      <a class="learn-more1" href="<?=base_url('customer/loan/reapplybusiness')?>">REAPPLY NOW<span><i class="fa-solid fa-arrow-right"></i></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <!--=====service end=======-->
-<?php $this->load->view('customer/includes/footer-apply'); ?>
+<?php $this->load->view('customer/includes/footer-apply.php'); ?>

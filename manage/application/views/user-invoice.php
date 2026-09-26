@@ -21,11 +21,11 @@
             <tbody>
                 <tr>
                   <td style="vertical-align:bottom;word-wrap:break-word;float:left;width:50%;text-align:left;">
-                    <b style="font-size:14pt;">Cashindia.in</b><br>
-                    <b><?php echo COMPANY_NAME;?></b><br/>
+                    <b style="font-size:14pt;">fintopcorporate</b><br>
+                    <b><?php echo COMPANY_NAME; ?></b><br/>
                     <div>
-                    <span style="white-space: pre-wrap;" id="tmp_org_address">1st Floor, Plot-29,<br/>Parvati Nagar Co Op H Society-2,<br/>Katargam Road, RS No.-123/1 Paiky, Surat - 395004<br/>Mo.: <?php echo COMPANY_MOBILE;?><br/>Email: <?php echo COMPANY_EMAIL;?><br/>LLP No.: <?php echo COMPANY_LLP;?><br/>GST No.: <?php echo COMPANY_GST;?></span>
-                      
+                      <span style="white-space: pre-wrap;" id="tmp_org_address">Plot No 29, 2nd Floor,<br/> Parvati Nager Co Op Soc.,<br/> Dabholi Road, Katargam, <br/> Surat, Gujarat, India - 395004<br/>Mo.: <?php echo COMPANY_MOBILE; ?><br/>Email: <?php echo COMPANY_EMAIL; ?><br/>LLP No.: <?php echo COMPANY_LLP; ?><br/>GST No.: <?php echo COMPANY_GST; ?></span>
+                     </div>
                   </td>
                   <td style="vertical-align:top;word-wrap:break-word;float:right;text-align:right;width:50%;">
                       <span style="font-size: 28pt;color: #817d7d;">INVOICE</span>
@@ -171,7 +171,7 @@
                   </td>
 
                   <td style="vertical-align:bottom;word-wrap:break-word;float:right;width:50%;text-align:right;">
-                      <p style="margin-top:20px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong><?php echo COMPANY_NAME;?></strong></span></p>
+                      <p style="margin-top:20px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong><?php echo COMPANY_NAME; ?></strong></span></p>
                   </td>
                 </tr>
             </tbody>

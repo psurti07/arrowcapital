@@ -1,65 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=`device-width`, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="author" content="Cashindia">
-	<meta name="description" content="<?php if(isset($meta->descriptions)) { echo $meta->descriptions; } ?>">
-	<meta name="keywords" content="<?php if(isset($meta->keywords)) { echo $meta->keywords; } ?>">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Fintopcorporate">
+	<meta name="description" content="Fintopcorporate">
+	<meta name="keywords" content="Fintopcorporate">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--=====Title=======-->
-	<title><?php if (isset($meta->title)) {
-				echo $meta->title;
-			} else {
-				echo "Apply for Instant Personal Loan Online approvals | Cashindia";
-			} ?></title>
-    <!--=====FAV ICON=======-->
-  <link rel="shortcut icon" href="<?= base_url('assets/img/logo/favicon.ico')?>" type="image/x-icon">
-	<link rel="icon" href="<?= base_url('assets/img/logo/favicon.ico')?>" type="image/x-icon">
-	<link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('assets/img/logo/apple-icon.png') ?>">
-	<link rel="apple-touch-icon" sizes="120x120" href="<?= base_url('assets/img/logo/apple-icon-180x180.png') ?>">
-	<link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/img/logo/apple-touch-icon.png') ?>">
-	<link rel="apple-touch-icon" href="<?= base_url('assets/img/logo/apple-touch-icon.png') ?>">
-	<link rel="icon" href="<?= base_url('assets/img/logo/apple-touch-icon.png') ?>" type="image/x-icon">
- <!--=====CSS=======-->
- <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome-pro.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/magnific-popup.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/owl.carousel.min.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/slick-slider.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/meanmenu.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/typography.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/mobile-menu.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/aos.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/header.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/footer.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/fonts.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/blog-page.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/modal-video.min.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/nice-select.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/comon.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/animation.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/advisr-unit.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/advisr-core.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css') ?>"/>
- <link rel="stylesheet" href="<?= base_url('assets/css/rateit.css') ?>"/>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+	<title>
+		<?php if (isset($meta->title)) {
+			echo $meta->title;
+		} else {
+			echo "Apply for Instant Personal Loan Online approvals | Fintopcorporate";
+		} ?>
+	</title>
+	<!--=====Fav icon=======-->
+	<link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.ico') ?>" type="image/x-icon" />
+	<!--=====CSS=======-->
+	<link href="<?= base_url('assets/plugins/bootstrap/bootstrap.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/owl-carousel/owl.carousel.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/owl-carousel/owl.theme.default.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/magnific-popup/magnific-popup.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/scrollcue/scrollcue.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/css/theme.css?t=122') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/bootstrap-icons/bootstrap-icons.css') ?>" rel="stylesheet">
+	
+	<link href="<?= base_url('assets/css/validation/form-validation.css')?>" rel="stylesheet">
 
-  <!--=====JQUERY=======-->
-  <script src="<?= base_url('assets/js/jquery-3-6-0.min.js') ?>"></script>
-  <!-- Facebook Domain + Pixel Code -->
+	<!-- Fonts/Icons -->
+	<link href="<?= base_url('assets/css/theme-colors/theme-color-very-peri.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/bootstrap-icons/bootstrap-icons.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/plugins/font-awesome/css/all.css') ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+	<!--===== jQuery=======-->
+	<script src="<?= base_url('assets/js/plugins/jquery-3-6-0.min.js'); ?>"></script>
+	<!-- Facebook Domain + Pixel Code -->
 	<?php
-  $fbdomain = getFacebookDomain();
-  if ($fbdomain != Null) {
-    echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-  }
+	$fbdomain = getFacebookDomain();
+	if ($fbdomain != null) {
+		echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+	}
 
-  $fbpixel = getFacebookPixel();
-  if ($fbpixel != Null) {
-?>
-
+	$fbpixel = getFacebookPixel();
+	if ($fbpixel != null) {
+		?>
 	<script>
 		! function (f, b, e, v, n, t, s) {
 			if (f.fbq) return;
@@ -87,66 +74,101 @@
 			src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
 	<?php } ?>
 	<!-- End Facebook Domain + Pixel Code -->
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MJNDXT2MK"></script>
+	 <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17048113816"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-6MJNDXT2MK');
+  gtag('config', 'AW-17048113816');
 </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRTV8KYCZ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JRTV8KYCZ5');
+</script>
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MZVQLW9B');</script>
+})(window,document,'script','dataLayer','GTM-P8V45478');</script>
 <!-- End Google Tag Manager -->
+
+<script type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "rfosexlw9n"); </script>
+<style>
+.talk-expert {
+	position: relative;
+}
+.expert-card {
+    position: absolute;
+    top: 100%;
+    right: 0; /* Align card to right edge of button */
+    width: 360px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+.expert-card p {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.talk-expert a:hover {
+   color:#fff !important;
+}
+.talk-expert:hover .expert-card {
+    opacity: 1;
+    visibility: visible;
+}
+</style>
 </head>
 
-<body class="font-f-1">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZVQLW9B"
+<body class="theme-color-very-peri preloader-theme d-flex flex-column min-vh-100" data-preloader="1">
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8V45478"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <div class="paginacontainer"> 
-    <div class="progress-wrap">
-      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-      </svg>
-    </div>
-  </div> 
-
-<!--=====progress END=======-->
-    <!--=====HEADER START=======-->
-    <header>
-      <div class="header-area" id="header">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="header-elements">
-                <div class="site-logo home1-site-logo">
-                  <a href="javascript:void(0);"><img src="<?= base_url('assets/img/logo/cashindia.png') ?>" alt="" width="200"/></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!--=====HEADER END=======-->
-
-    <!--=====Mobile header start=======-->
-    <div class="mobile-header mobile-header-4 d-block d-lg-none ">
-      <div class="container-fluid">
-        <div class="col-12">
-          <div class="mobile-header-elements">
-            <div class="mobile-logo">
-              <a href="javascript:void(0)"><img src="<?= base_url('assets/img/logo/cashindia.png') ?>" alt="" width="180"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--=====Mobile header end=======-->
+	<!--=====Header start=======-->
+	<header class="border-bottom" id="header">
+		<div class="header">
+			<div class="container">
+				<!-- Logo -->
+				<div class="header-logo">
+					<a href="#"><img src="<?= base_url('assets/images/logo/logo.png') ?>" alt="Fintopcorporate" /></a>
+				</div>
+								
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item talk-expert">
+						<a class="btn btn-sm btn-outline-primary">
+							<i class="fa fa-phone"></i> Talk to Expert
+						</a>
+						<div class="expert-card">
+							<p>
+								<i class="fa fa-phone"></i> Call Us:
+								<a href="tel:8980379437"><?php echo COMPANY_MOBILE; ?></a>
+							</p>
+							<p>
+								<i class="fa fa-envelope"></i> Email Us:
+								<a href="mailto:info@fintopcorporate.com"><?php echo COMPANY_EMAIL ?></a>
+							</p>
+						</div>
+					</li>
+				</ul>
+				
+			</div><!-- end container -->
+		</div>
+	</header>
+	<!--=====Header end=======-->

@@ -181,7 +181,24 @@ Class Site_Payment_Gateway_Model extends CI_Model {
 		 ->update('airpay_entry', $data);
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
 	}
+	
+	public function payuentry($data){
+		$this->db->insert('payu_entry',$data);
+		$id = $this->db->insert_id();
+		return $id;
+	}
 
+	public function getpayuentry($id){
+		$query = $this->db->where('orderid', $id)
+				->get('payu_entry');
+		return $query->row(); 
+	}
+
+	public function updatepayuentry($id, $data){
+		$sql_query=$this->db->where('id', $id)
+					->update('payu_entry', $data); 
+		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
+	}
 	public function paygicentry($data) {
 		$this->db->insert('paygic_entry', $data);
 		$id = $this->db->insert_id();
@@ -202,39 +219,25 @@ Class Site_Payment_Gateway_Model extends CI_Model {
 		return $flag;
 	}
 
-	public function openmoneyentry($data){
-		$this->db->insert('openmoney_entry',$data);
+	public function vegaahentry($data) {
+		$this->db->insert('vegaah_entry', $data);
 		$id = $this->db->insert_id();
-
 		return $id;
 	}
 
-	public function getopenmoneyentry($id){
-		$query = $this->db->where('orderid', $id)
-				->get('openmoney_entry');
-		return $query->row(); 
+	public function getvegaahentry($orderid) {
+		$query = $this->db->where('orderid', $orderid)
+		 ->get('vegaah_entry')
+		 ->row();
+		return $query;
 	}
 
-	public function updateopenmoneyentry($id, $data){
-		$sql_query=$this->db->where('id', $id)
-					->update('openmoney_entry', $data); 
-		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-	}
-	
-	public function getPendingOrdersData(){
-		$this->db->select('*');
-		$this->db->from('zaakpay_entry');
-		$this->db->where('statuscode IS NULL', null, false); 
-		$this->db->where_in('entryfor', [11, 12]);
-		$this->db->where('rec_date >=', date('Y-m-d H:i:s', strtotime('-2 hours')));
-		$this->db->order_by('rec_date', 'DESC');          
-		$query = $this->db->get();
-		return $query->result();
+	public function updatevegaahentry($id, $data) {
+		$query = $this->db->where('id', $id)
+		 ->update('vegaah_entry', $data);
+		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
+		return $flag;
 	}
 
-	public function updateZaakpayEntryOrder($orderId, $data){
-		$this->db->where('orderid', $orderId);
-		return $this->db->update('zaakpay_entry', $data);
-	}
 }
 ?>

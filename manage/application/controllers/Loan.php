@@ -9,7 +9,7 @@ Class Loan extends MY_Controller {
 			redirect('login');
 		}
 	}
-	
+
 	public function index(){
 		$dt_to = date('Y-m-d', strtotime('-2 days'));
 		$dt_from = date('Y-m-d');
@@ -203,6 +203,7 @@ Class Loan extends MY_Controller {
 			   		'process_step' => 9
 				);
 				break;
+
 			case '6':
 				$data2 = array(
 			   		'update_date' => date('Y-m-d H:i:s'),

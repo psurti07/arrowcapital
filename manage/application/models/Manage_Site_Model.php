@@ -195,31 +195,6 @@ class Manage_Site_Model extends CI_Model
 		$query13 = $this->db->where('option_key', 'wpcampaignsuccess')
 			->get('site_options');
 		$settings['wpcampaignsuccess'] = $query13->row();
-
-		$query14 = $this->db->where('option_key', 'wpcampaignmain_imgurl')
-		->get('site_options');
-		$settings['wpcampaignmain_imgurl'] = $query14->row();
-
-		$query15 = $this->db->where('option_key', 'wpcampaignmain_imgname')
-			->get('site_options');
-		$settings['wpcampaignmain_imgname'] = $query15->row();
-
-		$query16 = $this->db->where('option_key', 'wpcampaignoffer_imgurl')
-			->get('site_options');
-		$settings['wpcampaignoffer_imgurl'] = $query16->row();
-
-		$query17 = $this->db->where('option_key', 'wpcampaignoffer_imgname')
-			->get('site_options');
-		$settings['wpcampaignoffer_imgname'] = $query17->row();
-
-		$query18 = $this->db->where('option_key', 'wpcampaignsuccess_imgurl')
-			->get('site_options');
-		$settings['wpcampaignsuccess_imgurl'] = $query18->row();
-
-		$query19 = $this->db->where('option_key', 'wpcampaignsuccess_imgname')
-			->get('site_options');
-		$settings['wpcampaignsuccess_imgname'] = $query19->row();
-
 		return $settings;
 	}
 
@@ -626,7 +601,7 @@ class Manage_Site_Model extends CI_Model
 
 		return $id;
 	}
-		public function getStaffByEmail($email) {
+	public function getStaffByEmail($email) {
         $this->db->where('emailid', $email);
         $this->db->where('isDelete', 0); // optional if using soft deletes
         $query = $this->db->get('administration'); // Replace 'staff' with your actual table name

@@ -9,7 +9,7 @@ Class Users extends MY_Controller {
 			redirect('login');
 		}
 	}
-	
+
 	public function index(){
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
@@ -143,7 +143,18 @@ Class Users extends MY_Controller {
 						$igstamount = $netamount * 0.18;
 					}
 
-					$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+					$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
+
+					/*$grandtotal = $_REQUEST['cardamount'];
+
+					if($_REQUEST['state'] == 'Gujarat') {
+						$cgstamount = $grandtotal * 9 / 118;
+						$sgstamount = $grandtotal * 9 / 118;
+					} else {
+						$igstamount = $grandtotal * 18 / 118;
+					}
+
+					$netamount = $grandtotal * 100 / 118;*/
 				}
 				
 				if(isset($_REQUEST['paymentid']) && $_REQUEST['paymentid']!='') {
@@ -184,11 +195,11 @@ Class Users extends MY_Controller {
 					'inv_prefix' => $invprefix,
 					'inv_number' => $invoiceno,
 					'inv_date' => date('Y-m-d'),
-					'inv_price' => $netamount,
-					'inv_cgst' => $cgstamount,
-					'inv_sgst' => $sgstamount,
-					'inv_igst' => $igstamount,
-					'inv_grandtotal' => $grandtotal,
+					'inv_price' => number_format($netamount,2),
+					'inv_cgst' => number_format($cgstamount,2),
+					'inv_sgst' => number_format($sgstamount,2),
+					'inv_igst' => number_format($igstamount,2),
+					'inv_grandtotal' => number_format($grandtotal,2),
 					'isDelete' => 0
 				);
 
@@ -203,7 +214,6 @@ Class Users extends MY_Controller {
 				);
 
 				$this->Manage_User_Model->invoce_log_data($invoce_log_data);
-
 
 				$remote_data = array(
 					'company_code' => COMPANY_CODE,
@@ -226,7 +236,8 @@ Class Users extends MY_Controller {
 					'inv_grandtotal' => $grandtotal,
 				);
 
-				$api_response = send_order_data(json_encode($remote_data));	
+				$api_response = send_order_data(json_encode($remote_data));
+				
 
 				$data4 = array(
 					'payout' => 0,
@@ -241,7 +252,6 @@ Class Users extends MY_Controller {
 					'countryCode' => '+91',
 					'event' => 'Payment Successful'
 				);
-					
 				$restrack2 = event_track($et_track);
 
 				$maildata = array(
@@ -680,7 +690,18 @@ Class Users extends MY_Controller {
 					$igstamount = $netamount * 0.18;
 				}
 
-				$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+				$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
+
+				/*$grandtotal = $_REQUEST['cardamount'];
+
+				if($userdata->state == 'Gujarat') {
+					$cgstamount = $grandtotal * 9 / 118;
+					$sgstamount = $grandtotal * 9 / 118;
+				} else {
+					$igstamount = $grandtotal * 18 / 118;
+				}
+
+				$netamount = $grandtotal * 100 / 118;*/
 			}
 			
 			if(isset($_REQUEST['paymentid']) && $_REQUEST['paymentid']!='') {
@@ -737,18 +758,18 @@ Class Users extends MY_Controller {
 				}
 
 				$data5 = array(
-					'rec_date' => date('Y-m-d H:i:s'),
+					'rec_date' => $date_time,
 					'userid' => $userdata->id,
 					'cardid' => $subscriptionid,
 					'inv_for' => $invfor,
 					'inv_prefix' => $invprefix,
 					'inv_number' => $invoiceno,
 					'inv_date' => date('Y-m-d'),
-					'inv_price' => $netamount,
-					'inv_cgst' => $cgstamount,
-					'inv_sgst' => $sgstamount,
-					'inv_igst' => $igstamount,
-					'inv_grandtotal' => $grandtotal,
+					'inv_price' => number_format($netamount,2),
+					'inv_cgst' => number_format($cgstamount,2),
+					'inv_sgst' => number_format($sgstamount,2),
+					'inv_igst' => number_format($igstamount,2),
+					'inv_grandtotal' => number_format($grandtotal,2),
 					'isDelete' => 0
 				);
 
@@ -764,28 +785,28 @@ Class Users extends MY_Controller {
 
 				$this->Manage_User_Model->invoce_log_data($invoce_log_data);
 
-				$remote_data = array(
-								'company_code' => COMPANY_CODE,
-								'company_local_ip' => LOCAL_IP,
-								'product_code' => 'subscription',
-								'customer_name' => $userdata->fullname,
-								'customer_email' => $userdata->email,
-								'customer_mobile' => $userdata->mobile,
-								'userid' => $userdata->id,
-								'card_number' => $cardno,
-								'rec_date' => date('Y-m-d H:i:s'),
-								'inv_for' => $invfor,
-								'inv_prefix' => $invprefix,
-								'inv_number' => $invoiceno,
-								'inv_date' => date('Y-m-d'),
-								'inv_price' => $netamount,
-								'inv_cgst' => $cgstamount,
-								'inv_sgst' => $sgstamount,
-								'inv_igst' => $igstamount,
-								'inv_grandtotal' => $grandtotal,
-							);
+					$remote_data = array(
+						'company_code' => COMPANY_CODE,
+						'company_local_ip' => LOCAL_IP,
+						'product_code' => 'subscription',
+						'customer_name' => $userdata->fullname,
+						'customer_email' => $userdata->email,
+						'customer_mobile' => $userdata->mobile,
+						'userid' => $userdata->id,
+						'card_number' => $cardno,
+						'rec_date' => $date_time,
+						'inv_for' => $invfor,
+						'inv_prefix' => $invprefix,
+						'inv_number' => $invoiceno,
+						'inv_date' => date('Y-m-d'),
+						'inv_price' => $netamount,
+						'inv_cgst' => $cgstamount,
+						'inv_sgst' => $sgstamount,
+						'inv_igst' => $igstamount,
+						'inv_grandtotal' => $grandtotal,
+					);
 
-							$api_response = send_order_data(json_encode($remote_data));
+					$api_response = send_order_data(json_encode($remote_data));
 
 				$data4 = array(
 					'payout' => 0,
@@ -800,9 +821,7 @@ Class Users extends MY_Controller {
 					'countryCode' => '+91',
 					'event' => 'Payment Successful'
 				);
-					
 				$restrack2 = event_track($et_track);
-
 
 				$maildata = array(
 					'fullname' => $userdata->fullname,

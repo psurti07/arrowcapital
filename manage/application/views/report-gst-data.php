@@ -91,7 +91,7 @@ include_once(APPPATH . 'views/includes/header.php');
 
                       echo "<td class='text-right'>" . formatePriceIndia($row['inv_grandtotal']) . "</td>";
                       $totalamount += $row['inv_grandtotal'];
-                      
+
                       echo "<td width='250' class='dont-break-out'>" . htmlentities($row['paymentid']) . "</td>";
 
                       echo "<td class='text-capitalize'>" . htmlentities($row['fullname']) . "</td>";
@@ -107,6 +107,8 @@ include_once(APPPATH . 'views/includes/header.php');
                       echo "<td>" . htmlentities($row['city']) . "</td>";
 
                       echo "<td>" . htmlentities($row['state']) . "</td>";
+
+                     
 
                       echo "</tr>";
                       $cnt++;

@@ -45,8 +45,9 @@
                         	foreach ($banklist as $row) {
                         		echo "<tr>";
                         		echo "<td width='50'>".htmlentities($cnt)."</td>";
-                        		echo "<td><img src='".COMPANY_SITE."/assets/img/banks/".htmlentities($row->bank_image)."' width='200'></td>";
-                            
+                        		// echo "<td><img src='".COMPANY_SITE."/assets/images/banks/".htmlentities($row->bank_image)."' width='200'></td>";
+                        		echo "<td><img src='../assets/images/banks/".htmlentities($row->bank_image)."' width='200'></td>";
+
                             echo "<td>".htmlentities($row->bank_name)."</td>";
                         		echo "<td>".htmlentities($row->order_no)."</td>";
                             

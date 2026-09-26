@@ -13,7 +13,7 @@ class Partnersturnover extends CI_Controller {
     }
 
 	public function subscription(){
-	    $recDate = date('Y-m-d', strtotime('-14 days'));
+	    $recDate = date('Y-m-d', strtotime('-1 days'));
 	    $where = "DATE(m.rec_date) between '". $recDate ."' AND '". $recDate ."'";
 	    $data = $this->db->select('COUNT(DISTINCT i.userid) AS totalusers, IFNULL(SUM(i.inv_price), 0) AS totalamount')
             ->from('subscription_order as m')

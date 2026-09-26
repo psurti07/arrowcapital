@@ -55,29 +55,30 @@ Class Customer_Digital_Model extends CI_Model {
 	
 	public function sendGreetings($mobile='', $emailid='', $loan){
 		if($mobile != '') {
-			$message = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email id and login to the Customer Portal to submit the required documents. Thanks, Cashindia";
-			$smsresponse = sendtextSMSobb($mobile, $message);
+			$message = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email id and login to the Customer Portal to submit the required documents. Thanks fintopcorporate";
+			$tempid = '1707173920241361019';
+			$smsresponse = sendtextSMSobb($mobile, $message, $tempid);
 		}
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Cashindia";
+			$subject = "Welcome Fintopcorporate";
 			
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<p><strong>Congratulations!</strong></p>';
 			$message .= '<p>Submission of your loan application is done. Our Customer Executive will be in touch shortly.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Cashindia</p>';
+			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				// $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
 				$maildata = array(
-					'fullname' => $mobile,
+					'fullname' => $emailid,
 					'email' => $emailid
 				);
-				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
+				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 			}
 
 		}

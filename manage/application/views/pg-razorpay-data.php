@@ -74,7 +74,6 @@ include_once(APPPATH . 'views/includes/header.php');
                       echo "<td>" . htmlspecialchars($row->referenceid ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->txstatus ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->paymentmode ?? '') . "</td>";
-
                       echo "</tr>";
                       $cnt++;
                     }

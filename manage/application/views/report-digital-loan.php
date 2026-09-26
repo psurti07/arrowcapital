@@ -219,8 +219,8 @@
 			datasets: [{
 				label: "Total Leads",
 				data: [<?php echo $bardata; ?>],
-				backgroundColor: "#00b074",
-				hoverBackgroundColor: "#1b6451",
+				backgroundColor: "#2279be",
+				hoverBackgroundColor: "#2279be",
 				borderColor: "transparent"
 			}]
 		};

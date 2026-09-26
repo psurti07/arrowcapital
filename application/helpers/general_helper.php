@@ -589,4 +589,14 @@ function getStateAbbreviation($state_name = '') {
     return $statecode;
 }
 
+
+function getLockDateByDays() {
+	$currentDate = new DateTime();
+	$currentDate->modify(LOCK_DAYS);
+	$currentDate->setTime(0, 0, 0);
+	$lockdate = $currentDate->format('Y-m-d H:i:s');
+
+    return $lockdate;
+}
+
 ?>

@@ -25,6 +25,8 @@ $route['subscription-plan-benefits'] = "subscription/plan_benefits";
 $route['cardoffer'] = "pay/cardoffer";
 $route['ivrpaymentoffer'] = "pay/ivrpaymentoffer";
 $route['festivaloffer'] = "pay/festivaloffer";
+$route['megaoffer'] = "pay/megaoffer";
+$route['staroffer'] = "pay/staroffer";
 
 $route['customer'] = 'customer/Login';
 $route['customer/license-agreement'] = 'customer/dashboard/license_agreement';

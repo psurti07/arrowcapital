@@ -96,7 +96,6 @@ Class Sms extends MY_Controller {
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 		$parentid = 1;
-
 		if(isset($_REQUEST['dt_to'])) {
 			$dt_to = $_REQUEST['dt_to'];
 		}

@@ -39,7 +39,7 @@ Class Manage_Account_Model extends CI_Model {
 				if($row->inv_for == 1 || $row->inv_for == 2) {
 					$this->load->model('Manage_User_Model');
 					$response_user = $this->Manage_User_Model->getcarddetails($row->userid);
-					if($response_user){
+					if($response_user != ''){
 						$resrow['memberid'] = $response_user->id;
 						$resrow['fullname'] = $response_user->fullname;
 						$resrow['mobile'] = $response_user->mobile;
@@ -113,12 +113,11 @@ Class Manage_Account_Model extends CI_Model {
 				if($row->ref_for == 1 || $row->ref_for == 2) {
 					$this->load->model('Manage_User_Model');
 					$response_user = $this->Manage_User_Model->getuserdata($row->userid);
-					if($response_user){
-						$resrow['fullname'] = $response_user->fullname;
-						$resrow['mobile'] = $response_user->mobile;
-						$resrow['usertype'] = 'cust';
-						$resdata[] = $resrow;
-					}
+					
+					$resrow['fullname'] = $response_user->fullname;
+					$resrow['mobile'] = $response_user->mobile;
+					$resrow['usertype'] = 'cust';
+					$resdata[] = $resrow;
 				}
 			}
 		}
@@ -151,22 +150,27 @@ Class Manage_Account_Model extends CI_Model {
 
 	public function sendrefundmessage($mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Hello, your refund payment is successfully done. For any query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days). Thanks, Cashindia";
-			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
+			$smsmessage = "Hello, your refund payment is successfully done. For any query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days). Thanks,  Fintopcorporate";
+			//$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
-			$subject = "Refund Payment - Cashindia";
+			$subject = "Refund Payment - Fintopcorporate";
 			
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your refund payment is successfully done. For any query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days).</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Cashindia</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Fintopcorporate</p>';
 			
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				$maildata = array(
+					'fullname' => $emailid,
+					'email' => $emailid
+				);
+				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 			}
 		}
 

@@ -23,7 +23,8 @@ function callAjax(form,url){
 		}
 	})
 }
-/*theme:aG8yZ0hWWGYxd3JCejEvVlpEclZmWlB0R1Yza3FoK2JyUGkyUlk3akVPQT0=*/
+/* theme:cWpZTDBIUDVLM0ZvblpqTFcrOXlDVXJuSTg0NjBFcCtra2Q3OFlMeXMxaWVadXVVeW1BejVkWHNZaXhSTXZiSQ==
+*/
 $(document).ready(function(){
 	$.validator.addMethod("filesize", function(value, element, param) {
 		return this.optional(element) || (element.files[0].size <= param);
@@ -202,7 +203,7 @@ $(document).ready(function(){
 		},
 		messages:{
 			userfile:{
-				required: 'Bank Statement - Last 1 months field is required',
+				required: 'Bank Statement - Last 6 months field is required',
 				customExtension: 'Allowed file types are: JPG, JPEG, PNG, PDF, DOCX',
 				filesize: 'Image size must be less than 4mb',
 			}

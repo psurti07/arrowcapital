@@ -51,7 +51,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="la la-navicon font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="javascript:;">
-              <h3 class="brand-text"><img class="brand-text" alt="<?php echo PROJECT_NAME; ?>" src="<?php echo base_url('assets/images/logo/logo-dark-lg.png'); ?>"></h3>
+              <h3 class="brand-text"><img class="brand-text mt-1" alt="<?php echo PROJECT_NAME; ?>" src="<?php echo base_url('assets/images/logo/logo-light-name.png'); ?>"></h3>
             </a>
           </li>
           <li class="nav-item d-md-none">

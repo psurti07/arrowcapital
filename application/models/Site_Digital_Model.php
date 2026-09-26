@@ -116,23 +116,29 @@ Class Site_Digital_Model extends CI_Model {
 					$message = $this->Site_Info_Model->getsmsmessage('pl-process-sms');
 
 					if($message != ''){
-						$smsresponse = senddynamicSMSobb($mobile, $message);
+						$tempid = "1707173841083786997";
+						$smsresponse = senddynamicSMSobb($mobile, $message, $tempid);
 					}
 				}
 				
 				if($emailid != '') {
 					// Send email
-					/* $subject = "Welcome Cashindia";
+					/* $subject = "Welcome Fintoporporate";
 					
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://cashindia.in/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thank You,<br/>Cashindia</p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thank You,<br/>Fintopcorporate</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
 
 					if($content != '') {
-						$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+						//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+						$maildata = array(
+							'fullname' => $emailid,
+							'email' => $emailid
+						);
+						$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 					} */
 				}
 				break;
@@ -143,23 +149,29 @@ Class Site_Digital_Model extends CI_Model {
 					$message = $this->Site_Info_Model->getsmsmessage('bl-process-sms');
 
 					if($message != ''){
-						$smsresponse = senddynamicSMSobb($mobile, $message);
+						$tempid = "1707173841083786997";
+						$smsresponse = senddynamicSMSobb($mobile, $message, $tempid);
 					}
 				}
 				
 				if($emailid != '') {
 					// Send email
-					/* $subject = "Welcome Cashindia";
+					/* $subject = "Welcome Fintopcorporate";
 			
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://cashindia.in/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thank You,<br/>Cashindia</p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thank You,<br/>Fintopcorporate</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
 
 					if($content != '') {
-						$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+						//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+						$maildata = array(
+							'fullname' => $emailid,
+							'email' => $emailid
+						);
+						$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 					} */
 				}
 				break;
@@ -184,17 +196,18 @@ Class Site_Digital_Model extends CI_Model {
 					$premessage = str_replace("<#preamount>",$eligibilityamtin,$message);
 
 					if($premessage != ''){
+						//$tempid = "1707173920231428257";
 						$smsresponse = senddynamicSMSobb($mobile, $premessage);
 					}
 				}
 				
 				if($emailid != '') {
 					// Send email
-					$subject = "Welcome Cashindia";
+					$subject = "Welcome Fintopcorporate";
 
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://Cashindia.in/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thanks & Regards,<br/>Cashindia</p>';
+					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
@@ -220,7 +233,8 @@ Class Site_Digital_Model extends CI_Model {
 					$premessage = str_replace("<#preamount>",$eligibilityamtin,$message);
 
 					if($premessage != ''){
-						$smsresponse = senddynamicSMSobb($mobile, $premessage);
+						$tempid = "1707173920231428257";
+						$smsresponse = senddynamicSMSobb($mobile, $premessage, $tempid);
 					}
 				}
 				break;
@@ -359,23 +373,24 @@ Class Site_Digital_Model extends CI_Model {
 
 	public function sendPaymentGreetings($name='', $mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Cashindia";
-			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
+			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email id and login to the Customer Portal to submit the required documents. Thanks fintopcorporate";
+			$tempid = '1707173920241361019';
+			$smsresponse = sendtextSMSobb($mobile, $smsmessage, $tempid);
 		}
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Cashindia";
+			$subject = "Welcome Fintopcorporate";
 			
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Submission of your loan application is done. Our Customer Executive will be in touch shortly.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Cashindia</p>';
+			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				// $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
 				$maildata = array(
 					'fullname' => $emailid,
 					'email' => $emailid
@@ -394,7 +409,8 @@ Class Site_Digital_Model extends CI_Model {
 			$message = $this->Site_Info_Model->getsmsmessage('payment-fail-sms');
 
 			if($message != ''){
-				$smsresponse = senddynamicSMSobb($mobile, $message);
+				$tempid = "1707173919945481720";
+				$smsresponse = senddynamicSMSobb($mobile, $message, $tempid);
 			}
 		}
 		return true;
@@ -406,7 +422,8 @@ Class Site_Digital_Model extends CI_Model {
 			$message = $this->Site_Info_Model->getsmsmessage('account-sms');
 
 			if($message != ''){
-				$smsresponse = senddynamicSMSobb($maildata['mobile'], $message);
+				$tempid = "1707173920241361019";
+				$smsresponse = senddynamicSMSobb($maildata['mobile'], $message, $tempid);
 			}
 		}
 		
@@ -417,18 +434,18 @@ Class Site_Digital_Model extends CI_Model {
 				'name' => $maildata['fullname']
 			);
 
-			$subject = "Welcome to Cashindia";
+			$subject = "Welcome to Fintopcorporate";
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->customerwelcomeemailtemplate($maildata);
 
 			if($content != '') {
+				//$mailresponse = sendHTMLmail($maildata['email'], COMPANY_EMAIL, $subject, $content, 1);
 				$maildata = array(
 					'fullname' => $maildata['fullname'],
 					'email' => $maildata['email']
 				);
 				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
-				// $mailresponse = sendHTMLmail($maildata['email'], COMPANY_EMAIL, $subject, $content, 1);
 			}
 		}
 		

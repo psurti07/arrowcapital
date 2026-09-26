@@ -3,13 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 header('Content-Type: text/html; charset=utf-8');
 
 function createMerchantToken(){
-    
+
   $auth = array(
     'mid' => PAYGIC_MID,
     'password' =>PAYGIC_PASSWORD
   );
-
-
+    
     $url = curl_init();
   curl_setopt_array($url, [
     CURLOPT_URL => "https://server.paygic.in/api/v2/createMerchantToken",

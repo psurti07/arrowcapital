@@ -29,12 +29,6 @@ include_once(APPPATH . 'views/includes/header.php');
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <!-- 
-              <div class="card-header">
-                <div class="heading-elements">
-                   
-                </div>
-              </div> -->
 
           <div class="card-content collapse show">
             <div class="card-body">
@@ -64,17 +58,16 @@ include_once(APPPATH . 'views/includes/header.php');
                       echo "<tr>";
                       echo "<td>" . htmlentities($cnt) . "</td>";
                       echo "<td>" . DateFormatDisplay($row->rec_date) . "</td>";
-                      echo "<td>" . htmlentities($row->entrydetail) . "</td>";
-                      echo "<td>" . htmlentities($row->fullname) . "</td>";
-                      echo "<td>" . htmlentities($row->mobile) . "</td>";
-                      echo "<td>" . htmlentities($row->email) . "</td>";
-                      echo "<td>" . htmlentities($row->orderid) . "</td>";
-                      echo "<td class='text-right'>" . htmlentities($row->orderamount) . "</td>";
-                      echo "<td>" . htmlentities($row->ordernote) . "</td>";
-                      echo "<td>" . htmlentities($row->referenceid) . "</td>";
-                      echo "<td>" . htmlentities($row->txstatus) . "</td>";
-                      echo "<td>" . htmlentities($row->paymentmode) . "</td>";
-
+                      echo "<td>" . htmlspecialchars($row->entrydetail ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->fullname ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->mobile ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->email ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->orderid ?? '') . "</td>";
+                      echo "<td class='text-right'>" . htmlspecialchars($row->orderamount ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->ordernote ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->referenceid ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->txstatus ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->paymentmode ?? '') . "</td>";
                       echo "</tr>";
                       $cnt++;
                     }

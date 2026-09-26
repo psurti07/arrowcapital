@@ -209,8 +209,8 @@ include_once(APPPATH . 'views/includes/footer.php');
 			datasets: [{
 				label: "Total Customers",
 				data: [<?php echo $bardata; ?>],
-				backgroundColor: "#00b074",
-				hoverBackgroundColor: "#1b6451",
+				backgroundColor: "#2279be",
+				hoverBackgroundColor: "#2279be",
 				borderColor: "transparent"
 			}]
 		};

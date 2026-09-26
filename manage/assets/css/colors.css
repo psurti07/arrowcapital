@@ -413,7 +413,7 @@ input:focus ~ .bg-primary {
   color: #00b074!important; }
 
 .bg-primary {
-  background-color: #222946 !important; }
+  background-color: #2279be!important; }
   .bg-primary .card-header, .bg-primary .card-footer {
     background-color: transparent; }
   .bg-primary.bg-glow {
@@ -447,32 +447,32 @@ input:focus ~ .bg-primary {
         }
       } */
 .btn-primary {
-  border-color: #273773!important;
-  background-color: #273773!important;
+  border-color: #2279be!important;
+  background-color: #2279be!important;
   color: #FFFFFF; }
   .btn-primary:hover {
-    border-color: #273773 !important;
-    background-color: #273773 !important;
+    border-color: #3886c4 !important;
+    background-color: #3886c4 !important;
     color: #FFF !important; }
   .btn-primary:focus, .btn-primary:active {
-    border-color: #1f9678 !important;
-    background-color: #1f9678 !important;
+    border-color: #3886c4 !important;
+    background-color: #3886c4 !important;
     color: #FFF !important; }
   .btn-primary.btn-glow {
     box-shadow: 0px 1px 20px 1px rgba(70, 195, 163, 0.6); }
 
 .btn-outline-primary {
-  border-color: #00b074;
+  border-color: #2279be;
   background-color: transparent;
-  color: #00b074; }
+  color: #2279be; }
   .btn-outline-primary:hover {
-    background-color: #00b074;
+    background-color: #2279be;
     color: #FFF !important; }
   .btn-outline-primary.btn-glow {
     box-shadow: 0px 1px 20px 1px rgba(70, 195, 163, 0.6); }
 
 input[type="checkbox"].bg-primary + .custom-control-label:before, input[type="radio"].bg-primary + .custom-control-label:before {
-  background-color: #00b074!important; }
+  background-color: #2279be!important; }
 
 /* .custom-control-label{
         &:before{
@@ -483,19 +483,19 @@ input:focus ~ .bg-primary {
   box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.21rem #3bb54a !important; }
 
 .border-primary {
-  border: 1px solid #222946!important; }
+  border: 1px solid #2279be!important; }
 
 .border-top-primary {
-  border-top: 1px solid #222946; }
+  border-top: 1px solid #2279be; }
 
 .border-bottom-primary {
-  border-bottom: 1px solid #222946; }
+  border-bottom: 1px solid #2279be; }
 
 .border-left-primary {
-  border-left: 1px solid #222946; }
+  border-left: 1px solid #2279be; }
 
 .border-right-primary {
-  border-right: 1px solid #222946; }
+  border-right: 1px solid #2279be; }
 
 .primary.darken-1 {
   color: #5E66E5 !important; }
@@ -642,7 +642,7 @@ input:focus ~ .bg-primary {
   color: #383FD8 !important; }
 
 .bg-primary.bg-darken-4 {
-  background-color: #222946 !important; }
+  background-color: #383FD8 !important; }
   .bg-primary.bg-darken-4.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(56, 63, 216, 0.6); }
 
@@ -3996,7 +3996,7 @@ input:focus ~ .bg-red {
   color: #E53935 !important; }
 
 .bg-red.bg-darken-1 {
-  background-color: #222946 !important; }
+  background-color: #E53935 !important; }
   .bg-red.bg-darken-1.bg-glow {
     box-shadow: 0px 1px 20px 1px rgba(229, 57, 53, 0.6); }
 

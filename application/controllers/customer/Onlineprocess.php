@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-Class Digital extends CI_Controller {
+Class Onlineprocess extends CI_Controller {
 	
 	public function index(){
 		return redirect()->to('customer/dashboard');
@@ -9,12 +9,13 @@ Class Digital extends CI_Controller {
 
 	// START : PERSONAL LOAN FUNCTIONS
 	public function personalLoan($step = 's1') {
+		
 		if($this->session->userdata('cec-customerid') == FALSE) {
 			return redirect('customer/login');
 			die;
 		}
 
-		return redirect()->to('customer/dashboard');
+		//return redirect()->to('customer/dashboard');
 
 		$flag = 0;
 		$customerid = stringCrypt($this->session->userdata('cec-customerid'), 'decrypt');
@@ -38,7 +39,7 @@ Class Digital extends CI_Controller {
 			$your_date = strtotime($lastapplication->rec_date);
 			$datediff = $now - $your_date;
 			$days = round($datediff / (60 * 60 * 24));
-			$flag = ($days>=180) ? 1 : 0;
+			$flag = ($days>=90) ? 1 : 0;
 		}
 		
 		$data = array(
@@ -51,13 +52,7 @@ Class Digital extends CI_Controller {
 	}
 
 	public function userPersonalApply(){
-		if($this->session->userdata('cec-customerid') == FALSE) {
-			return redirect('customer/login');
-			die;
-		}
-
 		$userid = stringCrypt($this->session->userdata('cec-customerid'), 'decrypt');
-
 		$data_res = array(
 			'userid' => $userid,
 			'loantype' => $_REQUEST['loantype'],
@@ -72,16 +67,10 @@ Class Digital extends CI_Controller {
 		$this->load->model('Customer_Digital_Model');
 		$response = $this->Customer_Digital_Model->applyapplication($data_res);
 		
-		$data1 = array(
-			'update_date' => date('Y-m-d H:i:s'),
-			'process_step' => 4
-		);
-		$response1 = $this->Customer_Digital_Model->updateregistration($userid, $data1);
-
 		$data = array(
 			'step' => 's2',
 			'flag' => 1,
-			'userid' => $userid,
+			'userid' => $this->session->userdata('cec-customerid'),
 			'applyid' => $response,
 			'loanamount' => $_REQUEST['loanamount'],
 			'income' => $_REQUEST['monincome'],
@@ -112,7 +101,7 @@ Class Digital extends CI_Controller {
 			die;
 		}
 
-		return redirect()->to('customer/dashboard');
+		//return redirect()->to('customer/dashboard');
 
 		$flag = 0;
 		$customerid = stringCrypt($this->session->userdata('cec-customerid'), 'decrypt');
@@ -136,7 +125,7 @@ Class Digital extends CI_Controller {
 			$your_date = strtotime($lastapplication->rec_date);
 			$datediff = $now - $your_date;
 			$days = round($datediff / (60 * 60 * 24));
-			$flag = ($days>=180) ? 1 : 0;
+			$flag = ($days>=90) ? 1 : 0;
 		}
 		
 		$data = array(
@@ -149,15 +138,9 @@ Class Digital extends CI_Controller {
 	}
 
 	public function userBusinessApply(){
-		if($this->session->userdata('cec-customerid') == FALSE) {
-			return redirect('customer/login');
-			die;
-		}
 		
-		$userid = stringCrypt($this->session->userdata('cec-customerid'), 'decrypt');
-
 		$data_res = array(
-			'userid' => $userid,
+			'userid' => $_REQUEST['userid'],
 			'loantype' => $_REQUEST['loantype'],
 			'loanamount' => $_REQUEST['loanamount'],
 			'cibilscore' => $_REQUEST['cibilscore'],
@@ -179,7 +162,7 @@ Class Digital extends CI_Controller {
 		$data = array(
 			'step' => 's2',
 			'flag' => 1,
-			'userid' => $userid,
+			'userid' => $this->session->userdata('cec-customerid'),
 			'applyid' => $response,
 			'loanamount' => $_REQUEST['loanamount'],
 			'income' => $_REQUEST['monincome'],
@@ -187,14 +170,14 @@ Class Digital extends CI_Controller {
 			'apr' => 11.5
 		);
 
-		/* $data3 = array(
+		$data3 = array(
 			'rec_date' => date('Y-m-d H:i:s'),
 			'applicationid' => $response,
 			'statusid' => 1,
 			'staffid' => 1,
 			'isDelete' => 0
 		);
-		$response3 = $this->Customer_Digital_Model->applicationstatus($data3); */
+		$response3 = $this->Customer_Digital_Model->applicationstatus($data3);
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');

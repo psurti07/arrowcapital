@@ -20,7 +20,7 @@ class Manage_Payment_Model extends CI_Model
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -28,8 +28,9 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 		 ELSE entryfor END) AS entrydetail, 
 		 orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('phonepe_entry pg')
@@ -56,7 +57,7 @@ class Manage_Payment_Model extends CI_Model
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -64,8 +65,9 @@ class Manage_Payment_Model extends CI_Model
 	 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 	 WHEN entryfor = 4 THEN "IVR Payment offer"
 	 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 	 ELSE entryfor END) AS entrydetail, 
  orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('subpaisa_entry pg')
@@ -94,7 +96,7 @@ class Manage_Payment_Model extends CI_Model
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -102,8 +104,9 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 		 ELSE entryfor END) AS entrydetail, 
 		 orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('razorpay_entry pg')
@@ -132,7 +135,7 @@ class Manage_Payment_Model extends CI_Model
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -140,8 +143,9 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
+		 WHEN entryfor = 6 THEN "Mega Offer" 
 		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 8 THEN "Star Offer"
 		 ELSE entryfor END) AS entrydetail, 
 		 orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('worldline_entry pg')
@@ -165,12 +169,12 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 11 THEN "Personal Loan" 
 		 WHEN entryfor = 12 THEN "Business Loan" 
 		 ELSE entryfor END) AS entrydetail, 
-		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, statusdescription, r.fullname, r.mobile, r.email')
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.email')
 			->from('zaakpay_entry pg')
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -178,16 +182,16 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 		 ELSE entryfor END) AS entrydetail, 
-		 orderid, orderamount, ordernote, transactionid, statuscode, paymentmode, statusdescription, r.fullname, r.mobile, r.emailid as email')
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('zaakpay_entry pg')
 			->join('cardoffer_order r', 'pg.userid = r.id', 'left');
 		$query2 = $this->db->get_compiled_select();
 
 		$query = $this->db->query($query1 . ' UNION ' . $query2 . ' ORDER BY rec_date ASC');
-
 
 		return $query->result();
 	}
@@ -208,7 +212,7 @@ class Manage_Payment_Model extends CI_Model
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -216,8 +220,9 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 		 ELSE entryfor END) AS entrydetail, 
 		 orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('cashfree_entry pg')
@@ -229,7 +234,7 @@ class Manage_Payment_Model extends CI_Model
 		return $query->result();
 	}
 
-	public function getpaygicentryrecord($dt_to, $dt_from)
+	public function getairpayentryrecord($dt_to, $dt_from)
 	{
 
 		$offer_code1 = array(11, 12);
@@ -240,12 +245,12 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 11 THEN "Personal Loan" 
 		 WHEN entryfor = 12 THEN "Business Loan" 
 		 ELSE entryfor END) AS entrydetail, 
-		 orderid, orderamount, ordernote, transactionid, statuscode, paymentmode, r.fullname, r.mobile, r.email')
-			->from('paygic_entry pg')
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.email')
+			->from('airpay_entry pg')
 			->join('user_registration r', 'pg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
 		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
@@ -253,10 +258,90 @@ class Manage_Payment_Model extends CI_Model
 		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
 		 WHEN entryfor = 4 THEN "IVR Payment Offer"
 		 WHEN entryfor = 5 THEN "Special Offer" 
-		 WHEN entryfor = 6 THEN "Bumper Offer" 
-		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer" 
+		 WHEN entryfor = 8 THEN "Star Offer" 
 		 ELSE entryfor END) AS entrydetail, 
-		 orderid, orderamount, ordernote, transactionid, statuscode, paymentmode, r.fullname, r.mobile, r.emailid as email')
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.emailid as email')
+			->from('airpay_entry pg')
+			->join('cardoffer_order r', 'pg.userid = r.id', 'left');
+		$query2 = $this->db->get_compiled_select();
+
+		$query = $this->db->query($query1 . ' UNION ' . $query2 . ' ORDER BY rec_date ASC');
+
+		return $query->result();
+	}
+
+	public function getpayuentrylist($dt_to, $dt_from)
+	{
+		$offer_code1 = array(11, 12);
+		$this->db
+			->where('pe.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code1)
+			->select('pe.rec_date, pe.entryfor,
+						(CASE
+							WHEN entryfor = 11 THEN "Personal Loan"
+							WHEN entryfor = 12 THEN "Business Loan"
+							ELSE entryfor
+						END) AS entrydetail,
+					orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.email')
+			->from('payu_entry pe')
+			->join('user_registration r', 'pe.userid = r.id', 'left');
+		$query1 = $this->db->get_compiled_select();
+
+		$offer_code2 = array(3, 4, 5, 6,7, 8);
+		$this->db
+			->where('pe.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code2)
+			->select('pe.rec_date, pe.entryfor,
+					(CASE
+						WHEN entryfor = 3 THEN "Card Offer" 
+						WHEN entryfor = 4 THEN "IVR Payment Offer"
+						WHEN entryfor = 5 THEN "Special Offer" 
+						WHEN entryfor = 6 THEN "Mega Offer" 
+						WHEN entryfor = 7 THEN "Festival Offer"  
+						WHEN entryfor = 8 THEN "Star Offer"
+						ELSE entryfor
+					END) AS entrydetail, orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
+			->from('payu_entry pe')
+			->join('cardoffer_order r', 'pe.userid = r.id', 'left');
+		$query2 = $this->db->get_compiled_select();
+
+		$query = $this->db->query($query1 . ' UNION ' . $query2 . ' ORDER BY rec_date ASC');
+		return $query->result();
+	}
+
+	public function getpaygicentrylist($dt_to, $dt_from)
+	{
+
+		$offer_code1 = array(11, 12);
+		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code1)
+			->select('pg.rec_date, pg.entryfor, 
+		 (CASE WHEN entryfor = 11 THEN "Personal Loan" 
+		 WHEN entryfor = 12 THEN "Business Loan" 
+		 ELSE entryfor END) AS entrydetail, 
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.email')
+			->from('paygic_entry pg')
+			->join('user_registration r', 'pg.userid = r.id', 'left');
+		$query1 = $this->db->get_compiled_select();
+
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
+		$this->db->where('pg.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pg.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code2)
+			->select('pg.rec_date, pg.entryfor, 
+		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
+		 WHEN entryfor = 4 THEN "IVR Payment Offer"
+		 WHEN entryfor = 5 THEN "Special Offer" 
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 8 THEN "Star Offer"
+		 ELSE entryfor END) AS entrydetail, 
+		 orderid, orderamount, ordernote, statuscode, transactionid, paymentmode, r.fullname, r.mobile, r.emailid as email')
 			->from('paygic_entry pg')
 			->join('cardoffer_order r', 'pg.userid = r.id', 'left');
 		$query2 = $this->db->get_compiled_select();
@@ -266,44 +351,42 @@ class Manage_Payment_Model extends CI_Model
 		return $query->result();
 	}
 
-	public function getopenmoneyentrylist($dt_to, $dt_from){
-			
+	public function getvegaahentrylist($dt_to, $dt_from)
+	{
 		$offer_code1 = array(11, 12);
-		$this->db->where('pe.rec_date >=', $dt_to . ' 00:00:00')
-			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+		$this->db->where('vg.rec_date >=', $dt_to . ' 00:00:00')
+			->where('vg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code1)
-			->select('pe.rec_date, pe.entryfor, 
-				(CASE WHEN entryfor = 11 THEN "Personal Loan" 
-					  WHEN entryfor = 12 THEN "Business Loan" ELSE entryfor 
-				END) AS entrydetail, 
-				orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.email')
-			->from('openmoney_entry pe')
-			->join('user_registration r', 'pe.userid = r.id', 'left');
+			->select('vg.rec_date, vg.entryfor, 
+		 (CASE WHEN entryfor = 11 THEN "Personal Loan" 
+		 WHEN entryfor = 12 THEN "Business Loan" 
+		 ELSE entryfor END) AS userid,
+		 orderid, orderamount, ordernote,referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.email')
+			->from('vegaah_entry vg')
+			->join('user_registration r', 'vg.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
-		$offer_code2 = array(3, 4, 5, 6, 7);
-		$this->db->where('pe.rec_date >=', $dt_to . ' 00:00:00')
-			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+		$offer_code2 = array(3, 4, 5, 6, 7, 8);
+		$this->db->where('vg.rec_date >=', $dt_to . ' 00:00:00')
+			->where('vg.rec_date <=', $dt_from . ' 23:59:59')
 			->where_in('entryfor', $offer_code2)
-			->select('pe.rec_date, pe.entryfor, 
-					(CASE WHEN entryfor = 3 THEN "Card Offer" 
-						WHEN entryfor = 4 THEN "IVR Payment Offer"
-						WHEN entryfor = 5 THEN "Special Offer" 
-						WHEN entryfor = 6 THEN "Bumper Offer" 
-						WHEN entryfor = 7 THEN "Festival Offer"
-						  ELSE entryfor 
-					END) AS entrydetail, 
-					orderid, orderamount, ordernote, referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
-			->from('openmoney_entry pe')
-			->join('cardoffer_order r', 'pe.userid = r.id', 'left');
+			->select('vg.rec_date, vg.entryfor, 
+		 (CASE WHEN entryfor = 3 THEN "Card Offer" 
+		 WHEN entryfor = 4 THEN "IVR Payment Offer"
+		 WHEN entryfor = 5 THEN "Special Offer" 
+		 WHEN entryfor = 6 THEN "Mega Offer" 
+		 WHEN entryfor = 7 THEN "Festival Offer"  
+		 WHEN entryfor = 8 THEN "Star Offer"
+		 ELSE entryfor END) AS userid,
+		 orderid, orderamount, ordernote,referenceid, txstatus, paymentmode, r.fullname, r.mobile, r.emailid as email')
+			->from('vegaah_entry vg')
+			->join('cardoffer_order r', 'vg.userid = r.id', 'left');
 		$query2 = $this->db->get_compiled_select();
 
 		$query = $this->db->query($query1 . ' UNION ' . $query2 . ' ORDER BY rec_date ASC');
+
 		return $query->result();
-		
 	}
-
-
 
 
 }

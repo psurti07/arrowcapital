@@ -100,10 +100,10 @@
 					<li id="1511"><a class="menu-item" href="<?php echo site_url('offer/specialoffer'); ?>">Special
 							Offer</a></li>
 				</ul>
-			</li> -->
+			</li>
 
 
-			<!-- <li id="152" class=" nav-item"><a href="#"><i class="la la-hand-o-right"></i><span
+			<li id="152" class=" nav-item"><a href="#"><i class="la la-hand-o-right"></i><span
 						class="menu-title">Whatsapp Marketing</span></a>
 				<ul class="menu-content">
 					<li id="1522"><a class="menu-item" href="<?php echo site_url('offer/bumperoffer'); ?>">Bumper
@@ -116,19 +116,22 @@
 				<ul class="menu-content">
 					<li id="1363"><a class="menu-item" href="<?php echo site_url('offer/festivaloffer'); ?>">Festival
 							Offer</a></li>
+					<li id="1364"><a class="menu-item" href="<?php echo site_url('offer/megaoffer'); ?>">Mega
+							Offer</a></li>
+					<li id="1365"><a class="menu-item" href="<?php echo site_url('offer/staroffer'); ?>">Star
+							Offer</a></li>
 				</ul>
 			</li>
 			<?php }
-			if($role == 0 || $role == 1 || $role == 2){
+					if($role == 0 || $role == 1 || $role == 2){
 			?>
-
 			<li id="125" class="nav-item">
 				<a href="<?php echo site_url('account/invoice'); ?>"><i class="la la-list-ol"></i><span
 						class="menu-title">Invoice</span></a>
 			</li>
 			<?php }
-			if($role == 0 || $role == 1){
-			?>
+					if($role == 0 || $role == 1){
+				?>
 			<li id="137" class="nav-item">
 				<a href="<?php echo site_url('account/refund'); ?>"><i class="la la-reply"></i><span
 						class="menu-title">Refund</span></a>
@@ -163,6 +166,7 @@
 
 			<!-- ================== NEW NAVIGATION HEADER ================== -->
 			<li class=" navigation-header"><span>REPORTS</span></li>
+			
 
 				<li id="124" class=" nav-item"><a href="#"><i class="la la-bar-chart"></i><span class="menu-title">Digital
 							Leads</span></a>
@@ -185,9 +189,9 @@
 					<a href="<?php echo site_url('report/applications'); ?>"><i class="la la-bar-chart"></i><span
 							class="menu-title">App Status Report</span></a>
 				</li>
-				<?php }
-			if($role == 0 || $role == 1 || $role == 2){
-			?>
+			<?php }
+					if($role == 0 || $role == 1 || $role == 2){
+				?>
 			<li id="128" class="nav-item">
 				<a href="<?php echo site_url('report/gstdata'); ?>"><i class="la la-bar-chart"></i><span
 						class="menu-title">GST Data</span></a>
@@ -197,26 +201,26 @@
 				<a href="<?php echo site_url('report/tdsdata'); ?>"><i class="la la-bar-chart"></i><span
 						class="menu-title">TDS Data</span></a>
 			</li>
-				<?php }
-			if($role == 0 || $role == 1){
-			?>
+			<?php }
+					if($role == 0 || $role == 1){
+				?>
 			<li id="138" class="nav-item">
 				<a href="<?php echo site_url('report/refunddata'); ?>"><i class="la la-bar-chart"></i><span
 						class="menu-title">Refund Data</span></a>
 			</li>
-		
+
+
 				<!-- ================== NEW NAVIGATION HEADER ================== -->
-			<li class=" navigation-header"><span>PAYMENTS LOG</span></li>
-				
-				<!--<li id="161" class="nav-item">
+				<li class=" navigation-header"><span>PAYMENTS LOG</span></li>
+				<!-- <li id="161" class="nav-item">
 					<a href="<?php echo site_url('payment/cashfreelog'); ?>"><i class="la la-rupee"></i><span class="menu-title">Cashfree
 						Log</span></a>
-				</li>
+				</li>-->
 				<li id="166" class="nav-item">
 					<a href="<?php echo site_url('payment/phonepelog'); ?>"><i class="la la-inr"></i><span
 							class="menu-title">PhonePe Log</span></a>
 				</li>
-				<li id="170" class="nav-item">
+				<!--<li id="170" class="nav-item">
 					<a href="<?php echo site_url('payment/sabpaisalog'); ?>"><i class="la la-inr"></i><span
 							class="menu-title">Sabpaisa Log</span></a>
 				</li>-->
@@ -229,16 +233,25 @@
 				<a href="<?php echo site_url('payment/worldlinelog'); ?>"><i class="la la-inr"></i><span class="menu-title">Worldline Log</span></a>
 			</li> -->
 
-		    <li id="169" class="nav-item">
+			<li id="169" class="nav-item">
 				<a href="<?php echo site_url('payment/zaakpaylog'); ?>"><i class="la la-inr"></i><span class="menu-title">Zaakpay Log</span></a>
 			</li>
+			<!--
 			<li id="171" class="nav-item">
-				<a href="<?php echo site_url('payment/paygiclog'); ?>"><i class="la la-inr"></i><span class="menu-title">Paygic Log</span></a>
+				<a href="<?php echo site_url('payment/airpaylog'); ?>"><i class="la la-inr"></i><span class="menu-title">Airpay Log</span></a>
 			</li>
+			-->
 			<li id="172" class="nav-item">
-				<a href="<?php echo site_url('payment/openmoneylog'); ?>"><i class="la la-inr"></i><span class="menu-title">Openmoney Log</span></a>
+				<a href="<?php echo site_url('payment/payulog'); ?>"><i class="la la-inr"></i><span class="menu-title">PayU Log</span></a>
 			</li>
 
+			<li id="173" class="nav-item">
+				<a href="<?php echo site_url('payment/paygiclog'); ?>"><i class="la la-inr"></i><span class="menu-title">Paygic Log</span></a>
+			</li>
+		
+			<li id="174" class="nav-item">
+				<a href="<?php echo site_url('payment/vegaahlog'); ?>"><i class="la la-inr"></i><span class="menu-title">Vegaah Log</span></a>
+			</li>
 
 			<!-- ================== NEW NAVIGATION HEADER ================== -->
 			<li class=" navigation-header"><span>DATA LIST</span></li>
@@ -335,7 +348,7 @@
 				<a href="<?php echo site_url('sms/remarketinglog'); ?>"><i class="la la-clock-o"></i><span
 						class="menu-title">Remarketing Log</span></a>
 			</li>
-		
+
 				<!-- ================== NEW NAVIGATION HEADER ================== -->
 				<li class=" navigation-header"><span>OTHER OPTIONS</span></li>
 
@@ -385,7 +398,7 @@
 							class="menu-title">Staff List</span></a>
 				</li>
 				<?php }
-					?>
+				?>
 		</ul>
 
 		<div class="mb-11"></div>

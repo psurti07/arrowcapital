@@ -387,8 +387,7 @@ Class Manage_User_Model extends CI_Model {
 		if($statusid == 1) {
 			$res = $this->getreferraldetails($id);
 			// Send SMS
-			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Cashindia";
-			
+			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Fintopcorporate";
 			$smsresponse = sendtextSMSobb($res['refferaldetails']->mobile, $message);
 		}
 
@@ -596,9 +595,9 @@ Class Manage_User_Model extends CI_Model {
 							->update('user_registration', $data); 
 
 			// Send SMS
-			$message = "Hello ".$account->fullname." Your Cashindia account's new password is ".$password." Do not share it with anyone. Thanks, Cashindia";
-
-			$smsresponse = sendtextSMSobb($account->mobile, $message);
+			$message = "Hello ".$account->fullname." Your fintopcorporate account's new password is ".$password.". Do not share it with anyone. Thanks";
+			$tempid = '1707173920009228496';
+			$smsresponse = sendtextSMSobb($account->mobile, $message, $tempid);
 
 						
 			return true;
@@ -624,7 +623,7 @@ Class Manage_User_Model extends CI_Model {
 						->update('user_registration', $data);
 
 			if($status == 0) {
-				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Cashindia";
+				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Fintopcorporate";
 				$smsresponse = sendtextSMSobb($account->mobile, $message);
 			}
 
@@ -638,6 +637,7 @@ Class Manage_User_Model extends CI_Model {
 	}
 
 	public function manageaccountdeletepermanent($id){
+		
 		
 		$data = array(
 		   'isDelete' => 1
@@ -716,23 +716,28 @@ Class Manage_User_Model extends CI_Model {
 	public function sendkycverifymessage($mobile='', $emailid=''){
 		
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Cashindia";
+			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Fintopcorporate";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
-			$subject = "Documents Verification Message - Cashindia";
+			$subject = "Documents Verification Message - Fintopcorporate";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>The documents submitted by you are successfully verified. Our Company Executive will call you shortly regarding your loan process.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Cashindia</p>';
+			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				$maildata = array(
+					'fullname' => $mobile,
+					'email' => $emailid
+				);
+				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 			}
 		}
 
@@ -741,23 +746,28 @@ Class Manage_User_Model extends CI_Model {
 
 	public function sendpayoutverifymessage($mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, your payout documents are successfully verified. Your reference payout will be credited to your account according to referrals. Thanks, Cashindia";
+			$smsmessage = "Dear Customer, your payout documents are successfully verified. Your reference payout will be credited to your account according to referrals. Thanks, Fintopcorporate";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
-			$subject = "Documents Verification Message - Cashindia";
+			$subject = "Documents Verification Message - Fintopcorporate";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>Your documents are successfully verified. Your payout will be credited to your account according to the successful referrals.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Cashindia</p>';
+			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
 			
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1);
+				/* $maildata = array(
+					'fullname' => $maildata['fullname'],
+					'email' => $maildata['email']
+				); */
+				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 			}
 		}
 
@@ -781,13 +791,13 @@ Class Manage_User_Model extends CI_Model {
 				'name' => $maildata['fullname']
 			);
 
-			$subject = "Welcome to Cashindia";
+			$subject = "Welcome to Fintopcorporate";
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->customerwelcomeemailtemplate($maildata);
 
 			if($content != '') {
-				// $mailresponse = sendHTMLmail($maildata['email'], COMPANY_EMAIL, $subject, $content, 1);
+				//$mailresponse = sendHTMLmail($maildata['email'], COMPANY_EMAIL, $subject, $content, 1);
 				$maildata = array(
 					'fullname' => $maildata['fullname'],
 					'email' => $maildata['email']

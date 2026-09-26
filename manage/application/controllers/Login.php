@@ -42,7 +42,7 @@ Class Login extends CI_Controller {
 		//$dayOfMonth = 12;
 
 		if ($dayOfMonth >= 1 && $dayOfMonth <= 10 && $ac_flag == 0) {
-			echo json_encode(array("success"=>false, "message"=>"Your account has been temporarily suspended by the company. You will be unable to access certain features of the portal. Kindly contact Kreditbazar for more details."));
+			echo json_encode(array("success"=>false, "message"=>"Your account has been temporarily suspended by the company. You will be unable to access certain features of the portal. Kindly contact Indiakarobar for more details."));
 		} else {
 			
 			$enc_password = encryptPassword($emailid, $password);

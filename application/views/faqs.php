@@ -1,50 +1,118 @@
-<?php $this->load->view('includes/header.php'); ?>
-<!--=====faq 2 end=======-->
-<div class="faq sp4">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 m-auto text-center">
-				<div class="hadding2 text-center">
-					<h1>FAQs</h1>
-				</div>
-			</div>
-		</div>
-		<div class="space40"></div>
+<?php $this->load->view('includes/header.php');?>
 
-		<div class="row">
-			<div class="col-lg-9 m-auto">
-				<div class="accordion" id="accordionExample">
-					<?php
-					if (count($faqlist)) {
-						$cnt = 1;
-						foreach ($faqlist as $row) {
-							$acc_heading = "headingOne" . $cnt;
-							$acc_collapse = "collapseOne" . $cnt;
-							?>
-							<div class="accordion-item accordion-item">
-								<h2 class="accordion-header accordion-header2" id="<?php echo $acc_heading; ?>">
-									<button class="accordion-button accordion-button3" type="button" data-bs-toggle="collapse"
-										data-bs-target="#<?php echo $acc_collapse; ?>" aria-expanded="false"
-										aria-controls="<?php echo $acc_collapse; ?>">
-										<?php echo $row->faq_question; ?>
-									</button>
-								</h2>
-								<div id="<?php echo $acc_collapse; ?>" class="accordion-collapse collapse"
-									aria-labelledby="<?php echo $acc_heading; ?>" data-bs-parent="#accordionExample">
-									<div class="accordion-body accordion-body2">
-										<?php echo $row->faq_answer; ?>
-									</div>
-								</div>
-							</div>
-							<?php $cnt++;
-						}
-					} ?>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="section bg-lend-blue pt-0 pb-0">
+	<div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Some Frequently Asked Questions</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
+            </div>
+        </div>
+    </div>
 </div>
 
-<!--=====faq 2 end=======-->
+<!--=====Faq start=======-->
+<div class="section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12">
+                <ul class="accordion single-open style-3 text-dark">
+                    <li class="active">
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">1. What purposes can I use a personal loan for?
+                            </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>A personal loan is versatile and can be used for a variety of purposes, such as medical
+                                emergencies, home renovations, travel expenses, education, weddings, or even
+                                consolidating other debts.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">2. What are the eligibility criteria for a
+                                personal loan?
+                            </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>The eligibility requirements to apply for a personal loan are as follows: </p>
+                            <p><strong>For salaried:</strong></p>
+                            <ul>
+                                <li>Minimum Age: 21 Year</li>
+                                <li>Minimum Salary: Rs.15,000 Per Month (should reflect in bank statement)</li>
+                                <li>Minimum Job Stability: 1 Year </li>
+                            </ul>
+                            <p><strong>For Self-Employed:</strong></p>
+                            <ul>
+                                <li>Minimum Age: 21 Years </li>
+                                <li>Business Vintage: Minimum 1 Year</li>
+                                <li>Minimum 1 Year ITR</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">3. What documents are needed to apply for a
+                                personal loan? </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>The documents that are required to apply for personal loans are: </p>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>PAN Card</li>
+                                <li>Income Proof - Salary Slip or Form 16</li>
+                                <li>Residential Proof - Rental Agreement or Utility Bills</li>
+                                <li>Bank Statements</li>
+                            </ul>
+                            <p>Please note that the lender may ask you for additional documents in accordance with their
+                                rules and regulations. </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">4. What factors are taken into account during the
+                                loan approval process? </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Personal loans do not usually offer tax benefits. However, if you use the loan for
+                                certain purposes, such as home renovation or business investments, you might be eligible
+                                for deductions under specific sections of the Income Tax Act. For more information,
+                                please contact your CA or tax advisor. </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">5. Why is it important to have a good CIBIL score
+                                when applying for a personal loan? </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>A good CIBIL score indicates creditworthiness and increases your chances of loan
+                                approval. It also helps you get better interest rates.</p>
+                        </div>
+                    </li>
 
-<?php $this->load->view('includes/footer.php'); ?>
+                    <li>
+                        <div class="accordion-title">
+                            <h6 class="font-small fw-normal uppercase">6. What are the benefits of applying for a loan
+                                online? </h6>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Applying for a personal loan online saves you a significant amount of time and effort
+                                because it can be done from the comfort of your home.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--=====Faq end=======-->
+
+<?php $this->load->view('includes/footer.php');?>

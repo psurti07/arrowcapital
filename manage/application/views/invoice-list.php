@@ -43,13 +43,13 @@ include_once(APPPATH . 'views/includes/header.php');
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>REC Date</th>
+                     <th>Rec Date</th>
                     <th>INV Date</th>
                     <th>INV #</th>
                     <th>Fullname</th>
                     <th>Mobile</th>
                     <th class='text-right'>Total Amount</th>
-                    <th>Payment Id</th>
+                     <th>Payment Id</th>
                     <th class='text-center'>Print</th>
                     <th class='text-center'>Refund</th>
                     <th class='text-center'>Delete</th>
@@ -77,11 +77,11 @@ include_once(APPPATH . 'views/includes/header.php');
                       } 
                       echo "</td>";
 
-                      echo "<td>" . htmlentities($row['mobile']) . "</td>";
+                      echo "<td>" . htmlspecialchars($row['mobile'] ?? '') . "</td>";
 
                       echo "<td class='text-right'>" . formatePriceIndia($row['inv_grandtotal']) . "</td>";
 
-                      echo "<td>" . htmlentities($row['paymentid']) . "</td>";
+                      echo "<td class='text-right'>" . $row['paymentid'] . "</td>";
 
                       echo "<td class='text-center' width='50'>";
                       if ($row['inv_for'] == 1 || $row['inv_for'] == 2) {

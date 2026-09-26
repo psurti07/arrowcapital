@@ -74,8 +74,8 @@ if (count($leadlist)) {
 
 	</section>
 </div>
-<?php } ?>
 
+<?php } ?>
 <?php
 include_once (APPPATH . 'views/includes/footer.php');
 ?>
@@ -129,8 +129,8 @@ include_once (APPPATH . 'views/includes/footer.php');
 			datasets: [{
 				label: "Registrations",
 				data: [<?php echo $bardata1; ?>],
-				backgroundColor: "#00b074",
-				hoverBackgroundColor: "#1b6451",
+				backgroundColor: "#e1dc5e",
+				hoverBackgroundColor: "#e1dc5e",
 				borderColor: "transparent"
 			}]
 		};
@@ -149,8 +149,8 @@ include_once (APPPATH . 'views/includes/footer.php');
 			datasets: [{
 				label: "Leads",
 				data: [<?php echo $bardata2; ?>],
-				backgroundColor: "#1a5698",
-				hoverBackgroundColor: "#032b57",
+				backgroundColor: "#2279be",
+				hoverBackgroundColor: "#2279be",
 				borderColor: "transparent"
 			}]
 		};

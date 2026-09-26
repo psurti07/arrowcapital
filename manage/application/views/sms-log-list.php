@@ -11,29 +11,6 @@ include_once(APPPATH . 'views/includes/header.php');
   <div class="content-header-left col-md-6 col-12 mb-1">
     <h1 class="content-header-title text-uppercase">Remarketing Log List</h1>
   </div>
-  <div class="content-header-right col-12 mb-1">
-    <?php echo form_open('sms/remarketinglog', array('id' => 'filterForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
-    <fieldset class="form-group row mb-0">
-      <div class="col-md-4">
-        SMS:
-        <select name="parentid" id="parentid" class="input-sm form-control" style="display: inline;" required>
-        <option value="1" <?php echo ($parentid == 1) ? 'selected' : ''; ?>>customer sms</option>
-        <option value="11" <?php echo ($parentid == 11) ? 'selected' : ''; ?>>whatsapp digital</option>
-        <option value="2" <?php echo ($parentid == 2) ? 'selected' : ''; ?>>whatsapp interakt</option>
-      </select>
-      </div>
-      <div class="col-md-3">
-        From: <input name="dt_to" type="date" class="input-sm form-control" id="datepicker" value="<?php echo $dt_to; ?>" style="display: inline;" />
-      </div>
-      <div class="col-md-3">
-      To: <input name="dt_from" type="date" class="input-sm form-control mb-1" id="datepicker1" value="<?php echo $dt_from; ?>" style="display: inline;" />
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-outline-primary btn-sm show-btn mt-2" name="submit" type="submit">Show</button>
-      </div>
-    </fieldset>
-    <?php echo form_close(); ?>
-  </div>
 </div>
 
 <div class="content-body">
@@ -41,7 +18,33 @@ include_once(APPPATH . 'views/includes/header.php');
     <div class="row">
       <div class="col-12">
         <div class="card">
+				<div class="m-2">           
+					<?php echo form_open('sms/remarketinglog', array('id' => 'filterForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
+            <fieldset class="form-group row mb-0">
+              <div class="col-md-4">
+                SMS:
+                <select name="parentid" id="parentid" class="input-sm form-control" required>
+                  <option value="1" <?php echo ($parentid == 1) ? 'selected' : ''; ?>>Digital Loan</option>
+                  <option value="11" <?php echo ($parentid == 11) ? 'selected' : ''; ?>>Digital whatsapp</option>
+                  <option value="2" <?php echo ($parentid == 2) ? 'selected' : ''; ?>>Digital whatsapp Interakt</option>
+                  <option value="3" <?php echo ($parentid == 3) ? 'selected' : ''; ?>>Digital whatsapp Interakt 2</option>
+                </select>
+              </div>
 
+              <div class="col-md-3">
+                From: <input name="dt_to" type="date" class="input-sm form-control" id="datepicker" value="<?php echo $dt_to; ?>" style="display: inline;" />
+              </div>
+
+              <div class="col-md-3">
+                To: <input name="dt_from" type="date" class="input-sm form-control" id="datepicker1" value="<?php echo $dt_from; ?>" style="display: inline;" />
+              </div>
+
+              <div class="col-md-2">
+                <button class="btn btn-outline-primary btn-sm  mt-2" name="submit" type="submit">Show</button>
+              </div>
+            </fieldset>
+            <?php echo form_close(); ?>
+          </div>
           <!-- <div class="card-header">
                 <div class="heading-elements">
                   

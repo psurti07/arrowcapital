@@ -8,6 +8,7 @@ Class Account extends MY_Controller {
 		if($this->session->userdata('adminid') == FALSE) {
 			redirect('login');
 		}
+
 	}
 	
 	public function index(){

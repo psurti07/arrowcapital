@@ -130,16 +130,16 @@ function fbconversioncurl($userdata) {
       $data["user_data"]["fbc"] = $userdata['fbclid'];
     }
 
-    /*$contents["id"] = "SB2025";
-    $contents["quantity"] = 1;
-    $data["contents"][] = $contents;
+     $contents["id"] = "SB2025";
+     $contents["quantity"] = 1;
+     $data["contents"][] = $contents;
 
-    $data["custom_data"]["currency"] = "INR";
-    $data["custom_data"]["value"] = 299.00;
-    $data["custom_data"]["order_id"] = $userdata['orderid'];*/
+     $data["custom_data"]["currency"] = "INR";
+     $data["custom_data"]["value"] = 499.00;
+     $data["custom_data"]["order_id"] = $userdata['orderid']; 
 
-    $data["custom_data"]["currency"] = "INR";
-    $data["custom_data"]["value"] = 299.00;
+    /*$data["custom_data"]["currency"] = "INR";
+    $data["custom_data"]["value"] = 499.00;
     $data["custom_data"]["num_items"] = 1;
     $data["custom_data"]["content_type"] = "product";
     $data["custom_data"]["order_id"] = $userdata['orderid'];
@@ -147,8 +147,8 @@ function fbconversioncurl($userdata) {
 
     $contents["id"] = "SB2025";
     $contents["quantity"] = 1;
-    $contents["item_price"] = 299.00;
-    $data["custom_data"]["contents"] = json_encode(array($contents));
+    $contents["item_price"] = 499.00;
+    $data["custom_data"]["contents"] = json_encode(array($contents));*/
 
     // Turn Data to JSON
     $data_json = json_encode(array($data));
@@ -277,7 +277,7 @@ function sendxmlSMSobb($dataset) {
       CURLOPT_RETURNTRANSFER => 1,
       CURLOPT_TIMEOUT => 0,
       CURLOPT_FOLLOWLOCATION => 1,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => $xmldataset,
       CURLOPT_HTTPHEADER => array(
@@ -297,10 +297,10 @@ function sendxmlSMSobb($dataset) {
     return $response;
 }
 
-function sendotpSMSobb($mobile, $message) {
+function sendotpSMSobb($mobile, $message, $tempid='') {
     $sms_text = urlencode($message);
     
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text;
+    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text."&temp_id=1707173919940431742";
     
     //Submit to server
     $response = file_get_contents($api_url);
@@ -314,48 +314,6 @@ function sendotpSMSobb($mobile, $message) {
     <message>'.$message.'</message>
     <mobiles>'.$mobile.'</mobiles>
     <senderid>'.SMS_OBB_SENDER_ID.'</senderid>
-    </sms>
-    </smslist>';
-    
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
-    $URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        log_message('error', 'cURL Error : ' . curl_error($ch));
-    }
-    
-    curl_close($ch);
-    
-    return $response;
-}
-
-function senddynamicSMSobb($mobile, $message) {
-    $sms_text = urlencode($message);
-    $smssenderid = getSMSsenderid();
-
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".$smssenderid."&mobiles=".$mobile."&sms=".$sms_text;
-    
-    //Submit to server
-    $response = file_get_contents($api_url);
-    return $response;*/
-
-    $xml_data ='<?xml version="1.0"?>
-    <smslist>
-    <sms>
-    <user>'.SMS_OBB_USERNAME.'</user>
-    <password>'.SMS_OBB_API_KEY.'</password>
-    <message>'.$message.'</message>
-    <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$smssenderid.'</senderid>
     </sms>
     </smslist>';
     
@@ -380,11 +338,12 @@ function senddynamicSMSobb($mobile, $message) {
     return $response;
 }
 
-function sendtextSMSobb($mobile, $message) {
+function senddynamicSMSobb($mobile, $message, $tempid='') {
     $sms_text = urlencode($message);
+    $smssenderid = getSMSsenderid();
 
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text;
-
+   /* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".$smssenderid."&mobiles=".$mobile."&sms=".$sms_text."&tempid=".$tempid;
+    
     //Submit to server
     $response = file_get_contents($api_url);
     return $response;*/
@@ -400,8 +359,8 @@ function sendtextSMSobb($mobile, $message) {
     </sms>
     </smslist>';
     
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
-    $URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
+    //$URL = "43.204.206.165/sendsms.jsp?";
+    $URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?"; 
     $ch = curl_init($URL);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -421,6 +380,47 @@ function sendtextSMSobb($mobile, $message) {
     return $response;
 }
 
+function sendtextSMSobb($mobile, $message, $tempid='') {
+    $sms_text = urlencode($message);
+
+    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text."&tempid=".$tempid;
+
+    //Submit to server
+    $response = file_get_contents($api_url);
+    return $response;*/
+
+    $xml_data ='<?xml version="1.0"?>
+    <smslist>
+    <sms>
+    <user>'.SMS_OBB_USERNAME.'</user>
+    <password>'.SMS_OBB_API_KEY.'</password>
+    <message>'.$message.'</message>
+    <mobiles>'.$mobile.'</mobiles>
+    <senderid>'.SMS_OBB_SENDER_ID.'</senderid>
+    </sms>
+    </smslist>';
+    
+    //$URL = "43.204.206.165/sendsms.jsp?";
+    $URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?"; 
+    $ch = curl_init($URL);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    
+    if (curl_errno($ch)) {
+        log_message('error', 'cURL Error : ' . curl_error($ch));
+    }
+    
+    curl_close($ch);
+    
+    return $response; 
+}
+
 function mailchimpmail() {
 	$userdate = [
 		"email" => "test@gmail.com",
@@ -428,7 +428,7 @@ function mailchimpmail() {
 	];
 
 	$maildata = [
-		"from_email" => "info@cashindia.in",
+		"from_email" => "info@fintopcorporate.com",
 		"subject" => "Testing mail",
 		"text" => "Welcome to Mailchimp Transactional!",
 		"to" => $userdate
@@ -470,19 +470,17 @@ function mailchimpmail() {
     return $response;
 }
 
-function sendinblueHTMLmail($maildata, $subject="", $htmlmessage="") {
+function sendinblueHTMLmail($userdata, $subject="", $htmlmessage="") {
     // POST Data
     $data["sender"]["name"] = SIB_NAME;
     $data["sender"]["email"] = SIB_EMAILID;
     
-    /*$data["replyTo"]["name"] = SIB_NAME;
-    $data["replyTo"]["email"] = SIB_EMAILID;*/
+    //$data["replyTo"]["name"] = SIB_NAME;
+    //$data["replyTo"]["email"] = SIB_EMAILID;
 
-    $user_res["name"] = $maildata["fullname"];
-    $user_res["email"] = $maildata["email"];
+    $user_res["name"] = $userdata["fullname"];
+    $user_res["email"] = $userdata["email"];
     $userdata[] = $user_res;
-    $data["to"] = $userdata;
-
     $data["to"][] = $userdata;
 
     $data["subject"] = $subject;
@@ -599,7 +597,7 @@ function sendHTMLmail($to, $from, $subject, $message, $smtpemail = '', $attachfi
 
     $ci = get_instance();
     $ci->email->initialize($config);
-    $ci->email->from($from, 'cashindia.in');
+    $ci->email->from($from, 'fintopcorporate.com');
     $ci->email->to($to);
     $ci->email->subject($subject);
     $ci->email->message($message);
@@ -668,7 +666,8 @@ function interakt_track($postdata)
 	return $response;
 }
 
-function interakt_track_remarketing($postdata)
+
+function interakt_track_rm($postdata)
 {
 	$curl = curl_init();
 
@@ -682,7 +681,7 @@ function interakt_track_remarketing($postdata)
 		CURLOPT_CUSTOMREQUEST => "POST",
 		CURLOPT_POSTFIELDS => json_encode($postdata),
 		CURLOPT_HTTPHEADER => [
-			"Authorization: Basic " . INTERAKT_KEY_REMARKETING,
+			"Authorization: Basic " . INTERAKT_KEY_RM,
 			"Content-Type: application/json"
 		],
 	]);
@@ -693,5 +692,4 @@ function interakt_track_remarketing($postdata)
 
 	return $response;
 }
-
 ?>

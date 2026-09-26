@@ -1,28 +1,60 @@
-<?php $this->load->view('includes/header-apply'); ?>
+<?php $this->load->view('includes/header-apply.php'); ?>
 
-<div class="main-hero main-hero5 _relative">
+<div class="section  flex-fill pt-3 pt-md-5">
     <div class="container">
-        <div class="space20"></div>
-        <div class="contact-form-all process-box">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="hadding5">
-                        <h2 class="text-center">Digital Personal Loan Application Process</h2>
-                        <div class="space16"></div>
-                        <p class="text-dark text-center">Share few details to avail your pre-approved loan offer</p>
+        <div class="row p-2 p-lg-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 order-2 order-lg-1 mt-4 mt-md-0">
+                <div class="bg-white border border-radius p-4 p-lg-4 mb-2 hover-float">
+                    <ul class="list-unstyled gx-4">
+                        <li class="pb-2 border-bottom text-dark"><strong>Applicant Details:</strong></li>
+                        <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between" href="#">Fullname
+                                <strong><span><?= $userdetails['fullname'] ?></span></strong></a>
+                        </li>
+                        <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between" href="#">Mobile
+                                <strong><span><?= $userdetails['mobile'] ?></span></strong></a></li>
+                        <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between" href="#">Loan
+                                Amount
+                                <strong><span>₹<?= formatePriceIndia($userdetails['loanamount']) ?></span></strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 icon-4xl p-3 px-0">
+                    <div
+                        class="d-flex flex-row align-items-center justify-content-start card bg-gray mb-3 border-0 px-3 py-2">
+                        <div class="pe-4">
+                            <i class="bi bi-people text-gradient-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-medium text-gradient-6 mb-0"><span class="counter">8000</span>+</h2>
+                            <p>Happy Customers</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12 order-1 order-lg-2">
 
-                    <?php echo form_open('digital/userApply', array('id' => 'submitForm1', 'class' => '', 'novalidate' => 'novalidate')); ?>
-                    <input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="userid" value="<?php echo $userdetails['userid']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="cardtype" value="<?php echo $userdetails['cardtype']; ?>"
-                        class="form-control" required>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <select class="wide contact5-select " id="cibilscore" name="cibilscore" required>
+                <div class="bg-white border border-radius p-4 p-lg-4 mb-2 hover-float">
+                    <div class="row align-items-center pb-3">
+                        <div class="col-12 col-xl-12">
+                            <h2 class="fw-normal text-dark"><?= $userdetails['loanname']; ?></h2>
+                            <p class="text-dark">Just a few more details to get pre-approved loan offer from our
+                                Partnered NBFCs</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <?php echo form_open('digital/userApply', array('id' => 'submitForm1', 'class' => '', 'novalidate' => 'novalidate')); ?>
+                        <input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>"
+                            class="form-control" required>
+                        <input type="hidden" name="userid" value="<?php echo $userdetails['userid']; ?>"
+                            class="form-control" required>
+                        <input type="hidden" name="cardtype" value="<?php echo $userdetails['cardtype']; ?>"
+                            class="form-control" required>
+
+                        <div class="row gx-3 gy-0">
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <!--<label class="form-control pt-0 ps-0 pb-2" style="background:none">CIBIL Score</label>-->
+                                <select class="custom-select w-100 border" id="cibilscore" name="cibilscore"
+                                    required="">
                                     <option value="">Cibil Score *</option>
                                     <option value="Below 650">Below 650</option>
                                     <option value="650 - 700">650 - 700</option>
@@ -33,24 +65,18 @@
                                 </select>
                                 <div class="error-message" id="cibilscore-message"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <input id="monincome" type="text" name="monincome" class="form-control"
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <input id="monincome" type="text" name="monincome" class="form-control border"
                                     placeholder="Monthly Income *" required inputmode="numeric">
                                 <div class="error-message" id="monincome-message"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <input id="monemi" type="text" name="monemi" class="form-control"
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <input id="monemi" type="text" name="monemi" class="form-control border"
                                     placeholder="Current Monthly EMI *" required inputmode="numeric">
                                 <div class="error-message" id="monemi-message"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <select class="wide contact5-select" id="loanpurpose" name="loanpurpose" required>
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <select class="custom-select w-100 border" id="loanpurpose" name="loanpurpose" required>
                                     <option selected value="">Select Loan Purpose *</option>
                                     <?php if ($userdetails['loantype'] == 12) { ?>
                                     <option value="Business Expansion">Business Expansion</option>
@@ -70,58 +96,44 @@
                                 </select>
                                 <div class="error-message" id="loanpurpose-message"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact5-form-input">
+                            <!--<div class="col-md-12 col-sm-12 pt-2">
                                 <input id="pincode" type="text" name="pincode" maxlength="6" minlength="6"
-                                    inputmode="numeric" class="form-control" placeholder="Pincode *" required>
+                                    inputmode="numeric" class="form-control border" placeholder="Pincode *" required>
                                 <div class="error-message" id="pincode-message"></div>
                                 <p class="pincode error text-danger text-start"></p>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <input id="city" type="text" name="city" class="form-control" placeholder="City *"
-                                    required style="background-color: #ffffff;">
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <input id="city" type="text" name="city" class="form-control border"
+                                    placeholder="City *" required style="background-color: #ffffff;">
                                 <div class="error-message" id="city-message"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact5-form-input">
-                                <input id="state" type="text" name="state" class="form-control" placeholder="State *"
-                                    required style="background-color: #ffffff;">
+                            <div class="col-md-6 col-sm-12 pt-2">
+                                <input id="state" type="text" name="state" class="form-control border"
+                                    placeholder="State *" required style="background-color: #ffffff;">
                                 <div class="error-message" id="state-message"></div>
+                            </div>-->
+                            <div class="col-md-6 col-sm-12 pt-2">
+									<input id="city" type="text" name="city" class="form-control border" placeholder="City *"
+										required>
+									<div class="error-message" id="city-message"></div>
+								</div>
+								<div class="col-md-6 col-sm-12 pt-2">
+									<select class="custom-select w-100 border" id="state" name="state" required>
+										<option value="">Select State *</option>
+										<?php echo getStateOption(); ?>
+									</select>
+									<div class="error-message" id="state-message"></div>
+								</div>
+                            <div class="col-md-12 col-lg-12 col-sm-12 pt-2 text-center">
+                                <button class="button-dark button-lg button-radius button-turquiose " id="form-submit1"
+                                    type="submit">Check Eligibility</button>
                             </div>
                         </div>
-                        <div class="col-lg-12 text-center">
-                            <div class="space24"></div>
-                            <button id="form-submit1" class="button2">Check Eligibility</button>
-                            <div class="space24"></div>
-                        </div>
-
-                    </div>
-                    </form>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="project-details-box">
-                        <div class="project-details-hadding">
-                            <h6 class="fs-5">User Details</h6>
-                        </div>
-                        <ul class="Category-list">
-                            <li><strong>User Name: </strong> <span><?= $userdetails['fullname'] ?></span></li>
-                            <li><strong>Mobile:</strong> <span><?= $userdetails['mobile'] ?></span></li>
-                            <li><strong>Loan Type:</strong> <span><?php echo $userdetails['loanname']; ?> </span></li>
-                            <li><strong>Loan Amount:</strong>
-                                <span><?= formatePriceIndia($userdetails['loanamount']) ?></span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <?php $this->load->view('includes/footer-apply.php'); ?>
@@ -143,22 +155,16 @@ $(document).ready(() => {
             loanpurpose: {
                 required: true
             },
-            preferred_datetime: {
-                required: true
-            },
-            pincode: {
-                required: true
-            },
             city: {
                 required: true
             },
             state: {
                 required: true
-            },
+            }
         },
         errorPlacement: function(error, element) {
             var target = "#" + $(element).attr("id") + "-message";
-            $(target).html(error)
+            $(target).html(error);
         },
         submitHandler: function(form) {
             $.ajax({
@@ -176,8 +182,7 @@ $(document).ready(() => {
                 },
                 success: function(response) {
                     if (response.success == true) {
-                        window.location.href = '<?php echo base_url()?>' + response
-                            .redirect_url;
+                        window.location.href = `${base_url + response.redirect_url}`;
                     } else {
                         toastr.error(response['message']);
                     }

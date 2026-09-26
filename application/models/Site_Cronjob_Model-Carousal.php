@@ -375,7 +375,7 @@ class Site_Cronjob_Model extends CI_Model
 			->result();
 
 		if (count($userlist) > 0) {
-			$smsmessage = "Dear Customer, your loan application is under process. Our Company Executive will connect soon. If you've any query, call us on 8155893017 Regards, Cashindia";
+			$smsmessage = "Dear Customer, your loan application is under process. Our Company Executive will connect soon. If you've any query, call us on 8155893017 Regards, Fintopcorporate";
 			$smssendid = getSMSsenderid();
 
 			foreach ($userlist as $row) {
@@ -434,7 +434,7 @@ class Site_Cronjob_Model extends CI_Model
 
 		if (count($userlist) > 0) {
 			foreach ($userlist as $row) {
-				$message = "The wait is over! You're now eligible to reapply for a loan. Login to your portal {#var#} Cashindia";
+				$message = "Dear Customer, You're now eligible to reapply for a loan. Login to your portal https://bitly.ws/39LCM Fintopcorporate";
 
 				$smsresponse = sendtextSMSobb($row->mobile, $message);
 			}

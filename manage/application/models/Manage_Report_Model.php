@@ -253,13 +253,13 @@ class Manage_Report_Model extends CI_Model
 			->get('cardoffer_order');
 		$statistics_res['specialoffer'] = $query_specialoffer->num_rows();
 
-		$query_bumperoffer = $this->db->select('id')
+		/*$query_bumperoffer = $this->db->select('id')
 			->where('registration_date', date('Y-m-d'))
 			->where('offerpage', 6)
 			->where('isActive', 1)
 			->where('isDelete', 0)
 			->get('cardoffer_order');
-		$statistics_res['bumperoffer'] = $query_bumperoffer->num_rows();
+		$statistics_res['bumperoffer'] = $query_bumperoffer->num_rows();*/
 
 		$query_festivaloffer = $this->db->select('id')
 			->where('registration_date', date('Y-m-d'))
@@ -268,6 +268,22 @@ class Manage_Report_Model extends CI_Model
 			->where('isDelete', 0)
 			->get('cardoffer_order');
 		$statistics_res['festivaloffer'] = $query_festivaloffer->num_rows();
+
+		$query_megaoffer = $this->db->select('id')
+			->where('registration_date', date('Y-m-d'))
+			->where('offerpage', 6)
+			->where('isActive', 1)
+			->where('isDelete', 0)
+			->get('cardoffer_order');
+		$statistics_res['megaoffer'] = $query_megaoffer->num_rows();
+
+		$query_staroffer = $this->db->select('id')
+			->where('registration_date', date('Y-m-d'))
+			->where('offerpage', 8)
+			->where('isActive', 1)
+			->where('isDelete', 0)
+			->get('cardoffer_order');
+		$statistics_res['staroffer'] = $query_staroffer->num_rows();
 
 		return $statistics_res;
 	}
@@ -455,7 +471,7 @@ class Manage_Report_Model extends CI_Model
 		$query_oldapp = $this->db->select('a.id')
 			->from('user_registration r')
 			->join('user_application a', 'a.userid=r.id')
-			->where("a.rec_date < NOW() - INTERVAL 21 DAY")
+			->where("a.rec_date < NOW() - INTERVAL 15 DAY")
 			->where('a.status', 1)
 			->where('a.isDelete', 0)
 			->where('r.isUser', 2)
@@ -684,6 +700,8 @@ class Manage_Report_Model extends CI_Model
 						$resdata[] = $resrow;
 					}
 				}
+
+				
 			}
 		}
 
@@ -795,7 +813,8 @@ class Manage_Report_Model extends CI_Model
 		return $resdata;
 	}
 
-	public function remarketing_cron_data($corndays){
+	public function remarketing_cron_data($corndays)
+	{
 		$statistics_result = array();
 		foreach ($corndays as $cdays) {
 			$d = strtotime("-" . $cdays . " day");
@@ -822,7 +841,36 @@ class Manage_Report_Model extends CI_Model
 		return $statistics_result;
 	}
 
-	public function whatsapp_cron_data($corndays){
+	public function wh_remarketing_cron_data($corndays)
+	{
+		$statistics_result = array();
+		foreach ($corndays as $cdays) {
+			$d = strtotime("-" . $cdays . " day");
+			$crondate = date('Y-m-d', $d);
+
+			$this->db->select('r.id');
+			$this->db->from('user_registration r');
+			$this->db->join('user_application a', 'a.userid=r.id');
+			$this->db->where("CAST(update_date as date) = '" . $crondate . "'");
+			$this->db->where('r.isUser', 1);
+			$this->db->where('r.isActive', 1);
+			$this->db->where('r.isDelete', 0);
+			$this->db->where('r.cardtype', 11);
+			$this->db->where('a.status', 1);
+			$this->db->where('a.isDelete', 0);
+			$this->db->group_by('r.mobile');
+			$this->db->order_by('r.id asc');
+
+			$statistics_res['countrec'] = $this->db->get()->num_rows();
+			$statistics_res['udate'] = date('d-m-Y', $d);
+			$statistics_res['day'] = $cdays;
+			array_push($statistics_result, $statistics_res);
+		}
+		return $statistics_result;
+	}
+
+	public function int_remarketing_cron_data($corndays)
+	{
 		$statistics_result = array();
 		foreach ($corndays as $cdays) {
 			$d = strtotime("-" . $cdays . " day");

@@ -108,6 +108,43 @@ class Offer extends MY_Controller
 		$this->load->view('sales-festivaloffer', ['saleslist' => $saleslist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
+	public function megaoffer()
+	{
+		$dt_to = date('Y-m-d', strtotime('-2 days'));
+		$dt_from = date('Y-m-d');
+
+		if (isset($_REQUEST['dt_to'])) {
+			$dt_to = $_REQUEST['dt_to'];
+		}
+
+		if (isset($_REQUEST['dt_from'])) {
+			$dt_from = $_REQUEST['dt_from'];
+		}
+
+		$this->load->model('Manage_Offer_Model');
+		$saleslist = $this->Manage_Offer_Model->getcardoffersales($dt_to, $dt_from, 6);
+		$this->load->view('sales-megaoffer', ['saleslist' => $saleslist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+	}
+
+	public function staroffer()
+	{
+		$dt_to = date('Y-m-d', strtotime('-2 days'));
+		$dt_from = date('Y-m-d');
+
+		if (isset($_REQUEST['dt_to'])) {
+			$dt_to = $_REQUEST['dt_to'];
+		}
+
+		if (isset($_REQUEST['dt_from'])) {
+			$dt_from = $_REQUEST['dt_from'];
+		}
+
+		$this->load->model('Manage_Offer_Model');
+		$saleslist = $this->Manage_Offer_Model->getcardoffersales($dt_to, $dt_from, 8);
+		$this->load->view('sales-staroffer', ['saleslist' => $saleslist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+	}
+
+
 	public function offerstatus($page, $statusid, $id)
 	{
 		$this->load->model('Manage_Offer_Model');

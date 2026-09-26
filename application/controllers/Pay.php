@@ -43,104 +43,106 @@ class Pay extends CI_Controller
 
 	public function getcardoffer()
 	{
-		$this->load->model('Site_Info_Model');
+
+		$this->load->model('Site_Digital_Model');
 		$this->load->model('Site_Payment_Gateway_Model');
+
+		$this->load->model('Site_Info_Model');
 		$productdata = $this->Site_Info_Model->getproductdetails('card-offer');
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 		$grandamount = $amount + ($amount * 0.18);
+		$roundamount = floor($grandamount);
 
 		$fullname = $_REQUEST['fullname'];
 		$mobileno = $_REQUEST['mobileno'];
 		$emailid = $_REQUEST['emailid'];
 
-		$this->load->model('Site_Digital_Model');
 
 		$existingUser = $this->Site_Digital_Model->checkexistinguser($mobileno);
 
 		// Check if mobile number exists
 		if ($existingUser) {
+
 			$message = "You are already a registered customer. Kindly login to customer panel. <a href='" . site_url('customer') . "'>Click here</a>";
 			$this->session->set_flashdata('danger', $message);
 			redirect('cardoffer');
-		} 
-		else {
+		} else {
 			
-			 $this->load->model('Site_Digital_Model');
-				$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
-				foreach ($uat_numbers as $uat_num) {
-					if ($uat_num == $mobileno) {
-						$grandamount = 1;
-					}
+$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
+			foreach ($uat_numbers as $uat_num) {
+				if ($uat_num == $mobileno) {
+					$roundamount = 1;
 				}
+			}
 
-				$data = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'offerpage' => 3,
-					'fullname' => $fullname,
-					'mobile' => $mobileno,
-					'emailid' => $emailid,
-					'amount' => $grandamount,
-					'isCustomer' => 0,
-					'isActive' => 0,
-					'isDelete' => 0
-				);
+			$data = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'offerpage' => 3,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'emailid' => $emailid,
+				'amount' => $roundamount,
+				'isCustomer' => 0,
+				'isActive' => 0,
+				'isDelete' => 0
+			);
 
-				
-				$userid = $this->Site_Digital_Model->cardofferorder($data);
+			$this->load->model('Site_Digital_Model');
+			$userid = $this->Site_Digital_Model->cardofferorder($data);
 
-				$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
+			$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
 
-				$orderdata = array(
-					'amount' => $grandamount * 100,
-					'currency' => 'INR',
-					'receipt' => $receiptid,
-					'notes' => array(
-						'key1' => $fullname,
-						'key2' => $mobileno
-					)
-				);
+			$orderdata = array(
+				'amount' => $roundamount * 100,
+				'currency' => 'INR',
+				'receipt' => $receiptid,
+				'notes' => array(
+					'key1' => $fullname,
+					'key2' => $mobileno
+				)
+			);
 
-				$this->load->helper('razorpay');
-				$orderres = generateorder($orderdata);
-				$successURL = base_url('pay/cardresponse');
-				$failURL = base_url('cardoffer');
+			$this->load->helper('razorpay');
+			$orderres = generateorder($orderdata);
+			$successURL = base_url('pay/cardresponse');
+			$failURL = base_url('cardoffer');
 
-				$razorpaydata = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'entryfor' => 3,
-					'userid' => $userid,
-					'orderid' => $orderres->id,
-					'orderamount' => $grandamount,
-					'ordernote' => $productdata->productname
-				);
+			$razorpaydata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'entryfor' => 3,
+				'userid' => $userid,
+				'orderid' => $orderres->id,
+				'orderamount' => $roundamount,
+				'ordernote' => $productdata->productname
+			);
 
-				$razorpayentry = $this->Site_Payment_Gateway_Model->razorpayentry($razorpaydata);
+			$this->load->model('Site_Payment_Gateway_Model');
+			$razorpayentry = $this->Site_Payment_Gateway_Model->razorpayentry($razorpaydata);
 
-				$postData = array(
-					'applyid' => $userid,
-					'fullname' => $fullname,
-					'mobile' => $mobileno,
-					'email' => $emailid,
-					'orderamount' => $grandamount,
-					'orderid' => $orderres->id,
-					'description' => $productdata->productname,
-					'successURL' => $successURL,
-					'failURL' => $failURL
-				);
+			$postData = array(
+				'applyid' => $userid,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'email' => $emailid,
+				'orderamount' => $roundamount,
+				'orderid' => $orderres->id,
+				'description' => $productdata->productname,
+				'successURL' => $successURL,
+				'failURL' => $failURL
+			);
 
-				$this->load->view('razorpay-checkout', ['postData' => $postData]);
+			$this->load->view('razorpay-checkout', ['postData' => $postData]);
 		}
 	}
 
 	public function cardresponse()
 	{
-		
+
 		$this->load->model('Site_Info_Model');
-		$this->load->model('Site_Digital_Model');
-		$this->load->model('Site_Payment_Gateway_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('home');
+		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
 
 		if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
+			$this->load->model('Site_Payment_Gateway_Model');
 			$paymentdata = $this->Site_Payment_Gateway_Model->getrazorpayentry($_POST["orderid"]);
 
 			$razorpaydata = array(
@@ -151,6 +153,7 @@ class Pay extends CI_Controller
 
 			$response1 = $this->Site_Payment_Gateway_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
 
+			$this->load->model('Site_Digital_Model');
 			$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
 
 			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
@@ -179,8 +182,7 @@ class Pay extends CI_Controller
 			} else {
 				$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'true']);
 			}
-		}
-		else {
+		} else {
 			$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
@@ -193,7 +195,7 @@ class Pay extends CI_Controller
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
 		$prores = $this->Site_Info_Model->getproductdetails('ivrpayment-offer');
-		
+
 		$banklist = $this->Site_Info_Model->getbanklist(8);
 		$testimoniallist = $this->Site_Info_Model->gettestimoniallist(1);
 
@@ -223,13 +225,11 @@ class Pay extends CI_Controller
 
 	public function getivrpaymentoffer()
 	{
-		$this->load->model('Site_Info_Model');
-		$this->load->model('Site_Payment_Gateway_Model');
 
+		$this->load->model('Site_Info_Model');
 		$productdata = $this->Site_Info_Model->getproductdetails('ivrpayment-offer');
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 		$grandamount = $amount + ($amount * 0.18);
-		$roundamount = floor($grandamount);
 
 		$fullname = $_REQUEST['fullname'];
 		$mobileno = $_REQUEST['mobileno'];
@@ -240,16 +240,17 @@ class Pay extends CI_Controller
 
 		// Check if mobile number exists
 		if ($existingUser) {
+
 			$message = "You are already a registered customer. Kindly login to customer panel. <a href='" . site_url('customer') . "'>Click here</a>";
 			$this->session->set_flashdata('danger', $message);
 			redirect('ivrpaymentoffer');
-		}
-		else {
-			
+		} else {
+
+
 			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 			foreach ($uat_numbers as $uat_num) {
 				if ($uat_num == $mobileno) {
-					$roundamount = 1;
+					$grandamount = 1;
 				}
 			}
 
@@ -259,7 +260,7 @@ class Pay extends CI_Controller
 				'fullname' => $fullname,
 				'mobile' => $mobileno,
 				'emailid' => $emailid,
-				'amount' => $roundamount,
+				'amount' => $grandamount,
 				'isCustomer' => 0,
 				'isActive' => 0,
 				'isDelete' => 0
@@ -268,100 +269,104 @@ class Pay extends CI_Controller
 			$this->load->model('Site_Digital_Model');
 			$userid = $this->Site_Digital_Model->cardofferorder($data);
 
-			$this->load->helper('paygic');
+			$orderid = number_format(microtime(true) * 1000, 0, '.', '');
 
-			$response = createMerchantToken();
 
-			$orderid = "PAYGIC" . number_format(microtime(true) * 1000, 0, '.', '');
-			
-			
-			$token = $response->data->token;
-			$returnUrl = base_url('pay/iverresponse/'.$orderid.'/'.$token);
 
-			$postData = array(
-				'mid' => PAYGIC_MID,
-				"merchantReferenceId"=> $orderid, // Unique reference ID for the merchant
-				"amount"=> $roundamount, // Transaction amount
-				"customer_mobile"=> $mobileno, // Customer's mobile number
-				"customer_name"=> $fullname, // Customer's name
-				"customer_email"=> $emailid, // Customer's email
-				"redirect_URL"=> $returnUrl,
-				"failed_URL"=> $returnUrl,
+			if (PHONEPE_MODE == "PROD") {
+				$curlurl = 'https://api.phonepe.com/apis/hermes/pg/v1/pay';
+			} else {
+				$curlurl = 'https://api-preprod.phonepe.com/apis/hermes/pg/v1/pay';
+			}
+
+			$this->load->helper('phonepe');
+			$token_data = create_token();
+
+			$token = $token_data->access_token;
+
+			$returnUrl = base_url('pay/iverresponse?orderID=' . $orderid . '&token=' . $token);
+			$callbackUrl = base_url('pay/ivercallback');
+
+			$phonepedata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'entryfor' => 4,
+				'userid' => $userid,
+				'orderid' => $orderid,
+				'orderamount' => $grandamount,
+				'ordernote' => $productdata->productname
 			);
+			$this->load->model('Site_Payment_Gateway_Model');
+			$response = $this->Site_Payment_Gateway_Model->phonepeentry($phonepedata);
 
-			$createresponse = createPaymentPage($postData, $token);
-			$post_data = json_decode($createresponse);
-			$post_reponse = array(
-				"status"=>$post_data->status,
-				"statusCode"=>$post_data->statusCode,
-				"msg"=>$post_data->msg,
-				"data"=>array(
-					"payPageUrl"=>$post_data->data->payPageUrl,
-					"expiry"=>0,
-					"amount"=>$post_data->data->amount,
-					"paygicReferenceId"=>$post_data->data->paygicReferenceId,
-					"merchantReferenceId"=>$post_data->data->merchantReferenceId,
+			$data_res = array(
+				"merchantOrderId" => $orderid,
+				"amount" =>  $grandamount * 100,
+				"paymentFlow" => array(
+					"type" => "PG_CHECKOUT",
+					"message" => "Payment message used for collect requests",
+					"merchantUrls" => array(
+						"redirectUrl" => $returnUrl,
+					)
 				)
-				
-				);
-				
-				$paygicdata = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'entryfor' => 4,
-					'userid' => $userid,
-					'orderid' => $orderid,
-					'orderamount' => $roundamount,
-					'ordernote' => $productdata->productname,
-				);
-		
-				$this->load->model('Site_Payment_Gateway_Model');
-				$response = $this->Site_Payment_Gateway_Model->paygicentry($paygicdata);
+			);
+			$checkout_data = checkout_payment($data_res, $token);
 
-				//$post_data = json_decode($createresponse);
-				redirect($post_data->data->payPageUrl);
+			if ($checkout_data) {
+				if ($checkout_data->redirectUrl) {
+					header("location:" . $checkout_data->redirectUrl);
+					die;
+				} else {
+					return redirect("ivrpaymentoffer");
+					die;
+				}
+			} else {
+				return redirect("ivrpaymentoffer");
+				die;
+			}
 		}
 	}
 
 	public function iverresponse()
 	{
-		
-		$this->load->helper('paygic');
-	
-		$createresponse = checkPaymentStatus($orderid, $token);
-
-		$response_data = json_decode($createresponse);
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
 
-		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
-		$decText = null;
+		if (!isset($_POST["code"]) || !isset($_POST["transactionId"]) || !isset($_POST["providerReferenceId"])) {
+			return redirect("ivrpaymentoffer");
+			die;
+		}
 
-		if (isset($response_data)) {
-			
-			$this->load->model('Site_Digital_Model');
-			$this->load->model('Site_Payment_Gateway_Model');
-			$paymentdata = $this->Site_Payment_Gateway_Model->getpaygicentry($response_data->data->merchantReferenceId);
+		$this->load->model('Site_Payment_Gateway_Model');
+		$paymentdata = $this->Site_Payment_Gateway_Model->getphonepeentry($_POST["transactionId"]);
 
-			$paygicdata = array(
-				'rec_date' => date('Y-m-d H:i:s'),
-				'transactionid' => $response_data->data->paygicReferenceId,
-				'statuscode' => $response_data->txnStatus,
-				'paymentmode' => '',
-			);
+		$txStatus = $_POST["code"];
+		$transactionId = $_POST["transactionId"];
+		$referenceId = $_POST["providerReferenceId"];
 
-			$response1 = $this->Site_Payment_Gateway_Model->updatepaygicentry($paymentdata->id, $paygicdata);
+		$phonepedata = array(
+			'rec_date' => date('Y-m-d H:i:s'),
+			'referenceid' => $referenceId,
+			'txstatus' => $txStatus
+		);
 
-			if ($response_data->txnStatus == 'SUCCESS') {
-				$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
+		$response1 = $this->Site_Payment_Gateway_Model->updatephonepeentry($paymentdata->id, $phonepedata);
 
+		$this->load->model('Site_Digital_Model');
+		$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
+
+		if ($txStatus == "PAYMENT_SUCCESS") {
+			$isentry = $this->Site_Digital_Model->checkcardofferentry($referenceId);
+			if ($isentry == 0) {
 				$cardno = random_code(16);
+
 				$data = array(
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
 					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
-					'paymentid' => $response_data->data->UTR,
+					'amount' => $paymentdata->orderamount,
+					'paymentid' => $referenceId,
 					'isActive' => 1
 				);
 
@@ -371,17 +376,238 @@ class Pay extends CI_Controller
 
 				$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => $response]);
 			} else {
-				$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'false']);
+				$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'true']);
 			}
+		} else if ($txStatus == "PAYMENT_FAILURE") {
+			$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->emailid);
+			$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'false']);
 		} else {
+			$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->emailid);
 			$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
 
-	public function cardcallback()
+	public function ivercallback()
 	{
 		die;
 	}
+
+	/* START : Mega Offer loan */
+	public function megaoffer()
+	{
+		$this->load->model('Site_Info_Model');
+		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
+		$prores = $this->Site_Info_Model->getproductdetails('mega-offer');
+		$banklist = $this->Site_Info_Model->getbanklist(8);
+		$testimoniallist = $this->Site_Info_Model->gettestimoniallist(1);
+
+		if ($prores->inOffer == 1) {
+			$productdata = array(
+				'inOffer' => $prores->inOffer,
+				'amount' => $prores->amount,
+				'offeramount' => $prores->offeramount,
+				'offerdate' => date('Y/m/d', strtotime('+1 days')) . ' 24:00:00',
+				'payamount' => $prores->offeramount + ($prores->offeramount * 0.18)
+			);
+		} else {
+			$productdata = array(
+				'inOffer' => 0,
+				'amount' => $prores->amount,
+				'offeramount' => 0,
+				'offerdate' => '',
+				'payamount' => $prores->amount + ($prores->amount * 0.18)
+			);
+		}
+
+		$this->load->model('Site_Info_Model');
+		$roipackages = $this->Site_Info_Model->getroipackages(11);
+
+		$this->load->view('megaoffer', ['meta' => $meta, 'productdata' => $productdata, 'roipackages' => $roipackages, 'banklist' => $banklist, 'testimoniallist' => $testimoniallist]);
+	}
+
+
+	public function getmegaoffer()
+	{
+
+		$this->load->model('Site_Digital_Model');
+		$this->load->model('Site_Payment_Gateway_Model');
+
+		$this->load->model('Site_Info_Model');
+		$productdata = $this->Site_Info_Model->getproductdetails('mega-offer');
+		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
+		$grandamount = $amount + ($amount * 0.18);
+
+		$fullname = $_REQUEST['fullname'];
+		$mobileno = $_REQUEST['mobileno'];
+		$emailid = $_REQUEST['emailid'];
+
+		$existingUser = $this->Site_Digital_Model->checkexistinguser($mobileno);
+
+		// Check if mobile number exists
+		if ($existingUser) {
+
+			$message = "You are already a registered customer. Kindly login to customer panel. <a href='" . site_url('customer') . "'>Click here</a>";
+			$this->session->set_flashdata('danger', $message);
+			redirect('megaoffer');
+		} else {
+
+
+			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
+			foreach ($uat_numbers as $uat_num) {
+				if ($uat_num == $mobileno) {
+					$grandamount = 1;
+				}
+			}
+
+			$data = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'offerpage' => 6,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'emailid' => $emailid,
+				'amount' => $grandamount,
+				'isCustomer' => 0,
+				'isActive' => 0,
+				'isDelete' => 0
+			);
+
+			$userid = $this->Site_Digital_Model->cardofferorder($data);
+
+			$orderId = number_format(microtime(true) * 1000, 0, '.', '');
+
+			$returnUrl = base_url('pay/megaresponse');
+
+			$url = "https://api.zaakpay.com/api/paymentTransact/V8";
+
+			$postData = array(
+				"merchantIdentifier" => ZAAKPAY_MERCHANT_IDENTIFIER,
+				"orderId" => $orderId,
+				"returnUrl" => $returnUrl,
+				"currency" => 'INR',
+				"amount" => $grandamount * 100,
+				"buyerEmail" => $emailid,
+				"buyerFirstName" => $fullname,
+				"buyerPhoneNumber" => $mobileno,
+				"buyerCountry" => 'India',
+				"productDescription" => $productdata->productname
+			);
+
+			ksort($postData);
+			$checksumData = "";
+
+			foreach ($postData as $key => $value) {
+				$checksumData .= $key . '=' . $value . '&';
+			}
+
+			$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
+
+			$zaakpaydata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'entryfor' => 6,
+				'userid' => $userid,
+				'orderid' => $orderId,
+				'orderamount' => $grandamount,
+				'ordernote' => $productdata->productname
+			);
+			$response = $this->Site_Payment_Gateway_Model->zaakpayentry($zaakpaydata);
+			$userdata = $this->Site_Digital_Model->checkuser($mobileno);
+
+			$this->load->view('zaakpay-checkout', ['postData' => $postData, 'checksum' => $checksum, 'url' => $url]);
+		}
+	}
+
+	public function megaresponse()
+	{
+
+		$this->load->model('Site_Digital_Model');
+		$this->load->model('Site_Payment_Gateway_Model');
+		$this->load->model('Site_Info_Model');
+		$meta = $this->Site_Info_Model->getmetakeywords('home');
+
+		$orderId = $_POST["orderId"];
+		$responseCode = $_POST["responseCode"];
+		$orderAmount = $_POST["amount"] / 100;
+		$txnId = $_POST["pgTransId"];
+		$paymentMode = $_POST["paymentMode"];
+		$recd_checksum = $_POST['checksum'];
+
+		$checksum = $checksumData = '';
+
+		$checksumsequence = array(
+			"amount",
+			"bank",
+			"bankid",
+			"cardId",
+			"cardScheme",
+			"cardToken",
+			"cardhashid",
+			"doRedirect",
+			"orderId",
+			"paymentMethod",
+			"paymentMode",
+			"responseCode",
+			"responseDescription",
+			"productDescription",
+			"product1Description",
+			"product2Description",
+			"product3Description",
+			"product4Description",
+			"pgTransId",
+			"pgTransTime"
+		);
+
+		foreach ($checksumsequence as $seqvalue) {
+			if (array_key_exists($seqvalue, $_POST)) {
+				$checksumData .= $seqvalue;
+				$checksumData .= "=";
+				$checksumData .= $_POST[$seqvalue];
+				$checksumData .= "&";
+			}
+		}
+
+		$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
+
+		if ($checksum == $recd_checksum) {
+			$paymentdata = $this->Site_Payment_Gateway_Model->getzaakpayentry($orderId);
+
+			$zaakpaydata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'orderamount' => $orderAmount,
+				'statuscode' => $responseCode,
+				'transactionid' => $txnId,
+				'paymentmode' => $paymentMode
+			);
+			$response1 = $this->Site_Payment_Gateway_Model->updatezaakpayentry($paymentdata->id, $zaakpaydata);
+
+			$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
+
+			if ($responseCode == 100 || $responseCode == 208 || $responseCode == 601) {
+				$cardno = random_code(16);
+
+				$data = array(
+					'rec_date' => date('Y-m-d H:i:s'),
+					'card_number' => $cardno,
+					'registration_date' => date('Y-m-d'),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
+					'amount' => $orderAmount,
+					'paymentid' => $txnId,
+					'isActive' => 1
+				);
+
+				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
+				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
+
+				$this->load->view('megaoffer-response', ['meta' => $meta, 'status' => $response]);
+			} else {
+				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->emailid);
+
+				$this->load->view('megaoffer-response', ['meta' => $meta, 'status' => 'false']);
+			}
+		} else {
+			$this->load->view('megaoffer-response', ['meta' => $meta, 'status' => 'false']);
+		}
+	}
+	/* END : Festival Offer loan */
 
 	/* START : Festival Offer loan */
 	public function festivaloffer()
@@ -418,7 +644,9 @@ class Pay extends CI_Controller
 
 	public function getfestivaloffer()
 	{
+
 		$this->load->model('Site_Info_Model');
+		$this->load->model('Site_Digital_Model');
 		$this->load->model('Site_Payment_Gateway_Model');
 
 		$productdata = $this->Site_Info_Model->getproductdetails('festival-offer');
@@ -430,220 +658,376 @@ class Pay extends CI_Controller
 		$mobileno = $_REQUEST['mobileno'];
 		$emailid = $_REQUEST['emailid'];
 
-		$this->load->model('Site_Digital_Model');
-		
+
 		$existingUser = $this->Site_Digital_Model->checkexistinguser($mobileno);
 
 		// Check if mobile number exists
 		if ($existingUser) {
+
 			$message = "You are already a registered customer. Kindly login to customer panel. <a href='" . site_url('customer') . "'>Click here</a>";
 			$this->session->set_flashdata('danger', $message);
 			redirect('festivaloffer');
-		}
-		else {
-			
+		} else {
+
 			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 			foreach ($uat_numbers as $uat_num) {
 				if ($uat_num == $mobileno) {
-					$grandamount = 1;
+					$roundamount = 1;
 				}
 			}
 
-		$orderid = 'order_' . number_format(microtime(true) * 1000, 0, '.', '');
-		$return_url = base_url('pay/festivalresponse');
+			$data = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'offerpage' => 7,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'emailid' => $emailid,
+				'amount' => $roundamount,
+				'isCustomer' => 0,
+				'isActive' => 0,
+				'isDelete' => 0
+			);
 
-		$data = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'offerpage' => 7,
-			'fullname' => $fullname,
-			'mobile' => $mobileno,
-			'emailid' => $emailid,
-			'amount' => $grandamount,
-			'isCustomer' => 0,
-			'isActive' => 0,
-			'isDelete' => 0
-		);
+			$userid = $this->Site_Digital_Model->cardofferorder($data);
 
-		$userid = $this->Site_Digital_Model->cardofferorder($data);
+			$this->load->helper('paygic');
+			$response = createMerchantToken();
 
-		$paymentData = [
-			"order_id" => $orderid,
-			"customer_id" => strval($userid),
-			'amount' => $grandamount,
-			'currency' => 'INR',
-			'name' => $fullname,
-			'email_id' => $emailid,
-			'contact_number' => $mobileno,
-			'mtx' => $orderid,
-			'return_url' => $return_url
-		];
+			$orderid = "PAYGIC" . number_format(microtime(true) * 1000, 0, '.', '');
 
-		$this->load->helper('openmoney_helper');
-		$environment = OPENMONEY_MODE;
 
-		if (OPENMONEY_MODE == "PROD") {
-			$accesskey = OPENMONEY_API_KEY;
-			$secretkey = OPENMONEY_API_SECRET;
-		} else {
-			$accesskey = OPENMONEY_API_KEY;
-			$secretkey = OPENMONEY_API_SECRET;
-		}
+			$token = $response->data->token;
+			$returnUrl = base_url('pay/festivalresponse/' . $orderid . '/' . $token);
 
-		$payment_token = create_payment_token($environment, $accesskey, $secretkey, $paymentData);
+			$postData = array(
+				'mid' => PAYGIC_MID,
+				"merchantReferenceId" => $orderid, // Unique reference ID for the merchant
+				"amount" => $roundamount, // Transaction amount
+				"customer_mobile" => $mobileno, // Customer's mobile number
+				"customer_name" => $fullname, // Customer's name
+				"customer_email" => $emailid, // Customer's email
+				"redirect_URL" => $returnUrl,
+				"failed_URL" => $returnUrl,
+			);
 
-		if (empty($error) && isset($payment_token['error'])) {
-			$error = 'E55 Payment error. ' . ucfirst($payment_token['error']);
-			if (isset($payment_token['error_data'])) {
-				foreach ($payment_token['error_data'] as $d)
-					$error .= " " . ucfirst($d[0]);
-			}
-		}
+			$createresponse = createPaymentPage($postData, $token);
+			$post_data = json_decode($createresponse);
+			$post_reponse = array(
+				"status" => $post_data->status,
+				"statusCode" => $post_data->statusCode,
+				"msg" => $post_data->msg,
+				"data" => array(
+					"payPageUrl" => $post_data->data->payPageUrl,
+					"expiry" => 0,
+					"amount" => $post_data->data->amount,
+					"paygicReferenceId" => $post_data->data->paygicReferenceId,
+					"merchantReferenceId" => $post_data->data->merchantReferenceId,
+				)
 
-		if (empty($error) && (!isset($payment_token["id"]) || empty($payment_token["id"]))) {
-			$error = 'Payment error. ' . 'Layer token ID cannot be empty.';
-		}
+			);
 
-		if (!empty($payment_token["id"]))
-			$payment_token_data = get_payment_token($environment, $accesskey, $secretkey, $payment_token["id"]);
+			$paygicdata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'entryfor' => 7,
+				'userid' => $userid,
+				'orderid' => $orderid,
+				'orderamount' => $roundamount,
+				'ordernote' => $productdata->productname,
+			);
 
-		if (empty($error) && !empty($payment_token_data)) {
-			if (isset($layer_payment_token_data['error'])) {
-				$error = 'E56 Payment error. ' . $payment_token_data['error'];
-			}
+			$response = $this->Site_Payment_Gateway_Model->paygicentry($paygicdata);
 
-			if (empty($error) && $payment_token_data['status'] == "paid") {
-				$error = "Layer: this order has already been paid.";
-			}
-
-			if (empty($error) && $payment_token_data['amount'] != $paymentData['amount']) {
-				$error = "Layer: an amount mismatch occurred.";
-			}
-
-			$jsdata['payment_token_id'] = html_entity_decode((string) $payment_token_data['id'], ENT_QUOTES, 'UTF-8');
-			$jsdata['accesskey'] = html_entity_decode((string) $accesskey, ENT_QUOTES, 'UTF-8');
-
-			$hash = create_hash(array(
-				'layer_pay_token_id' => $payment_token_data['id'],
-				'layer_order_amount' => $payment_token_data['amount'],
-				'tranid' => $orderid,
-			), $accesskey, $secretkey);
-
-			$postData = "<form action='" . base_url('pay/festivalresponse') . "' method='post' style='display: none' name='layer_payment_int_form'>
-				<input type='hidden' name='layer_pay_token_id' value='" . $payment_token_data['id'] . "'>
-				<input type='hidden' name='tranid' value='" . $orderid . "'>
-				<input type='hidden' name='layer_order_amount' value='" . $payment_token_data['amount'] . "'>
-				<input type='hidden' id='layer_payment_id' name='layer_payment_id' value=''>
-				<input type='hidden' id='fallback_url' name='fallback_url' value=''>
-				<input type='hidden' name='hash' value='" . $hash . "'>
-				</form>";
-			$postData .= "<script>";
-			$postData .= "var layer_params = " . json_encode($jsdata) . ';';
-
-			$postData .= "</script>";
-			$postData .= '<script src="' . base_url('assets/js/layer_checkout.js') . '"></script>';
-
-		}
-		$openmoneydata = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'entryfor' => 7,
-			'userid' => strval($userid),
-			'orderid' => $orderid,
-			'orderamount' => $grandamount,
-			'ordernote' => $productdata->productname,
-		);
-		$response = $this->Site_Payment_Gateway_Model->openmoneyentry($openmoneydata);
-
-		$this->load->view('openmoney_checkout', ['postData' => $postData]);
+			redirect($post_data->data->payPageUrl);
 		}
 	}
 
-	public function festivalresponse()
+	public function festivalresponse($orderid, $token)
 	{
-		
-		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
-		$this->load->model('Site_Payment_Gateway_Model');
+
 		$this->load->model('Site_Digital_Model');
+		$this->load->model('Site_Payment_Gateway_Model');
+
+		$this->load->helper('paygic');
+
+		$createresponse = checkPaymentStatus($orderid, $token);
+
+		$response_data = json_decode($createresponse);
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
 
-		$this->load->helper('openmoney_helper');
+		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
+		$decText = null;
 
-		$environment = OPENMONEY_MODE;
+		if (isset($response_data)) {
 
-		if (OPENMONEY_MODE == "PROD") {
-			$accesskey = OPENMONEY_API_KEY;
-			$secretkey = OPENMONEY_API_SECRET;
-		} else {
-			$accesskey = OPENMONEY_API_KEY;
-			$secretkey = OPENMONEY_API_SECRET;
-		}
+			$paymentdata = $this->Site_Payment_Gateway_Model->getpaygicentry($response_data->data->merchantReferenceId);
 
-		if ($_POST['layer_payment_id'] == '') {
-			$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'false']);
-		}
+			$paygicdata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'transactionid' => $response_data->data->paygicReferenceId,
+				'statuscode' => $response_data->txnStatus,
+				'paymentmode' => '',
+			);
 
-		$data = array(
-			'layer_pay_token_id' => $_POST['layer_pay_token_id'],
-			'layer_order_amount' => $_POST['layer_order_amount'],
-			'tranid' => $_POST['tranid'],
-		);
+			$response1 = $this->Site_Payment_Gateway_Model->updatepaygicentry($paymentdata->id, $paygicdata);
 
-		if (empty($error) && verify_hash($data, $_POST['hash'], $accesskey, $secretkey) && !empty($data['tranid'])) {
-			$payment_data = get_payment_details($environment, $accesskey, $secretkey, $_POST['layer_payment_id']);
+			if ($response_data->txnStatus == 'SUCCESS') {
+				$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
 
-			if (isset($payment_data['error'])) {
+				$cardno = random_code(16);
+				$data = array(
+					'rec_date' => date('Y-m-d H:i:s'),
+					'card_number' => $cardno,
+					'registration_date' => date('Y-m-d'),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
+					'paymentid' => $response_data->data->UTR,
+					'isActive' => 1
+				);
+
+				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
+
+				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
+
+				$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => $response]);
+			} else {
 				$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'false']);
-				die;
-			}
-
-			if (empty($error) && isset($payment_data['id']) && !empty($payment_data)) {
-				if ($payment_data['payment_token']['id'] != $data['layer_pay_token_id']) {
-					$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'false']);
-				} else {
-					if ($payment_data['status'] == 'captured' && $payment_data['payment_token']['status'] == 'paid') {
-						$orderid = $payment_data['payment_token']['mtx'];
-						$txstatus = $payment_data['status'];
-						$referenceid = $payment_data['id'];
-						$paymentmode = $payment_data['payment_token']['status'];
-						$orderamount = $payment_data['payment_token']['amount'];
-
-						$paymentdata = $this->Site_Payment_Gateway_Model->getopenmoneyentry($orderid);
-
-						$openmoneydata = array(
-							'rec_date' => date('Y-m-d H:i:s'),
-							'referenceid' => $referenceid,
-							'txstatus' => $txstatus,
-							'paymentmode' => $paymentmode
-						);
-						$response1 = $this->Site_Payment_Gateway_Model->updateopenmoneyentry($paymentdata->id, $openmoneydata);
-
-						$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
-						$cardno = random_code(16);
-
-						$data = array(
-							'rec_date' => date('Y-m-d H:i:s'),
-							'card_number' => $cardno,
-							'registration_date' => date('Y-m-d'),
-							'expiry_date' => date('Y-m-d', strtotime('+6 months')),
-							'amount' => $orderamount,
-							'paymentid' => $referenceid,
-							'isActive' => 1
-						);
-
-						$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
-
-						$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
-						$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'true']);
-					} else {
-						$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'false']);
-					}
-				}
 			}
 		} else {
 			$this->load->view('festivaloffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
 	/* END : Festival Offer loan */
+
+	/* START : Star Offer loan */
+	public function staroffer()
+	{
+		$this->load->model('Site_Info_Model');
+		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
+		$prores = $this->Site_Info_Model->getproductdetails('star-offer');
+		$banklist = $this->Site_Info_Model->getbanklist(8);
+		$testimoniallist = $this->Site_Info_Model->gettestimoniallist(1);
+
+		if ($prores->inOffer == 1) {
+			$productdata = array(
+				'inOffer' => $prores->inOffer,
+				'amount' => $prores->amount,
+				'offeramount' => $prores->offeramount,
+				'offerdate' => date('Y/m/d', strtotime('+1 days')) . ' 24:00:00',
+				'payamount' => $prores->offeramount + ($prores->offeramount * 0.18)
+			);
+		} else {
+			$productdata = array(
+				'inOffer' => 0,
+				'amount' => $prores->amount,
+				'offeramount' => 0,
+				'offerdate' => '',
+				'payamount' => $prores->amount + ($prores->amount * 0.18)
+			);
+		}
+
+		$this->load->model('Site_Info_Model');
+		$roipackages = $this->Site_Info_Model->getroipackages(11);
+
+		$this->load->view('staroffer', ['meta' => $meta, 'productdata' => $productdata, 'roipackages' => $roipackages, 'banklist' => $banklist, 'testimoniallist' => $testimoniallist]);
+	}
+
+	public function getstaroffer()
+	{
+
+		$this->load->model('Site_Info_Model');
+		$this->load->model('Site_Digital_Model');
+		$this->load->model('Site_Payment_Gateway_Model');
+
+		$productdata = $this->Site_Info_Model->getproductdetails('star-offer');
+		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
+		$grandamount = $amount + ($amount * 0.18);
+		$roundamount = floor($grandamount);
+
+		$fullname = $_REQUEST['fullname'];
+		$mobileno = $_REQUEST['mobileno'];
+		$emailid = $_REQUEST['emailid'];
+
+
+		$existingUser = $this->Site_Digital_Model->checkexistinguser($mobileno);
+
+		// Check if mobile number exists
+		if ($existingUser) {
+
+			$message = "You are already a registered customer. Kindly login to customer panel. <a href='" . site_url('customer') . "'>Click here</a>";
+			$this->session->set_flashdata('danger', $message);
+			redirect('staroffer');
+		} else {
+
+			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
+			foreach ($uat_numbers as $uat_num) {
+				if ($uat_num == $mobileno) {
+					$roundamount = 1;
+				}
+			}
+
+			$data = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'offerpage' => 8,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'emailid' => $emailid,
+				'amount' => $roundamount,
+				'isCustomer' => 0,
+				'isActive' => 0,
+				'isDelete' => 0
+			);
+
+			$userid = $this->Site_Digital_Model->cardofferorder($data);
+
+			$orderid = 'TCMPGSHT3D'.number_format(microtime(true) * 1000, 0, '.', '');
+			$encData = null;
+
+			$returnUrl = base_url('pay/starresponse/');
+
+			$terminalId = TERMINAL_ID;
+			$password = TERMINAL_PASSWORD;
+			$mkey = TERMINAL_KEY;
+
+			// data sequence is - orderId|terminalId|password|merchantKey|amount|currency
+			//$signdata = $orderid."|TER7990817|TER25041201011970543064|f5949cf7946afa557191b8a18504c2a847a6d9ff08c28ec2fd456322889d1451|".$roundamount."|INR";
+			$signdata = $orderid."|".$terminalId."|".$password."|".$mkey."|".$roundamount."|INR";
+			$signature = hash('sha256', $signdata);
+
+			$postdata = array(
+				"referenceId"=> $orderid,
+				"terminalId"=> $terminalId,
+				"password"=> $password,
+				"signature"=>  $signature, //Generated signature
+				"paymentType"=> "1",
+				"amount"=> $roundamount,
+				"currency"=> "INR",
+				"order"=> array(
+				"orderId"=> $orderid,  // Related orderId
+				"description"=> "Ivrpayment Offer"
+				),
+				"customer"=> array(
+					"customerEmail"=> $emailid,
+					"billingAddressStreet"=> '',
+					"billingAddressCity"=> "",
+					"billingAddressState"=> "",
+					"billingAddressPostalCode"=> "",
+					"billingAddressCountry"=> "IN"
+				),
+				"additionalDetails"=> array(
+					"userData"=> "{\"entryone\":\"abc\",\"entrytwo\":\"def\",\"entrythree\":\"xyz\",\"receiptUrl\":\"$returnUrl\"}"
+				),
+			);
+
+			$vegahdata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'entryfor' => 8,
+				'userid' => $userid,
+				'orderid' => $orderid,
+				'orderamount' => $roundamount,
+				'ordernote' => $productdata->productname
+			);
+			$response_data= $this->Site_Payment_Gateway_Model->vegaahentry($vegahdata);
+
+
+			// https://checkout.vegaah.com/vegaahpayments/v2/payments/pay-request
+		   $curl = curl_init();
+			curl_setopt_array($curl, [
+			CURLOPT_URL => "https://checkout.vegaah.com/vegaahpayments/v2/payments/pay-request",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 30,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS =>  json_encode($postdata),
+			CURLOPT_HTTPHEADER => [
+				"Content-Type: application/json",
+				"accept: application/json"
+			],
+			]);
+
+			$response = curl_exec($curl);
+			$err = curl_error($curl);
+			curl_close($curl);
+
+			$post_decode_data =  json_decode($response);
+
+			$payment_url = $post_decode_data->paymentLink->linkUrl;
+			$transaction_id = $post_decode_data->transactionId;
+
+			$redirect_url = $payment_url.$transaction_id;
+
+			redirect($redirect_url);
+			die;
+
+		}
+	}
+
+	public function starresponse()
+	{
+
+			$this->load->model('Site_Info_Model');
+			$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
+			$jsonData = file_get_contents("php://input");
+			parse_str($jsonData, $parsedData);
+			unset($parsedData['termId']);
+
+			$decodedData = urldecode($parsedData['data']);
+			$decodedData = str_replace(' ', '+', $decodedData);
+
+			$encryptedResponse = base64_decode($decodedData, true);
+			
+			$merKey = TERMINAL_KEY;
+			$binaryKey = hex2bin($merKey);
+
+			$decryptedData = openssl_decrypt($encryptedResponse, 'AES-256-ECB', $binaryKey, OPENSSL_RAW_DATA);
+
+			if ($decryptedData === false) {
+				$this->load->view('staroffer-response', ['meta' => $meta, 'status' => 'false']);
+				return;
+			}
+
+			$resultdata = json_decode($decryptedData, true);
+			/*if ($resultdata === null) {
+				$this->load->view('staroffer-response', ['meta' => $meta, 'status' => 'false']);
+				return;
+			}*/
+
+			$this->load->model('Site_Digital_Model');
+			$this->load->model('Site_Payment_Gateway_Model');
+			$paymentdata = $this->Site_Payment_Gateway_Model->getvegaahentry($resultdata['orderDetails']['orderId']);
+
+			$vegaahdata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'referenceid' => $resultdata['transactionId'],
+				'txstatus' => $resultdata['result'],
+				'paymentmode' => $resultdata['paymentInstrument']['paymentMethod']
+			);
+
+			$response1 = $this->Site_Payment_Gateway_Model->updatevegaahentry($paymentdata->id, $vegaahdata);
+
+			if ($resultdata['result'] == 'SUCCESS') {
+				$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
+
+				$cardno = random_code(16);
+				$data = array(
+					'rec_date' => date('Y-m-d H:i:s'),
+					'card_number' => $cardno,
+					'registration_date' => date('Y-m-d'),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
+					'paymentid' => $resultdata['transactionId'],
+					'isActive' => 1
+				);
+
+				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
+
+				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
+
+				$this->load->view('staroffer-response', ['meta' => $meta, 'status' => $response]);
+			}  else if ($resultdata['result'] == 'FAILURE') {
+				$this->load->view('staroffer-response', ['meta' => $meta, 'status' => 'false']);
+			}
+	}
+	/* END : Festival Offer loan */
 }
-?>

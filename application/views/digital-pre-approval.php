@@ -1,223 +1,200 @@
-<?php $this->load->view('includes/header-apply');
+<?php $this->load->view('includes/header-apply.php');
 $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi'], $userdetails['apr'], $userdetails['loanamount']);
 $eligibilityamtindia = formatePriceIndia($eligibilityamt);
 ?>
 
-<div class="main-hero main-hero5 _relative">
+<div class="section flex-fill pt-3 pt-md-5">
     <div class="container">
-        <div class="space20"></div>
-        <div class="contact-form-all process-box">
-            <div class="row">
-                <div class="hadding5">
-                    <h2 class="text-center">Digital Personal Loan Application Process</h2>
-                    <div class="space16"></div>
-                    <p class="text-dark text-center">Pre-Approved Offer :</span> Congratulations! You’re Eligible For
-                        <span class="fw-bold text-success">Rs. <?php echo $eligibilityamtindia; ?></span> Pre-Approval
-                        Offered By Our Partnered NBFCs.</p>
-                    <div class="space30"></div>
-                </div>
-            </div>
+            <div class="row p-2 p-lg-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12 order-2 order-lg-1  mt-2 mt-md-0">
+                    <div class="bg-white border border-radius p-4 p-lg-4 mb-2 hover-float">
+                        <ul class="list-unstyled gx-4">
+                            <li class="pb-2 border-bottom text-dark"><strong>Applicant Details:</strong></li>
+                            <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between"
+                                    href="#">Fullname <strong><span><?= $userdetails['fullname'] ?></span></strong></a>
+                            </li>
+                            <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between"
+                                    href="#">Mobile <strong><span><?= $userdetails['mobile'] ?></span></strong></a></li>
+                            <li class="pt-2 pb-2 border-bottom"><a class="d-flex justify-content-between" href="#">Loan
+                                    Amount
+                                    <strong><span>₹<?= formatePriceIndia($userdetails['loanamount']) ?></span></strong></a>
+                            </li>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <?php echo form_open('digital/getpreApproval', array('id' => 'submitForm2', 'class' => '', 'novalidate' => 'novalidate')); ?>
-                    <input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="userid" value="<?php echo $userdetails['userid']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="mobile" value="<?php echo $userdetails['mobile']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="cardtype" value="<?php echo $userdetails['cardtype']; ?>"
-                        class="form-control" required>
-                    <input type="hidden" name="tenure" id="tenure" value="36" class="form-control" required>
-                    <input type="hidden" name="eligibilityamt" value="<?php echo $eligibilityamt; ?>"
-                        class="form-control" required>
-                    <div class="row">
-                        <div class="col-lg-12 align-items-center">
-                            <p class="text-dark text-center mb-3 fs-6">Select Your Suitable EMI Option:</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-1-radio')">
-                            <input type="radio" class="form-check-input" id="plan-1-radio" name="tenure" value="12"
-                                checked />
-                            <label class="form-check-label m-l-10" for="plan-1-radio">
-                                12 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i>
-                                Rs.<?php echo calPMT($userdetails['apr'], 1, $eligibilityamt); ?>
-                            </label>
-                        </div>
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-2-radio')">
-                            <input type="radio" id="plan-2-radio" name="tenure" value="24" class="form-check-input" />
-                            <label class="form-check-label m-l-10" for="plan-2-radio">
-                                24 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i> Rs.
-                                <?php echo calPMT($userdetails['apr'], 2, $eligibilityamt); ?>
-                            </label>
-                        </div>
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-3-radio')">
-                            <input type="radio" id="plan-3-radio" name="tenure" value="36" class="form-check-input" />
-                            <label class="form-check-label m-l-10" for="plan-3-radio">
-                                36 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i> Rs.
-                                <?php echo calPMT($userdetails['apr'], 3, $eligibilityamt); ?>
-                            </label>
-                        </div>
-
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-4-radio')">
-                            <input type="radio" id="plan-4-radio" name="tenure" value="48" class="form-check-input" />
-                            <label class="form-check-label m-l-10" for="plan-4-radio">
-                                48 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i> Rs.
-                                <?php echo calPMT($userdetails['apr'], 4, $eligibilityamt); ?>
-                            </label>
-                        </div>
-
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-5-radio')">
-                            <input type="radio" id="plan-5-radio" name="tenure" value="60" class="form-check-input" />
-                            <label class="form-check-label m-l-10" for="plan-5-radio">
-                                60 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i>
-                                Rs.<?php echo calPMT($userdetails['apr'], 5, $eligibilityamt); ?>
-                            </label>
-                        </div>
-
-                        <div class="col-5 checkout-input-selact theme-btn11 mb-2" onclick="selectPlan('plan-6-radio')">
-                            <input type="radio" id="plan-6-radio" name="tenure" value="72" class="form-check-input" />
-                            <label class="form-check-label m-l-10" for="plan-6-radio">
-                                72 Months <i class="fa fa-long-arrow-alt-right m-r-10 m-l-10"></i> Rs.
-                                <?php echo calPMT($userdetails['apr'], 6, $eligibilityamt); ?>
-                            </label>
-                        </div>
-
-                        <div class="col-lg-12 text-center js-confetti">
-                            <div class="space24"></div>
-                            <button type="submit" id="form-submit2" class="button2">Get Offer</button>
-                            <div class="form-group col-md-12 text-center m-b-0">
-                                <hr />
-                                <p class="m-b-0"><small>How is pre-approved loan offer calculated? <a
-                                            class="text-primary" data-bs-target="#modal" data-bs-toggle="modal" href="#">Know
-                                            Here</a></small></p>
-                            </div>
-                            <div class="space24"></div>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="project-details-box">
-                        <div class="project-details-hadding">
-                            <h6 class="fs-5">User Details</h6>
-                        </div>
-                        <ul class="Category-list">
-                            <li><strong>User Name: </strong> <span><?= $userdetails['fullname'] ?></span></li>
-                            <li><strong>Mobile:</strong> <span><?= $userdetails['mobile'] ?></span></li>
-                            <li><strong>Loan Type:</strong> <span><?php echo $userdetails['loanname']; ?> </span></li>
-                            <li><strong>Loan Amount:</strong>
-                                <span><?= formatePriceIndia($userdetails['loanamount']) ?></span></li>
                         </ul>
                     </div>
+							<div class="col-12 icon-4xl p-3 px-0">
+						<div class="d-flex flex-row align-items-center justify-content-start card bg-gray mb-3 border-0 px-3 py-2">
+							<div class="pe-4">
+								<i class="bi bi-people text-gradient-6"></i>
+							</div>
+							<div>
+								<h2 class="fw-medium text-gradient-6 mb-0"><span class="counter">8000</span>+</h2>
+								<p>Happy Customers</p>
+							</div>
+						</div>
+					</div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-12 order-1 order-lg-2">
+                    <div class="bg-white border border-radius p-4 p-lg-4 mb-2 hover-float">
+						 <div class="row align-items-center pb-3">
+                            <div class="col-12 col-xl-12">
+                                <h2 class="fw-normal text-dark"><?= $userdetails['loanname']; ?></h2>
+                                <p class="font-16 text-dark"><span class="fw-bold" style="color: #9b222a;">Rs. <?php echo $eligibilityamtindia; ?></span> loan is pre-approved. Please proceed to complete the process.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-start small text-dark">Choose Your Suitable EMI Option :</p>
+                        </div>
+                        <?php echo form_open('digital/getpreApproval', array('id' => 'submitForm2', 'novalidate' => 'novalidate')); ?>
+                        <input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>" required>
+                        <input type="hidden" name="userid" value="<?php echo $userdetails['userid']; ?>" required>
+                        <input type="hidden" name="mobile" value="<?php echo $userdetails['mobile']; ?>" required>
+                        <input type="hidden" name="cardtype" value="<?php echo $userdetails['cardtype']; ?>" required>
+                        <input type="hidden" name="tenure" id="tenure" value="36" required>
+                        <input type="hidden" name="eligibilityamt" value="<?php echo $eligibilityamt; ?>" required>
+
+                        <div class="bg-white radio-input-pre shadow-none pb-0 p-lg-3 p-0 p-md-0">
+                            <div class="row gx-2">
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="12" name="tenure" value="12" checked="">
+                                    <label for="12">
+                                        12 Months </br>EMI&nbsp;&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 1, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="24" name="tenure" value="24">
+                                    <label for="24">
+                                        24 Months </br>EMI&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 2, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="36" name="tenure" value="36">
+                                    <label for="36">
+                                        36 Months </br>EMI&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 3, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="48" name="tenure" value="48">
+                                    <label for="48">
+                                        48 Months </br>EMI&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 4, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="60" name="tenure" value="60">
+                                    <label for="60">
+                                        60 Months </br>EMI&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 5, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+                                <div
+                                    class="col-lg-4 col-md-6 col-6 d-flex flex-row align-items-center justify-content-center">
+                                    <input type="radio" id="72" name="tenure" value="72">
+                                    <label for="72">
+                                        72 Months </br>EMI&nbsp;₹.
+                                        <?php echo calPMT($userdetails['apr'], 6, $eligibilityamt); ?>
+                                    </label>
+                                </div>
+                                <div class="col-md-12 col-lg-12 col-sm-12 pt-4 text-center">
+                                    <button class="button-dark button-lg button-radius button-turquiose "
+                                        id="form-submit2" type="submit">Get Offer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php echo form_close(); ?>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
-</div>
-</div>
+</div
+>
 
-<!--=====Service Start=======-->
-<div class="counter9 sp3">
+<?php if (count($roipackages)) { ?>
+<div class="section-lg pt-0 pb-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12  m-auto text-center">
-                <div class="hadding2 text-center">
-                    <h2 class="text-dark mb-3">Your Pre-Approved Loan Offers From Partnered NBFCs</h2>
-                    <div class="space24"></div>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <?php 
-		$cnt=1; 
-		foreach($roipackages as $row) {
-		?>
-            <div class="col-lg-3 col-md-6">
-                <div class="service5-box">
-                    <div class="">
-                        <img src="<?php echo base_url('assets/img/banks/' . $row->bank_image); ?>" alt="">
-                    </div>
-                    <div class="hadding5">
-                        <div class="service5-border"></div>
-                        <h4><?php echo $row->bank_name; ?></h4>
-                        <div class="service5-border"></div>
-                        <p class="mb-2 text-dark">Rs. <?php echo formatePriceIndia($eligibilityamt); ?></p>
-                        <p class="mb-2 text-dark">EMI : Rs.
-                            <?php echo calPMT($row->roi, $row->termsyears, $eligibilityamt); ?></p>
-                        <p class="mb-2 text-dark">ROI : <?php echo $row->roi."%"; ?></p>
-                        <p class="mb-0 text-dark">Terms : <?php echo $row->termsmonths." months"; ?></p>
-                    </div>
-                </div>
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <h2 class="fw-light line-height-160 m-0 pb-2">Your Pre-Approved Loan Offers From Partnered NBFCs</h2>
             </div>
-            <?php 
-			$cnt++;
-		} ?>
         </div>
-        <div class="text-center">
-            <p class="mt-4 mb-0"><small>Disclaimer - The above data is tentative and purely on the information provided
-                    by
-                    you. Final EMI, loan sanction, loan approval, and loan amount depend on customer profile and NBFCs
-                    criteria and rules & regulations.</small></p>
-        </div>
-    </div>
-</div>
-<!--=====Service end=======-->
-
-<div class="modal fade" id="modal" role="modal" aria-labelledby="modal-label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modal-label">How is pre-approved loan offer calculated?</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 text-justify">
-                        <p>The Pre-Approved Loan Offer and the amount mentioned in it are solely shown based on the
-                            software calculation done on Monthly Income and Current Monthly EMI entered by you. This
-                            'Pre-Approved Loan Offer' is tentative and not the final loan approval – as the final loan
-                            approval is given by the bank only, based on the bank's rules and regulations and the
-                            customer profile.</p>
-
-                        <p><strong>Reference Calculation:</strong>
-                            <br />Consider a person who has entered the following details –
-                            <br />Monthly Income: Rs.1,00,000
-                            <br />Current Monthly EMI: Rs.30,000
-                        </p>
-
-                        <p>Based on these details, the person is left with Rs.70,000 in hand (deducting current EMI)
-                            every month. So, according to the general rules of the banks, the EMI of 50% of the in-hand
-                            amount can be approved - in this example, it's 35,000. And based on the EMI and rate of
-                            interest (12.5% tentatively), the eligible amount is shown in the Pre-Approved Loan Offer -
-                            considering the mentioned calculation.</p>
-
-                        <p>Note: Pre-approved loan offer is tentative. It should not be considered as the final loan
-                            approval. The final loan approval is given by the bank only, according to their rules and
-                            criteria and the customer profile.</p>
-
-                        <p class="m-b-0">Note: As per the details/information entered by the user, even if the actual
-                            pre-approved amount is lesser than 2 Lakhs, the pre-approved amount shown on the website
-                            will be Rs.2 Lakhs (minimum). And, even if the actual pre-approved amount is more than 8.5
-                            Lakhs, the pre-approved amount shown on the website will be Rs.8.5 Lakhs (maximum). The
-                            pre-approved amount/pre-approved loan offers are tentative – the final loan approval, loan
-                            sanction, and disbursement depend on the customer profile and the NBFCs’ rules and
-                            regulations.</p>
+        <div class="row icon-4xl mb-3">
+            <?php
+				$cnt = 1;
+				foreach ($roipackages as $row) {
+			?>
+            <div class="col-md-3 p-3">
+                <div class="row box-backdrop p-3">
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <img class="img-fluid" src="<?php echo base_url('assets/images/banks/' . $row->bank_image); ?>"
+                            style="width:200px" alt="" />
+                    </div>
+                    <div class="col-md-12 text-md-start mb-3 mb-md-0">
+                        <h5 class="fw-medium mt-2"><?php echo $row->bank_name; ?></h5>
+                        <p class="text-dark"><strong>Loan Amt : </strong>Rs. <?php echo formatePriceIndia($eligibilityamt); ?> </br> <strong>EMI
+                                :
+                                Rs.</strong><?php echo calPMT($row->roi, $row->termsyears, $eligibilityamt); ?>
+                            </br> <strong>ROI : </strong> <?php echo $row->roi . "%"; ?> </br> <strong>Terms :
+                            </strong><?php echo $row->termsmonths . " months"; ?></p>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="button2" data-bs-dismiss="modal">Close</button>
-            </div>
+            <?php $cnt++; } ?>
         </div>
+
     </div>
 </div>
+<?php } ?>
 
-<?php $this->load->view('includes/footer-apply'); ?>
-<script>
-function selectPlan(planId) {
-    document.getElementById(planId).checked = true;
-}
+<?php $this->load->view('includes/footer-apply.php'); ?>
+<script src="<?php echo base_url('assets/plugins/celebration/confetti-script.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/celebration/confetti.browser.min.js'); ?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+    const end = Date.now() + 2 * 1000;
+
+	// go Buckeyes!
+	const colors = ["#2279be", "#fbe445", "#C70039", "#EE9322"];
+
+	(function frame() {
+		confetti({
+			particleCount: 3,
+			angle: 50,
+			spread: 80,
+			origin: {
+				x: 0
+			},
+			colors: colors,
+		});
+
+		confetti({
+			particleCount: 3,
+			angle: 120,
+			spread: 80,
+			origin: {
+				x: 1
+			},
+			colors: colors,
+		});
+
+		if (Date.now() < end) {
+			requestAnimationFrame(frame);
+		}
+	})();
+
+	$(function () {
+		$('#submitForm2').on('submit', function (e) {
+			$('#form-submit2').attr('disabled', true);
+			$('#form-submit2').html('Processing... <span class="spinner-border spinner-border-sm ms-1" role="status" aria-hidden="true"></span>');
+		});
+	});
+
 </script>

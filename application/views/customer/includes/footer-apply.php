@@ -1,42 +1,33 @@
-		<div class="footer-area footer-area2 pt-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="footer6-copyright copyright2">
-							<div class="copyright-p">
-								<p class="font-16 mb-0">LLP NO: <?=COMPANY_LLP?></p>
-							</div>
-							<div class="copyright-p copyright-p2">
-								<div class="">
-									<p class="mb-0 font-16 text-dark"><?=date('Y')?> © <?=COMPANY_NAME;?>. All Rights Reserved</p>
-								</div>
-							</div>
-						</div>
-					</div>
+		<!--=====Footer start=======-->
+<footer>
+	<div class="bg-black py-4">	
+		<div class="container">
+			<div class="row align-items-center g-2 g-lg-3">
+				<div class="col-12 col-md-6 text-center text-md-start">
+					<p class="font-14">CIN NO.: <?= COMPANY_CIN; ?></p>
 				</div>
-			</div>
-		</div>
-		<div class="progress-wrap">
-			<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-			</svg>
-		</div>
-		<script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
-  <script src="<?= base_url('assets/js/fontawesome.js') ?>"></script>
-  <script src="<?= base_url('assets/js/owl.carousel.min.js') ?>"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="<?= base_url('assets/js/jquery.magnific-popup.min.js') ?>"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
-  <script src="<?= base_url('assets/js/slick-slider.js') ?>"></script>
-  <script src="<?= base_url('assets/js/mobile-menu.js') ?>"></script>
-  <script src="<?= base_url('assets/js/tilt.jquery.js') ?>"></script>
-  <script src="<?= base_url('assets/js/jquery.countup.js') ?>"></script>
-  <script src="<?= base_url('assets/js/jquery.nice-select.js') ?>"></script>
-  <script src="<?= base_url('assets/js/jquery.lineProgressbar.js') ?>"></script>
-  <script src="<?= base_url('assets/js/mobile-meanmenu.js') ?>"></script>
-  <script src="<?= base_url('assets/js/modal-video.min.js') ?>"></script>
-  <script src="<?= base_url('assets/js/main.js') ?>"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  
+				<div class="col-12 col-md-6 text-center text-md-end">
+					<p><?= date('Y') ?> ©
+					<?= COMPANY_NAME; ?>. All Rights Reserved.</p>
+				</div>
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</div>
+</footer>
+<!--=====Footer end=======-->
+		
+		<script src="<?= base_url('assets/plugins/jquery.min.js') ?>"></script>
+		<script src="<?= base_url('assets/plugins/plugins.js') ?>"></script>
+		<script src="<?= base_url('assets/js/functions.js') ?>"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+		<script src="<?=base_url('assets/js/main.js')?>"></script>
+		<!-- Datatables Scripts -->
+		<script src="<?=base_url('assets/plugins/datatables/js/datatables.min.js')?>" type="text/javascript"></script>
+		<script src="<?=base_url('assets/plugins/datatables/js/jszip.min.js')?>" type="text/javascript"></script>
+		<script src="<?=base_url('assets/plugins/datatables/js/pdfmake.min.js')?>" type="text/javascript"></script>
+		<script src="<?=base_url('assets/plugins/datatables/js/vfs_fonts.js')?>" type="text/javascript"></script>
+		<script src="<?=base_url('assets/plugins/datatables/js/buttons.html5.min.js')?>" type="text/javascript"></script>
+		<script src="<?=base_url('assets/plugins/datatables/js/buttons.print.min.js')?>" type="text/javascript"></script>
+	</body>
+</html>

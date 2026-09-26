@@ -76,9 +76,9 @@
                             echo "</td>";
 
                             echo "<td>".formatePriceIndia($row->loanamount)."</td>";
-                            echo "<td>".htmlentities($row->loantenure)."</td>";
-                            echo "<td>".htmlentities($row->cibilscore)."</td>";
-                            echo "<td>".htmlentities($row->loanpurpose)."</td>";
+                            echo "<td>".htmlspecialchars($row->loantenure ?? '')."</td>";
+                            echo "<td>".htmlspecialchars($row->cibilscore ?? '')."</td>";
+                            echo "<td>".htmlspecialchars($row->loanpurpose ?? '')."</td>";
                             echo "<td>".formatePriceIndia($row->income)."</td>";
                             echo "<td>".formatePriceIndia($row->currentemi)."</td>";
 

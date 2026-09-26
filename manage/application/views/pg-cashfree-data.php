@@ -43,8 +43,8 @@ include_once(APPPATH . 'views/includes/header.php');
                     <th>Datetime</th>
                     <th>Entry For</th>
                     <th>User Name</th>
-                    <th>Email</th>
                     <th>Mobile</th>
+                    <th>Email</th>
                     <th>Order ID</th>
                     <th class='text-right'>Order Amount</th>
                     <th>Order Note</th>
@@ -64,15 +64,14 @@ include_once(APPPATH . 'views/includes/header.php');
                       echo "<td>" . DateFormatDisplay($row->rec_date) . "</td>";
                       echo "<td>" . htmlspecialchars($row->entrydetail ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->fullname ?? '') . "</td>";
-                      echo "<td>" . htmlspecialchars($row->email ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->mobile ?? '') . "</td>";
+                      echo "<td>" . htmlspecialchars($row->email ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->orderid ?? '') . "</td>";
                       echo "<td class='text-right'>" . htmlspecialchars($row->orderamount ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->ordernote ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->referenceid ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->txstatus ?? '') . "</td>";
                       echo "<td>" . htmlspecialchars($row->paymentmode ?? '') . "</td>";
-
                       echo "</tr>";
                       $cnt++;
                     }

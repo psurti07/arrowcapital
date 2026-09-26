@@ -48,7 +48,7 @@
                         		echo "<td>".htmlentities($row->mobile)."</td>";
                             echo "<td>".htmlentities($row->emailid)."</td>";
                             
-                             if ($row->role == 0) {
+                            if ($row->role == 0) {
                               echo "<td>Admin</td>";
                             } elseif($row->role == 1) {
                               echo "<td>Employee</td>";

@@ -31,6 +31,7 @@ Class Offers extends CI_Controller {
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 		
 		$profiledata = $this->Customer_Profile_Model->getprofile($customerid);
+			
 		$this->load->view('customer/offers', ['meta'=>$meta, 'profiledata'=>$profiledata]);
 	}
 
@@ -65,6 +66,5 @@ Class Offers extends CI_Controller {
 		$this->load->view('customer/card-offer', ['meta'=>$meta]);
 
 	}
-
 }
 ?>

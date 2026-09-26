@@ -11,7 +11,6 @@ Class Site extends MY_Controller {
 		$this->role = $this->session->userdata('admintype');
 	}
 	
-
 	public function index(){
 		redirect('dashboard');
 	}
@@ -152,29 +151,6 @@ Class Site extends MY_Controller {
 		redirect('site/sitesettings');
 	}
 
-	public function updatewpcampmainimgurl() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignmain_imgurl']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignmain_imgurl');
-
-		redirect('site/sitesettings');
-	}
-
-	public function updatewpcampmain_image_name() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignmain_imgname']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignmain_imgname');
-
-		redirect('site/sitesettings');
-	}
-	
-
 	public function updatewpcampmainoffer() {
 		$data = array(
 		 'rec_date' => date('Y-m-d H:i:s'),
@@ -186,29 +162,6 @@ Class Site extends MY_Controller {
 		redirect('site/sitesettings');
 	}
 
-	public function updatewpcampmainoffer_imgulr() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignoffer_imgurl']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignoffer_imgurl');
-
-		redirect('site/sitesettings');
-	}
-
-	public function updatewpcampmainoffer_imgname() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignoffer_imgname']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignoffer_imgname');
-
-		redirect('site/sitesettings');
-	}
-
-
 	public function updatewpcampmainsuccess() {
 		$data = array(
 		 'rec_date' => date('Y-m-d H:i:s'),
@@ -219,29 +172,6 @@ Class Site extends MY_Controller {
 
 		redirect('site/sitesettings');
 	}
-
-	public function updatewpcampmainsuccess_imgurl() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignsuccess_imgurl']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignsuccess_imgurl');
-
-		redirect('site/sitesettings');
-	}
-
-	public function updatewpcampmainsuccess_imgname() {
-		$data = array(
-		 'rec_date' => date('Y-m-d H:i:s'),
-		 'option_value' => $_REQUEST['wpcampaignsuccess_imgname']
-		);
-		$this->load->model('Manage_Site_Model');
-		$response = $this->Manage_Site_Model->updatesitesettingdata($data, 'wpcampaignsuccess_imgname');
-
-		redirect('site/sitesettings');
-	}
-
 	public function search(){
 		$module = "customer";
 		$mobile = "";
@@ -482,9 +412,9 @@ Class Site extends MY_Controller {
 
 	public function stafflist(){
 		if ($this->role == 1) {
-			echo "<script>window.history.back();</script>";
-			return;
-		}
+		    echo "<script>window.history.back();</script>";
+		    exit;
+		}	
 		$this->load->model('Manage_Site_Model');
 		$datalist = $this->Manage_Site_Model->getstaffmemberlist();
 		$this->load->view('staff-members',['datalist'=>$datalist]);
@@ -492,17 +422,17 @@ Class Site extends MY_Controller {
 
 	public function staffaddForm(){
 		if ($this->role == 1) {
-			echo "<script>window.history.back();</script>";
-			return;
-		}
+		    echo "<script>window.history.back();</script>";
+		    exit;
+		}	
 		$this->load->view('staff-members-add');
 	}
 
  public function addStaffmember() {
-		if ($this->role == 1) {
-			echo "<script>window.history.back();</script>";
-			return;
-		}
+	if ($this->role == 1) {
+		    echo "<script>window.history.back();</script>";
+		    exit;
+		}	
         // Load the model
         $this->load->model('Manage_Site_Model');
     
@@ -538,11 +468,12 @@ Class Site extends MY_Controller {
             echo json_encode(array("success" => false, "message" => "Both passwords are not equal."));
         }
     }
+
 	public function deletestaff($id) {
 		if ($this->role == 1) {
-			echo "<script>window.history.back();</script>";
-			return;
-		}
+		    echo "<script>window.history.back();</script>";
+		    exit;
+		}	
 		$this->load->model('Manage_Site_Model');
 		$this->Manage_Site_Model->deletestaffaccount($id);
 		redirect('site/stafflist');

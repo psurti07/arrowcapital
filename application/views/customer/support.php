@@ -1,20 +1,22 @@
-<?php $this->load->view('customer/includes/header-apply'); ?>
-<div class="page-hero page-hero-inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-hero-haddig text-center">
-                        <h1 class="text-dark">Support</h1>
-                    </div>
-                </div>
+<?php $this->load->view('customer/includes/header-apply.php'); ?>
+<div class="section-sm bg-lend-blue pt-0 pb-0" id="home">
+	<div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Support</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
             </div>
         </div>
+    </div>
 </div>
-<div class="pricing-area pricing2 section-padding2 bg5">
+
+<div class="section-md bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7">
-				<div class="contact-form-all aos-init aos-animate">
+				<div class="bg-white border-radius-1 box-shadow p-5">
 					<form id='submitForm' class='' method="post">
 					<div class="price-body">
 						<h4>Profile Details</h4>
@@ -22,7 +24,7 @@
 						<div class="main-form">
 							<div class="row">
 								<div class="col-lg-12 mb-4">
-									<select class="wide contact5-select" id="issuetype" name="issuetype" required>
+									<select class="custom-select w-100" id="issuetype" name="issuetype" required>
 										<option value="">Query Related To</option>
 										<option value="Service Problem">Service Problem</option>
 										<option value="Payment Issue">Payment Issue</option>
@@ -38,7 +40,7 @@
 									<div class="error-message" id="message-message"></div>
 								</div>
 								<div class="col-lg-12">
-									<button type="submit" id="form-submit" class="button-h-2 btnfos2">Submit Request</button>
+									<button type="submit" id="form-submit" class="button button-lg button-radius button-turquiose">Submit Request</button>
 								</div>
 							</div>
 						</div>
@@ -47,11 +49,11 @@
 				</div>
 			</div>
 			<div class="col-lg-5">
-				<div class="contact-form-all aos-init aos-animate">
+				<div class="bg-white border-radius-1 box-shadow p-5">
 					<div class="price-body">
-						<ul class="Category-list">
+						<ul class="list-unstyled">
 							<li><strong><?=COMPANY_NAME?></strong></li>
-							<li><strong>LLP No.:</strong>&nbsp;<?=COMPANY_LLP?></li>
+							<li><strong>CIN No.:</strong>&nbsp;<?=COMPANY_CIN?></li>
 							<li><i class="fa fa-phone-alt"></i> &nbsp;&nbsp;<?=COMPANY_MOBILE?></li>
 							<li><i class="fa fa-envelope-open"></i> &nbsp;&nbsp;<?=COMPANY_EMAIL?></li>
 							<li><i class="fa fa-clock"></i> &nbsp;&nbsp;<?=COMPANY_TIMING?></li>
@@ -63,7 +65,7 @@
 		</div>
 	</div>
 </div>
-<?php $this->load->view('customer/includes/footer-apply'); ?>
+<?php $this->load->view('customer/includes/footer-apply.php'); ?>
 <script>
 	$(document).ready(function(){
 		$('#submitForm').validate({

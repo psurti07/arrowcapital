@@ -1,47 +1,37 @@
-<?php $this->load->view('customer/includes/header-apply'); ?>
-<div class="page-hero page-hero-inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-hero-haddig text-center">
-                        <h1 class="text-dark">Pre-Approved Loan Offers</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
+<?php $this->load->view('customer/includes/header-apply.php'); ?>
 
-	<div class="service4 sp3">
-        <div class="container">
-            <div class="row">
-				<?php if(count($directlinks)) { foreach ($directlinks as $row) { ?>
-					<div class="col-lg-4 text-center">
-						<div class="">
-							<div class="service4-box" style="border:1px solid;">
-								<div class="">
-									<img src="<?php echo base_url('assets/img/banks/'.$row->bank_image); ?>" alt="">
-								</div>
-								<div class="hadding4">
-									<div class="space14"></div>
-									<div class="space24"></div>
-										<a class="read-more4" href="<?php echo $row->applyurl; ?>">Apply Now<span><i class="fa-solid fa-arrow-right"></i></span></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php } } else { ?>
-					<div class="col-lg-12 text-center">
-						<div class="">
-							<div class="service4-box" style="border:1px solid;">
-								<div class="hadding4">
-									<div class="space14"></div>
-										<h4> No Pre-Approved Loan Offers Available</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php } ?>
+<div class="section-sm bg-lend-blue pt-0 pb-0" id="home">
+    <div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">Pre-Approved Loan Offers</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
             </div>
         </div>
     </div>
-<?php $this->load->view('customer/includes/footer-apply'); ?>
+</div>
+
+<div class="section-padding pt-5 pb-5 bg-gray">
+    <div class="container">
+        <div class="row g-4">
+            <?php if(count($directlinks)) { foreach ($directlinks as $row) { ?>
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-white border-radius-1 box-shadow p-4">
+                    <div class="single-inner-service trans-1">
+                        <div class="service-img">
+                            <img src="<?php echo base_url('assets/images/banks/'.$row->bank_image); ?>" alt="">
+                        </div>
+                        <div class="service-content">
+                            <a class="button button-md button-radius button-turquiose" href="<?php echo $row->applyurl; ?>" target="_blank">Apply
+                                Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } } ?>
+        </div>
+    </div>
+</div>
+<?php $this->load->view('customer/includes/footer-apply.php'); ?>

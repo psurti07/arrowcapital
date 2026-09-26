@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 header('Content-Type: text/html; charset=utf-8');
 
+
 function send_order_data($data, $entry_from = 'direct_api')
 {
 	$endpoints = [
@@ -218,14 +219,15 @@ function sendxmlSMSobb($dataset) {
     return $response;
 }
 
-function sendotpSMSobb($mobile, $message) {
+function sendotpSMSobb($mobile, $message, $tempid='') {
     $sms_text = urlencode($message);
     
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text;
+   /* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text."&tempid=".$tempid;
     
     //Submit to server
     $response = file_get_contents($api_url);
     return $response;*/
+
     $xml_data ='<?xml version="1.0"?>
     <smslist>
     <sms>
@@ -258,11 +260,11 @@ function sendotpSMSobb($mobile, $message) {
     return $response;
 }
 
-function senddynamicSMSobb($mobile, $message) {
+function senddynamicSMSobb($mobile, $message, $tempid='') {
     $sms_text = urlencode($message);
     $smssenderid = getSMSsenderid();
 
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".$smssenderid."&mobiles=".$mobile."&sms=".$sms_text;
+    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".$smssenderid."&mobiles=".$mobile."&sms=".$sms_text."&tempid=".$tempid;
     
     //Submit to server
     $response = file_get_contents($api_url);
@@ -275,7 +277,7 @@ function senddynamicSMSobb($mobile, $message) {
     <password>'.SMS_OBB_API_KEY.'</password>
     <message>'.$message.'</message>
     <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$smssenderid.'</senderid>
+    <senderid>'.SMS_OBB_SENDER_ID.'</senderid>
     </sms>
     </smslist>';
     
@@ -300,10 +302,10 @@ function senddynamicSMSobb($mobile, $message) {
     return $response;
 }
 
-function sendtextSMSobb($mobile, $message) {
+function sendtextSMSobb($mobile, $message, $tempid='') {
     $sms_text = urlencode($message);
 
-    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text;
+    /*$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=".SMS_OBB_USERNAME."&password=".SMS_OBB_API_KEY."&senderid=".SMS_OBB_SENDER_ID."&mobiles=".$mobile."&sms=".$sms_text."&tempid=".$tempid;
 
     //Submit to server
     $response = file_get_contents($api_url);
@@ -346,13 +348,12 @@ function sendinblueHTMLmail($userdata, $subject="", $htmlmessage="") {
     $data["sender"]["name"] = SIB_NAME;
     $data["sender"]["email"] = SIB_EMAILID;
     
-    /*$data["replyTo"]["name"] = SIB_NAME;
-    $data["replyTo"]["email"] = SIB_EMAILID;*/
+    //$data["replyTo"]["name"] = SIB_NAME;
+    //$data["replyTo"]["email"] = SIB_EMAILID;
 
     $user_res["name"] = $userdata["fullname"];
-    $user_res["email"] = $userdata["email"];
-    $userdata[] = $user_res;
-    $data["to"] = $userdata;
+	  $user_res["email"] = $userdata["email"];
+    $data["to"][] = $userdata;
 
     $data["subject"] = $subject;
     $data["htmlContent"] = $htmlmessage;
@@ -468,7 +469,7 @@ function sendHTMLmail($to, $from, $subject, $message, $smtpemail = '', $attachfi
 
     $ci = get_instance();
     $ci->email->initialize($config);
-    $ci->email->from($from, 'cashindia.in');
+    $ci->email->from($from, 'fintopcorporate.com');
     $ci->email->to($to);
     $ci->email->subject($subject);
     $ci->email->message($message);

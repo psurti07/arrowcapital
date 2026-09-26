@@ -16,14 +16,12 @@ class Cronjob extends CI_Controller
 		$schedule_arr = array();
 
 		$cronjobs = array();
-		$cronjobs['a0'] = '30 20 * * *';
-		
-		$cronjobs['a1'] = '30 10 * * *';
-		
-		$cronjobs['a2'] = '0 17 * * *';
 
-		$cronjobs['a4'] = '30 12 * * *';
+		$cronjobs['a0'] = '0 16 * * *';
+		$cronjobs['b0'] = '45 20 * * *';
 
+		$cronjobs['a1'] = '15 10 * * *';
+		$cronjobs['b1'] = '0 20 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
@@ -48,11 +46,23 @@ class Cronjob extends CI_Controller
 		$schedule_arr = array();
 
 		$cronjobs = array();
-		$cronjobs['a0'] = '30 11 * * *';
 
-		$cronjobs['a1'] = '0 19 * * *';
+		$cronjobs['a0'] = '0 7 * * *';
+		$cronjobs['b0'] = '0 22 * * *';
 
-		$cronjobs['a2'] = '30 12 * * *';
+		$cronjobs['a1'] = '30 8 * * *';
+		$cronjobs['b1'] = '0 18 * * *';
+
+		$cronjobs['a2'] = '0 10 * * *';
+		$cronjobs['b2'] = '0 20 * * *';
+
+		$cronjobs['a5'] = '30 11 * * *';
+
+		$cronjobs['a7'] = '0 13 * * *';
+		$cronjobs['b7'] = '0 16 * * *';
+
+		$cronjobs['a11'] = '30 14 * * *';
+		$cronjobs['b11'] = '30 23 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
@@ -63,72 +73,102 @@ class Cronjob extends CI_Controller
 		}
 
 		if (!empty($schedule_arr)) {
-			//$response = $this->Site_Cronjob_Model->whatsapp_marketing_message($schedule_arr);
+			$response = $this->Site_Cronjob_Model->whatsapp_marketing_message($schedule_arr);
 		}
 		die;
 	}
 	/* Whatsapp marketing message */
 
-	/* Whatsapp intrekt marketing message */
-	public function whatsapp_intrekt_remarketing_1()
-	{
-		die;
-		$this->load->model('Site_Cronjob_Model');
-		$schedule = 'z9999';
-		$schedule_arr = array();
-
-		$cronjobs = array();
-
-		$cronjobs['a1'] = '0 8 * * *';
-
-		$cronjobs['a2'] = '30 10 * * *';
-
-		$cronjobs['a4'] = '0 19 * * *';
-
-		foreach ($cronjobs as $method => $cron) {
-			$time = time();
-			if (is_time_cron($time, $cron)) {
-				$schedule = substr($method, 1);
-				$response = $this->Site_Cronjob_Model->intrekt_marketing_message_1($schedule);
-			}
-		}
-		die;
-	}
-
-	/* Whatsapp intrekt marketing message */
-	public function whatsapp_intrekt_remarketing()
+	/* Whatsapp interakt marketing message */
+	public function whatsappremarketing_interakt()
 	{
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
 
 		$cronjobs = array();
+		
+		$cronjobs['a0'] = '30 9 * * *';
+		$cronjobs['b0'] = '30 23 * * *';
+		
+		$cronjobs['a1'] = '0 9 * * *';
 
-		$cronjobs['a1'] = '30 9 * * *';
-		$cronjobs['b1'] = '0 22 * * *';
+		$cronjobs['a2'] = '30 11 * * *';
+		$cronjobs['b2'] = '30 22 * * *';
 
-		$cronjobs['a2'] = '0 11 * * *';
-		$cronjobs['b2'] = '0 18 * * *';
+		$cronjobs['a3'] = '30 12 * * *';
+		$cronjobs['b3'] = '30 21 * * *';
 
-		$cronjobs['a4'] = '0 12 * * *';
-		$cronjobs['b4'] = '30 19 * * *';
+		$cronjobs['a4'] = '30 20 * * *';
 
 		$cronjobs['a6'] = '30 13 * * *';
 
-		$cronjobs['a10'] = '30 15 * * *';
+		$cronjobs['a8'] = '30 19 * * *';
 
-		$cronjobs['a15'] = '0 21 * * *';
+		$cronjobs['a9'] = '30 14 * * *';
+
+		$cronjobs['a10'] = '0 18 * * *';
+
+		$cronjobs['a12'] = '30 15 * * *';
+
+		$cronjobs['a13'] = '0 17 * * *';
+		
+		$cronjobs['a15'] = '30 16 * * *';
+
+		$cronjobs['a16'] = '0 16 * * *';
+
+		$cronjobs['a17'] = '30 10 * * *';
+
+		$cronjobs['a20'] = '0 15 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
 				$schedule = substr($method, 1);
-				$response = $this->Site_Cronjob_Model->intrekt_marketing_message($schedule);
+				$response = $this->Site_Cronjob_Model->whatsapp_interakt_marketing_message($schedule);
 			}
 		}
 		die;
 	}
-	/* Whatsapp marketing message */
+	/* Whatsapp interakt marketing message */
+
+	/* Whatsapp interakt marketing message */
+	public function whatsappremarketing_interakt_rm()
+	{
+		$this->load->model('Site_Cronjob_Model');
+		$schedule = 'z9999';
+		$schedule_arr = array();
+
+		$cronjobs = array();
+		
+		$cronjobs['a0'] = '0 7 * * *';
+		$cronjobs['b0'] = '0 22 * * *';
+		
+		$cronjobs['a1'] = '30 8 * * *';
+		$cronjobs['b1'] = '30 17 * * *';
+
+		$cronjobs['a2'] = '0 10 * * *';
+		$cronjobs['b2'] = '0 19 * * *';
+
+		$cronjobs['a5'] = '30 11 * * *';
+		$cronjobs['b5'] = '30 20 * * *';
+
+		$cronjobs['a10'] = '0 13 * * *';
+		$cronjobs['b10'] = '0 16 * * *';
+		
+		$cronjobs['a15'] = '30 14 * * *';
+		$cronjobs['b15'] = '30 23 * * *';
+
+		foreach ($cronjobs as $method => $cron) {
+			$time = time();
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->whatsapp_interakt_marketing_message_rm($schedule);
+			}
+		}
+		die;
+	}
+	/* Whatsapp interakt marketing message */
 
 	/* Customer support message */
 	public function customersupportmsg()

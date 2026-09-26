@@ -89,16 +89,14 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 
 // Project details
-define('PROJECT_NAME', 'Cashindia');
-define('COMPANY_NAME', 'Bluerock Financial Services LLP');
-define('COMPANY_EMAIL', 'info@cashindia.in');
-define('COMPANY_CP_EMAIL', '#');
-define('COMPANY_MOBILE', '+91-84696-39432');
+define('PROJECT_NAME', 'Fintop Corporate');
+define('COMPANY_NAME', 'Fintop Corporate Pvt Ltd');
+define('COMPANY_EMAIL', 'info@fintopcorporate.com');
+define('COMPANY_MOBILE', '+91-89803-79437');
 define('COMPANY_CIN', '#');
-define('COMPANY_LLP','ACL-4341');
-define('COMPANY_GST', '24ABEFB2581L1ZE');
-define('COMPANY_SITE', 'https://cashindia.in/');
-define('COMPANY_ADDRESS', '1st Floor, Plot-29, Parvati Nagar Co Op H Society-2, Katargam Road, RS No.-123/1 Paiky, Surat - 395004');
+define('COMPANY_GST', '#');
+define('COMPANY_SITE', 'https://fintopcorporate.com');
+define('COMPANY_ADDRESS', 'Plot No 29, 2nd Floor, Parvati Nager Co Op Soc., Dabholi Road, Katargam, Surat, Gujarat, India - 395004');
 define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
 
 define('CU_PAYOUT_RATIO', '0.40');
@@ -106,63 +104,65 @@ define('TDS_RATIO', '0');
 
 define('SECURE_SALT', 'verloopweb');
 
-// Page PG details
-define('PG_MAIN_PL', 'Zaakpay');
-define('PG_MAIN_BL', 'Zaakpay');
-define('PG_CARD_OFFER', 'Razorpay'); // 3 fail payment page
-define('PG_IVRPAYMENT_OFFER', 'Paygic'); //4
-define('PG_SPECIAL_OFFER', '#'); // 5
-define('PG_BUMPER_OFFER', '#'); // 6
-define('PG_FESTIVAL_OFFER', 'Openmoney'); // 7
-
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61577251774204');
-define('SM_INSTAGRAM', 'https://www.instagram.com/cash_india1/?next=%2F');
-define('SM_TWITTER', 'https://x.com/cashindia2025');
-define('SM_LINKEDIN', '#');
-define('SM_PINTEREST', 'https://in.pinterest.com/cashindia2025/');
-define('SM_YOUTUBE','https://www.youtube.com/@cashindia-e5p');
+define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61566505103788');
+define('SM_INSTAGRAM', 'https://www.instagram.com/fintopcorporate/');
+define('SM_TWITTER', 'https://x.com/FintopCorporate');
+define('SM_LINKEDIN', 'https://www.linkedin.com/in/fintop-corporate-9b67a632a/');
+define('SM_PINTEREST', 'https://in.pinterest.com/fintopcorporate/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@FintopCorporate');
 
 // Email SMTP details
-define('SMTP_HOST', '#');
-define('SMTP_USER_INFO', '#');
-define('SMTP_PASSWORD_INFO', 'Cash@6446');
+define('SMTP_HOST', 'mail.fintopcorporate.com');
+define('SMTP_USER_INFO', 'info@fintopcorporate.com');
+define('SMTP_PASSWORD_INFO', 'Fintop@6699');
 
-define('SMTP_USER_SUPPORT', '#');
-define('SMTP_PASSWORD_SUPPORT', 'Cash@6446');
+define('SMTP_USER_SUPPORT', 'info@fintopcorporate.com');
+define('SMTP_PASSWORD_SUPPORT', 'Fintop@6699');
 
-define('SMTP_USER_HR', '#');
-define('SMTP_PASSWORD_HR', 'Cash@6446');
+define('SMTP_USER_HR', 'info@fintopcorporate.com');
+define('SMTP_PASSWORD_HR', 'Fintop@6699');
 
 // SENDINBLUE details
-define('SIB_NAME', 'cashindia.in');
-define('SIB_EMAILID', 'info@cashindia.in');
-define('SIB_APIKEY', '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');
+define('SMTP_USER', 'info@fintopcorporate.com');
+define('SIB_NAME', 'fintopcorporate.com');
+define('SIB_EMAILID', 'info@fintopcorporate.com');
+define('SIB_APIKEY', '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');
 
 // OBB - SMS details - m
-define('SMS_OBB_API_KEY', 'c32ef3657dXX');
-define('SMS_OBB_USERNAME', 'cashind');
-define('SMS_OBB_PASSWORD', 'c32ef3657dXX');
-define('SMS_OBB_SENDER_ID', 'CHSIND');
+define('SMS_OBB_API_KEY', '82ea40019dXX');
+define('SMS_OBB_USERNAME', 'fintopco');
+define('SMS_OBB_PASSWORD', '82ea40019dXX');
+define('SMS_OBB_SENDER_ID', 'FNTCOP');
 
 // Whatsapp API
-define('INTERAKT_KEY', 'T2tfaFpQcVI2VDhEdUJqU0UyYnByd3FzbG80aXpPR2NEVjdVUmJLVUZIUTo=');
+define('INTERAKT_KEY', '#');
 define('AISENSY_KEY', '#');
+
+// Page PG details
+define('PG_MAIN_PL', '#');
+define('PG_MAIN_BL', '#');
+define('PG_CARD_OFFER', '#'); // 3 fail payment page
+define('PG_IVRPAYMENT_OFFER', '#'); //4
+define('PG_SPECIAL_OFFER', '#'); // 5
+define('PG_BUMPER_OFFER', '#'); // 6
+define('PG_FESTIVAL_OFFER', '#'); // 7
+define('PG_MEGA_OFFER', '#'); // 7
+define('PG_STAR_OFFER','#'); // 8
+
+// Whatsapp API
+//define('INTERAKT_KEY','S1dMYnRXZFc5ZmQxLUI2eERjY2lRX1JBZV80aWFXbXE5enFoOWZVVnJxVTo=');
 
 //UAT Mobile Mumbers list
 define('UAT_MOBILE_NUMBERS', serialize(array('9408881214', '9904466599')));
 
 // Geoloc API Key
-define('GEOLOC_API_KEY', 'mT9VVn1xaWmZNzI4RJRjIJRql4yIVWDXtVv1LB87');
+define('GEOLOC_API_KEY', 'pFA3FTZynF8c1mnrrZcDuYauR9kI1iI4SDw9bhh2');
 
 // Facebook
 define('ACCESS_TOKEN', '#');
 
-define('COMPANY_CODE', 'PAISC');
+define('COMPANY_CODE', 'FINCOP4321');
 define('LOCAL_IP', '190.92.174.183');
-define('MASTER_API_KEY', 'ZmxEdHhvL3pqUkg1R21QTjQ0Y0lSNDJydTNPbVV3UExQQUZpams5cHFZdz0=');
-
-define('DATA_LOCK', 'YES'); // display datalock in remarketing page
-define('DAYS_LOCK', '7 Days'); // display datalock in remarketing page
-define('DATE_LOCK', '#'); // display datalock in remarketing page
+define('MASTER_API_KEY', 'Umx6ZEN0RmFqRmV5cTVFcUZNUXpLNHgzU2U3Z0IzYzRoUmoyUHlnMXRxbU9kWHZIWVpOTzFGbVJhWGs4NUM4cQ==');

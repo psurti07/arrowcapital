@@ -24,8 +24,10 @@ Class Banks extends MY_Controller {
 		$bank_image = "placeholder.jpg";
 
 		if($_FILES['bank_image']['name'] != '') {
+			
 			$this->load->model('Manage_General_Model');
-			$bank_image = $this->Manage_General_Model->single_file_upload('bank_image', 'img/banks', 'jpg|gif|png|jpeg', 0);
+			$bank_image = $this->Manage_General_Model->single_file_upload('bank_image', 'images/banks/', 'jpg|gif|png|jpeg', 0);
+			
 		}
 
 		$data = array(
@@ -53,7 +55,7 @@ Class Banks extends MY_Controller {
 		
 		if($_FILES['bank_image']['name'] != '') {
 			$this->load->model('Manage_General_Model');
-			$bank_image = $this->Manage_General_Model->single_file_upload('bank_image', 'img/banks', 'jpg|gif|png|jpeg', 0);
+			$bank_image = $this->Manage_General_Model->single_file_upload('bank_image', 'images/banks', 'jpg|gif|png|jpeg', 0);
 
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),

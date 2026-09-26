@@ -58,7 +58,7 @@ Class Support extends CI_Controller {
 				if($id > 0) {
 					$response2 = $this->Site_Support_Model->sendTicketMessage($ticketno, $profiledata->mobile, $profiledata->email);
 
-					$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. Cashindia";
+					$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up.";
 
 					echo json_encode(array("success"=>true, "message"=>$message));
 					die;

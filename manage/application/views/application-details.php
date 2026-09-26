@@ -130,6 +130,7 @@
                         echo "<a href='".site_url('loan/appstatusForm/'.$appdetails->id)."' class='btn btn-primary mr-1'>Add Status</a>";
 
                         echo "<a href='".site_url('loan/applicationstatus/2/'.$appdetails->id)."' class='btn btn-success mr-1'>Approve Application</a>";
+
                       break;
 
                       case "5":

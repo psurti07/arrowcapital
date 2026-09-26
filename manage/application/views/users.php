@@ -69,12 +69,12 @@
                             }
                         		echo "<td width='50'>".htmlentities($cnt)."</td>";
                             echo "<td>".DateFormatDisplay($row->rec_date)."</td>";
-                            echo "<td class='text-capitalize'>".htmlentities($row->fullname)."</td>";
-                        		echo "<td>".htmlentities($row->mobile)."</td>";
-                            echo "<td width='320' class='dont-break-out'>".htmlentities($row->email)."</td>";
-                            echo "<td>".htmlentities($row->pincode)."</td>";
-                            echo "<td>".htmlentities($row->city)."</td>";
-                            echo "<td>".htmlentities($row->state)."</td>";
+                            echo "<td class='text-capitalize'>".htmlspecialchars($row->fullname ?? '')."</td>";
+                        		echo "<td>".htmlspecialchars($row->mobile ?? '')."</td>";
+                            echo "<td width='320' class='dont-break-out'>".htmlspecialchars($row->email ?? '')."</td>";
+                            echo "<td>".htmlspecialchars($row->pincode ?? '')."</td>";
+                            echo "<td>".htmlspecialchars($row->city ?? '')."</td>";
+                            echo "<td>".htmlspecialchars($row->state ?? '')."</td>";
                         		echo "<td class='text-center' width='50'>".anchor("users/userdetails/{$row->id}",'<i class="la la-info"></i>','class="btn btn-icon btn-outline-dark btn-sm"')."</td>";
                         		
                           	echo "</tr>";

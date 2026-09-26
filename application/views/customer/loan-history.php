@@ -1,25 +1,27 @@
-<?php $this->load->view('customer/includes/header-apply'); ?>
-<div class="page-hero page-hero-inner-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-hero-haddig text-center">
-                        <h1 class="text-dark">My Loan Applications History</h1>
-                    </div>
-                </div>
+<?php $this->load->view('customer/includes/header-apply.php'); ?>
+
+<div class="section-sm bg-lend-blue pt-0 pb-0" id="home">
+	<div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-light text-light m-0">My Loan Applications History</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
             </div>
         </div>
-      </div>
-<div class="pricing-area pricing2 section-padding2">
+    </div>
+</div>
+
+<div class="section-xl bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="single-price">
-					<div class="price-body">
-						<div class="table-responsive">
+				<div class="bg-white border-radius-1 box-shadow p-5">
+					<div class="table-responsive">
 						<table id="myDatatable" class="table table-hover tbl-responsive">
 							<thead>
-								<tr class="cart-head">
+								<tr>
 									<th>#</th>
 									<th>Date</th>
 									<th>Loan Type</th>
@@ -49,10 +51,10 @@
 										}
 										$enc_id = '';
 										$enc_id = stringCrypt($row->id, 'encrypt');
-										echo "<td>".formatePriceIndia($row->loanamount)."</td>";
-										echo "<td>".htmlentities($row->cibilscore)."</td>";
-										echo "<td>".htmlentities($row->loanpurpose)."</td>";
-										echo "<td>".htmlentities($row->loantenure)."</td>";
+										echo "<td>".formatePriceIndia($row->loanamount ?? '')."</td>";
+										echo "<td>".htmlspecialchars($row->cibilscore ?? '')."</td>";
+										echo "<td>".htmlspecialchars($row->loanpurpose ?? '')."</td>";
+										echo "<td>".htmlspecialchars($row->loantenure ?? '')."</td>";
 
 										echo "<td class='text-center' width='50'>".anchor("customer/loan/appdetails/{$enc_id}",'<i class="fa fa-info-circle"></i>','class="btn btn-circle btn-soft-primary btn-sm"')."</td>";
 
@@ -62,14 +64,13 @@
 								?>
 							</tbody>
 						</table>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<?php $this->load->view('customer/includes/footer-apply'); ?>
+<?php $this->load->view('customer/includes/footer-apply.php'); ?>
 <script>
 	$(document).ready(function() {
 		$('#myDatatable').DataTable( {

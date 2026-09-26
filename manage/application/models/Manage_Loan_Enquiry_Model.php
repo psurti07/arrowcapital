@@ -175,9 +175,8 @@ Class Manage_Loan_Enquiry_Model extends CI_Model {
 
 	public function sendStatusMessage($remarks='', $mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://cashindia.in/customer";
-			
-			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
+			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://bit.ly/# Fintopcorporate";
+			//$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
@@ -186,16 +185,16 @@ Class Manage_Loan_Enquiry_Model extends CI_Model {
 				'name' => $emailid
 			);
 
-			$subject = "Loan application status update - Cashindia";
+			$subject = "Loan application status update - Fintopcorporate";
 			$message = '<p>'.$remarks.'</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if($content != '') {
-				// $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 2);
+				//$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 2);
 				$maildata = array(
-					'fullname' => $mobile,
+					'fullname' => $emailid,
 					'email' => $emailid
 				);
 				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);

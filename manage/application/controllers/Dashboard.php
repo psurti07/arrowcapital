@@ -130,28 +130,35 @@ Class Dashboard extends MY_Controller {
 		$crondays = array();
 		$crondays[] = '0';
 		$crondays[] = '1';
-		$crondays[] = '2';
-		$crondays[] = '3';
-		$crondays[] = '6';
-		$crondays[] = '10';
 
 		$this->load->model('Manage_Report_Model');
 		$statistics['digitalremarketing'] = $this->Manage_Report_Model->remarketing_cron_data($crondays);
 
-		$crondays = array();
-		$crondays[] = '0';
-		$crondays[] = '1';
-		$crondays[] = '2';
+		$whcrondays = array();
+		$whcrondays[] = '0';
+		$whcrondays[] = '1';
+		$whcrondays[] = '2';
+		$whcrondays[] = '5';
+		$whcrondays[] = '7';
+		$whcrondays[] = '11';
 
 		$this->load->model('Manage_Report_Model');
-		$statistics['whremarketing'] = $this->Manage_Report_Model->whatsapp_cron_data($crondays);
+		$statistics['whremarketing'] = $this->Manage_Report_Model->wh_remarketing_cron_data($whcrondays);
+
+		$intcrondays = array();
+		$intcrondays[] = '1';
+		$intcrondays[] = '2';
+		$intcrondays[] = '3';
+		$intcrondays[] = '5';
+		$intcrondays[] = '7';
+		$intcrondays[] = '10';
+		$intcrondays[] = '15';
+
+		$this->load->model('Manage_Report_Model');
+		$statistics['intremarketing'] = $this->Manage_Report_Model->int_remarketing_cron_data($intcrondays);
 
 		echo json_encode(array("success" => true, "statistics" => $statistics));
 		//$this->load->view('remarketing_user_statistics', ['statistics'=>$statistics]);
-	}
-
-	public function whatsappstatistics() {
-		$this->load->view('whatsapp_user_statistics');
 	}
 
 
@@ -166,7 +173,7 @@ Class Dashboard extends MY_Controller {
 			'order_amount' => '999.00'
 		   );
    
-		   $subject = "Welcome to Cashindia";
+		   $subject = "Welcome to Fintopcorporate";
 		 
 		   $this->load->model('Manage_General_Model');
 		   $content = $this->Manage_General_Model->hremailtemplate($maildata); 

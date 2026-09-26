@@ -1,20 +1,24 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Payment extends MY_Controller {
-	
-	function __construct(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Payment extends MY_Controller
+{
+
+	function __construct()
+	{
 		parent::__construct();
 
-		if($this->session->userdata('adminid') == FALSE) {
+		if ($this->session->userdata('adminid') == FALSE) {
 			redirect('login');
 		}
 	}
-
-	public function index(){
+	
+	public function index()
+	{
 		redirect('dashboard');
 	}
 
-	public function phonepelog() {
+	public function phonepelog()
+	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 
@@ -31,7 +35,8 @@ Class Payment extends MY_Controller {
 
 		$this->load->view('pg-phonepe-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
-	public function sabpaisalog() {
+	public function sabpaisalog()
+	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 
@@ -48,7 +53,8 @@ Class Payment extends MY_Controller {
 
 		$this->load->view('pg-sabpaisa-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
-	public function razorpaylog() {
+	public function razorpaylog()
+	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 
@@ -66,7 +72,8 @@ Class Payment extends MY_Controller {
 		$this->load->view('pg-razorpay-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
-	public function worldlinelog() {
+	public function worldlinelog()
+	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 
@@ -84,7 +91,8 @@ Class Payment extends MY_Controller {
 		$this->load->view('pg-worldline-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
-	public function zaakpaylog() {
+	public function zaakpaylog()
+	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
 
@@ -119,6 +127,41 @@ Class Payment extends MY_Controller {
 		$this->load->view('pg-cashfree-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
+	public function airpaylog()
+	{
+		$dt_to = date('Y-m-d', strtotime('-1 days'));
+		$dt_from = date('Y-m-d');
+
+		if (isset($_REQUEST['dt_to'])) {
+			$dt_to = $_REQUEST['dt_to'];
+		}
+
+		if (isset($_REQUEST['dt_from'])) {
+			$dt_from = $_REQUEST['dt_from'];
+		}
+
+		$this->load->model('Manage_Payment_Model');
+		$paymentlist = $this->Manage_Payment_Model->getairpayentryrecord($dt_to, $dt_from);
+		$this->load->view('pg-airpay-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+	}
+
+	public function payulog()
+	{
+		$dt_to = date('Y-m-d', strtotime('-1 days'));
+		$dt_from = date('Y-m-d');
+
+		if (isset($_REQUEST['dt_to'])) {
+			$dt_to = $_REQUEST['dt_to'];
+		}
+
+		if (isset($_REQUEST['dt_from'])) {
+			$dt_from = $_REQUEST['dt_from'];
+		}
+		$this->load->model('Manage_Payment_Model');
+		$paymentlist = $this->Manage_Payment_Model->getpayuentrylist($dt_to, $dt_from);
+		$this->load->view('pg-payu-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+	}
+
 	public function paygiclog()
 	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
@@ -131,13 +174,11 @@ Class Payment extends MY_Controller {
 		if (isset($_REQUEST['dt_from'])) {
 			$dt_from = $_REQUEST['dt_from'];
 		}
-
 		$this->load->model('Manage_Payment_Model');
-		$paymentlist = $this->Manage_Payment_Model->getpaygicentryrecord($dt_to, $dt_from);
+		$paymentlist = $this->Manage_Payment_Model->getpaygicentrylist($dt_to, $dt_from);
 		$this->load->view('pg-paygic-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
-
-	public function openmoneylog()
+	public function vegaahlog()
 	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
@@ -149,12 +190,8 @@ Class Payment extends MY_Controller {
 		if (isset($_REQUEST['dt_from'])) {
 			$dt_from = $_REQUEST['dt_from'];
 		}
-
 		$this->load->model('Manage_Payment_Model');
-		$paymentlist = $this->Manage_Payment_Model->getopenmoneyentrylist($dt_to, $dt_from);
-		$this->load->view('pg-openmoney-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+		$paymentlist = $this->Manage_Payment_Model->getvegaahentrylist($dt_to, $dt_from);
+		$this->load->view('pg-vagaah-data', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
-
-
 }
-?>

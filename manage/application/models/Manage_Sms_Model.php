@@ -56,7 +56,7 @@ Class Manage_Sms_Model extends CI_Model {
 
 	public function getremarketinglog($dt_to, $dt_from, $parentid = 1){
 		
-		$query = $this->db->select('id, rec_date, crontype, parentid, cronname, msgcount')
+		$query = $this->db->select('id, rec_date, crontype, cronname, msgcount')
 				->where('parentid', $parentid)
 				->where('rec_date >=', $dt_to.' 00:00:00')
 				->where('rec_date <=', $dt_from.' 23:59:59')

@@ -30,7 +30,7 @@ $this->load->view('includes/header-apply.php');
 						</div>
 
 						<div class="form-group mb-4">
-							<small class="text-dark">By submitting the form & proceeding, you agree to the <a href="<?= base_url('terms-conditions') ?>" target="_blank">Terms of Use</a> and <a href="<?= base_url('privacy-policy') ?>" target="_blank">Privacy Policy</a> of Fintopcorporate.</small>
+							<small class="text-dark">By submitting the form & proceeding, you agree to the <a href="<?= base_url('terms-conditions') ?>" target="_blank">Terms of Use</a> and <a href="<?= base_url('privacy-policy') ?>" target="_blank">Privacy Policy</a> of arrowcapital.</small>
 						</div>
 
 						<div class="form-group">

@@ -4,7 +4,7 @@ $this->load->view('includes/header-apply.php');
 
 <div class="section-lg pt-5 pb-5" id="monthly">
     <div class="container">
-        <div class="box-backdrop p-2 p-lg-4">
+        <div class="box-backdrop p-2 p-lg-4 border bg-white shadow">
             <div class="row g-4 mb-4">
                 <div class="col-12 text-center">
                     <h2 class="fw-light m-0 text-dark"><strong>Purchase Plan To View Your Pre-Approved Loan
@@ -48,12 +48,12 @@ $this->load->view('includes/header-apply.php');
                             <small class="text-dark">By submitting the form & proceeding, you agree to the <a
                                     href="<?= base_url('terms-conditions') ?>" target="_blank">Terms of Use</a> and <a
                                     href="<?= base_url('privacy-policy') ?>" target="_blank">Privacy Policy</a> of
-                                Fintopcorporate.</small>
+                                arrowcapital.</small>
                         </div>
 
                         <div class="form-group">
                             <button type="submit" id="form-submit1"
-                                class="button-dark button-md button-radius button-turquiose">Process to Pay</button>
+                                class="button-dark button-md button-radius button-turquiose text-uppercase">Process to Pay</button>
                         </div>
                         <?php echo form_close(); ?>
                     </div>

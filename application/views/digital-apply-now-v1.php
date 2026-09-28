@@ -50,7 +50,7 @@
 									style="text-decoration: none;" class="text-dark">Terms of Use</a> and <a
 									href="<?= base_url('privacy-policy') ?>" target="_blank"
 									style="text-decoration: none;" class="text-dark">Privacy Policy</a> of
-								Fintopcorporate.</small></p>
+								arrowcapital.</small></p>
 						<?= form_close(); ?>
 					</div>
 				<?php elseif ($processstep == 'step2'): ?>

@@ -1497,7 +1497,7 @@ body.theme-font-nunito {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.3px;
   line-height: 1.4;
-  color: #121518;
+    color: #0A1A3A;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
@@ -2401,11 +2401,12 @@ a:focus, a:active, button:focus, button:active {
 }
 
 .button-yellow {
-  background: #010101;
+   background:#22C55E;
 }
 
 .button-yellow:hover, .button-yellow:focus {
-  background: #ffffff;
+background: #044295;
+color: #fff;
 }
 
 .button-very-peri {
@@ -2413,7 +2414,7 @@ a:focus, a:active, button:focus, button:active {
 }
 
 .button-turquiose {
-  background: #9b222a;
+  background:#22C55E;
 }
 
 .button-spring-red {
@@ -7084,7 +7085,6 @@ button.mfp-close:hover {
 
 .header .header-logo img {
   width: auto;
-  height: 40px;
   max-height: 75px;
 }
 
@@ -9057,7 +9057,7 @@ body.loaded:after {
 }
 
 .section-lg {
-  padding: 140px 0;
+  padding: 87px 0;
 }
 
 .section-lg.bg-image .container, .section-lg.bg-image .container-fluid {
@@ -9282,7 +9282,7 @@ body.loaded:after {
   background: #e2f2fb;
 }
 .bg-light-green {
-  background: #ecfbf2;
+  background: #F3F7F7;
 }
 .bg-light-purple {
   background: #F5E4FF;
@@ -9357,7 +9357,7 @@ body.loaded:after {
 }
 
 .bg-color-purple {
-  background: #B721FF;
+  background: #0C1C3D;
 }
 
 .bg-color-purple-09 {
@@ -9477,7 +9477,7 @@ body.loaded:after {
 }
 
 .bg-color-very-peri {
-  background: #9b222a;
+     background: #22C55E;
 }
 
 .bg-color-very-peri-09 {
@@ -9730,7 +9730,7 @@ body.loaded:after {
 [class*='bg-dark'] [class*='bg-white'] h6,
 [class*='bg-gradient-'] [class*='bg-white'] h6,
 [class*='bg-color-'] [class*='bg-white'] h6 {
-  color: #121518;
+    color: #0A1A3A;
 }
 
 .bg-white-content a:not([class^='button']), [class*='bg-white'] a:not([class^='button']) {
@@ -9979,7 +9979,7 @@ body.loaded:after {
 }
 
 .text-gradient-6 {
-  background: #9b222a;
+  background: #22C55E;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10978,9 +10978,7 @@ label.form-control{
     letter-spacing: 1px;
 }
 
-.subscription-plan-box{
-	border: 1px solid #9b222a;
-}
+ 
 .bottom-footer{
 	background-image: linear-gradient(#609fff1a 0%, #edf4ff00 100%);
 
@@ -11026,4 +11024,226 @@ label.form-control{
 
 .text-brown {
     color: #7a5225;
+}
+
+.hero-bg-image{
+ background-image: url(../images/slider/bg-image.png);
+
+ background-size: cover;
+ 
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.input-group-text{
+    min-width: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.otp-input {
+    height: 64px;
+    width: 56px !important;
+    text-align: center;
+    font-size: 20px !important;
+    margin: 0 5px;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    outline: none;
+    transition: border-color 0.3s !important;
+}
+@media screen and (max-width:425px) {
+  .otp-input {
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 14px !important;
+    padding: 10px 8px !important;
+}
+}
+@media screen and (max-width:375px) {
+.subscription-section .landing-form-right .calender-image i {
+    font-size: 20px !important;
+} 
+}
+.picker1 {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .picker1 label {
+     position: relative;
+     inline-size: 100%;
+     block-size: 100%;
+     cursor: pointer;
+ }
+
+ .picker1 label>span {
+     inset: 0;
+     block-size: 100%;
+     inline-size: 100%;
+ }
+
+ .picker1 label[for*=plan]>span {
+     display: grid;
+     padding: 2rem 1.5rem 1.5rem 1.5rem;
+     background: #F8FAFC;
+     border: 1px solid #E2E8F0;
+     border-radius: 15px;
+     box-shadow: 0 0 0 0.05rem rgba(8, 60, 130, 0.06), 0rem 0rem 1.25rem rgba(30, 34, 40, 0.04);
+ }
+
+ .picker1 label[for*=plan]>input:checked~span {
+       background-color: #23C55F1A;
+    border: 1px solid #23C55F;
+    color: #000;
+ }
+
+ /* .picker1 label[for*=plan]>input:checked~span:before {
+  content: "\2714";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: rgba(69,196,160, 1);
+  font-size: 2rem;
+  line-height: 1;
+  z-index: 1;
+}*/
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .picker1 label[for*=usertype]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .loan-form-right .range__slider [type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4EC350;
+    border: #4EC350 3px solid;
+    cursor: pointer;
+    -webkit-transition: background .15s ease-in-out;
+    transition: background .15s ease-in-out;
+}
+
+.loan-form-right  .custom-control-input:checked~.custom-control-label::before{
+        background-color: #005DF8;
+    border-color: #005DF8;
+}
+
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox:before {
+     content: "";
+     display: block;
+     border-width: 0 2px 2px 0;
+     height: 8px;
+     width: 6px;
+     border-color: #fff;
+     border-style: solid;
+     transform: rotate(45deg);
+     position: absolute;
+     left: 5px;
+     top: 3px;
+ }
+
+ .round-radiobox {
+     background: #fff;
+     height: 17px;
+     width: 17px;
+     border-radius: 50%;
+     border: solid 1px #6c798f;
+     position: absolute;
+     top: 0.5rem;
+     right: 0.5rem;
+     opacity: 0;
+ }
+
+ .staticts-card-btn {
+     width: 35px !important;
+     height: 35px !important;
+     padding: 0 !important;
+     display: flex !important;
+     align-items: center !important;
+ }
+
+ .subscription-price p.card-content {
+     font-size: 9px !important;
+ }
+
+
+.picker1 label > input:checked + span {
+    background: #eaf9f0;
+    border-color: #23c55f;
+}
+
+.picker1 label > input:checked + span .staticts-card-btn {
+    background: #23c55f !important;
+}
+
+ 
+.picker1 label > input:checked + span .staticts-card-btn i {
+    color: #fff !important;
+}
+ 
+.picker1 label:hover > input + span {
+    border-color: #23c55f;
+}
+
+.staticts-card {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.accordion-button {
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.cbox-12-ico {
+      width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscription-section .picker1 label input:checked~span .calender-image i {
+       color: #C8F0D8 !important;
+}
+.subscription-section .landing-form-right .calender-image i {
+    font-size: 33px;
+    color: #dadfe6 !important;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+.subscription-section .picker1 label[for*=plan]>input:checked~span{
+   background-color: #FFF8F5;
+}
+
+@media screen and (max-width:475px) {
+  .subscription-section .picker1 h3{
+ font-size: 14px;
+}
+.staticts-card {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    
+}
+}
+
+   .staticts-card-btn {
+    width: 35px !important;
+    height: 35px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
 }

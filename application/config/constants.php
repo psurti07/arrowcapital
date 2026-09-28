@@ -92,12 +92,12 @@ defined('EXIT__AUTO_MAX') or define('EXIT__AUTO_MAX', 125); // highest automatic
 // Project details
 define('PROJECT_NAME', 'Fintop Corporate');
 define('COMPANY_NAME', 'Fintop Corporate Pvt Ltd');
-define('COMPANY_EMAIL', 'info@fintopcorporate.com');
+define('COMPANY_EMAIL', 'info@arrowcapital.com');
 define('COMPANY_MOBILE', '+91-89803-79437');
 define('COMPANY_CIN', '#');
 define('COMPANY_LLP', 'ACK-6941');
 define('COMPANY_GST', '24AAKFF1646D1ZR');
-define('COMPANY_SITE', 'https://fintopcorporate.com');
+define('COMPANY_SITE', 'https://arrowcapital.com');
 define('COMPANY_ADDRESS', 'Plot No 29, 2nd Floor, Parvati Nager Co Op Soc., Dabholi Road, Katargam, Surat, Gujarat, India - 395004');
 define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
 
@@ -109,28 +109,28 @@ define('SECURE_SALT', 'verloopweb');
 //Social media
 define('SM_GOOGLE', '#');
 define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61566505103788');
-define('SM_INSTAGRAM', 'https://www.instagram.com/fintopcorporate/');
-define('SM_TWITTER', 'https://x.com/FintopCorporate');
+define('SM_INSTAGRAM', 'https://www.instagram.com/arrowcapital/');
+define('SM_TWITTER', 'https://x.com/arrowcapital');
 define('SM_LINKEDIN', 'https://www.linkedin.com/in/fintop-corporate-9b67a632a/');
-define('SM_PINTEREST', 'https://in.pinterest.com/fintopcorporate/');
-define('SM_YOUTUBE', 'https://www.youtube.com/@FintopCorporate');
+define('SM_PINTEREST', 'https://in.pinterest.com/arrowcapital/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@arrowcapital');
 
 // Email SMTP details
-//define('SMTP_HOST', 'mail.fintopcorporate.com');
+//define('SMTP_HOST', 'mail.arrowcapital.com');
 define('SMTP_HOST', 'smtp.hostinger.com');
-define('SMTP_USER_INFO', 'info@fintopcorporate.com');
+define('SMTP_USER_INFO', 'info@arrowcapital.com');
 define('SMTP_PASSWORD_INFO', 'Fintop@6699');
 
-define('SMTP_USER_SUPPORT', 'info@fintopcorporate.com');
+define('SMTP_USER_SUPPORT', 'info@arrowcapital.com');
 define('SMTP_PASSWORD_SUPPORT', 'Fintop@6699');
 
-define('SMTP_USER_HR', 'info@fintopcorporate.com');
+define('SMTP_USER_HR', 'info@arrowcapital.com');
 define('SMTP_PASSWORD_HR', 'Fintop@6699');
 
 // SENDINBLUE details
-define('SMTP_USER', 'info@fintopcorporate.com');
-define('SIB_NAME', 'fintopcorporate.com');
-define('SIB_EMAILID', 'info@fintopcorporate.com');
+define('SMTP_USER', 'info@arrowcapital.com');
+define('SIB_NAME', 'arrowcapital.com');
+define('SIB_EMAILID', 'info@arrowcapital.com');
 define('SIB_APIKEY', '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');
 
 // OBB - SMS details - m

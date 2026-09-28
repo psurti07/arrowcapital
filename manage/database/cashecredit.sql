@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fintopcorporate`
+-- Database: `arrowcapital`
 --
 
 -- --------------------------------------------------------
@@ -791,14 +791,14 @@ INSERT INTO `site_options` (`id`, `rec_date`, `option_key`, `option_value`) VALU
 (38, '2022-02-21 12:58:01', 'smssenderid', 'KRDTBE'),
 (39, '2022-03-12 00:11:33', 'pl-remarketing-sms', ''),
 (40, '2022-02-01 13:15:20', 'bl-remarketing-sms', ''),
-(41, '2022-02-01 13:15:20', 'pl-process-sms', 'Dear Customer, Your Personal Loan Application is Processed. Get Pre-Approved Loan Offer in Just 3 Steps. Apply Now https://google.com fintopcorporate'),
-(42, '2022-02-01 13:15:20', 'bl-process-sms', 'Dear Customer, Your Business Loan Application is Processed. Get Pre-Approved Loan Offer in Just 3 Steps. Apply Now https://google.com fintopcorporate'),
+(41, '2022-02-01 13:15:20', 'pl-process-sms', 'Dear Customer, Your Personal Loan Application is Processed. Get Pre-Approved Loan Offer in Just 3 Steps. Apply Now https://google.com arrowcapital'),
+(42, '2022-02-01 13:15:20', 'bl-process-sms', 'Dear Customer, Your Business Loan Application is Processed. Get Pre-Approved Loan Offer in Just 3 Steps. Apply Now https://google.com arrowcapital'),
 (43, '2022-02-23 15:29:28', 'pl-offer-sms', ''),
 (44, '2022-02-01 13:44:38', 'bl-offer-sms', ''),
-(45, '2022-02-01 14:07:12', 'account-sms', 'Dear Customer, Congrats! Submission of your loan application is done. Kindly check your registered email and login into the customer portal for submitting the required documents. Regards, fintopcorporate'),
-(46, '2022-02-01 14:07:12', 'cp-account-sms', 'Congrats! Your Partner Application is successfully submitted. Kindly check your Registered Email and login into the Channel Partner Portal. Please submit the required documents for account activation. Our Company Executive will be in touch soon. Regards, fintopcorporate'),
+(45, '2022-02-01 14:07:12', 'account-sms', 'Dear Customer, Congrats! Submission of your loan application is done. Kindly check your registered email and login into the customer portal for submitting the required documents. Regards, arrowcapital'),
+(46, '2022-02-01 14:07:12', 'cp-account-sms', 'Congrats! Your Partner Application is successfully submitted. Kindly check your Registered Email and login into the Channel Partner Portal. Please submit the required documents for account activation. Our Company Executive will be in touch soon. Regards, arrowcapital'),
 (47, '2022-03-25 12:05:49', 'cp-offer-sms', ''),
-(48, '2022-11-08 13:07:22', 'payment-fail-sms', 'Sorry! Your payment for Fintopcorporate Subscription was not successful. Try Another Payment Method here https://google.com/ fintopcorporate'),
+(48, '2022-11-08 13:07:22', 'payment-fail-sms', 'Sorry! Your payment for arrowcapital Subscription was not successful. Try Another Payment Method here https://google.com/ arrowcapital'),
 (49, '2023-11-03 10:53:15', 'fbaccesstokendigital', 'fbaccesstokendigital'),
 (50, '2023-11-03 10:53:15', 'fbeventnamedigital', 'fbeventnamedigital'),
 (51, '2023-11-03 10:53:46', 'fbeventiddigital', 'fbeventiddigital'),

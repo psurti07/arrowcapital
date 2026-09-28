@@ -173,7 +173,7 @@ Class Dashboard extends MY_Controller {
 			'order_amount' => '999.00'
 		   );
    
-		   $subject = "Welcome to Fintopcorporate";
+		   $subject = "Welcome to arrowcapital";
 		 
 		   $this->load->model('Manage_General_Model');
 		   $content = $this->Manage_General_Model->hremailtemplate($maildata); 

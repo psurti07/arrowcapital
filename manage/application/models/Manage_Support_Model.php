@@ -92,7 +92,7 @@ Class Manage_Support_Model extends CI_Model {
 			$message = '<p>Hello,</p>';
 			$message .= '<h3>We have an update regarding your ticket id: '.$ticketno.'</h3>';
 			$message .= '<p>'.$remarks.'</p>';
-			$message .= '<p>Thanks,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks,<br/>arrowcapital</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -110,7 +110,7 @@ Class Manage_Support_Model extends CI_Model {
 
 	public function sendTicketOpenMessage($ticketno='', $emailid='', $mobile=''){
 		if($mobile != '') {
-			$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. Fintopcorporate";
+			$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. arrowcapital";
 			$tempid = '1707173942450940007';
 			$smsresponse = sendtextSMSobb($mobile, $message, $tempid);
 		}
@@ -120,7 +120,7 @@ Class Manage_Support_Model extends CI_Model {
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your request ticket is raised in our system & Ticket Id is '.$ticketno.'. We will contact you within 24-48 hours to discuss further.</p>';
-			$message .= '<p>Regards,<br/>Fintopcorporate</p>';
+			$message .= '<p>Regards,<br/>arrowcapital</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -138,7 +138,7 @@ Class Manage_Support_Model extends CI_Model {
 
 	public function sendTicketProcessMessage($ticketno='', $emailid='', $mobile=''){
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket ID: ".$ticketno." is under process. The query will be solved soon and it will be informed to you shortly. Thanks, Fintopcorporate";
+			$message = "Hello, Your request with Ticket ID: ".$ticketno." is under process. The query will be solved soon and it will be informed to you shortly. Thanks, arrowcapital";
 			$smsresponse = sendtextSMSobb($mobile, $message);
 		}
 		
@@ -147,7 +147,7 @@ Class Manage_Support_Model extends CI_Model {
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your request with Ticket ID: '.$ticketno.' is under process. The query will be solved soon and it will be informed to you shortly.</p>';
-			$message .= '<p>Thanks,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks,<br/>arrowcapital</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -165,7 +165,7 @@ Class Manage_Support_Model extends CI_Model {
 
 	public function sendTicketClosedMessage($ticketno='', $emailid='', $mobile=''){
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is closed as the company tried calling you for the last 3 days but got no response. Thanks fintopcorporate";
+			$message = "Hello, Your request with Ticket Id: ".$ticketno." is closed as the company tried calling you for the last 3 days but got no response. Thanks arrowcapital";
 			$tempid = '1707173919989464927';
 			$smsresponse = sendtextSMSobb($mobile, $message, $tempid);
 		}
@@ -176,7 +176,7 @@ Class Manage_Support_Model extends CI_Model {
 			$message = '<p>Hello,</p>';
 			$message .= '<p>This is to inform you that your request with Ticket Id: '.$ticketno.' is Closed as the company is calling you regarding your query for the last 3 times but there has been no response/no proper communication from your end.</p>';
 			$message .= '<p>In case you have further queries, kindly raise a new request.</p>';
-			$message .= '<p>Thanks,<br/>Fintopcorporaterate</p>';
+			$message .= '<p>Thanks,<br/>arrowcapitalrate</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -194,7 +194,7 @@ Class Manage_Support_Model extends CI_Model {
 
 	public function sendTicketResolvedMessage($ticketno='', $emailid='', $mobile=''){
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is Solved. We thank you for the opportunity to serve you. Thanks, Fintopcorporate";
+			$message = "Hello, Your request with Ticket Id: ".$ticketno." is Solved. We thank you for the opportunity to serve you. Thanks, arrowcapital";
 			$smsresponse = sendtextSMSobb($mobile, $message);
 		}
 		
@@ -204,7 +204,7 @@ Class Manage_Support_Model extends CI_Model {
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your request with Ticket Id: '.$ticketno.' is Solved. We thank you for the opportunity to serve you.</p>';
-			$message .= '<p>Thanks,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks,<br/>arrowcapital</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);

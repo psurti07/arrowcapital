@@ -88,7 +88,7 @@ class Customer_Login_Model extends CI_Model
 					->update('user_registration', $data);
 
 				// Send SMS
-				$message = "Hello " . $account->fullname . " Your fintopcorporate account's new password is " . $password . ". Do not share it with anyone. Thanks";
+				$message = "Hello " . $account->fullname . " Your arrowcapital account's new password is " . $password . ". Do not share it with anyone. Thanks";
 				$tempid = '1707173920009228496';
 				$smsresponse = sendtextSMSobb($account->mobile, $message, $tempid);
 

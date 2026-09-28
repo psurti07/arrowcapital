@@ -126,8 +126,8 @@ Class Site_Digital_Model extends CI_Model {
 					/* $subject = "Welcome Fintoporporate";
 					
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thank You,<br/>Fintopcorporate</p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thank You,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
@@ -156,11 +156,11 @@ Class Site_Digital_Model extends CI_Model {
 				
 				if($emailid != '') {
 					// Send email
-					/* $subject = "Welcome Fintopcorporate";
+					/* $subject = "Welcome arrowcapital";
 			
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thank You,<br/>Fintopcorporate</p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thank You,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
@@ -203,11 +203,11 @@ Class Site_Digital_Model extends CI_Model {
 				
 				if($emailid != '') {
 					// Send email
-					$subject = "Welcome Fintopcorporate";
+					$subject = "Welcome arrowcapital";
 
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://fintopcorporate.com/digital/applynow" target="_blank">Click Here</a></p>';
-					$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
+					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>Thanks & Regards,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');
 					$content = $this->Site_General_Model->simpleemailtemplate($message);
@@ -373,18 +373,18 @@ Class Site_Digital_Model extends CI_Model {
 
 	public function sendPaymentGreetings($name='', $mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email id and login to the Customer Portal to submit the required documents. Thanks fintopcorporate";
+			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email id and login to the Customer Portal to submit the required documents. Thanks arrowcapital";
 			$tempid = '1707173920241361019';
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, $tempid);
 		}
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Fintopcorporate";
+			$subject = "Welcome arrowcapital";
 			
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Submission of your loan application is done. Our Customer Executive will be in touch shortly.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks & Regards,<br/>arrowcapital</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
@@ -434,7 +434,7 @@ Class Site_Digital_Model extends CI_Model {
 				'name' => $maildata['fullname']
 			);
 
-			$subject = "Welcome to Fintopcorporate";
+			$subject = "Welcome to arrowcapital";
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->customerwelcomeemailtemplate($maildata);

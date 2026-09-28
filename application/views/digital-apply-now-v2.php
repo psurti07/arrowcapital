@@ -41,7 +41,7 @@
 											style="text-decoration: none;" class="text-dark">Terms of Use</a> and <a
 											href="<?= base_url('privacy-policy') ?>" target="_blank"
 											style="text-decoration: none;" class="text-dark">Privacy Policy</a> of
-										Fintopcorporate.
+										arrowcapital.
 								</div>
 								<div class="col-lg-12 mt-1">
 								

@@ -8,7 +8,7 @@
 	<meta name="keywords" content="<?php if(isset($meta->keywords)) { echo $meta->keywords; } ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--=====Title=======-->
-	<title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | Fintopcorporate"; } ?></title>
+	<title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | arrowcapital"; } ?></title>
 	<!--=====Fav icon=======-->
 	<link rel="shortcut icon" href="<?=base_url('assets/images/logo/favicon.ico')?>" type="image/x-icon" />
 	<!--=====CSS=======-->
@@ -36,7 +36,7 @@
                 <!-- Logo -->
                 <div class="header-logo pt-3">
                     <a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo/logo.png') ?>"
-                            alt="Fintopcorporate" /></a>
+                            alt="arrowcapital" /></a>
 
                 </div>
                 <div class="header-menu"></div>

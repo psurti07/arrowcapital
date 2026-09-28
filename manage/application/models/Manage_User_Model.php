@@ -387,7 +387,7 @@ Class Manage_User_Model extends CI_Model {
 		if($statusid == 1) {
 			$res = $this->getreferraldetails($id);
 			// Send SMS
-			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Fintopcorporate";
+			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, arrowcapital";
 			$smsresponse = sendtextSMSobb($res['refferaldetails']->mobile, $message);
 		}
 
@@ -595,7 +595,7 @@ Class Manage_User_Model extends CI_Model {
 							->update('user_registration', $data); 
 
 			// Send SMS
-			$message = "Hello ".$account->fullname." Your fintopcorporate account's new password is ".$password.". Do not share it with anyone. Thanks";
+			$message = "Hello ".$account->fullname." Your arrowcapital account's new password is ".$password.". Do not share it with anyone. Thanks";
 			$tempid = '1707173920009228496';
 			$smsresponse = sendtextSMSobb($account->mobile, $message, $tempid);
 
@@ -623,7 +623,7 @@ Class Manage_User_Model extends CI_Model {
 						->update('user_registration', $data);
 
 			if($status == 0) {
-				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Fintopcorporate";
+				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, arrowcapital";
 				$smsresponse = sendtextSMSobb($account->mobile, $message);
 			}
 
@@ -716,17 +716,17 @@ Class Manage_User_Model extends CI_Model {
 	public function sendkycverifymessage($mobile='', $emailid=''){
 		
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Fintopcorporate";
+			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, arrowcapital";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
-			$subject = "Documents Verification Message - Fintopcorporate";
+			$subject = "Documents Verification Message - arrowcapital";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>The documents submitted by you are successfully verified. Our Company Executive will call you shortly regarding your loan process.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks & Regards,<br/>arrowcapital</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -746,17 +746,17 @@ Class Manage_User_Model extends CI_Model {
 
 	public function sendpayoutverifymessage($mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, your payout documents are successfully verified. Your reference payout will be credited to your account according to referrals. Thanks, Fintopcorporate";
+			$smsmessage = "Dear Customer, your payout documents are successfully verified. Your reference payout will be credited to your account according to referrals. Thanks, arrowcapital";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage);
 		}
 
 		if($emailid != '') {
-			$subject = "Documents Verification Message - Fintopcorporate";
+			$subject = "Documents Verification Message - arrowcapital";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>Your documents are successfully verified. Your payout will be credited to your account according to the successful referrals.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks & Regards,<br/>arrowcapital</p>';
 			
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -791,7 +791,7 @@ Class Manage_User_Model extends CI_Model {
 				'name' => $maildata['fullname']
 			);
 
-			$subject = "Welcome to Fintopcorporate";
+			$subject = "Welcome to arrowcapital";
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->customerwelcomeemailtemplate($maildata);

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--=====Title=======-->
     <title>
-        <?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | Fintopcorporate"; } ?>
+        <?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | arrowcapital"; } ?>
     </title>
     <!--=====Fav icon=======-->
     <link rel="shortcut icon" href="<?=base_url('assets/images/logo/favicon.ico')?>" type="image/x-icon" />
@@ -44,7 +44,7 @@
                 <!-- Logo -->
                 <div class="header-logo pt-3">
                     <a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo/logo.png') ?>"
-                            alt="Fintopcorporate" /></a>
+                            alt="arrowcapital" /></a>
 
                 </div>
                 <div class="header-menu"></div>
@@ -54,7 +54,7 @@
     </header>
     <div class="section-lg">
         <div class="container">
-            <div class="bg-white p-lg-5  border-radius-1 box-shadow n-margin-5">
+            <div class="bg-white p-lg-4 p-3 border-radius-1 box-shadow n-margin-5">
                 <div class="row align-items-center g-4 g-lg-5">
                     <!-- About Image -->
                     <div class="col-12 col-lg-6">
@@ -66,8 +66,8 @@
                         </div><!-- end row/gallery-wrapper -->
                     </div>
                     <!-- About Content -->
-                    <div class="col-12 col-lg-6 p-3">
-                        <div class="border border-dark border-radius-1 p-5">
+                    <div class="col-12 col-lg-6 p-3 mt-0">
+                        <div class="border border-dark border-radius-1 p-4">
                             <h3 class="text-dark text-center">Customer Login Account</h2>
                                 <form action="" id="submitForm1" method="post">
                                     <div class="col-md-12 col-sm-12 p-2">
@@ -92,7 +92,7 @@
 
                                     <div class="col-md-12 col-sm-12 p-2 text-center">
                                         <button
-                                            class="button-dark button-xl button-radius button-turquiose button-block  "
+                                            class="button-dark button-xl button-radius button-yellow button-block w-100"
                                             id="form-submit1" type="submit">Login</button>
                                     </div>
                                 </form>

@@ -65,14 +65,14 @@
                                         style="text-decoration: none;" class="text-dark">Terms of Use</a> and <a
                                         href="<?= base_url('privacy-policy') ?>" target="_blank"
                                         style="text-decoration: none;" class="text-dark">Privacy Policy</a> of
-                                    Fintopcorporate.</label>
+                                    arrowcapital.</label>
                             </div>
 
                             <div class="form-check small">
                                 <input type="checkbox" id="promotion" name="promotion" value="1"
                                     class="form-check-input" checked required>
                                 <label class="form-check-label" for="promotion">I agree to receive promotional &
-                                    informational communications from Fintopcorporate through Emails, calls or SMS
+                                    informational communications from arrowcapital through Emails, calls or SMS
                                     Services.</label>
                             </div>
                         </div>

@@ -4,16 +4,16 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="Fintopcorporate">
-	<meta name="description" content="Fintopcorporate">
-	<meta name="keywords" content="Fintopcorporate">
+	<meta name="author" content="arrowcapital">
+	<meta name="description" content="arrowcapital">
+	<meta name="keywords" content="arrowcapital">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--=====Title=======-->
 	<title>
 		<?php if (isset($meta->title)) {
 			echo $meta->title;
 		} else {
-			echo "Apply for Instant Personal Loan Online approvals | Fintopcorporate";
+			echo "Apply for Instant Personal Loan Online approvals | arrowcapital";
 		} ?>
 	</title>
 	<!--=====Fav icon=======-->
@@ -147,10 +147,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="container">
 				<!-- Logo -->
 				<div class="header-logo">
-					<a href="#"><img src="<?= base_url('assets/images/logo/logo.png') ?>" alt="Fintopcorporate" /></a>
+					<a href="#"><img src="<?= base_url('assets/images/logo/logo.png') ?>" alt="arrowcapital" /></a>
 				</div>
 								
-				<ul class="navbar-nav ms-auto">
+				<!-- <ul class="navbar-nav ms-auto">
 					<li class="nav-item talk-expert">
 						<a class="btn btn-sm btn-outline-primary">
 							<i class="fa fa-phone"></i> Talk to Expert
@@ -162,11 +162,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</p>
 							<p>
 								<i class="fa fa-envelope"></i> Email Us:
-								<a href="mailto:info@fintopcorporate.com"><?php echo COMPANY_EMAIL ?></a>
+								<a href="mailto:info@arrowcapital.com"><?php echo COMPANY_EMAIL ?></a>
 							</p>
 						</div>
 					</li>
-				</ul>
+				</ul> -->
 				
 			</div><!-- end container -->
 		</div>

@@ -87,7 +87,7 @@
 					</div>
 
 					<div class="form-group col-md-12 text-center">
-						<p class="m-b-0"><small>By proceeding, you agree to the <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a> and <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a> of Fintopcorporate</small></p>
+						<p class="m-b-0"><small>By proceeding, you agree to the <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a> and <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a> of arrowcapital</small></p>
 					</div>
 				</div>
 			<?php echo form_close();
@@ -163,7 +163,7 @@
 					</div>
 
 					<div class="form-group col-md-12 text-center">
-						<p class="m-b-0"><small>By proceeding, you agree to the <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a> and <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a> of Fintopcorporate</small></p>
+						<p class="m-b-0"><small>By proceeding, you agree to the <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a> and <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a> of arrowcapital</small></p>
 						<p class="m-b-0"><small>Note - EMI starting at 2250 is an indicative amount on 1 lakh loan 12.5% interest for a 5 years tenure. Loan disbursal at sole discretion of depend bank.</small></p>
 					</div>
 				</div>

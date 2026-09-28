@@ -1,10 +1,10 @@
 <?php $this->load->view('includes/header.php');?>
 
-<div class="section bg-lend-blue pt-0 pb-0" id="home">
+<div class="section bg-blue pt-0 pb-0" id="home">
     <div class="container pt-5">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h1 class="fw-light text-light m-0">Rewarding & Progressive Career</h1>
+                <h1 class="fw-light text-dark m-0">Rewarding & Progressive Career</h1>
             </div>
             <div class="col-md-4">
                 <img class="img-fluid" src="<?= base_url('assets/images/slider/link-page.png') ?>" alt="Career Image">
@@ -54,7 +54,7 @@
                                 <tr class="cart-product-list">
                                     <td colspan="4"><strong>Currently, there are no openings in the organization. Still,
                                             you can send your resume to <a
-                                                href='mailto:hr@fintopcorporate.com'>hr@fintopcorporate.com</a> <br />
+                                                href='mailto:hr@arrowcapital.com'>hr@arrowcapital.com</a> <br />
                                             We will contact you in case a vacancy arrives and matches your
                                             profile.</strong></td>
                                 </tr>

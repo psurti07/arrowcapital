@@ -50,7 +50,7 @@
 									style="text-decoration: none;" class="text-dark">Terms of Use</a> and <a
 									href="<?= base_url('privacy-policy') ?>" target="_blank"
 									style="text-decoration: none;" class="text-dark">Privacy Policy</a> of
-								Fintopcorporate.</small></p>
+								arrowcapital.</small></p>
 								<div class="owl-carousel brands-carousel-5 mt-2" data-owl-dots="false" data-owl-nav="true" data-owl-autoplay="true"
 				data-owl-margin="20" data-owl-xs="2" data-owl-sm="2" data-owl-lg="6">
 

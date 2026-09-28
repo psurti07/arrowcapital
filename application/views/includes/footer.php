@@ -1,14 +1,14 @@
 <!--=====Footer start=======-->
 <footer>
-	<div class="section-sm bg-black pb-5">
+	<div class="section-sm bg-color-purple pb-5">
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
 					<div class="header-logo">
-						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo/logo-large-light.png') ?>" width="100" alt="Fintopcorporate" /></a>
+						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo/logo-large-light.png') ?>" width="100" alt="arrowcapital" /></a>
 					</div>
 
-					<p class="text-light small pt-4 pb-4">Partnered with multiple NBFCs, we offer top-notch financial consultation and services through our in-house experts. 
+					<p class="text-light small pt-4 pb-4">Arrow Capital is India's leading financial consultation network — we provide clear direction for the loan process through our network of trusted NBFC partners, giving you the option to apply on your own or with the self-apply feature so that a loan expert can make better borrowing decisions. 
 					</p>
 					
 					<ul class="list-inline-sm">
@@ -70,7 +70,7 @@
 		</div><!-- end container -->
 	</div>
 
-	<div class="bg-black py-3 border-top border-black">	
+	<div class="bg-color-purple py-3 border-top border-black">	
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-12 col-md-12 text-center">

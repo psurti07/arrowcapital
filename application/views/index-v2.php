@@ -46,7 +46,7 @@
 	<div class="container text-center icon-5xl">
 
 		<div class="row icon-5xl g-4">
-			<h2 class="fw-light line-height-150 mb-3">What Makes Fintop Corporate Outstanding?</h2>
+			<h2 class="fw-light line-height-150 mb-3">What Makes arrow capital Outstanding?</h2>
 
 			<div class="col-12 col-lg-4">
 				<div class="border border-radius-2 hover-shadow hover-float p-4 p-lg-5">
@@ -87,9 +87,9 @@
 					<h6
 						class="d-inline-block bg-white box-shadow border-radius px-3 py-2 line-height-140 font-small uppercase letter-spacing-1 mb-3">
 						<span class="text-gradient-6">About us</span></h6>
-					<h2 class="fw-normal">Fintop Corporate: Your Trusted Partner for Financial
+					<h2 class="fw-normal">arrow capital: Your Trusted Partner for Financial
 						Success</h2>
-					<p class="font-large mb-2">Fintop Corporate is India's renowned financial consultation and service
+					<p class="font-large mb-2">arrow capital is India's renowned financial consultation and service
 						provider. With a team of experienced professionals, we specialize in delivering comprehensive
 						financial solutions that help many people achieve their dreams. Through our enriching
 						collaboration with industry-leading NBFCs, we provide a wide range of financial services and
@@ -113,7 +113,7 @@
 					<div class="mt-3">
 						<h3 class="line-height-100 fw-normal mb-3"><i class="bi bi-eye"></i> VISION</h3>
 						<p class="">With an emphasis on excellence, integrity, and client
-							satisfaction, we at Fintop Corporate aim to lead the financial services industry.
+							satisfaction, we at arrow capital aim to lead the financial services industry.
 						</p>
 					</div>
 
@@ -288,8 +288,8 @@
 						<i class="bi bi-star-fill"></i>
 						<i class="bi bi-star-fill"></i>
 					</div>
-					<p class="font-large">"Fintop Corporate is extremely beneficial to people who require financial
-						assistance. The application process for a loan through Fintop Corporate is simple and completely
+					<p class="font-large">"arrow capital is extremely beneficial to people who require financial
+						assistance. The application process for a loan through arrow capital is simple and completely
 						online. Highly Recommended!!"</p>
 					<div class="d-flex align-items-center mt-3">
 						<div class="d-inline-block me-3">
@@ -312,7 +312,7 @@
 						<i class="bi bi-star-fill"></i>
 						<i class="bi bi-star-fill"></i>
 					</div>
-					<p class="font-large">"I recently processed my loan through Fintop Corporate. I must say I had an
+					<p class="font-large">"I recently processed my loan through arrow capital. I must say I had an
 						incredible experience with them. They are very helpful and knowledgeable people. I am very
 						satisfied with them."</p>
 					<div class="d-flex align-items-center mt-3">
@@ -338,7 +338,7 @@
 					</div>
 					<p class="font-large">"I had a great experience and received excellent service from the Fintop
 						Corporate team, especially when there is a doubt, which they will resolve quickly. I highly
-						recommend Fintop Corporate! "</p>
+						recommend arrow capital! "</p>
 					<div class="d-flex align-items-center mt-3">
 						<div class="d-inline-block me-3">
 							<img class="img-mask-avatar-xs" src="<?= base_url('assets/images/placeholder.jpg') ?>"
@@ -360,7 +360,7 @@
 						<i class="bi bi-star-fill"></i>
 						<i class="bi bi-star-fill"></i>
 					</div>
-					<p class="font-large">"Am happy to process my loan with Fintop Corporate. Their collaboration with
+					<p class="font-large">"Am happy to process my loan with arrow capital. Their collaboration with
 						multiple NBFCs makes it an excellent choice to go with and enjoy the unique set of services
 						included with the subscription."</p>
 					<div class="d-flex align-items-center mt-3">
@@ -384,8 +384,8 @@
 						<i class="bi bi-star-fill"></i>
 						<i class="bi bi-star-fill"></i>
 					</div>
-					<p class="font-large">"Thank you to the Fintop Corporate team for their excellent coordination and
-						timely service and response throughout the process. I strongly recommend Fintop Corporate to
+					<p class="font-large">"Thank you to the arrow capital team for their excellent coordination and
+						timely service and response throughout the process. I strongly recommend arrow capital to
 						anyone looking for financial assistance. "</p>
 					<div class="d-flex align-items-center mt-3">
 						<div class="d-inline-block me-3">
@@ -408,7 +408,7 @@
 						<i class="bi bi-star-fill"></i>
 						<i class="bi bi-star-fill"></i>
 					</div>
-					<p class="font-large">"Fintop Corporate has me in awe. I liked how transparent the team was
+					<p class="font-large">"arrow capital has me in awe. I liked how transparent the team was
 						throughout the process. The digital portal saved me a significant amount of time and effort. I
 						am a very satisfied customer. "</p>
 					<div class="d-flex align-items-center mt-3">

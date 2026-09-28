@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="author" content="Fintopcorporate">
-		<meta name="description" content="Fintopcorporate">
-		<meta name="keywords" content="Fintopcorporate">
+		<meta name="author" content="arrowcapital">
+		<meta name="description" content="arrowcapital">
+		<meta name="keywords" content="arrowcapital">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--=====Title=======-->
-		<title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | Fintopcorporate"; } ?></title>
+		<title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Apply for Instant Personal Loan Online approvals | arrowcapital"; } ?></title>
 		<!--=====Fav icon=======-->
 		<link rel="shortcut icon" href="<?=base_url('assets/images/logo/favicon.ico')?>" type="image/x-icon" />
 		<!--=====CSS=======-->
@@ -85,7 +85,7 @@
 					<div class="container">
 						<!-- Logo -->
 						<div class="header-logo">
-							<a href="<?=base_url('customer/dashboard');?>"><img src="<?= base_url('assets/images/logo/logo.png') ?>"  alt="Fintopcorporate" /></a>
+							<a href="<?=base_url('customer/dashboard');?>"><img src="<?= base_url('assets/images/logo/logo.png') ?>"  alt="arrowcapital" /></a>
 						</div>
 						<!-- Menu -->
 						<div class="header-menu">

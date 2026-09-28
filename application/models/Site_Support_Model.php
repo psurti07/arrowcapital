@@ -35,7 +35,7 @@ Class Site_Support_Model extends CI_Model {
 
 	public function sendTicketMessage($ticketno='', $mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. Fintopcorporate";
+			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. arrowcapital";
 			$tempid = '1707173942450940007';
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, $tempid);
 		}
@@ -46,7 +46,7 @@ Class Site_Support_Model extends CI_Model {
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your request ticket has been raised in our system with the Ticket Id: '.$ticketno.'– which is OPEN. We will contact you within 24-48 hours to discuss further.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Fintopcorporate</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>arrowcapital</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);

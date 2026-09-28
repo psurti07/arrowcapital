@@ -65,7 +65,7 @@
 									<div class="error-message text-danger" id="resume-message"></div>
 								</div>
 								<div class="col-lg-12">
-									<label for="iagree" class="font-12">By submitting the form &amp; proceeding, you agree to the <a href="<?=base_url('terms-conditions')?>" target="_blank" class="text-dark">Terms of Use</a> and <a href="<?=base_url('privacy-policy')?>" target="_blank" class="text-dark">Privacy Policy</a> of Fintopcorporate.co.in</label>
+									<label for="iagree" class="font-12">By submitting the form &amp; proceeding, you agree to the <a href="<?=base_url('terms-conditions')?>" target="_blank" class="text-dark">Terms of Use</a> and <a href="<?=base_url('privacy-policy')?>" target="_blank" class="text-dark">Privacy Policy</a> of arrowcapital.co.in</label>
 								</div>
 								<div class="col-lg-12 mt-5">
 									<button class="button button-radius button-sm button-backdrop-dark" id="submit-btn2">APPLY NOW</button>

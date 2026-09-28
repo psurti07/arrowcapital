@@ -469,7 +469,7 @@ function sendHTMLmail($to, $from, $subject, $message, $smtpemail = '', $attachfi
 
     $ci = get_instance();
     $ci->email->initialize($config);
-    $ci->email->from($from, 'fintopcorporate.com');
+    $ci->email->from($from, 'arrowcapital.com');
     $ci->email->to($to);
     $ci->email->subject($subject);
     $ci->email->message($message);

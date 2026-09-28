@@ -314,7 +314,7 @@ function mailchimpmail() {
 	];
 
 	$maildata = [
-		"from_email" => "info@fintopcorporate.com",
+		"from_email" => "info@arrowcapital.com",
 		"subject" => "Testing mail",
 		"text" => "Welcome to Mailchimp Transactional!",
 		"to" => $userdate
@@ -480,7 +480,7 @@ function sendHTMLmail($to, $from, $subject, $message, $smtpemail = '', $attachfi
 
     $ci = get_instance();
     $ci->email->initialize($config);
-    $ci->email->from($from, 'fintopcorporate.com');
+    $ci->email->from($from, 'arrowcapital.com');
     $ci->email->to($to);
     $ci->email->subject($subject);
     $ci->email->message($message);

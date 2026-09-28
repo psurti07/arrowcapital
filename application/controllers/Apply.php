@@ -48,7 +48,7 @@ Class Apply extends CI_Controller {
 			$response = $this->Site_Info_Model->careersubmission($data);
 
 			if($response == true) {
-				$message = "We're extremely happy with you showing interest in us! Our HR team will call you shortly. All the best, Fintopcorporate";
+				$message = "We're extremely happy with you showing interest in us! Our HR team will call you shortly. All the best, arrowcapital";
 				echo json_encode(array("success"=>true, "message"=>$message));
 			} 
 			else {

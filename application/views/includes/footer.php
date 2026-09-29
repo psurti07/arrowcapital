@@ -8,7 +8,7 @@
 						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo/logo-large-light.png') ?>" width="100" alt="arrowcapital" /></a>
 					</div>
 
-					<p class="text-light small pt-4 pb-4">Arrow Capital is India's leading financial consultation network — we provide clear direction for the loan process through our network of trusted NBFC partners, giving you the option to apply on your own or with the self-apply feature so that a loan expert can make better borrowing decisions. 
+					<p class="text-light small pt-3 pb-4">Arrow Capital is India's leading financial consultation network — we provide clear direction for the loan process through our network of trusted NBFC partners, giving you the option to apply on your own or with the self-apply feature so that a loan expert can make better borrowing decisions. 
 					</p>
 					
 					<ul class="list-inline-sm">

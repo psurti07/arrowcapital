@@ -32,8 +32,7 @@
                         <div class="mb-3">
                             <i class="bi bi-diagram-3 text-gradient-6"></i>
                         </div>
-                        <h4 class="font-family-outfit fw-medium">Effective Partnership With
-                            NBFCs</h4>
+                        <h5 class="font-family-outfit fw-medium">Effective Partnership With NBFCs</h5>
                         <p>Profit from the highly acclaimed financial
                             services powered by our enriching
                             collaboration with leading NBFCs.</p>
@@ -44,7 +43,7 @@
                         <div class="mb-3">
                             <i class="bi bi-globe2 text-gradient-6"></i>
                         </div>
-                        <h4 class="font-family-outfit fw-medium">Easy Online Process</h4>
+                        <h5 class="font-family-outfit fw-medium">Easy Online Process</h5>
                         <p>Relish our extensive range of services in
                             the most simple and efficient manner
                             from the comfort of your own home.</p>
@@ -56,7 +55,7 @@
                         <div class="mb-3">
                             <i class="bi bi-person-bounding-box text-gradient-6"></i>
                         </div>
-                        <h4 class="font-family-outfit fw-medium">Expert Financial Consultation</h4>
+                        <h5 class="font-family-outfit fw-medium">Expert Financial Consultation</h5>
                         <p>Elevate your financial well-being to the
                             next level with our expert-led
                             consultations and services.
@@ -182,7 +181,7 @@
                     class="d-inline-block bg-white box-shadow border-radius px-3 py-2 line-height-140 font-small uppercase letter-spacing-1 mb-3">
                     <span class="text-gradient-6">Our Process</span>
                 </h6>
-                <h2>Apply Instantly,<span class="text-gradient-6">Seamlessly!</span></h2>
+                <h2>Apply Instantly, <span class="text-gradient-6">Seamlessly!</span></h2>
                 <p>Experience Digitally Powered Quick Steps!</p>
             </div>
 
@@ -261,6 +260,7 @@
         </div>
     </div>
 </div>
+
 <div class="section bg-gray">
     <div class="container">
         <div class="row">
@@ -268,7 +268,7 @@
                 <h6 class="d-inline-block line-height-140 font-small uppercase letter-spacing-1 mb-3">
                     <span class="text-gradient-6">EMI Calculator</span>
                 </h6>
-                <h2>Calculate your EMI in<span class="text-gradient-6">seconds</span></h2>
+                <h2>Calculate your EMI in <span class="text-gradient-6">seconds</span></h2>
                 <p>Plan your finances with clarity before you apply.</p>
             </div>
 
@@ -290,7 +290,7 @@
                             <div class="gallery-img">
                                 <img src="<?php echo base_url('assets/images/slider/Home-2.png'); ?>" class="img-fluid">
                             </div>
-                            <div class="mt-2 ">
+                            <div class="mt-4">
                                 <?php
 										if ($productdata->offeramount != 0) {
 											echo '<h3 class="line-height-100 fw-medium mb-0">₹. <del class="text-danger">' . $productdata->amount . '</del> <span class="text-success">' . $productdata->offeramount . '</span> only</h3>';
@@ -301,7 +301,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button button-lg button-radius button-turquiose mt-3 mt-lg-4"
+                    <a class="button button-lg button-radius button-turquiose mt-3 mt-lg-3"
                         href="<?= base_url('digital/applynow') ?>">Get Consultation Now</a>
                 </div>
                 <div class="col-md-8">

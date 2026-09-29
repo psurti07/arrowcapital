@@ -108,11 +108,11 @@
 
                 <div class="contact-form submit-form bg-white p-4 shadow rounded-4">
                     <?= form_open('', array('id' => 'submitForm2')); ?>
-                    <h3 class="mb-0 text-start  fw-bold">Verify your mobile</h3>
+                    <h3 class="mb-0 text-start fw-bold">Verify your mobile</h3>
 
-                    <h6 class="text-dark font-18 mt-1 mb-3">We've sent a 4-digit OTP to
-                        <?php echo $userdetails['mobile']; ?></h6>
-                    <label class="form-control pt-0 ps-0 bg-transparent pb-2">Enter OTP</label>
+                    <p class="text-dark mt-3 mb-3">We've sent a 4-digit OTP to <strong><?php echo $userdetails['mobile']; ?></strong></p>
+
+                    <label class="form-control pt-3 ps-0 bg-transparent pb-2">Enter OTP</label>
                     <input type="hidden" name="otpmobile" id="otpmobile" value="<?php echo $userdetails['mobile']; ?>">
                     <input type="hidden" name="loanamount" id="loanamount"
                         value="<?php echo $userdetails['loanamount']; ?>">
@@ -153,9 +153,8 @@
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-shield-alt mr-2 text-success mt-1"></i>
 
-                                        <p class="mb-0 font-small ms-2">ArrowCapital will never call you for your
-                                            OTP.
-                                            Treat your OTP like a password — do not share it with anyone. </p>
+                                        <p class="mb-0 font-small ms-2">Arrow Capital will never call you for your
+                                            OTP. Treat your OTP like a password — do not share it with anyone. </p>
                                         <div>
                                         </div>
                                     </div>
@@ -176,20 +175,14 @@
                     <input type="hidden" name="referralcode" id="referralcode"
                         value="<?php echo $userdetails['referralcode']; ?>">
 
-                    <p class="text-uppercase text-gradient-6 fw-bold mb-0"><small>enter your loan amount</small></p>
-                    <h3 class="mb-0 text-start">Enter Following Details
-                    </h3>
-                    <div class="form-group mb-3">
-                        <p class="text-grey" for="username">Kindly enter your details for personalized offers.</strong>
-                        </p>
-                    </div>
+                    <!-- <p class="text-uppercase text-gradient-6 fw-bold mb-0"><small>enter your loan amount</small></p> -->
+                    <h3 class="mb-0 text-start">Enter Following Details </h3>
+                    <p class="text-dark mt-2 mb-3">Kindly enter your details for personalized offers.</p>
 
-                    <h6 class="text-dark font-18 mt-1 ">Mobile No. : <?php echo $userdetails['mobile']; ?></h6>
+                    <h6 class="text-dark font-18 mt-2 mb-2">Mobile No. : <?php echo $userdetails['mobile']; ?></h6>
                     <input type="hidden" name="otpmobile" id="otpmobile" value="<?php echo $userdetails['mobile']; ?>">
-                    <input type="hidden" name="loanamount" id="loanamount"
-                        value="<?php echo $userdetails['loanamount']; ?>">
-                    <input type="hidden" name="usermobile" id="usermobile"
-                        value="<?php echo $userdetails['mobile']; ?>">
+                    <input type="hidden" name="loanamount" id="loanamount" value="<?php echo $userdetails['loanamount']; ?>">
+                    <input type="hidden" name="usermobile" id="usermobile" value="<?php echo $userdetails['mobile']; ?>">
                     <!-- <div class="pt-4">
                         <div class="radio-nav" id="myList">
                             <label class="radio-tab">
@@ -203,9 +196,7 @@
                         </div>
                     </div> -->
                     <div class="row">
-
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-0 state-card mb-sm-0 mb-2 p-1">
-
                             <fieldset class="picker1">
                                 <label for="plan-1">
                                     <input type="radio" name="usertype" id="plan-1" value="1" class="d-none" checked
@@ -292,7 +283,7 @@
             </div>
             <?php $testimonial = array('1.png', '2.png', '3.png', '1.png', '2.png', '3.png', '1.png') ?>
             <div class="col-12 col-lg-12 text-center">
-                <div class="owl-carousel" data-owl-nav="true" data-owl-dots="false" data-owl-margin="50"
+                <div class="owl-carousel" data-owl-nav="true" data-owl-dots="false" data-owl-margin="30"
                     data-owl-autoplay="true" data-owl-items="3" data-owl-xs="1" data-owl-sm="1" data-owl-md="2"
                     data-owl-lg="3" data-owl-xl="3">
                     <?php foreach ($testimonial as $row) { ?>
@@ -353,13 +344,11 @@
 	];
 	?>
 
-<div class="py-5 bg-white">
+<div class="pt-5 pb-3 bg-white">
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-lg-4 mb-lg-0 mb-md-5 mb-4 text-lg-start text-md-center text-center">
-                <p class="text-dark">Arrow Capital – Built on trust powered by strong partnerships and measurable
-                    growth.</strong>.
-                </p>
+                <p class="text-dark">Arrow Capital – Built on trust powered by strong partnerships and measurable growth.</p>
             </div>
             <div class="col-lg-3 mb-lg-0 mb-md-5 mb-4">
                 <div class="gallery-img text-center">
@@ -385,11 +374,9 @@
             </div>
         </div>
 
-
-
         <div class="row mt-5">
             <div class="col-12">
-                <p class="mb-2"><strong>Disclaimer: </strong> Loan Tenure ranges from minimum 6 months to maximum of 60
+                <p class="mb-2 small"><strong>Disclaimer: </strong> Loan Tenure ranges from minimum 6 months to maximum of 60
                     months, with annual interest rates starting at 11% and going up to 34%. A processing fee up to 2%
                     may be applicable. Representative Example: If a loan of ₹1,00,000 is availed at an interest rate of
                     12.5% per annum for a tenure of 12 months, and a processing fee of 2% is applied: Interest Payable:
@@ -399,16 +386,16 @@
                     regulations, and terms & conditions. The amount paid is only for the service charge. We are not
                     lenders and do not guarantee any loan approval.</p>
 
-                <p class="mb-2"><strong>Important Note: </strong>BE AWARE! We ask our customers to make payments ONLY on
+                <p class="mb-2 small"><strong>Important Note: </strong>BE AWARE! We ask our customers to make payments ONLY on
                     our website
                     <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">arrowcapital.com</a> and NOT through any
                     other source, directly or indirectly. Thanks!
                 </p>
 
 
-                <p class="mb-2"><strong>Company Registered Address</strong><?php echo COMPANY_ADDRESS; ?></p>
+                <p class="mb-2 small"><strong>Company Registered Address</strong><?php echo COMPANY_ADDRESS; ?></p>
 
-                <p class="mb-2"><strong>Mobile : </strong><?php echo COMPANY_MOBILE; ?> | <strong>Email :
+                <p class="mb-2 small"><strong>Mobile : </strong><?php echo COMPANY_MOBILE; ?> | <strong>Email :
                     </strong><?php echo COMPANY_EMAIL; ?></p>
             </div>
         </div>

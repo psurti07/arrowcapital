@@ -239,5 +239,23 @@ Class Site_Payment_Gateway_Model extends CI_Model {
 		return $flag;
 	}
 
+	public function easebuzzentry($data){
+		$this->db->insert('easebuzz_entry',$data);
+		$id = $this->db->insert_id();
+		return $id;
+	}
+
+	public function geteasebuzzentry($orderid){
+		$query = $this->db->where('orderid', $orderid)
+				->get('easebuzz_entry');
+		return $query->row(); 
+	}
+
+	public function updateeasebuzzentry($id, $data){
+		$sql_query=$this->db->where('id', $id)
+					->update('easebuzz_entry', $data); 
+		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
+	}
+
 }
 ?>

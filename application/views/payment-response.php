@@ -95,7 +95,7 @@
 						   <a href="#" class="button button-outline-white border button-md button-radius me-3 mb-lg-0 mb-3 text-dark"
                         class="more hover primary-color">having an issues ?</a>
                         <a class="button button-turquiose button-md button-radius"
-                            href="<?php echo site_url('cardoffer'); ?>">Try another payment method</a>
+                            href="<?php echo site_url('ivrpaymentoffer'); ?>">Try another payment method</a>
                     </div>
 
 					

@@ -246,13 +246,16 @@ class Pay extends CI_Controller
 			redirect('ivrpaymentoffer');
 		} else {
 
-
 			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 			foreach ($uat_numbers as $uat_num) {
 				if ($uat_num == $mobileno) {
 					$grandamount = 1;
 				}
 			}
+			$payamount = number_format((float)$grandamount, 2, '.', '');
+			$orderId = number_format(microtime(true) * 1000, 0, '.', '');
+			$returnUrl = base_url('pay/iverresponse');
+			$failUrl = base_url('pay/iverresponsefail');
 
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
@@ -269,60 +272,39 @@ class Pay extends CI_Controller
 			$this->load->model('Site_Digital_Model');
 			$userid = $this->Site_Digital_Model->cardofferorder($data);
 
-			$orderid = number_format(microtime(true) * 1000, 0, '.', '');
-
-
-
-			if (PHONEPE_MODE == "PROD") {
-				$curlurl = 'https://api.phonepe.com/apis/hermes/pg/v1/pay';
-			} else {
-				$curlurl = 'https://api-preprod.phonepe.com/apis/hermes/pg/v1/pay';
-			}
-
-			$this->load->helper('phonepe');
-			$token_data = create_token();
-
-			$token = $token_data->access_token;
-
-			$returnUrl = base_url('pay/iverresponse?orderID=' . $orderid . '&token=' . $token);
-			$callbackUrl = base_url('pay/ivercallback');
-
-			$phonepedata = array(
+			$easebuzzdata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'entryfor' => 4,
 				'userid' => $userid,
-				'orderid' => $orderid,
+				'orderid' => $orderId,
 				'orderamount' => $grandamount,
 				'ordernote' => $productdata->productname
 			);
+
 			$this->load->model('Site_Payment_Gateway_Model');
-			$response = $this->Site_Payment_Gateway_Model->phonepeentry($phonepedata);
+			$response = $this->Site_Payment_Gateway_Model->easebuzzentry($easebuzzdata);
 
-			$data_res = array(
-				"merchantOrderId" => $orderid,
-				"amount" =>  $grandamount * 100,
-				"paymentFlow" => array(
-					"type" => "PG_CHECKOUT",
-					"message" => "Payment message used for collect requests",
-					"merchantUrls" => array(
-						"redirectUrl" => $returnUrl,
-					)
-				)
+			$this->load->library('easebuzz/Easebuzz');
+			$this->load->library('easebuzz/Payment');
+
+			$apiname = trim(htmlentities('initiate_payment', ENT_QUOTES));
+
+			$postdata = array(
+				'txnid' => $orderId,
+				'amount' => $payamount,
+				'firstname' => $fullname,
+				'phone' => $mobileno,
+				'email' => $emailid,
+				'city' => '',
+				'state' => '',
+				'country' => 'India',
+				'surl' => $returnUrl,
+				'furl' => $failUrl,
+				'productinfo' => 'Card Offer'
 			);
-			$checkout_data = checkout_payment($data_res, $token);
 
-			if ($checkout_data) {
-				if ($checkout_data->redirectUrl) {
-					header("location:" . $checkout_data->redirectUrl);
-					die;
-				} else {
-					return redirect("ivrpaymentoffer");
-					die;
-				}
-			} else {
-				return redirect("ivrpaymentoffer");
-				die;
-			}
+			$PaymentObj = new Payment();
+			return $PaymentObj->initiate_payment($postdata, EASEBUZZ_MERCHANT_KEY, EASEBUZZ_SALT, EASEBUZZ_ENV);
 		}
 	}
 
@@ -330,66 +312,52 @@ class Pay extends CI_Controller
 	{
 
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('offer-page');
+		$meta = $this->Site_Info_Model->getmetakeywords('home');
 
-		if (!isset($_POST["code"]) || !isset($_POST["transactionId"]) || !isset($_POST["providerReferenceId"])) {
-			return redirect("ivrpaymentoffer");
-			die;
-		}
+		$status = $_POST["status"];
+		$txnid = $_POST["txnid"];
+		$easepayid = $_POST["easepayid"];
+		$key = $_POST["key"];
+		$amount = $_POST["amount"];
 
-		$this->load->model('Site_Payment_Gateway_Model');
-		$paymentdata = $this->Site_Payment_Gateway_Model->getphonepeentry($_POST["transactionId"]);
+		if ($status == 'success') {
+			$this->load->model('Site_Digital_Model');
+			$this->load->model('Site_Payment_Gateway_Model');
+			$paymentdata = $this->Site_Payment_Gateway_Model->geteasebuzzentry($txnid);
+			$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
 
-		$txStatus = $_POST["code"];
-		$transactionId = $_POST["transactionId"];
-		$referenceId = $_POST["providerReferenceId"];
+			$easebuzzdata = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'orderamount' => $amount,
+				'statuscode' => $key,
+				'transactionid' => $easepayid
+			);
+			$response1 = $this->Site_Payment_Gateway_Model->updateeasebuzzentry($paymentdata->id, $easebuzzdata);
 
-		$phonepedata = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'referenceid' => $referenceId,
-			'txstatus' => $txStatus
-		);
+			$cardno = random_code(16);
+			$data = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'card_number' => $cardno,
+				'registration_date' => date('Y-m-d'),
+				'expiry_date' => date('Y-m-d', strtotime('+6 months')),
+				'amount' => $amount,
+				'paymentid' => $easepayid,
+				'isActive' => 1
+			);
 
-		$response1 = $this->Site_Payment_Gateway_Model->updatephonepeentry($paymentdata->id, $phonepedata);
+			$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
 
-		$this->load->model('Site_Digital_Model');
-		$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
+			$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
 
-		if ($txStatus == "PAYMENT_SUCCESS") {
-			$isentry = $this->Site_Digital_Model->checkcardofferentry($referenceId);
-			if ($isentry == 0) {
-				$cardno = random_code(16);
-
-				$data = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'card_number' => $cardno,
-					'registration_date' => date('Y-m-d'),
-					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
-					'amount' => $paymentdata->orderamount,
-					'paymentid' => $referenceId,
-					'isActive' => 1
-				);
-
-				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
-
-				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
-
-				$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => $response]);
-			} else {
-				$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'true']);
-			}
-		} else if ($txStatus == "PAYMENT_FAILURE") {
-			$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->emailid);
-			$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'false']);
+			$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => $response]);
 		} else {
-			$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->emailid);
 			$this->load->view('ivrpaymentoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
 
-	public function ivercallback()
+	public function iverresponsefail()
 	{
-		die;
+		redirect("ivrpaymentoffer");
 	}
 
 	/* START : Mega Offer loan */

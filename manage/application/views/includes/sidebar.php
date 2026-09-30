@@ -216,14 +216,14 @@
 					<a href="<?php echo site_url('payment/cashfreelog'); ?>"><i class="la la-rupee"></i><span class="menu-title">Cashfree
 						Log</span></a>
 				</li>-->
-				<li id="166" class="nav-item">
+				<!--<li id="166" class="nav-item">
 					<a href="<?php echo site_url('payment/phonepelog'); ?>"><i class="la la-inr"></i><span
 							class="menu-title">PhonePe Log</span></a>
-				</li>
-				<!--<li id="170" class="nav-item">
+				</li>-->
+				<li id="170" class="nav-item">
 					<a href="<?php echo site_url('payment/sabpaisalog'); ?>"><i class="la la-inr"></i><span
 							class="menu-title">Sabpaisa Log</span></a>
-				</li>-->
+				</li>
 				<li id="167" class="nav-item">
 					<a href="<?php echo site_url('payment/razorpaylog'); ?>"><i class="la la-inr"></i><span
 							class="menu-title">Razorpay Log</span></a>
@@ -233,15 +233,15 @@
 				<a href="<?php echo site_url('payment/worldlinelog'); ?>"><i class="la la-inr"></i><span class="menu-title">Worldline Log</span></a>
 			</li> -->
 
-			<li id="169" class="nav-item">
+			<!--<li id="169" class="nav-item">
 				<a href="<?php echo site_url('payment/zaakpaylog'); ?>"><i class="la la-inr"></i><span class="menu-title">Zaakpay Log</span></a>
-			</li>
+			</li>-->
 			<!--
 			<li id="171" class="nav-item">
 				<a href="<?php echo site_url('payment/airpaylog'); ?>"><i class="la la-inr"></i><span class="menu-title">Airpay Log</span></a>
 			</li>
 			-->
-			<li id="172" class="nav-item">
+			<!--<li id="172" class="nav-item">
 				<a href="<?php echo site_url('payment/payulog'); ?>"><i class="la la-inr"></i><span class="menu-title">PayU Log</span></a>
 			</li>
 
@@ -251,7 +251,7 @@
 		
 			<li id="174" class="nav-item">
 				<a href="<?php echo site_url('payment/vegaahlog'); ?>"><i class="la la-inr"></i><span class="menu-title">Vegaah Log</span></a>
-			</li>
+			</li>-->
 
 			<!-- ================== NEW NAVIGATION HEADER ================== -->
 			<li class=" navigation-header"><span>DATA LIST</span></li>

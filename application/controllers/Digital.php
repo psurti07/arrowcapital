@@ -117,7 +117,7 @@ class Digital extends CI_Controller
 	{
 		if (isset($_REQUEST['otpmobile']) && isset($_REQUEST['loanamount'])) {
 			$mobile = $_REQUEST['otpmobile'];
-			$otpcode = $_REQUEST['otpcode'];
+			$otpcode = implode('',$_REQUEST['otpcode']);
 
 			$this->session->set_tempdata('usermobile', $mobile, 3600);
 			$this->session->set_tempdata('userloanamount', $_REQUEST['loanamount'], 3600);
@@ -534,86 +534,6 @@ class Digital extends CI_Controller
 		);
 		$response1 = $this->Site_Digital_Model->updateregistration($userdata->userid, $data1);
 
-
-		$this->load->model('Site_Info_Model');
-		$wpcampaignname = $this->Site_Info_Model->getsmsmessage('wpcampaignoffer');
-
-		$data3 = array(
-			'apiKey' => AISENSY_KEY,
-			'campaignName' => $wpcampaignname,
-			'destination' => '+91' . $userdata->mobile,
-			'media' => array(
-				'url' => AISENSY_OFFER_URL,
-				'filename' => AISENSY_OFFER_IMAGE
-			),
-			'userName' => $userdata->fullname,
-			'templateParams' => array('$Name','$EligibleAmount'),
-			'tags' => array('Get Offer'),
-			'attributes' => array(
-				'EligibleAmount' => strval($eligibilityamt)
-			)
-		);
-		$restrack3 = aisensy_track($data3);
-
-		$data4 = array(
-			"fullPhoneNumber" => '+91'.$userdata->mobile,
-			"callbackData"=> "some text here",
-			"type"=> "Template",
-			"template"=> array(
-					"name"=> "25july_get_1",
-					"languageCode"=> "en",
-					"headerValues"=> array(
-						"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/3fe1d8a2-1fad-4d07-9715-4cc2dc86f1a0/message_template_media/ii16WfBm3Guu/fintop_imm.jpg?se=2030-07-19T09%3A30%3A11Z&sp=rt&sv=2019-12-12&sr=b&sig=B77UUH/u2N8z%2B40BpYs57Dk84XMiLiBmcvMQeYyf5ww%3D"
-					),
-					"bodyValues"=> array(
-						$userdata->fullname, $eligibilityamt
-					),
-				)
-		
-		 );
-		$restrack4 = interakt_track($data4);
-
-		$this->load->helper('interakt');
-		$data2 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'traits' => array(
-			 'name' => $userdata->fullname
-			),
-			'tags' => array('Get Offer')
-		);
-		$restrack2 = user_track($data2);
-
-		$data3 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'event' => 'Get Offer',
-			'traits' => array(
-			 	'EligibleAmount' => $eligibilityamt
-			)
-		);
-		$restrack3 = event_track($data3); 
-
-		$data4 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'traits' => array(
-			 'name' => $userdata->fullname
-			),
-			'tags' => array('Get Offer')
-		);
-		$restrack4 = user_track_2($data4);
-
-		$data5 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'event' => 'Get Offer',
-			'traits' => array(
-			 	'EligibleAmount' => $eligibilityamt
-			)
-		);
-		$restrack5 = event_track_2($data5); 
-
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		return redirect("digital/subscriptionorder/" . $key);
 		die;
@@ -625,12 +545,13 @@ class Digital extends CI_Controller
 		$this->load->model('Site_Digital_Model');
 		$this->load->model('Site_Payment_Gateway_Model');
 		$userdata = $this->Site_Digital_Model->checkuserdata($_REQUEST['applyid']);
-		$this->session->set_tempdata('applyid', $_REQUEST['applyid'], 3600);
+		$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
+		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 
 		$data3 = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'status' => 1,
-			'isDelete' => 0
+		 'rec_date' => date('Y-m-d H:i:s'),
+		 'status' => 1,
+		 'isDelete' => 0
 		);
 		$response3 = $this->Site_Digital_Model->updateapplication($_REQUEST['applyid'], $data3);
 
@@ -640,147 +561,107 @@ class Digital extends CI_Controller
 		$productdata = $this->Site_Info_Model->getproductdetails($productslug);
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 		$grandamount = $amount + ($amount * 0.18);
-
+		$roundamount = floor($grandamount);
 		$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 		foreach ($uat_numbers as $uat_num) {
 			if ($uat_num == $userdata->mobile) {
-				$grandamount = 1;
+				$roundamount = 1;
 			}
 		}
 
-		$orderid = number_format(microtime(true) * 1000, 0, '.', '');
+		$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
 
-		$returnUrl = base_url('digital/buycardDigital');
-		$url = "https://api.zaakpay.com/api/paymentTransact/V8";
-		
+		$orderdata = array(
+		 'amount' => $roundamount * 100,
+		 'currency' => 'INR',
+		 'receipt' => $receiptid,
+		 'notes' => array(
+		  'key1' => $userdata->fullname,
+		  'key2' => $userdata->mobile
+		 )
+		);
 
-		$firstname = ($userdata->fullname != "") ? $userdata->fullname : $userdata->email;
+		$this->load->helper('razorpay');
+		$orderres = generateorder($orderdata);
+		$successURL = base_url('digital/buycardDigital');
+		$failURL = base_url('digital/paymentResponse/false');
+
+		$razorpaydata = array(
+		 'rec_date' => date('Y-m-d H:i:s'),
+		 'entryfor' => $userdata->cardtype,
+		 'userid' => $userdata->userid,
+		 'orderid' => $orderres->id,
+		 'orderamount' => $roundamount,
+		 'ordernote' => $productdata->productname
+		);
+
+		$razorpayentry = $this->Site_Payment_Gateway_Model->razorpayentry($razorpaydata);
+
 		$postData = array(
-			"merchantIdentifier" => ZAAKPAY_MERCHANT_IDENTIFIER,
-			"orderId" => $orderid,
-			"returnUrl" => $returnUrl,
-			"currency" => 'INR',
-			"amount" => $grandamount * 100,
-			"buyerEmail" => $userdata->email,
-			"buyerFirstName" => $firstname,
-			"buyerPhoneNumber" => $userdata->mobile,
-			"buyerCountry" => 'India',
-			"productDescription" => $productdata->productname,
+		 'applyid' => $_REQUEST['applyid'],
+		 'fullname' => $userdata->fullname,
+		 'mobile' => $userdata->mobile,
+		 'email' => $userdata->email,
+		 'orderamount' => $roundamount,
+		 'orderid' => $orderres->id,
+		 'description' => $productdata->productname,
+		 'successURL' => $successURL,
+		 'failURL' => $failURL
 		);
 
-		ksort($postData);
-		$checksumData = "";
-		foreach ($postData as $key => $value) {
-			$checksumData .= $key . '=' . $value . '&';
-		}
-
-		$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
-
-		$zaakpaydata = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'entryfor' => $userdata->cardtype,
-			'userid' => $userdata->userid,
-			'orderid' => $orderid,
-			'orderamount' => $grandamount,
-			'ordernote' => $productdata->productname,
-		);
-		
-		$response = $this->Site_Payment_Gateway_Model->zaakpayentry($zaakpaydata);
-
-		$this->load->view('zaakpay-checkout', ['postData' => $postData, 'checksum' => $checksum, 'url' => $url]);
+		$this->load->view('razorpay-checkout', ['postData' => $postData]);
 	}
 
 	public function buycardDigital()
 	{
-		$this->load->model('Site_Digital_Model');
-		$this->load->model('Site_Payment_Gateway_Model');
 		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
+		$this->load->model('Site_Payment_Gateway_Model');
+		$this->load->model('Site_Digital_Model');
+		if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
+			$paymentdata = $this->Site_Payment_Gateway_Model->getrazorpayentry($_POST["orderid"]);
 
-		$orderId = $_POST["orderId"];
-		$responseCode = $_POST["responseCode"];
-		$orderAmount = $_POST["amount"] / 100;
-		$txnId = $_POST["pgTransId"];
-		$paymentMode = $_POST["paymentMode"];
-		$recd_checksum = $_POST['checksum'];
-
-		$checksum = $checksumData = '';
-		$checksumsequence = array(
-			"amount",
-			"bank",
-			"bankid",
-			"cardId",
-			"cardScheme",
-			"cardToken",
-			"cardhashid",
-			"doRedirect",
-			"orderId",
-			"paymentMethod",
-			"paymentMode",
-			"responseCode",
-			"responseDescription",
-			"productDescription",
-			"product1Description",
-			"product2Description",
-			"product3Description",
-			"product4Description",
-			"pgTransId",
-			"pgTransTime"
-		);
-		foreach ($checksumsequence as $seqvalue) {
-			if (array_key_exists($seqvalue, $_POST)) {
-				$checksumData .= $seqvalue;
-				$checksumData .= "=";
-				$checksumData .= $_POST[$seqvalue];
-				$checksumData .= "&";
-			}
-		}
-
-		$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
-
-		if ($checksum == $recd_checksum) {
-			$paymentdata = $this->Site_Payment_Gateway_Model->getzaakpayentry($orderId);
-
-			$zaakpaydata = array(
-				'rec_date' => date('Y-m-d H:i:s'),
-				'orderamount' => $orderAmount,
-				'statuscode' => $responseCode,
-				'transactionid' => $txnId,
-				'paymentmode' => $paymentMode
+			$razorpaydata = array(
+			 'rec_date' => date('Y-m-d H:i:s'),
+			 'referenceid' => $_REQUEST['paymentid'],
+			 'txstatus' => 'Success'
 			);
-			$response1 = $this->Site_Payment_Gateway_Model->updatezaakpayentry($paymentdata->id, $zaakpaydata);
 
+			$response1 = $this->Site_Payment_Gateway_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
 			$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
-			$this->session->set_tempdata('applyid', $userdata->userid, 3600);
+			$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
 
-			if ($responseCode == 100) {
-				$cardno = random_code(16);
+			$cardno = random_code(16);
+			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
+			$paymentid = (isset($_REQUEST['paymentid'])) ? $_REQUEST['paymentid'] : '';
 
-				$mbrdata = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'userid' => $userdata->userid,
-					'registration_date' => date('Y-m-d'),
-					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
-					'card_number' => $cardno,
-					'amount' => $orderAmount,
-					'paymentid' => $txnId,
-					'isActive' => 1,
-					'isDelete' => 0
+			$isentry = $this->Site_Digital_Model->checksubscriptionentry($paymentid);
+
+			if ($isentry == 0) {
+				$data = array(
+				 'rec_date' => date('Y-m-d H:i:s'),
+				 'userid' => $userdata->userid,
+				 'registration_date' => date('Y-m-d'),
+				 'expiry_date' => date('Y-m-d', strtotime('+6 months')),
+				 'card_number' => $cardno,
+				 'amount' => $amount,
+				 'paymentid' => $paymentid,
+				 'isActive' => 1,
+				 'isDelete' => 0
 				);
-				$memberid = $this->Site_Digital_Model->subscriptionorder($mbrdata);
+				$memberid = $this->Site_Digital_Model->subscriptionorder($data);
 
 				$password = random_code(6);
-				$this->session->set_tempdata('userpass', $password);
 				$passwordkey = stringCrypt($password, 'encrypt');
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
 				$refcode .= substr($userdata->mobile, -4);
 
 				$regdata = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'update_date' => date('Y-m-d H:i:s'),
-					'password' => $passwordkey,
-					'refcode' => $refcode,
-					'process_step' => 4,
-					'isUser' => 2
+				 'rec_date' => date('Y-m-d H:i:s'),
+				 'update_date' => date('Y-m-d H:i:s'),
+				 'password' => $passwordkey,
+				 'refcode' => $refcode,
+				 'process_step' => 4,
+				 'isUser' => 2
 				);
 				$response2 = $this->Site_Digital_Model->updateregistration($userdata->userid, $regdata);
 
@@ -808,7 +689,7 @@ class Digital extends CI_Controller
 					$igstamount = $netamount * 0.18;
 				}
 
-				$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+				$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
 
 				/*$grandtotal = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 
@@ -822,27 +703,29 @@ class Digital extends CI_Controller
 				$netamount = $grandtotal * 100 / 118;*/
 
 				$invdata3 = array(
-					'rec_date' => date('Y-m-d H:i:s'),
-					'userid' => $userdata->userid,
-					'cardid' => $memberid,
-					'inv_for' => $invfor,
-					'inv_prefix' => $invprefix,
-					'inv_number' => $invoiceno,
-					'inv_date' => date('Y-m-d'),
-					'inv_price' => number_format($netamount,2),
-					'inv_cgst' => number_format($cgstamount,2),
-					'inv_sgst' => number_format($sgstamount,2),
-					'inv_igst' => number_format($igstamount,2),
-					'inv_grandtotal' => number_format($grandtotal,2),
-					'isDelete' => 0
+				 'rec_date' => date('Y-m-d H:i:s'),
+				 'userid' => $userdata->userid,
+				 'cardid' => $memberid,
+				 'inv_for' => $invfor,
+				 'inv_prefix' => $invprefix,
+				 'inv_number' => $invoiceno,
+				 'inv_date' => date('Y-m-d'),
+				 'inv_price' => number_format($netamount,2),
+				 'inv_cgst' => number_format($cgstamount,2),
+				 'inv_sgst' => number_format($sgstamount,2),
+				 'inv_igst' => number_format($igstamount,2),
+				 'inv_grandtotal' => number_format($grandtotal,2),
+				 'isDelete' => 0
 				);
 
 				$exists_mobile = in_array($userdata->mobile, unserialize(UAT_MOBILE_NUMBERS), true);
 
+					if (!$exists_mobile) {
+						$responseinvoice = $this->Site_Digital_Model->generateinvoice($invdata3, $invoiceno);
+					}
+
 				if (!$exists_mobile) {
-					$responseinvoice = $this->Site_Digital_Model->generateinvoice($invdata3, $invoiceno);
-				}
-				if (!$exists_mobile) {
+
 					$remote_data = array(
 						'company_code' => COMPANY_CODE,
 						'company_local_ip' => LOCAL_IP,
@@ -867,16 +750,9 @@ class Digital extends CI_Controller
 					$api_response = send_order_data(json_encode($remote_data));
 				}
 
-				$data4 = array(
-					'payout' => 0,
-					'payout_amount' => $netamount * CU_PAYOUT_RATIO,
-					'order_amount' => $netamount
-				);
-				$response4 = $this->Site_Digital_Model->updatepayoutdata($userdata->userid, $data4);
-				
 				$data3 = array(
 					'apiKey' => AISENSY_KEY,
-					'campaignName' => "cred_4april",
+					'campaignName' => "cred_23may",
 					'destination' => '+91' . $userdata->mobile,
 					'userName' => $userdata->fullname,
 					'attributes' => array(
@@ -887,6 +763,21 @@ class Digital extends CI_Controller
 					'tags' => array('Payment Successful')
 				);
 				$restrack3 = aisensy_track($data3);
+
+				$data_usr_pass = array(
+					"fullPhoneNumber" => '+91' . $userdata->mobile,
+					"callbackData" => "some text here",
+					"type" => "Template",
+					"template" => array(
+						"name" => "cred",
+						"languageCode" => "en",
+						"bodyValues" => array(
+							$userdata->mobile,
+							$password
+						),
+					)
+				);
+				$restrack4 = interakt_track($data_usr_pass);
 
 				$maildata = array(
 					'fullname' => $userdata->fullname,
@@ -900,16 +791,14 @@ class Digital extends CI_Controller
 
 				$sent = $this->Site_Digital_Model->sendSuccessGreetings($maildata);
 
-				return redirect("digital/paymentResponse/" . $response2);
-				die;
+				redirect("digital/paymentResponse/" . $response2);
 			} else {
-				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
-				return redirect("digital/paymentResponse/false");
+				return redirect("digital/paymentResponse/true");
 				die;
 			}
 		} else {
-			return redirect("digital/paymentResponse/false");
-			die;
+			$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
+			redirect("digital/subscriptionorder/" . $key);
 		}
 	}
 
@@ -951,46 +840,6 @@ class Digital extends CI_Controller
 					}
 
 					$fbresponse = fbconversioncurl($fbdata);
-
-					$this->load->helper('interakt');
-					$data2 = array(
-						'phoneNumber' => $userdata->mobile,
-						'countryCode' => '+91',
-						'traits' => array(
-							'name' => $userdata->fullname
-						),
-						'tags' => array('Payment Successful')
-					);
-					$restrack2 = user_track($data2);
-
-					$data3 = array(
-						'phoneNumber' => $userdata->mobile,
-						'countryCode' => '+91',
-						'event' => 'Payment Successful'
-					);
-				   $restrack3 = event_track($data3); 
-
-				   $data4 = array(
-						'phoneNumber' => $userdata->mobile,
-						'countryCode' => '+91',
-						'traits' => array(
-							'name' => $userdata->fullname
-						),
-						'tags' => array('Payment Successful')
-					);
-					$restrack4 = user_track_2($data4);
-
-					$data5 = array(
-						'phoneNumber' => $userdata->mobile,
-						'countryCode' => '+91',
-						'event' => 'Payment Successful',
-						'traits' => array(
-							'userid' => $userdata->mobile,
-							'userpass' => $this->session->tempdata('userpass')
-						),
-					);
-					$restrack5 = event_track_2($data5);
-
 				   
 					$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $status]);
 				} else {
@@ -1002,19 +851,7 @@ class Digital extends CI_Controller
 				$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
 
 				if ($applyid > 0) {
-					/*$data3 = array(
-						'apiKey' => AISENSY_KEY,
-						'campaignName' => '19april_fail',
-						'destination' => '+91' . $userdata->mobile,
-						'media' => array(
-							'url' => AISENSY_FAIL_URL,
-							'filename' => AISENSY_FAIL_IMAGE
-						),
-						'userName' => $userdata->fullname,
-						'templateParams' => array('$Name','$EligibleAmount'),
-						'tags' => array('Payment Failed')
-					);*/
-					//$restrack3 = aisensy_track($data3);
+					
 				}
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $status]);

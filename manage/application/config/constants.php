@@ -89,14 +89,15 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 
 // Project details
-define('PROJECT_NAME', 'Fintop Corporate');
-define('COMPANY_NAME', 'Fintop Corporate Pvt Ltd');
-define('COMPANY_EMAIL', 'info@arrowcapital.com');
-define('COMPANY_MOBILE', '+91-89803-79437');
+define('PROJECT_NAME', 'Arrow capital');
+define('COMPANY_NAME', 'Arrow capital');
+define('COMPANY_EMAIL', 'info@arrowcapital.in');
+define('COMPANY_MOBILE', '+91-96249-66297');
 define('COMPANY_CIN', '#');
-define('COMPANY_GST', '#');
-define('COMPANY_SITE', 'https://arrowcapital.com');
-define('COMPANY_ADDRESS', 'Plot No 29, 2nd Floor, Parvati Nager Co Op Soc., Dabholi Road, Katargam, Surat, Gujarat, India - 395004');
+define('COMPANY_LLP', '#');
+define('COMPANY_GST', '24AZXPH2940L1ZW');
+define('COMPANY_SITE', 'arrowcapital.in');
+define('COMPANY_ADDRESS', 'Wing-B, Flat No. 502, Om Heights, Gariyadhar Bypass Road, Near Bajrangdas Bapa Chowk, Palitana, Bhavnagar, Gujarat – 364270, India');
 define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
 
 define('CU_PAYOUT_RATIO', '0.40');
@@ -106,35 +107,35 @@ define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61566505103788');
-define('SM_INSTAGRAM', 'https://www.instagram.com/arrowcapital/');
-define('SM_TWITTER', 'https://x.com/arrowcapital');
-define('SM_LINKEDIN', 'https://www.linkedin.com/in/fintop-corporate-9b67a632a/');
-define('SM_PINTEREST', 'https://in.pinterest.com/arrowcapital/');
-define('SM_YOUTUBE', 'https://www.youtube.com/@arrowcapital');
+define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61591136406433');
+define('SM_INSTAGRAM', 'https://www.instagram.com/arrow_capital/');
+define('SM_TWITTER', 'https://x.com/arrow_capital_');
+define('SM_LINKEDIN', '#');
+define('SM_PINTEREST', 'https://in.pinterest.com/arrow_capital/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@arrowcapitalofficial');
 
 // Email SMTP details
-define('SMTP_HOST', 'mail.arrowcapital.com');
-define('SMTP_USER_INFO', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_INFO', 'Fintop@6699');
+define('SMTP_HOST', 'mail.arrowcapital.in');
+define('SMTP_USER_INFO', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_INFO', '#');
 
-define('SMTP_USER_SUPPORT', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_SUPPORT', 'Fintop@6699');
+define('SMTP_USER_SUPPORT', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_SUPPORT', '#');
 
-define('SMTP_USER_HR', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_HR', 'Fintop@6699');
+define('SMTP_USER_HR', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_HR', '#');
 
 // SENDINBLUE details
-define('SMTP_USER', 'info@arrowcapital.com');
-define('SIB_NAME', 'arrowcapital.com');
-define('SIB_EMAILID', 'info@arrowcapital.com');
-define('SIB_APIKEY', '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');
+define('SMTP_USER', 'info@arrowcapital.in');
+define('SIB_NAME', 'arrowcapital.in');
+define('SIB_EMAILID', 'info@arrowcapital.in');
+define('SIB_APIKEY', '#');
 
 // OBB - SMS details - m
-define('SMS_OBB_API_KEY', '82ea40019dXX');
-define('SMS_OBB_USERNAME', 'fintopco');
-define('SMS_OBB_PASSWORD', '82ea40019dXX');
-define('SMS_OBB_SENDER_ID', 'FNTCOP');
+define('SMS_OBB_API_KEY', '4a5eb7ad7aXX');
+define('SMS_OBB_USERNAME', 'arrowcap');
+define('SMS_OBB_PASSWORD', '4a5eb7ad7aXX');
+define('SMS_OBB_SENDER_ID', 'ARWCPT');
 
 // Whatsapp API
 define('INTERAKT_KEY', '#');
@@ -158,11 +159,11 @@ define('PG_STAR_OFFER','#'); // 8
 define('UAT_MOBILE_NUMBERS', serialize(array('9408881214', '9904466599')));
 
 // Geoloc API Key
-define('GEOLOC_API_KEY', 'pFA3FTZynF8c1mnrrZcDuYauR9kI1iI4SDw9bhh2');
+define('GEOLOC_API_KEY', '#');
 
 // Facebook
 define('ACCESS_TOKEN', '#');
 
-define('COMPANY_CODE', 'FINCOP4321');
+define('COMPANY_CODE', '#');
 define('LOCAL_IP', '190.92.174.183');
-define('MASTER_API_KEY', 'Umx6ZEN0RmFqRmV5cTVFcUZNUXpLNHgzU2U3Z0IzYzRoUmoyUHlnMXRxbU9kWHZIWVpOTzFGbVJhWGs4NUM4cQ==');
+define('MASTER_API_KEY', '#');

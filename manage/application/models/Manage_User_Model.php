@@ -87,11 +87,10 @@ Class Manage_User_Model extends CI_Model {
 				->where('rec_date <=', $dt_from.' 23:59:59')
 				->where('isDelete',0)
 				->order_by('id asc')
-				->get('user_registration')
-				->result();
+				->get('user_registration');
+		return $query->result(); 
 
 				
-		return $query;      
 	}
 
 	public function getuserdetails($id){

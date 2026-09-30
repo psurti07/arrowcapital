@@ -162,7 +162,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</p>
 							<p>
 								<i class="fa fa-envelope"></i> Email Us:
-								<a href="mailto:info@arrowcapital.com"><?php echo COMPANY_EMAIL ?></a>
+								<a href="mailto:info@arrowcapital.in"><?php echo COMPANY_EMAIL ?></a>
 							</p>
 						</div>
 					</li>

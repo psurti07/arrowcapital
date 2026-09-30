@@ -388,7 +388,7 @@
 
                 <p class="mb-2 small"><strong>Important Note: </strong>BE AWARE! We ask our customers to make payments ONLY on
                     our website
-                    <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">arrowcapital.com</a> and NOT through any
+                    <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">arrowcapital.in</a> and NOT through any
                     other source, directly or indirectly. Thanks!
                 </p>
 

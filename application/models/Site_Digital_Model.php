@@ -126,7 +126,7 @@ Class Site_Digital_Model extends CI_Model {
 					/* $subject = "Welcome Fintoporporate";
 					
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.in/digital/applynow" target="_blank">Click Here</a></p>';
 					$message .= '<p>Thank You,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');
@@ -159,7 +159,7 @@ Class Site_Digital_Model extends CI_Model {
 					/* $subject = "Welcome arrowcapital";
 			
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>We appreciate your registration with us! You\'re eligible for a pre-approved loan. Get your offer in just 3 steps. Buy Subscription Plan now: <a href="https://arrowcapital.in/digital/applynow" target="_blank">Click Here</a></p>';
 					$message .= '<p>Thank You,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');
@@ -206,7 +206,7 @@ Class Site_Digital_Model extends CI_Model {
 					$subject = "Welcome arrowcapital";
 
 					$message = '<h3>Congratulations!</h3>';
-					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://arrowcapital.com/digital/applynow" target="_blank">Click Here</a></p>';
+					$message .= '<p>You\'re Eligible for Pre-Approved Personal Loan of Rs.'.$eligibilityamt.' Buy Subscription plan & Get Loan in Your A/C in 30 mins. Buy subscription plan now : <a href="https://arrowcapital.in/digital/applynow" target="_blank">Click Here</a></p>';
 					$message .= '<p>Thanks & Regards,<br/>arrowcapital</p>';
 
 					$this->load->model('Site_General_Model');

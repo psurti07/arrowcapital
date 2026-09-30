@@ -90,15 +90,15 @@ defined('EXIT__AUTO_MAX') or define('EXIT__AUTO_MAX', 125); // highest automatic
  */
 
 // Project details
-define('PROJECT_NAME', 'Fintop Corporate');
-define('COMPANY_NAME', 'Fintop Corporate Pvt Ltd');
-define('COMPANY_EMAIL', 'info@arrowcapital.com');
-define('COMPANY_MOBILE', '+91-89803-79437');
+define('PROJECT_NAME', 'Arrow capital');
+define('COMPANY_NAME', 'Arrow capital');
+define('COMPANY_EMAIL', 'info@arrowcapital.in');
+define('COMPANY_MOBILE', '+91-96249-66297');
 define('COMPANY_CIN', '#');
-define('COMPANY_LLP', 'ACK-6941');
-define('COMPANY_GST', '24AAKFF1646D1ZR');
-define('COMPANY_SITE', 'https://arrowcapital.com');
-define('COMPANY_ADDRESS', 'Plot No 29, 2nd Floor, Parvati Nager Co Op Soc., Dabholi Road, Katargam, Surat, Gujarat, India - 395004');
+define('COMPANY_LLP', '#');
+define('COMPANY_GST', '24AZXPH2940L1ZW');
+define('COMPANY_SITE', 'arrowcapital.in');
+define('COMPANY_ADDRESS', 'Wing-B, Flat No. 502, Om Heights, Gariyadhar Bypass Road, Near Bajrangdas Bapa Chowk, Palitana, Bhavnagar, Gujarat – 364270, India');
 define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
 
 define('CU_PAYOUT_RATIO', '0.40');
@@ -108,79 +108,92 @@ define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61566505103788');
-define('SM_INSTAGRAM', 'https://www.instagram.com/arrowcapital/');
-define('SM_TWITTER', 'https://x.com/arrowcapital');
-define('SM_LINKEDIN', 'https://www.linkedin.com/in/fintop-corporate-9b67a632a/');
-define('SM_PINTEREST', 'https://in.pinterest.com/arrowcapital/');
-define('SM_YOUTUBE', 'https://www.youtube.com/@arrowcapital');
+define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61591136406433');
+define('SM_INSTAGRAM', 'https://www.instagram.com/arrow_capital/');
+define('SM_TWITTER', 'https://x.com/arrow_capital_');
+define('SM_LINKEDIN', '#');
+define('SM_PINTEREST', 'https://in.pinterest.com/arrow_capital/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@arrowcapitalofficial');
 
 // Email SMTP details
-//define('SMTP_HOST', 'mail.arrowcapital.com');
+//define('SMTP_HOST', 'mail.arrowcapital.in');
 define('SMTP_HOST', 'smtp.hostinger.com');
-define('SMTP_USER_INFO', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_INFO', 'Fintop@6699');
+define('SMTP_USER_INFO', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_INFO', 'arrow@2026');
 
-define('SMTP_USER_SUPPORT', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_SUPPORT', 'Fintop@6699');
+define('SMTP_USER_SUPPORT', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_SUPPORT', 'arrow@2026');
 
-define('SMTP_USER_HR', 'info@arrowcapital.com');
-define('SMTP_PASSWORD_HR', 'Fintop@6699');
+define('SMTP_USER_HR', 'info@arrowcapital.in');
+define('SMTP_PASSWORD_HR', 'arrow@2026');
 
 // SENDINBLUE details
-define('SMTP_USER', 'info@arrowcapital.com');
-define('SIB_NAME', 'arrowcapital.com');
-define('SIB_EMAILID', 'info@arrowcapital.com');
-define('SIB_APIKEY', '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');
+define('SMTP_USER', 'info@arrowcapital.in');
+define('SIB_NAME', 'arrowcapital.in');
+define('SIB_EMAILID', 'info@arrowcapital.in');
+define('SIB_APIKEY', '#');
 
 // OBB - SMS details - m
-define('SMS_OBB_API_KEY', '82ea40019dXX');
-define('SMS_OBB_USERNAME', 'fintopco');
-define('SMS_OBB_PASSWORD', '82ea40019dXX');
-define('SMS_OBB_SENDER_ID', 'FNTCOP');
+define('SMS_OBB_API_KEY', '4a5eb7ad7aXX');
+define('SMS_OBB_USERNAME', 'arrowcap');
+define('SMS_OBB_PASSWORD', '4a5eb7ad7aXX');
+define('SMS_OBB_SENDER_ID', 'ARWCPT');
 
-define('RAZOR_KEY_ID', 'rzp_live_8MwQqWY1dc5vLS');
-define('RAZOR_KEY_SECRET', 'mcUp8up0mcTDZ3efcldfu0Fj');
+define('RAZOR_KEY_ID', 'rzp_live_Ti8PJMwZQoXvib');
+define('RAZOR_KEY_SECRET', 'u5coNp91nT7nwURSSPXZUyLM');
+
+// Easebuzz details
+define('EASEBUZZ_ENV', 'PROD');
+define('EASEBUZZ_MERCHANT_KEY', 'BE46ZQQT9G');
+define('EASEBUZZ_SALT', 'ELVHCK45X7');
+
+// SabPaisa details
+define('SABPAISA_MODE', 'PROD');
+define('SABPAISA_CLIENT_CODE', 'ARRO702');
+define('SABPAISA_USERNAME', '#');
+define('SABPAISA_PASSWORD', '#');
+define('SABPAISA_AUTH_KEY', 'sp_hf3M3qbnjrp5AadtcVFtMjNfznZ5fMX-lFViVXIw24Q');
+define('SABPAISA_AUTH_IV', 'sec_EOAtoVg8xDSrPsPqcTpl0JEGqMiAbWfNwCgRJl-vSMc');
 
 // Phonepe details
 define('PHONEPE_MODE', 'PROD');
-define('PHONEPE_MID', 'M22IC8NSFPYYF');
-define('PHONEPE_KEY', '8235f8f2-76ed-4e47-b959-5268dd412d4d');
+define('PHONEPE_MID', '#');
+define('PHONEPE_KEY', '#');
 define('PHONEPE_KEY_INDEX', '1');
 
 // PayU details
 define('PAYU_MODE', 'PROD');
-define('PAYU_MERCHANT_KEY', 'YyZPXe');
-define('PAYU_SALT', 'ttzGz0AjDcWvOOv66B3dijDSY27Bl17g');
+define('PAYU_MERCHANT_KEY', '#');
+define('PAYU_SALT', '#');
 
 // Zaakpay Detail
 define('ZAAKPAY_MODE', 'PROD');
-define('ZAAKPAY_MERCHANT_IDENTIFIER', 'bdad07e75d8049d89c5ce0b5666aef8d');
-define('ZAAKPAY_SECRET_KEY', 'e44a64ebe7e74e2cb280a33ea1ef2f96');
+define('ZAAKPAY_MERCHANT_IDENTIFIER', '#');
+define('ZAAKPAY_SECRET_KEY', '#');
 
 // PAygic
-define('PAYGIC_MID', 'FINTOPCORP');
-define('PAYGIC_PASSWORD', 'JYrPy6wde*v7');
+define('PAYGIC_MID', '#');
+define('PAYGIC_PASSWORD', '#');
 
 // Vegaah Deatil
-define('TERMINAL_ID', 'TER7302218');
-define('TERMINAL_PASSWORD', 'TER25071841517484248809');
-define('TERMINAL_KEY', '86bc666dd76fb05102bf8ebfb26f071729e7bb352c4c171316f91b6c521c607a');
+define('TERMINAL_ID', '#');
+define('TERMINAL_PASSWORD', '#');
+define('TERMINAL_KEY', '#');
 
 // Whatsapp API
-define('INTERAKT_KEY','S1dMYnRXZFc5ZmQxLUI2eERjY2lRX1JBZV80aWFXbXE5enFoOWZVVnJxVTo=');
+define('INTERAKT_KEY','#');
 
-define('INTERAKT_KEY_RM','RU9zc2JlUDRCQlFNZFQ3Ry00UDlUU0FZTF90VjBjdWdIUTJxNENBazF5dzo=');
-define('INTERAKT_KEY_UE_2','RU9zc2JlUDRCQlFNZFQ3Ry00UDlUU0FZTF90VjBjdWdIUTJxNENBazF5dzo=');
+define('INTERAKT_KEY_RM','#');
+define('INTERAKT_KEY_UE_2','#');
 
 
-define('AISENSY_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmExYWVjN2ZiMGNjMGMxZDE4NGRmNyIsIm5hbWUiOiJGaW50b2wgQ29uc3VsdGluZyBMTFAiLCJhcHBOYW1lIjoiQWlTZW5zeSIsImNsaWVudElkIjoiNjdmYTFhZWM3ZmIwY2MwYzFkMTg0ZGYyIiwiYWN0aXZlUGxhbiI6IkZSRUVfRk9SRVZFUiIsImlhdCI6MTc0NDQ0NDE0MH0.h7YaGpVqGidf8JGyrT7En-BkuFr-uLHMm-Ov8ZbzQHU');  
+define('AISENSY_KEY', '#');  
 
-define('AISENSY_OFFER_URL', 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/67fa1aec7fb0cc0c1d184df7/5355374_fintopget21mar.jpeg');
-define('AISENSY_OFFER_IMAGE', 'fintop_get_21mar.jpeg');
+define('AISENSY_OFFER_URL', '#');
+define('AISENSY_OFFER_IMAGE', '#');
 
-define('AISENSY_MARKETING_URL', 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/67fa1aec7fb0cc0c1d184df7/3754587_finaise.jpeg');
-define('AISENSY_MARKETING_IMAGE', 'fin_aise.jpeg');
+define('AISENSY_MARKETING_URL', '#');
+define('AISENSY_MARKETING_IMAGE', '#');
 
 define('AISENSY_SUCCESS_URL', '#');
 define('AISENSY_SUCCESS_IMAGE', '#');
@@ -192,7 +205,7 @@ define('AISENSY_FAIL_IMAGE', '#');
 define('UAT_MOBILE_NUMBERS', serialize(array('9408881214', '9904466599','9725165565')));
 
 // Geoloc API Key
-define('GEOLOC_API_KEY', 'pFA3FTZynF8c1mnrrZcDuYauR9kI1iI4SDw9bhh2');
+define('GEOLOC_API_KEY', 'B3ggKMGeHHJcPlP3RCV5hvObw65m78IYIz9NtCV9'); //pFA3FTZynF8c1mnrrZcDuYauR9kI1iI4SDw9bhh2
 
 // Facebook
 define('ACCESS_TOKEN', '');
@@ -200,6 +213,6 @@ define('ACCESS_TOKEN', '');
 // Remarketing Cycle Days Set
 define('LOCK_DAYS','-90 days');
 
-define('COMPANY_CODE', 'FINCOP4321');
-define('LOCAL_IP', '190.92.174.183');
+define('COMPANY_CODE', 'AROCPTAL123');
+define('LOCAL_IP', '#');
 

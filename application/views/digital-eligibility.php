@@ -105,12 +105,6 @@
                     </div>
                   
                 </div>
-                <div class="col-12 icon-4xl p-3 px-0 pb-0">
-               <div class="img-block mt-20">
-                        <img class="img-fluid w-100" src="<?= base_url('assets/images/digital-img.png') ?>"
-                            alt="testimonials">
-                    </div>
-                </div>
             </div>
             <div class="col-lg-8 col-md-7 col-sm-12 col-12 order-1 order-lg-2">
 

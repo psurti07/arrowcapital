@@ -68,7 +68,7 @@ class Pay extends CI_Controller
 			redirect('cardoffer');
 		} else {
 			
-$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
+			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 			foreach ($uat_numbers as $uat_num) {
 				if ($uat_num == $mobileno) {
 					$roundamount = 1;

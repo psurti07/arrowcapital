@@ -55,7 +55,7 @@
                                 <tr class="cart-product-list">
                                     <td colspan="4"><strong>Currently, there are no openings in the organization. Still,
                                             you can send your resume to <a
-                                                href='mailto:hr@arrowcapital.com'>hr@arrowcapital.com</a> <br />
+                                                href='mailto:hr@arrowcapital.in'>hr@arrowcapital.in</a> <br />
                                             We will contact you in case a vacancy arrives and matches your
                                             profile.</strong></td>
                                 </tr>

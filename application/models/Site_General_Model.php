@@ -41,9 +41,9 @@ class Site_General_Model extends CI_Model
 		);
 		$id = $this->db->insert('otpverification', $data);
 
-		$message = "Hello, the OTP to register your mobile number is ".$otpcode.". Please don't share it with anyone. arrowcapital";
-		$tempid = "1707173919940431742";
-		$smsresponse = sendotpSMSobb($mobile, $message, $tempid);
+		$message = "Hello, the https://arrowcapital.in OTP for your mobile number registration is ".$otpcode.". Kindly do not share it with anyone. Thanks, Arrow Capital";
+		//$tempid = "";
+		$smsresponse = sendotpSMSobb($mobile, $message);
 		
 		return $id;
 	}

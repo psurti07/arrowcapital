@@ -434,7 +434,7 @@ class Site_Cronjob_Model extends CI_Model
 
 		if (count($userlist) > 0) {
 			foreach ($userlist as $row) {
-				$message = "Dear Customer, You're now eligible to reapply for a loan. Login to your portal https://bitly.ws/39LCM arrowcapital";
+				$message = "The wait is over! You're now eligible to reapply for a loan. Login to your portal {#var#} Arrow Capital";
 
 				$smsresponse = sendtextSMSobb($row->mobile, $message);
 			}

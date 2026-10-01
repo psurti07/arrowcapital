@@ -593,10 +593,10 @@ Class Manage_User_Model extends CI_Model {
 			$query = $this->db->where('id', $account->id)
 							->update('user_registration', $data); 
 
-			// Send SMS
-			$message = "Hello ".$account->fullname." Your arrowcapital account's new password is ".$password.". Do not share it with anyone. Thanks";
-			$tempid = '1707173920009228496';
-			$smsresponse = sendtextSMSobb($account->mobile, $message, $tempid);
+			// Send SMs
+			$message = "Hello ".$account->fullname." Your Arrow Capital account's new password is ".$password.". Do not share it with anyone. Thanks, Arrow Capital";
+			//$tempid = '1707173920009228496';
+			$smsresponse = sendtextSMSobb($account->mobile, $message);
 
 						
 			return true;

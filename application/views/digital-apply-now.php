@@ -6,11 +6,11 @@
             <div class="col-12 col-sm-12 col-md-9 col-lg-9 m-auto">
                 <?php if ($processstep == 'step1'): ?>
                 <div class="contact-form">
-                    <h4 class="text-center mb-0 fw-normal"> Up to <div class="range" style="display: inline-block;">
+                    <h4 class="text-center mb-0 fw-normal"> Explore Personal Loan Options Up to  <div class="range" style="display: inline-block;">
                             <div class="range__value">
                                 <span class="text-gradient-6">₹5 Lakhs</span>
                             </div>
-                        </div> personal loan <span class="text-gradient-6">starting @ 9.98% per annum</span></h4>
+                        </h4>
                     <div class="pt-3 submit-form">
                         <div class="row justify-content-center feature-section mb-3">
                             <div class="col-12 col-lg-6 col-md-6 icon-5xl">
@@ -22,8 +22,8 @@
                                                 <img src="<?php echo base_url() ?>assets/images/online_discount.png">
                                             </div>
                                             <div class="d-inline-block">
-                                                <p class="fw-medium text-dark title">Seamless Online Process</p>
-                                                <p class="text-dark fw-bold sub-title">100%</p>
+                                                <p class="fw-medium text-dark title">Simple Online Process</p>
+                                                <p class="text-dark fw-bold sub-title">Digital Application</p>
                                             </div>
                                         </div>
                                     </div>
@@ -38,9 +38,9 @@
                                                 <img src="<?php echo base_url() ?>assets/images/pb_promise.png">
                                             </div>
                                             <div class="d-inline-block">
-                                                <p class="fw-medium title text-dark">Easy Repayment Options
+                                                <p class="fw-medium title text-dark">Flexible Repayment Options
                                                 </p>
-                                                <p class="fw-bold sub-title text-dark">Up to 72 Months</p>
+                                                <p class="fw-bold sub-title text-dark">Subject to Lender Terms</p>
                                             </div>
                                         </div>
                                     </div>
@@ -376,20 +376,14 @@
 
         <div class="row mt-5">
             <div class="col-12">
-                <p class="mb-2 small"><strong>Disclaimer: </strong> Loan Tenure ranges from minimum 6 months to maximum of 60
-                    months, with annual interest rates starting at 11% and going up to 34%. A processing fee up to 2%
-                    may be applicable. Representative Example: If a loan of ₹1,00,000 is availed at an interest rate of
-                    12.5% per annum for a tenure of 12 months, and a processing fee of 2% is applied: Interest Payable:
-                    ₹6,720 approx. Processing Fee: ₹2,000. Total Loan Cost (including interest + fee) ₹1,08,720. APR
-                    (Annual Percentage Rate): 14.27% approx. *T&C Apply. All these numbers are tentative/indicative, the
-                    final loan specifics may vary depending upon the customer profile and NBFCs' criteria, rules &
-                    regulations, and terms & conditions. The amount paid is only for the service charge. We are not
-                    lenders and do not guarantee any loan approval.</p>
+                <p class="mb-2 small"><strong>Disclaimer: </strong> <?php echo COMPANY_NAME; ?> is not a lender or financial institution. We do not provide loans or make credit decisions. All loan approvals, interest rates, fees, and disbursal are handled by third-party lenders/NBFCs. We do not guarantee loan approval, disbursal, or specific loan terms. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval. Loan approval, disbursement/sanction is entirely dependent on NBFC criteria.
+</p>
 
-                <p class="mb-2 small"><strong>Important Note: </strong>BE AWARE! We ask our customers to make payments ONLY on
-                    our website
-                    <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">arrowcapital.in</a> and NOT through any
-                    other source, directly or indirectly. Thanks!
+                <p class="mb-2 small"><strong>Important Note: </strong>We ask our customers to make payments ONLY on our website
+                    <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">arrowcapital.in</a> and NOT through any other source, directly or indirectly.
+                </p>
+
+                <p class="mb-2 small"><strong>PRE-APPLICATION NOTE: </strong>Users are advised to read our terms and conditions and policies before proceeding/applying/registration.
                 </p>
 
 

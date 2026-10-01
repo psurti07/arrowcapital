@@ -6,9 +6,8 @@
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-12 col-lg-6 col-md-6">
 
-                <h1 class="fw-medium">Empowering Your Financial
-                    Goals with Expert Guidance.</h1>
-                <p>Connect trusted experts to guide you towards financial success.</p>
+                <h1 class="fw-medium">Your Financial Journey, Supported by Experts.</h1>
+                <p>Get professional guidance to explore financial solutions based on your requirements.</p>
                 <a class="button button-md button-radius button-turquiose mt-3 mt-lg-4"
                     href="<?= base_url('digital/applynow') ?>">Get Consultation Now
                 </a>
@@ -32,10 +31,8 @@
                         <div class="mb-3">
                             <i class="bi bi-diagram-3 text-gradient-6"></i>
                         </div>
-                        <h5 class="font-family-outfit fw-medium">Effective Partnership With NBFCs</h5>
-                        <p>Profit from the highly acclaimed financial
-                            services powered by our enriching
-                            collaboration with leading NBFCs.</p>
+                        <h5 class="font-family-outfit fw-medium">Multiple Lending Options</h5>
+                        <p>Explore financial options available through participating banks and NBFCs based on applicable eligibility criteria.</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4">
@@ -43,10 +40,8 @@
                         <div class="mb-3">
                             <i class="bi bi-globe2 text-gradient-6"></i>
                         </div>
-                        <h5 class="font-family-outfit fw-medium">Easy Online Process</h5>
-                        <p>Relish our extensive range of services in
-                            the most simple and efficient manner
-                            from the comfort of your own home.</p>
+                        <h5 class="font-family-outfit fw-medium">Simple Digital Process</h5>
+                        <p>Submit your details online and receive guidance through each step of the application process.</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4">
@@ -55,10 +50,8 @@
                         <div class="mb-3">
                             <i class="bi bi-person-bounding-box text-gradient-6"></i>
                         </div>
-                        <h5 class="font-family-outfit fw-medium">Expert Financial Consultation</h5>
-                        <p>Elevate your financial well-being to the
-                            next level with our expert-led
-                            consultations and services.
+                        <h5 class="font-family-outfit fw-medium">Expert Financial Guidance</h5>
+                        <p>Get clear guidance to better understand your financial options and next steps.
                         </p>
                     </div>
                 </div>
@@ -74,23 +67,12 @@
             <div class="col-12 col-lg-7 col-md-7 mt-0">
                 <h6
                     class="d-inline-block bg-white box-shadow border-radius px-3 py-2 line-height-140 font-small uppercase letter-spacing-1 mb-3">
-                    <span class="text-gradient-6">About us</span>
+                    <span class="text-gradient-6">ABOUT US</span>
                 </h6>
-                <h2>Arrow Capital: Your Trusted Partner for
-                    Financial Success</h2>
-                <p class="mb-3">Arrow Capital is India's renowned financial consultation and service provider. With a
-                    team of
-                    experienced professionals, we specialize in delivering comprehensive financial solutions that help
-                    many people achieve their dreams. Through our enriching collaboration with industry-leading
-                    NBFCs, we provide a wide range of financial services and take pride in providing individualized
-                    solutions to meet the diverse financial needs of each client.
+                <h2>Arrow Capital: Simplifying Your Financial Journey</h2>
+                <p class="mb-3">Arrow Capital provides financial consultation and application assistance to help customers explore suitable financial options. Through participating banks and NBFCs, we support customers in understanding available solutions, documentation requirements, and the overall application process.
                 </p>
-                <p class="">With the goal of making financial advice accessible to all at their fingertips, we offer a
-                    streamlined
-                    digital portal for our clients to take advantage of and process loans with our partnered NBFCs
-                    without worrying about their credit score — all through a meticulously crafted subscription plan.
-                    We enable our clients to achieve financial success by focusing on innovation, collaboration, and
-                    unwavering commitment, and we take pride in celebrating their accomplishments as our own.
+                <p class="">Our focus is on making financial services easier to understand through a simple digital process, transparent communication, and professional guidance. Final eligibility, terms, and approval remain subject to the respective lender’s policies and assessment.
                 </p>
                 <a class="button button-lg button-radius button-font-2 button-turquiose mt-4 text-uppercase"
                     href="<?= base_url('digital/applynow') ?>">Get Consultation Now</a>
@@ -105,9 +87,7 @@
                             </div>
                             <div class="d-inline-block">
                                 <h5 class="fw-medium text-dark mt-2">VISION</h5>
-                                <p class="text-dark">With an emphasis on excellence, integrity, and client
-                                    satisfaction, we at Arrow Capital aim to lead the
-                                    financial services industry.</p>
+                                <p class="text-dark">To create a simple and transparent platform where customers can explore financial options and make informed decisions with professional support.</p>
                             </div>
                         </div>
                     </div>
@@ -120,9 +100,7 @@
                             </div>
                             <div class="d-inline-block">
                                 <h5 class="fw-medium text-dark mt-2">MISSION</h5>
-                                <p class="text-dark">To make financial consultation and services available
-                                    to everyone in order to empower them to achieve
-                                    financial success.</p>
+                                <p class="text-dark">To provide clear consultation, digital application assistance, and access to options from participating financial institutions.</p>
                             </div>
                         </div>
                     </div>
@@ -135,9 +113,7 @@
                             </div>
                             <div class="d-inline-block">
                                 <h5 class="fw-medium text-dark mt-2">VALUES</h5>
-                                <p class="text-dark">We remain steadfastly dedicated to supporting our
-                                    clients in achieving their goals, going above and
-                                    beyond to ensure their continued success.</p>
+                                <p class="text-dark">We focus on clear communication, responsible guidance, customer support, and maintaining transparency throughout the financial application journey.</p>
                             </div>
                         </div>
                     </div>
@@ -152,8 +128,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12 text-center mb-4">
-                <h2>Our Top NBFC Partners</h2>
-                <p>Collaborating With Leading NBFCs To Serve You Better!</p>
+                <h2>Our NBFC Partners</h2>
+                <p>Explore financial options available through participating banks and NBFCs.</p>
             </div>
 
             <div class="col-12 col-lg-12 text-center">
@@ -181,8 +157,8 @@
                     class="d-inline-block bg-white box-shadow border-radius px-3 py-2 line-height-140 font-small uppercase letter-spacing-1 mb-3">
                     <span class="text-gradient-6">Our Process</span>
                 </h6>
-                <h2>Apply Instantly, <span class="text-gradient-6">Seamlessly!</span></h2>
-                <p>Experience Digitally Powered Quick Steps!</p>
+                <h2>Simple Steps. Smooth Application Process.</h2>
+                <p>Your Financial Journey in 6 Simple Steps</p>
             </div>
 
             <div class="col-12 col-lg-12">
@@ -268,12 +244,20 @@
                 <h6 class="d-inline-block line-height-140 font-small uppercase letter-spacing-1 mb-3">
                     <span class="text-gradient-6">EMI Calculator</span>
                 </h6>
-                <h2>Calculate your EMI in <span class="text-gradient-6">seconds</span></h2>
-                <p>Plan your finances with clarity before you apply.</p>
+                <h2>Estimate Your EMI in Seconds</h2>
+                <p>Get a quick estimate before making your next move.</p>
             </div>
 
             <div class="col-12 col-lg-12">
-
+                    <!-- EMI Calculator Widget START -->
+                    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript">
+                    </script>
+                    <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+                        <div id="ecww-widget"
+                            style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;">
+                        </div>
+                    </div>
+                    <!-- EMI Calculator Widget END -->
             </div>
         </div>
     </div>
@@ -307,21 +291,16 @@
                 <div class="col-md-8">
                     <h6
                         class="d-inline-block bg-white box-shadow border-radius px-3 py-2 line-height-140 font-small uppercase letter-spacing-1 mb-3">
-                        <span class="text-gradient-6">Subscription Plan</span>
+                        <span class="text-gradient-6">SUBSCRIPTION PLAN</span>
                     </h6>
-                    <h2>Take a Step Forward Towards Achieving Your
-                        Dreams </h2>
-                    <p>Move closer to your financial goals with top-tier financial consultation from industry experts
-                        right at
-                        your fingertips.</p>
+                    <h2>Explore Financial Options with Confidence</h2>
+                    <p>Access professional financial consultation and application assistance to explore suitable options from participating lenders.</p>
 
                     <ul class="list-unstyled mt-3">
-                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Loan Process With Multiple
-                            NBFCs</li>
-                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Dedicated Expert Assigned</li>
-                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>No Negative Impact on CIBIL
-                            Score</li>
-                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>100% Online Process</li>
+                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Access to Multiple NBFCs</li>
+                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Dedicated Consultation Support</li>
+                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Application & Documentation Guidance</li>
+                        <li><i class="bi bi-check-circle-fill text-color-theme me-2"></i>Simple Digital Process</li>
                     </ul>
                 </div>
             </div>
@@ -354,7 +333,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Alok Kumar</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Rohan Mehta</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -366,9 +345,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"Arrow Capital is extremely beneficial to people who require
-                            financial assistance. The application process for a loan through Arrow Capital is simple and
-                            completely online. Highly Recommended!!"</p>
+                        <p class="text-dark">“The consultation helped me understand different financial options clearly. The process was simple and the guidance was easy to follow.”</p>
                     </div>
                     <!-- Testimonial Slider Item 2 -->
                     <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
@@ -378,7 +355,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Karthikeyan Hari</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Neha Kapoor</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -390,9 +367,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"I recently processed my loan through Arrow Capital. I must say I
-                            had an incredible experience with them. They are very helpful and
-                            knowledgeable people. I am very satisfied with them."</p>
+                        <p class="text-dark">“I appreciated the clear explanation and professional support. It made the overall application process much easier to understand.”</p>
                     </div>
                     <!-- Testimonial Slider Item 3 -->
                     <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
@@ -402,7 +377,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Aditya Saini</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Kunal Sharma</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -414,8 +389,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"I had a great experience and received excellent service from the Arrow Capital team, especially when there is a doubt, which they will resolve quickly. I highly
-                            recommend Arrow Capital! "</p>
+                        <p class="text-dark">“The team guided me through the required steps and documents. I found the experience smooth and well organized.”</p>
                     </div>
                     <!-- Testimonial Slider Item 4 -->
                     <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
@@ -425,7 +399,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Jayshree Shah</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Priya Nair</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -437,10 +411,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"Am happy to process my loan with Arrow Capital. Their collaboration
-                            with
-                            multiple NBFCs makes it an excellent choice to go with and enjoy the unique set of services
-                            included with the subscription."</p>
+                        <p class="text-dark">“I received helpful guidance based on my requirements. The consultation was straightforward and informative.”</p>
                     </div>
                     <!-- Testimonial Slider Item 5 -->
                     <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
@@ -450,7 +421,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Sameer Malik</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Amit Bansal</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -462,10 +433,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"Thank you to the arrow capital team for their excellent coordination
-                            and
-                            timely service and response throughout the process. I strongly recommend arrow capital to
-                            anyone looking for financial assistance. "</p>
+                        <p class="text-dark">“The digital process was convenient, and I got proper assistance whenever I had questions about the application.”</p>
                     </div>
                     <!-- Testimonial Slider Item 6 -->
                     <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
@@ -475,7 +443,7 @@
                                     alt="testimonials">
                             </div>
                             <div class="d-inline-block">
-                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Uttam Singh</h5>
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Sneha Iyer</h5>
                                 <span class="font-small text-white-09 text-dark">
                                     <div class="d-block text-golden-yellow">
                                         <i class="bi bi-star-fill"></i>
@@ -487,10 +455,92 @@
                                 </span>
                             </div>
                         </div>
-                        <p class="text-dark">"arrow capital has me in awe. I liked how transparent the team was
-                            throughout the process. The digital portal saved me a significant amount of time and effort.
-                            I
-                            am a very satisfied customer. "</p>
+                        <p class="text-dark">“What I liked most was the clear communication. Every step was explained properly without making the process confusing.”</p>
+                    </div>
+
+                    <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-inline-block me-3">
+                                <img class="img-mask-avatar-xs" src="<?= base_url('assets/images/placeholder.jpg') ?>"
+                                    alt="testimonials">
+                            </div>
+                            <div class="d-inline-block">
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Harsh Patel</h5>
+                                <span class="font-small text-white-09 text-dark">
+                                    <div class="d-block text-golden-yellow">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-dark">“The consultation gave me a better understanding of the available financial options and what to consider before proceeding.”</p>
+                    </div>
+                    <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-inline-block me-3">
+                                <img class="img-mask-avatar-xs" src="<?= base_url('assets/images/placeholder.jpg') ?>"
+                                    alt="testimonials">
+                            </div>
+                            <div class="d-inline-block">
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Ritika Malhotra</h5>
+                                <span class="font-small text-white-09 text-dark">
+                                    <div class="d-block text-golden-yellow">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-dark">“The support was professional and responsive. I was able to understand the documentation and application requirements easily.”</p>
+                    </div>
+                    <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-inline-block me-3">
+                                <img class="img-mask-avatar-xs" src="<?= base_url('assets/images/placeholder.jpg') ?>"
+                                    alt="testimonials">
+                            </div>
+                            <div class="d-inline-block">
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Manav Desai</h5>
+                                <span class="font-small text-white-09 text-dark">
+                                    <div class="d-block text-golden-yellow">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-dark">“A simple and helpful experience. The team explained the process clearly and helped me explore suitable options.”</p>
+                    </div>
+                    <div class="bg-color-theme-02 border-radius p-4 p-md-5 p-lg-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-inline-block me-3">
+                                <img class="img-mask-avatar-xs" src="<?= base_url('assets/images/placeholder.jpg') ?>"
+                                    alt="testimonials">
+                            </div>
+                            <div class="d-inline-block">
+                                <h5 class="fw-normal mb-1 line-height-140 text-dark">Pooja Arora</h5>
+                                <span class="font-small text-white-09 text-dark">
+                                    <div class="d-block text-golden-yellow">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-dark">“I found the consultation useful for understanding my choices. The overall process felt structured, clear, and convenient.”</p>
                     </div>
                 </div>
             </div>

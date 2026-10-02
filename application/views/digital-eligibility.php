@@ -184,13 +184,13 @@
                                 </select>
                                 <div class="error-message" id="loanpurpose-message"></div>
                             </div>
-                            <div class="col-md-6 col-sm-12 pt-2">
+                            <!--<div class="col-md-6 col-sm-12 pt-2">
                                 <label class="form-control pt-0 ps-0 pb-2 bg-transparent" for="pincode">Pincode</label>
                                 <input id="pincode" type="text" name="pincode" maxlength="6" minlength="6"
                                     inputmode="numeric" class="form-control border" placeholder="Pincode *" required>
                                 <div class="error-message" id="pincode-message"></div>
                                 <p class="pincode error text-danger text-start"></p>
-                            </div>
+                            </div>-->
                             <div class="col-md-6 col-sm-12 pt-2">
                                 <label class="form-control pt-0 ps-0 pb-2 bg-transparent" for="city">City</label>
                                 <input id="city" type="text" name="city" class="form-control border"

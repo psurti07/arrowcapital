@@ -667,7 +667,7 @@ function interakt_track($postdata)
 }
 
 
-function interakt_track_rm($postdata)
+function interakt_track_message($postdata, $interakt_key = '')
 {
 	$curl = curl_init();
 
@@ -681,7 +681,7 @@ function interakt_track_rm($postdata)
 		CURLOPT_CUSTOMREQUEST => "POST",
 		CURLOPT_POSTFIELDS => json_encode($postdata),
 		CURLOPT_HTTPHEADER => [
-			"Authorization: Basic " . INTERAKT_KEY_RM,
+			"Authorization: Basic " . $interakt_key,
 			"Content-Type: application/json"
 		],
 	]);

@@ -205,23 +205,19 @@ class Site_Cronjob_Model extends CI_Model
 
 		$airesponse = "";
 		$cnt = 1;
-		$dynamicDate = getLockDateByDays();
-
+		
 		$wheredate = "CAST(r.rec_date as DATE) = DATE_ADD(CURDATE(),INTERVAL -" . $schedule . " DAY) ";
 
 		$userlist = $this->db->select('r.id, r.rec_date, r.update_date, r.fullname, r.mobile, r.email, r.cardtype, a.income, a.currentemi, a.loanamount')
 			->from('user_registration r')
 			->join('user_application a', 'a.userid=r.id')
 			->where($wheredate)
-		//	->where('r.rec_date >=', $dynamicDate)
-			//->where('r.rec_date >=', '2025-11-02 00:00:00') 
 			->where('r.isUser', 1)
 			->where('r.isActive', 1)
 			->where('r.isDelete', 0)
 			->where('r.cardtype', 11)
 			->where('a.status', 1)
 			->where('a.isDelete', 0)
-		//	->group_by('r.mobile')
 			->order_by('r.id asc')
 			->get()
 		    ->result();
@@ -237,7 +233,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $id = $this->db->insert_id();
 
-			$adminlist = ['9725165565','8128858228','9725165565'];
+			$adminlist = ['9725165565'];
 			$eligibilityamt = "5,00,000";
 
 			foreach($adminlist as $row2) {
@@ -246,17 +242,17 @@ class Site_Cronjob_Model extends CI_Model
 					"callbackData"=> "some text here",
 					"type"=> "Template",
 					"template"=> array(
-						"name"=> "30april_rm_2",
+						"name"=> "8oct_rm_1",
 						"languageCode"=> "en",
 						"headerValues"=> array(
-							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/3fe1d8a2-1fad-4d07-9715-4cc2dc86f1a0/message_template_sample/VLSfa2sXn1wK/fintop_rm.jpeg?se=2031-04-24T04%3A28%3A13Z&sp=rt&sv=2019-12-12&sr=b&sig=sPitSGlxGfO2VuozrPH7KkiMVBogb%2Bi%2BEJdppvjgoPU%3D"
+							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/ab9842dc-b64d-4a80-a085-8596dc9114b7/message_template_sample/FKXdQXuwvB9v/WhatsApp%20Image%202026-08-08%20at%203.20.47%20PM.jpeg?se=2031-08-08T11%3A57%3A49Z&sp=rt&sv=2019-12-12&sr=b&sig=eSMcz7Lnbcezaa3n8ri%2BeHlcMDVMRg7w4XNBnDFD0ec%3D"
 						),
 						"bodyValues"=> array(
 							'$name', $eligibilityamt
 						),
 					)
 				);
-				$restrack5 = interakt_track($data4);
+				$restrack5 = interakt_track_message($data4, INTERAKT_KEY_RM);
 				$airesponse .= $row2 . "-" . $restrack5 . "|";
 				$data2 = array(
 					'msgcount' => $cnt,
@@ -283,17 +279,17 @@ class Site_Cronjob_Model extends CI_Model
 							"callbackData"=> "some text here",
 							"type"=> "Template",
 							"template"=> array(
-								"name"=> "30april_rm_2",
+								"name"=> "8oct_rm_1",
 								"languageCode"=> "en",
 								"headerValues"=> array(
-    								"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/3fe1d8a2-1fad-4d07-9715-4cc2dc86f1a0/message_template_sample/VLSfa2sXn1wK/fintop_rm.jpeg?se=2031-04-24T04%3A28%3A13Z&sp=rt&sv=2019-12-12&sr=b&sig=sPitSGlxGfO2VuozrPH7KkiMVBogb%2Bi%2BEJdppvjgoPU%3D"
+    								"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/ab9842dc-b64d-4a80-a085-8596dc9114b7/message_template_sample/FKXdQXuwvB9v/WhatsApp%20Image%202026-08-08%20at%203.20.47%20PM.jpeg?se=2031-08-08T11%3A57%3A49Z&sp=rt&sv=2019-12-12&sr=b&sig=eSMcz7Lnbcezaa3n8ri%2BeHlcMDVMRg7w4XNBnDFD0ec%3D"
     							),
 								"bodyValues"=> array(
 									$row->fullname, $eligibilityamt
 								),
 							)
 						);
-						$restrack4 = interakt_track($data4);
+						$restrack4 = interakt_track_message($data4, INTERAKT_KEY_RM);
 						$airesponse .= $row->mobile . "-" . $restrack4 . "|";
 						$data2 = array(
 							'msgcount' => $cnt,

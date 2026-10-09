@@ -88,38 +88,31 @@ class Cronjob extends CI_Controller
 
 		$cronjobs = array();
 		
-		$cronjobs['a0'] = '30 9 * * *';
-		$cronjobs['b0'] = '30 23 * * *';
+		$cronjobs['a0'] = '0 9 * * *';
+		$cronjobs['b0'] = '0 16 * * *';
 		
-		$cronjobs['a1'] = '0 9 * * *';
+		$cronjobs['a1'] = '0 10 * * *';
+		$cronjobs['b1'] = '0 17 * * *';
 
-		$cronjobs['a2'] = '30 11 * * *';
-		$cronjobs['b2'] = '30 22 * * *';
+		$cronjobs['a2'] = '0 11 * * *';
+		$cronjobs['b2'] = '0 18 * * *';
 
-		$cronjobs['a3'] = '30 12 * * *';
-		$cronjobs['b3'] = '30 21 * * *';
+		$cronjobs['a3'] = '0 12 * * *';
+		$cronjobs['b3'] = '0 19 * * *';
 
-		$cronjobs['a4'] = '30 20 * * *';
+		$cronjobs['a6'] = '0 13 * * *';
+		$cronjobs['b6'] = '0 20 * * *';
 
-		$cronjobs['a6'] = '30 13 * * *';
-
-		$cronjobs['a8'] = '30 19 * * *';
-
-		$cronjobs['a9'] = '30 14 * * *';
-
-		$cronjobs['a10'] = '0 18 * * *';
-
-		$cronjobs['a12'] = '30 15 * * *';
-
-		$cronjobs['a13'] = '0 17 * * *';
-		
-		$cronjobs['a15'] = '30 16 * * *';
-
-		$cronjobs['a16'] = '0 16 * * *';
-
-		$cronjobs['a17'] = '30 10 * * *';
+		$cronjobs['a10'] = '0 14 * * *';
+		$cronjobs['b10'] = '0 21 * * *';
 
 		$cronjobs['a20'] = '0 15 * * *';
+		$cronjobs['b20'] = '0 22 * * *';
+
+		$cronjobs['a30'] = '0 16 * * *';
+		$cronjobs['b30'] = '0 23 * * *';
+
+
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();

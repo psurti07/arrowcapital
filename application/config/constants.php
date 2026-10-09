@@ -183,7 +183,8 @@ define('TERMINAL_KEY', '#');
 // Whatsapp API
 define('INTERAKT_KEY','#');
 
-define('INTERAKT_KEY_RM','#');
+define('INTERAKT_KEY_UE','YVhXbllvSGg3cm1SVVV0ZEVuMV8ya085TmdfSWwySzNHc25mN2lseW9RUTo=');
+define('INTERAKT_KEY_RM','YVhXbllvSGg3cm1SVVV0ZEVuMV8ya085TmdfSWwySzNHc25mN2lseW9RUTo=');
 define('INTERAKT_KEY_UE_2','#');
 
 

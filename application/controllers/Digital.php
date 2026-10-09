@@ -534,6 +534,28 @@ class Digital extends CI_Controller
 		);
 		$response1 = $this->Site_Digital_Model->updateregistration($userdata->userid, $data1);
 
+		$this->load->helper('interakt');
+		$data1 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('AC Get Offer')
+		);
+		
+		$restrack1 = interakt_user_track($data1, INTERAKT_KEY_UE);
+		
+		$data2 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'AC Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack2 = interakt_event_track($data2, INTERAKT_KEY_UE);
+
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		return redirect("digital/subscriptionorder/" . $key);
 		die;
@@ -628,7 +650,7 @@ class Digital extends CI_Controller
 
 			$response1 = $this->Site_Payment_Gateway_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
 			$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
-			$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
+			$this->session->set_tempdata('applyid', $userdata->userid);
 
 			$cardno = random_code(16);
 			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
@@ -651,6 +673,7 @@ class Digital extends CI_Controller
 				$memberid = $this->Site_Digital_Model->subscriptionorder($data);
 
 				$password = random_code(6);
+				$this->session->set_tempdata('userpass', $password);
 				$passwordkey = stringCrypt($password, 'encrypt');
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
 				$refcode .= substr($userdata->mobile, -4);
@@ -691,16 +714,6 @@ class Digital extends CI_Controller
 
 				$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
 
-				/*$grandtotal = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
-
-				if ($userdata->state == 'Gujarat') {
-					$cgstamount = $grandtotal * 9 / 118;
-					$sgstamount = $grandtotal * 9 / 118;
-				} else {
-					$igstamount = $grandtotal * 18 / 118;
-				}
-
-				$netamount = $grandtotal * 100 / 118;*/
 
 				$invdata3 = array(
 				 'rec_date' => date('Y-m-d H:i:s'),
@@ -749,35 +762,6 @@ class Digital extends CI_Controller
 
 					$api_response = send_order_data(json_encode($remote_data));
 				}
-
-				$data3 = array(
-					'apiKey' => AISENSY_KEY,
-					'campaignName' => "cred_23may",
-					'destination' => '+91' . $userdata->mobile,
-					'userName' => $userdata->fullname,
-					'attributes' => array(
-						'userid' => $userdata->mobile,
-						'password' => $password
-					),
-					'templateParams' => array('$userid', '$password'),
-					'tags' => array('Payment Successful')
-				);
-				$restrack3 = aisensy_track($data3);
-
-				$data_usr_pass = array(
-					"fullPhoneNumber" => '+91' . $userdata->mobile,
-					"callbackData" => "some text here",
-					"type" => "Template",
-					"template" => array(
-						"name" => "cred",
-						"languageCode" => "en",
-						"bodyValues" => array(
-							$userdata->mobile,
-							$password
-						),
-					)
-				);
-				$restrack4 = interakt_track($data_usr_pass);
 
 				$maildata = array(
 					'fullname' => $userdata->fullname,
@@ -840,6 +824,29 @@ class Digital extends CI_Controller
 					}
 
 					$fbresponse = fbconversioncurl($fbdata);
+
+					$this->load->helper('interakt');
+					
+					$data4 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('AC Payment Successful')
+					);
+					$restrack2 = interakt_user_track($data4, INTERAKT_KEY_UE);
+
+					$data6 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'AC Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack6 = interakt_event_track($data6, INTERAKT_KEY_UE);
 				   
 					$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $status]);
 				} else {
@@ -850,9 +857,13 @@ class Digital extends CI_Controller
 				$this->load->model('Site_Digital_Model');
 				$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
 
-				if ($applyid > 0) {
-					
-				}
+				$this->load->helper('interakt');
+				$data5 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'AC Payment Fail',
+				);
+				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_UE);
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $status]);
 			} else {

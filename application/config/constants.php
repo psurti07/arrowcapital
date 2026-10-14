@@ -215,5 +215,5 @@ define('ACCESS_TOKEN', '');
 define('LOCK_DAYS','-90 days');
 
 define('COMPANY_CODE', 'AROCPTAL123');
-define('LOCAL_IP', '#');
+define('LOCAL_IP', '190.92.174.183');
 

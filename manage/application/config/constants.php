@@ -164,6 +164,6 @@ define('GEOLOC_API_KEY', '#');
 // Facebook
 define('ACCESS_TOKEN', '#');
 
-define('COMPANY_CODE', '#');
+define('COMPANY_CODE', 'AROCPTAL123');
 define('LOCAL_IP', '190.92.174.183');
 define('MASTER_API_KEY', '#');
